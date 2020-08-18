@@ -13,16 +13,16 @@ struct Players: Hashable, Decodable {
     
     var name: String
     var email: String
-    var avatarStringURL: String
+    var avatarStringURL: String = ""
     
     var whoAreYou: String
     var id: String
     
-    var teamNumber: Int
+    var teamNumber: Int = 0
     var payment: String = ""
     
-    var isFavourite: Bool = false
-    var inTeam: Bool = false
+    var iGo: Bool = false
+    var subscription: Bool = false
     
     var rating: Int = 0
     var position: String = "ФРВ"
@@ -34,8 +34,9 @@ struct Players: Hashable, Decodable {
     var losGame: Int = 0
     
     var captain: Bool = false
+    var date: Date
     
-    init(name: String, email: String, avatarStringURL: String, whoAreYou: String, id: String, teamNumber: Int, payment: String, isFavourite: Bool, inTeam: Bool, rating: Int, position: String, numberOfGames: Int, numberOfGoals: Int, winGame: Int, losGame: Int, captain: Bool) {
+    init(name: String, email: String, avatarStringURL: String, whoAreYou: String, id: String, teamNumber: Int, payment: String, iGo: Bool, subscription: Bool, rating: Int, position: String, numberOfGames: Int, numberOfGoals: Int, winGame: Int, losGame: Int, captain: Bool) {
         self.name = name
         self.email = email
         self.avatarStringURL = avatarStringURL
@@ -44,8 +45,8 @@ struct Players: Hashable, Decodable {
         
         self.teamNumber = teamNumber
         self.payment = payment
-        self.isFavourite = isFavourite
-        self.inTeam = inTeam
+        self.iGo = iGo
+        self.subscription = subscription
         self.rating = rating
         self.position = position
         self.numberOfGames = numberOfGames
@@ -53,6 +54,7 @@ struct Players: Hashable, Decodable {
         self.winGame = winGame
         self.losGame = losGame
         self.captain = captain
+        self.date = Date()
     }
     
     init?(document: DocumentSnapshot) {
@@ -65,14 +67,15 @@ struct Players: Hashable, Decodable {
         
         let teamNumber = data["teamNumber"] as? Int,
         let payment = data["payment"] as? String,
-        let isFavourite = data["isFavourite"] as? Bool,
-        let inTeam = data["inTeam"] as? Bool,
+        let iGo = data["iGo"] as? Bool,
+        let subscription = data["subscription"] as? Bool,
         let rating = data["rating"] as? Int,
         let position = data["position"] as? String,
         let numberOfGames = data["numberOfGames"] as? Int,
         let numberOfGoals = data["numberOfGoals"] as? Int,
         let winGame = data["winGame"] as? Int,
         let losGame = data["losGame"] as? Int,
+        let date = data["date"] as? Date,
         let captain = data["captain"] as? Bool else { return nil }
         
         self.name = name
@@ -83,8 +86,8 @@ struct Players: Hashable, Decodable {
         
         self.teamNumber = teamNumber
         self.payment = payment
-        self.isFavourite = isFavourite
-        self.inTeam = inTeam
+        self.iGo = iGo
+        self.subscription = subscription
         self.rating = rating
         self.position = position
         self.numberOfGames = numberOfGames
@@ -92,6 +95,7 @@ struct Players: Hashable, Decodable {
         self.winGame = winGame
         self.losGame = losGame
         self.captain = captain
+        self.date = date
     }
     
     init?(document: QueryDocumentSnapshot) {
@@ -105,14 +109,15 @@ struct Players: Hashable, Decodable {
         
         let teamNumber = data["teamNumber"] as? Int,
         let payment = data["payment"] as? String,
-        let isFavourite = data["isFavourite"] as? Bool,
-        let inTeam = data["inTeam"] as? Bool,
+        let iGo = data["iGo"] as? Bool,
+        let subscription = data["subscription"] as? Bool,
         let rating = data["rating"] as? Int,
         let position = data["position"] as? String,
         let numberOfGames = data["numberOfGames"] as? Int,
         let numberOfGoals = data["numberOfGoals"] as? Int,
         let winGame = data["winGame"] as? Int,
         let losGame = data["losGame"] as? Int,
+        let date = data["date"] as? Date,
         let captain = data["captain"] as? Bool else { return nil }
         
         self.name = name
@@ -123,8 +128,8 @@ struct Players: Hashable, Decodable {
         
         self.teamNumber = teamNumber
         self.payment = payment
-        self.isFavourite = isFavourite
-        self.inTeam = inTeam
+        self.iGo = iGo
+        self.subscription = subscription
         self.rating = rating
         self.position = position
         self.numberOfGames = numberOfGames
@@ -132,6 +137,7 @@ struct Players: Hashable, Decodable {
         self.winGame = winGame
         self.losGame = losGame
         self.captain = captain
+        self.date = date
     }
     
     var representation: [String: Any] {
@@ -145,8 +151,8 @@ struct Players: Hashable, Decodable {
         
         rep["teamNumber"] = teamNumber
         rep["payment"] = payment
-        rep["isFavourite"] = isFavourite
-        rep["inTeam"] = inTeam
+        rep["iGo"] = iGo
+        rep["subscription"] = subscription
         rep["rating"] = rating
         rep["position"] = position
         rep["numberOfGames"] = numberOfGames
@@ -154,6 +160,7 @@ struct Players: Hashable, Decodable {
         rep["winGame"] = winGame
         rep["losGame"] = losGame
         rep["captain"] = captain
+        rep["date"] = date
         return rep
     }
     
