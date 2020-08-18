@@ -58,7 +58,7 @@ class FirestoreService {
             return
         }
         
-        var muser = Players(name: name!, email: email, avatarStringURL: "not exist", whoAreYou: whoAreYou!, id: id, teamNumber: 0, payment: "", isFavourite: false, inTeam: false, rating: 50, position: positionPlayer, numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
+        var muser = Players(name: name!, email: email, avatarStringURL: "not exist", whoAreYou: whoAreYou!, id: id, teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 50, position: positionPlayer, numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
 
         StorageService.shared.upload(photo: avatarImage!) { (result) in
             switch result {
@@ -91,7 +91,7 @@ class FirestoreService {
             return
         }
         
-        var team = Teams(avatarStringURL: "not exist", name: name!, location: location!, teamType: teamType!, playersInTeam: playersInTeam!, id: id!, rating: rating!, captain: captain!)
+        var team = Teams(avatarStringURL: "not exist", teamName: name!, location: location!, teamType: teamType!, id: id!, rating: rating!)
 
         StorageService.shared.upload(photo: avatarTeam!) { (result) in
             switch result {

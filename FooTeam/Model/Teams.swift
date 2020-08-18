@@ -12,10 +12,10 @@ import FirebaseFirestore
 struct Teams: Hashable, Decodable {
     
     var avatarStringURL: String = ""
-    var teamName: String
-    var location: String
-    var teamType: String
-    var id: String
+    let teamName: String
+    let location: String
+    let teamType: String
+    let id: String
     var rating: Int = 0
     var date: Date
     

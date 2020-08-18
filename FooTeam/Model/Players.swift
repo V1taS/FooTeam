@@ -11,12 +11,12 @@ import FirebaseFirestore
 
 struct Players: Hashable, Decodable {
     
-    var name: String
-    var email: String
+    let name: String
+    let email: String
     var avatarStringURL: String = ""
     
-    var whoAreYou: String
-    var id: String
+    let whoAreYou: String
+    let id: String
     
     var teamNumber: Int = 0
     var payment: String = ""
