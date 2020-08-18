@@ -30,6 +30,7 @@ class FirestoreService {
     
     var currentUser: Players!
     
+    // MARK: - Get User Data
     func getUserData(user: User, completion: @escaping (Result<Players, Error>) -> Void) {
         let docRef = usersRef.document(user.uid)
         docRef.getDocument { (document, error) in
@@ -46,6 +47,8 @@ class FirestoreService {
         }
     }
     
+    
+    // MARK: - Save Profile
     func saveProfileWith(id: String, email: String, name: String?, avatarImage: UIImage?, whoAreYou: String?, positionPlayer: String, completion: @escaping (Result<Players, Error>) -> Void) {
         
         guard Validators.isFilled(username: name, whoAreYou: whoAreYou) else {
@@ -79,9 +82,10 @@ class FirestoreService {
     } // saveProfileWith
     
     
-    func saveTeamWith(avatarTeam: UIImage?, name: String?, location: String?, teamType: String?, playersInTeam: [Players]?, id: String?, rating: Int?, captain: Players?, completion: @escaping (Result<Teams, Error>) -> Void) {
+    // MARK: - Save Team
+    func saveTeamWith(avatarTeam: UIImage?, teamName: String?, location: String?, teamType: String?, id: String?, rating: Int?, completion: @escaping (Result<Teams, Error>) -> Void) {
         
-        guard Validators.isFilled(teamName: name, location: location) else {
+        guard Validators.isFilled(teamName: teamName, location: location) else {
             completion(.failure(UserError.notFilled))
             return
         }
@@ -91,7 +95,7 @@ class FirestoreService {
             return
         }
         
-        var team = Teams(avatarStringURL: "not exist", teamName: name!, location: location!, teamType: teamType!, id: id!, rating: rating!)
+        var team = Teams(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, id: id!, rating: rating!)
 
         StorageService.shared.upload(photo: avatarTeam!) { (result) in
             switch result {
@@ -109,5 +113,5 @@ class FirestoreService {
                 completion(.failure(error))
             }
         } // StorageService
-    } // saveProfileWith
+    } // saveTeamWith
 }

@@ -34,9 +34,6 @@ class SetupProfileViewController: UIViewController {
         if let username = currentUser.displayName {
             nameTextField.text = username
         }
-//        if let photoURL = currentUser.photoURL {
-//            fullImageView.circleAvaPlayersImageView.sd_setImage(with: photoURL, completed: nil)
-//        }
     }
     
     required init?(coder: NSCoder) {
@@ -80,16 +77,11 @@ extension SetupProfileViewController {
             avatarImage: fullImageView.circleAvaPlayersImageView.image,
             whoAreYou: whoAreYouSegmentedControl.titleForSegment(at: whoAreYouSegmentedControl.selectedSegmentIndex), positionPlayer: positionPlayerSegmentedControl.titleForSegment(at: positionPlayerSegmentedControl.selectedSegmentIndex)!) { (result) in
                 switch result {
-                case .success(let muser):
+                case .success( _):
                     self.showAlert(with: "Успешно!", and: "Данные сохранены!", completion: {
                         
                         if self.whoAreYouSegmentedControl.titleForSegment(at: self.whoAreYouSegmentedControl.selectedSegmentIndex) == "Зритель" {
-                            
-//                            let mainTabBar = MainTabBarController(currentUser: muser)
-//                            mainTabBar.modalPresentationStyle = .fullScreen
-//                            self.present(mainTabBar, animated: true, completion: nil)
-                            print("\(muser)")
-                            
+
                             let mainContentFooTeam = UIHostingController(rootView: ContentFooTeamMenu())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             
@@ -118,15 +110,11 @@ extension SetupProfileViewController {
                             alertController.addAction(joinTeam)
                             alertController.addAction(skipTeam)
                             self.present(alertController, animated: true, completion: nil)
-                            
-                            let mainTabBar = AuthViewController()
-                            mainTabBar.modalPresentationStyle = .fullScreen
-                            self.present(mainTabBar, animated: true, completion: nil)
                         }
                         
                     })
                 case .failure(let error):
-                    self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+                    self.showAlert(with: "Ошибка! \(error)", and: error.localizedDescription)
                 }
         }
     }

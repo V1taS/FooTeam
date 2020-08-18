@@ -28,6 +28,7 @@ class StorageService {
         return Auth.auth().currentUser!.uid
     }
     
+    // MARK: - upload Image
     func upload(photo: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
         guard let scaledImage = photo.scaledToSafeUploadSize, let imageData = scaledImage.jpegData(compressionQuality: 0.4) else { return }
         let metadata = StorageMetadata()
@@ -48,6 +49,7 @@ class StorageService {
         }
     }
     
+    // MARK: - download Image
     func downloadImage(url: URL, completion: @escaping (Result<UIImage?, Error>) -> Void) {
         let ref = Storage.storage().reference(forURL: url.absoluteString)
         let megaByte = Int64(1 * 1024 * 1024)

@@ -16,6 +16,7 @@ class AuthService {
     static let shared = AuthService()
     private let auth = Auth.auth()
     
+    // MARK: - login
     func login(email: String?, password: String?, completion: @escaping (Result<User, Error>) -> Void) {
         
         guard let email = email, let password = password else {
@@ -32,6 +33,7 @@ class AuthService {
         }
     }
     
+    // MARK: - google Login
     func googleLogin(user: GIDGoogleUser!, error: Error!, completion: @escaping (Result<User, Error>) -> Void) {
         if let error = error {
             completion(.failure(error))
@@ -49,6 +51,7 @@ class AuthService {
         }
     }
     
+    // MARK: - register
     func register(email: String?, password: String?, confirmPassword: String?, completion: @escaping (Result<User, Error>) -> Void) {
         
         guard Validators.isFilled(email: email, password: password, confirmPassword: confirmPassword) else {
