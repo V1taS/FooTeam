@@ -27,6 +27,17 @@ class CreateTeamViewController: UIViewController {
     
     let goToButton = UIButton(title: "Создать", titleColor: .white, backgroundColor: .buttonDark(), font: .bolt14(), cornerRadius: 4)
     
+    private let currentPlayer: Players
+    
+    init(currentPlayer: Players) {
+        self.currentPlayer = currentPlayer
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,11 +60,19 @@ extension CreateTeamViewController {
     
     @objc private func goToChatsButtonTapped() {
         
-        let mainContentFooTeam = UIHostingController(rootView: ContentFooTeamMenu())
-        mainContentFooTeam.modalPresentationStyle = .fullScreen
-        self.present(mainContentFooTeam, animated: true, completion: nil)
+        FirestoreService.shared.saveTeamWith(avatarTeam: fullImageView.circleAvaTeamsImageView.image, teamName: nameTextField.text, location: cityTextField.text, teamType: self.availabilityTeamSegmentedControl.titleForSegment(at: self.availabilityTeamSegmentedControl.selectedSegmentIndex), rating: 0, playerID: currentPlayer) { result in
+            switch result {
+            case .success(_):
+                self.showAlert(with: "Успешно!", and: "Вы создали команду!") {
+                    let mainContentFooTeam = UIHostingController(rootView: ContentFooTeamMenu())
+                    mainContentFooTeam.modalPresentationStyle = .fullScreen
+                    self.present(mainContentFooTeam, animated: true, completion: nil)
+                }
+            case .failure(let error):
+                self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+            }
+        }
     }
-    
 }
 
 // MARK: - Setup constraints

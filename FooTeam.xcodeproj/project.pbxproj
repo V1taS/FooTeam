@@ -228,8 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				1B596F5224EC73530092770B /* JoinTeamViewController */,
-				1B596F5624EC73530092770B /* CreateTeamViewController.swift */,
 				1B596F5724EC73530092770B /* SetupProfileViewController.swift */,
+				1B596F5624EC73530092770B /* CreateTeamViewController.swift */,
 			);
 			path = "Create&Join&Profile";
 			sourceTree = "<group>";

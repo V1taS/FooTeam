@@ -20,6 +20,10 @@ class FirestoreService {
         return db.collection("players")
     }
     
+    private var teamsRef: CollectionReference {
+        return db.collection("teams")
+    }
+    
     private var waitingChatsRef: CollectionReference {
         return db.collection(["players", currentUser.id, "waitingChats"].joined(separator: "/"))
     }
@@ -83,26 +87,27 @@ class FirestoreService {
     
     
     // MARK: - Save Team
-    func saveTeamWith(avatarTeam: UIImage?, teamName: String?, location: String?, teamType: String?, id: String?, rating: Int?, completion: @escaping (Result<Teams, Error>) -> Void) {
+    func saveTeamWith(avatarTeam: UIImage?, teamName: String?, location: String?, teamType: String?, rating: Int?, playerID: Players, completion: @escaping (Result<Teams, Error>) -> Void) {
         
         guard Validators.isFilled(teamName: teamName, location: location) else {
             completion(.failure(UserError.notFilled))
             return
         }
         
-        guard avatarTeam != #imageLiteral(resourceName: "avatar") else {
+        guard avatarTeam != #imageLiteral(resourceName: "khimki") else {
             completion(.failure(UserError.photoNotExist))
             return
         }
         
-        var team = Teams(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, id: id!, rating: rating!)
+        var team = Teams(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, rating: rating!)
+//        let teamRef = db.collection(["players", playerID.id, "team"].joined(separator: "/"))
 
         StorageService.shared.upload(photo: avatarTeam!) { (result) in
             switch result {
                 
             case .success(let url):
                 team.avatarStringURL = url.absoluteString
-                self.usersRef.document(team.id).setData(team.representation) { (error) in
+                self.teamsRef.document(team.id).setData(team.representation) { (error) in
                     if let error = error {
                         completion(.failure(error))
                     } else {

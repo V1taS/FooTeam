@@ -77,7 +77,7 @@ extension SetupProfileViewController {
             avatarImage: fullImageView.circleAvaPlayersImageView.image,
             whoAreYou: whoAreYouSegmentedControl.titleForSegment(at: whoAreYouSegmentedControl.selectedSegmentIndex), positionPlayer: positionPlayerSegmentedControl.titleForSegment(at: positionPlayerSegmentedControl.selectedSegmentIndex)!) { (result) in
                 switch result {
-                case .success( _):
+                case .success(let player):
                     self.showAlert(with: "Успешно!", and: "Данные сохранены!", completion: {
                         
                         if self.whoAreYouSegmentedControl.titleForSegment(at: self.whoAreYouSegmentedControl.selectedSegmentIndex) == "Зритель" {
@@ -90,7 +90,7 @@ extension SetupProfileViewController {
                             let alertController = UIAlertController(title: "Чтобы продолжить", message: "присоеденись или создай команду", preferredStyle: .actionSheet)
                             
                             let creatTeam = UIAlertAction(title: "Создать команду", style: .default) { _ in
-                                let createTeam = CreateTeamViewController()
+                                let createTeam = CreateTeamViewController(currentPlayer: player)
                                 createTeam.modalPresentationStyle = .fullScreen
                                 self.present(createTeam, animated: true, completion: nil)
                             }

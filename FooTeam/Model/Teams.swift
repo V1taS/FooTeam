@@ -17,14 +17,14 @@ struct Teams: Hashable, Decodable {
     let teamType: String
     let id: String
     var rating: Int = 0
-    var date: Date
+    let date: Date
     
-    init(avatarStringURL: String, teamName: String, location: String, teamType: String, id: String, rating: Int) {
+    init(avatarStringURL: String, teamName: String, location: String, teamType: String, rating: Int) {
         self.avatarStringURL = avatarStringURL
         self.teamName = teamName
         self.location = location
         self.teamType = teamType
-        self.id = id
+        self.id = UUID().uuidString
         self.rating = rating
         self.date = Date()
     }
@@ -35,17 +35,17 @@ struct Teams: Hashable, Decodable {
             let teamName = data["teamName"] as? String,
             let location = data["location"] as? String,
             let teamType = data["teamType"] as? String,
-            let id = data["id"] as? String,
             let date = data["date"] as? Date,
+            let id = data["id"] as? String,
             let rating = data["rating"] as? Int else { return nil }
         
         self.avatarStringURL = avatarStringURL
         self.teamName = teamName
         self.location = location
         self.teamType = teamType
-        self.id = id
         self.rating = rating
         self.date = date
+        self.id = id
     }
     
     init?(document: QueryDocumentSnapshot) {
@@ -55,17 +55,17 @@ struct Teams: Hashable, Decodable {
             let teamName = data["teamName"] as? String,
             let location = data["location"] as? String,
             let teamType = data["teamType"] as? String,
-            let id = data["id"] as? String,
             let date = data["date"] as? Date,
+            let id = data["id"] as? String,
             let rating = data["rating"] as? Int else { return nil }
         
         self.avatarStringURL = avatarStringURL
         self.teamName = teamName
         self.location = location
         self.teamType = teamType
-        self.id = id
         self.rating = rating
         self.date = date
+        self.id = id
     }
     
     var representation: [String: Any] {
@@ -74,9 +74,9 @@ struct Teams: Hashable, Decodable {
         rep["teamName"] = teamName
         rep["location"] = location
         rep["teamType"] = teamType
-        rep["id"] = id
         rep["rating"] = rating
         rep["date"] = date
+        rep["id"] = id
         return rep
     }
     
