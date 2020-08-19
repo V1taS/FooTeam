@@ -63,7 +63,7 @@ struct Players: Hashable, Decodable {
         let email = data["email"] as? String,
         let avatarStringURL = data["avatarStringURL"] as? String,
         let whoAreYou = data["whoAreYou"] as? String,
-        let id = data["uid"] as? String,
+        let id = data["id"] as? String,
         
         let teamNumber = data["teamNumber"] as? Int,
         let payment = data["payment"] as? String,
@@ -104,7 +104,7 @@ struct Players: Hashable, Decodable {
         let email = data["email"] as? String,
         let avatarStringURL = data["avatarStringURL"] as? String,
         let whoAreYou = data["whoAreYou"] as? String,
-        let id = data["uid"] as? String,
+        let id = data["id"] as? String,
         
         
         let teamNumber = data["teamNumber"] as? Int,
@@ -147,7 +147,7 @@ struct Players: Hashable, Decodable {
         rep["email"] = email
         rep["avatarStringURL"] = avatarStringURL
         rep["whoAreYou"] = whoAreYou
-        rep["uid"] = id
+        rep["id"] = id
         
         rep["teamNumber"] = teamNumber
         rep["payment"] = payment

@@ -146,7 +146,6 @@ extension AuthViewController: GIDSignInDelegate {
         AuthService.shared.googleLogin(user: user, error: error) { (result) in
             switch result {
             case .success(let user):
-                
                 FirestoreService.shared.getUserData(user: user) { (result) in
                     switch result {
                     case .success(let player):
