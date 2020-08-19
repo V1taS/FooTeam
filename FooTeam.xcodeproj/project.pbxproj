@@ -350,12 +350,12 @@
 			isa = PBXGroup;
 			children = (
 				1B596FA124EC73A90092770B /* InsertableTextField.swift */,
-				1B596FA224EC73A90092770B /* UIKit */,
 				1B596FB024EC73A90092770B /* AddAvaTeamsView.swift */,
 				1B596FB124EC73A90092770B /* AddAvaPlayersView.swift */,
 				1B596FB224EC73A90092770B /* Bundle-Decodable.swift */,
 				1B596FB324EC73A90092770B /* GradientView.swift */,
 				1B596FB424EC73A90092770B /* ButtonFormView.swift */,
+				1B596FA224EC73A90092770B /* UIKit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

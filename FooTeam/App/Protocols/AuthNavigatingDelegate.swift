@@ -1,6 +1,6 @@
 //
 //  AuthNavigatingDelegate.swift
-//  iChat
+//  FooTeam
 //
 //  Created by Виталий Сосин on 16.07.2020.
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.

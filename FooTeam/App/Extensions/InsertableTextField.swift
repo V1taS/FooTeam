@@ -1,6 +1,6 @@
 //
 //  InsertableTextField.swift
-//  iChat
+//  FooTeam
 //
 //  Created by Виталий Сосин on 14.07.2020.
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.

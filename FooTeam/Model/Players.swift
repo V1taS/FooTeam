@@ -1,6 +1,6 @@
 //
 //  MUser.swift
-//  iChat
+//  FooTeam
 //
 //  Created by Виталий Сосин on 14.07.2020.
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
@@ -13,28 +13,27 @@ struct Players: Hashable, Decodable {
     
     let name: String
     let email: String
-    var avatarStringURL: String = ""
+    var avatarStringURL: String
     
     let whoAreYou: String
     let id: String
     
-    var teamNumber: Int = 0
-    var payment: String = ""
+    var teamNumber: Int
+    var payment: String
     
-    var iGo: Bool = false
-    var subscription: Bool = false
+    var iGo: Bool
+    var subscription: Bool
     
-    var rating: Int = 0
-    var position: String = "ФРВ"
+    var rating: Int
+    var position: String
     
-    var numberOfGames: Int = 0
-    var numberOfGoals: Int = 0
+    var numberOfGames: Int
+    var numberOfGoals: Int
     
-    var winGame: Int = 0
-    var losGame: Int = 0
+    var winGame: Int
+    var losGame: Int
     
-    var captain: Bool = false
-    var date: Date
+    var captain: Bool
     
     init(name: String, email: String, avatarStringURL: String, whoAreYou: String, id: String, teamNumber: Int, payment: String, iGo: Bool, subscription: Bool, rating: Int, position: String, numberOfGames: Int, numberOfGoals: Int, winGame: Int, losGame: Int, captain: Bool) {
         self.name = name
@@ -54,7 +53,6 @@ struct Players: Hashable, Decodable {
         self.winGame = winGame
         self.losGame = losGame
         self.captain = captain
-        self.date = Date()
     }
     
     init?(document: DocumentSnapshot) {
@@ -63,7 +61,7 @@ struct Players: Hashable, Decodable {
         let email = data["email"] as? String,
         let avatarStringURL = data["avatarStringURL"] as? String,
         let whoAreYou = data["whoAreYou"] as? String,
-        let id = data["id"] as? String,
+        let id = data["uid"] as? String,
         
         let teamNumber = data["teamNumber"] as? Int,
         let payment = data["payment"] as? String,
@@ -75,7 +73,6 @@ struct Players: Hashable, Decodable {
         let numberOfGoals = data["numberOfGoals"] as? Int,
         let winGame = data["winGame"] as? Int,
         let losGame = data["losGame"] as? Int,
-        let date = data["date"] as? Date,
         let captain = data["captain"] as? Bool else { return nil }
         
         self.name = name
@@ -95,7 +92,6 @@ struct Players: Hashable, Decodable {
         self.winGame = winGame
         self.losGame = losGame
         self.captain = captain
-        self.date = date
     }
     
     init?(document: QueryDocumentSnapshot) {
@@ -104,7 +100,7 @@ struct Players: Hashable, Decodable {
         let email = data["email"] as? String,
         let avatarStringURL = data["avatarStringURL"] as? String,
         let whoAreYou = data["whoAreYou"] as? String,
-        let id = data["id"] as? String,
+        let id = data["uid"] as? String,
         
         
         let teamNumber = data["teamNumber"] as? Int,
@@ -117,7 +113,6 @@ struct Players: Hashable, Decodable {
         let numberOfGoals = data["numberOfGoals"] as? Int,
         let winGame = data["winGame"] as? Int,
         let losGame = data["losGame"] as? Int,
-        let date = data["date"] as? Date,
         let captain = data["captain"] as? Bool else { return nil }
         
         self.name = name
@@ -137,7 +132,6 @@ struct Players: Hashable, Decodable {
         self.winGame = winGame
         self.losGame = losGame
         self.captain = captain
-        self.date = date
     }
     
     var representation: [String: Any] {
@@ -147,7 +141,7 @@ struct Players: Hashable, Decodable {
         rep["email"] = email
         rep["avatarStringURL"] = avatarStringURL
         rep["whoAreYou"] = whoAreYou
-        rep["id"] = id
+        rep["uid"] = id
         
         rep["teamNumber"] = teamNumber
         rep["payment"] = payment
@@ -160,7 +154,6 @@ struct Players: Hashable, Decodable {
         rep["winGame"] = winGame
         rep["losGame"] = losGame
         rep["captain"] = captain
-        rep["date"] = date
         return rep
     }
     

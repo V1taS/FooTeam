@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window?.windowScene = windowScene
                 
                 if let user = Auth.auth().currentUser {
+
                     FirestoreService.shared.getUserData(user: user) { (result) in
                         switch result {
                         case .success(_):

@@ -8,9 +8,8 @@
 
 import SwiftUI
 
-import FirebaseAuth
+import UIKit
 import Firebase
-import FirebaseStorage
 import GoogleSignIn
 
 @UIApplicationMain

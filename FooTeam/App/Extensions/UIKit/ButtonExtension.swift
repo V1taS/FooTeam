@@ -1,6 +1,6 @@
 //
 //  UIButton + extension.swift
-//  iChat
+//  FooTeam
 //
 //  Created by Виталий Сосин on 12.07.2020.
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
