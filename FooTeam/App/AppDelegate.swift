@@ -9,6 +9,7 @@
 import SwiftUI
 
 import FirebaseAuth
+import Firebase
 import FirebaseCore
 import FirebaseStorage
 import GoogleSignIn

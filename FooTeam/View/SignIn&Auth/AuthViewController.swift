@@ -142,14 +142,16 @@ extension AuthViewController: AuthNavigatingDelegate {
 // MARK: - GIDSignInDelegate
 extension AuthViewController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
         AuthService.shared.googleLogin(user: user, error: error) { (result) in
             switch result {
             case .success(let user):
+                
                 FirestoreService.shared.getUserData(user: user) { (result) in
                     switch result {
-                    case .success(let muser):
+                    case .success(let player):
                         UIApplication.getTopViewController()?.showAlert(with: "Успешно", and: "Вы авторизованы") {
-                            print(muser)
+                            print(player)
                             let mainContentFooTeam = UIHostingController(rootView: ContentFooTeamMenu())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)

@@ -19,27 +19,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window = UIWindow(frame: windowScene.coordinateSpace.bounds)
                 window?.windowScene = windowScene
                 
-                
                 if let user = Auth.auth().currentUser {
                     FirestoreService.shared.getUserData(user: user) { (result) in
                         switch result {
-                        case .success(let muser):
-        //                    let mainTabBar = MainTabBarController(currentUser: muser)
-        //                    mainTabBar.modalPresentationStyle = .fullScreen
-                            print(muser)
-                            
+                        case .success(_):
                             let mainContentFooTeam = UIHostingController(rootView: ContentFooTeamMenu())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             self.window?.rootViewController = mainContentFooTeam
-                            
                         case .failure(_):
                             self.window?.rootViewController = AuthViewController()
-        //                    self.window?.rootViewController = CreateTeamViewController()
                         }
                     }
                 } else {
                     window?.rootViewController = AuthViewController()
-        //              window?.rootViewController = CreateTeamViewController()
                 }
                 window?.makeKeyAndVisible()
     }

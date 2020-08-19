@@ -39,12 +39,12 @@ class FirestoreService {
         let docRef = usersRef.document(user.uid)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                guard let muser = Players(document: document) else {
+                guard let player = Players(document: document) else {
                     completion(.failure(UserError.cannotUnwrapToMUser))
                     return
                 }
-                self.currentUser = muser
-                completion(.success(muser))
+                self.currentUser = player
+                completion(.success(player))
             } else {
                 completion(.failure(UserError.cannotGetUserInfo))
             }
