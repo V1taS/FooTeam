@@ -7,19 +7,16 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct WellcomeFooTeamMenu: View {
     
     @Binding var player: Players?
-    
+
     var body: some View {
         VStack {
-            Image("")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 160, height: 160)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.green, lineWidth: 2))
+            ImageWellcomeFooTeamMenu(player: $player)
+            
             Text("Привет,")
                 .font(.title)
                 .fontWeight(.bold)

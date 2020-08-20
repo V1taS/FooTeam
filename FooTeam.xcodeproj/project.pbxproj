@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B02FEBC24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B02FEBB24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift */; };
 		1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3024EC714C0092770B /* AppDelegate.swift */; };
 		1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3224EC714C0092770B /* SceneDelegate.swift */; };
 		1B596F3D24EC714E0092770B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B596F3B24EC714E0092770B /* LaunchScreen.storyboard */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		0671D38ABC6E86F14FC6E3CE /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B02FEBB24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWellcomeFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B596F2D24EC714C0092770B /* FooTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FooTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B596F3024EC714C0092770B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B596F3224EC714C0092770B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B02FEBD24EF1910005BF4AA /* WellcomeFooTeamMenu */ = {
+			isa = PBXGroup;
+			children = (
+				1BF35E4924EDE79C001C6E83 /* WellcomeFooTeamMenu.swift */,
+				1B02FEBB24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift */,
+			);
+			path = WellcomeFooTeamMenu;
+			sourceTree = "<group>";
+		};
 		1B596F2424EC714B0092770B = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +268,7 @@
 		1B596F5824EC73530092770B /* MainScreenUI */ = {
 			isa = PBXGroup;
 			children = (
+				1B7BF9B124EDF5C000CDEDB9 /* MainContentFooTeam.swift */,
 				1B596F5C24EC73530092770B /* ContentFooTeam.swift */,
 				1BF35E4824EDE74F001C6E83 /* BackgroundMenu */,
 				1B596F5924EC73530092770B /* HeaderFooTeam */,
@@ -290,8 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				1B596F6324EC73530092770B /* CaruselBodyFooTeam.swift */,
-				1B596F6424EC73530092770B /* CellCaruselBodyFooTeam.swift */,
 				1B596F6524EC73530092770B /* BoxCaruselBodyFooTeam.swift */,
+				1B596F6424EC73530092770B /* CellCaruselBodyFooTeam.swift */,
 			);
 			path = CaruselBodyFooTeam;
 			sourceTree = "<group>";
@@ -420,8 +432,7 @@
 		1BF35E4824EDE74F001C6E83 /* BackgroundMenu */ = {
 			isa = PBXGroup;
 			children = (
-				1BF35E4924EDE79C001C6E83 /* WellcomeFooTeamMenu.swift */,
-				1B7BF9B124EDF5C000CDEDB9 /* MainContentFooTeam.swift */,
+				1B02FEBD24EF1910005BF4AA /* WellcomeFooTeamMenu */,
 				1B7BF9B524EDF95600CDEDB9 /* ButtonFooTeamMenu */,
 			);
 			path = BackgroundMenu;
@@ -634,6 +645,7 @@
 				1B7BF9B224EDF5C000CDEDB9 /* MainContentFooTeam.swift in Sources */,
 				1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */,
 				1B596FBD24EC73A90092770B /* ViewExtension.swift in Sources */,
+				1B02FEBC24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift in Sources */,
 				1B596F9924EC739A0092770B /* UserError.swift in Sources */,
 				1B596F7824EC73530092770B /* CaruselBodyFooTeam.swift in Sources */,
 				1B596FBF24EC73A90092770B /* ImageViewExtension.swift in Sources */,

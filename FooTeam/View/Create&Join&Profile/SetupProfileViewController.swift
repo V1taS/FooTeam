@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SDWebImage
 
 class SetupProfileViewController: UIViewController {
     
@@ -33,6 +34,10 @@ class SetupProfileViewController: UIViewController {
         
         if let username = currentUser.displayName {
             nameTextField.text = username
+        }
+        
+        if let photoURL = currentUser.photoURL {
+            fullImageView.circleAvaPlayersImageView.sd_setImage(with: photoURL, completed: nil)
         }
     }
     
