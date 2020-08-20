@@ -20,13 +20,13 @@ struct BoxButtonFooTeamMenu: View {
             ButtonFooTeamMenu(index: $index, show: $show, indexButton: 2, imageButton: "fav", textButton: "Контакты")
             ButtonFooTeamMenu(index: $index, show: $show, indexButton: 3, imageButton: "orders", textButton: "О нас")
         }
-        .background(Color("Color").edgesIgnoringSafeArea(.all))
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct BoxButtonFooTeamMenu_Previews: PreviewProvider {
     static var previews: some View {
         BoxButtonFooTeamMenu(index: .constant(1), show: .constant(false))
+        .background(Color("Color").edgesIgnoringSafeArea(.all))
+        .edgesIgnoringSafeArea(.all)
     }
 }

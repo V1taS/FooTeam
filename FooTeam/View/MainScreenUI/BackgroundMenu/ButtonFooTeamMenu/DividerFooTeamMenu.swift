@@ -14,6 +14,7 @@ struct DividerFooTeamMenu: View {
         .frame(width: 150, height: 1)
         .background(Color.white)
     }
+    
 }
 
 struct DividerFooTeamMenu_Previews: PreviewProvider {

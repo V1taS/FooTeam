@@ -39,13 +39,13 @@ struct ButtonFooTeamMenu: View {
             }
             .padding(.top,5)
         }
-        .background(Color("Color").edgesIgnoringSafeArea(.all))
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct ButtonFooTeamMenu_Previews: PreviewProvider {
     static var previews: some View {
         ButtonFooTeamMenu(index: .constant(0), show: .constant(false), indexButton: 0, imageButton: "catalogue", textButton: "Главная")
+        .background(Color("Color").edgesIgnoringSafeArea(.all))
+        .edgesIgnoringSafeArea(.all)
     }
 }

@@ -21,7 +21,7 @@ struct ContentFooTeam: View {
         ZStack{
             HStack{
                 VStack(alignment: .leading, spacing: 12) {
-                    WellcomeFooTeamMenu()
+                    WellcomeFooTeamMenu(player: $player)
                     BoxButtonFooTeamMenu(index: $index, show: $show)
                         .padding(.top)
                     DividerFooTeamMenu()

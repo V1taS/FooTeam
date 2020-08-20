@@ -49,5 +49,7 @@ struct OutButtonFooTeamMenu: View {
 struct OutButtonFooTeamMenu_Previews: PreviewProvider {
     static var previews: some View {
         OutButtonFooTeamMenu(isPresentedAlertSignOut: .constant(false))
+        .background(Color("Color").edgesIgnoringSafeArea(.all))
+        .edgesIgnoringSafeArea(.all)
     }
 }
