@@ -411,8 +411,8 @@
 			children = (
 				1B7BF9AD24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift */,
 				1B7BF9AB24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift */,
-				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
 				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
+				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
 			);
 			path = ButtonFooTeamMenu;
 			sourceTree = "<group>";
@@ -420,9 +420,9 @@
 		1BF35E4824EDE74F001C6E83 /* BackgroundMenu */ = {
 			isa = PBXGroup;
 			children = (
-				1B7BF9B524EDF95600CDEDB9 /* ButtonFooTeamMenu */,
 				1BF35E4924EDE79C001C6E83 /* WellcomeFooTeamMenu.swift */,
 				1B7BF9B124EDF5C000CDEDB9 /* MainContentFooTeam.swift */,
+				1B7BF9B524EDF95600CDEDB9 /* ButtonFooTeamMenu */,
 			);
 			path = BackgroundMenu;
 			sourceTree = "<group>";

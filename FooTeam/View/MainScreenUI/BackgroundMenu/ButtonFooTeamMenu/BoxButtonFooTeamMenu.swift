@@ -14,12 +14,14 @@ struct BoxButtonFooTeamMenu: View {
     @Binding var show: Bool
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 1) {
             ButtonFooTeamMenu(index: $index, show: $show, indexButton: 0, imageButton: "catalogue", textButton: "Главная")
             ButtonFooTeamMenu(index: $index, show: $show, indexButton: 1, imageButton: "cart", textButton: "Чат с командой")
             ButtonFooTeamMenu(index: $index, show: $show, indexButton: 2, imageButton: "fav", textButton: "Контакты")
             ButtonFooTeamMenu(index: $index, show: $show, indexButton: 3, imageButton: "orders", textButton: "О нас")
         }
+        .background(Color("Color").edgesIgnoringSafeArea(.all))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

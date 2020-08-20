@@ -13,7 +13,6 @@ struct DividerFooTeamMenu: View {
         Divider()
         .frame(width: 150, height: 1)
         .background(Color.white)
-        .padding(.vertical,30)
     }
 }
 

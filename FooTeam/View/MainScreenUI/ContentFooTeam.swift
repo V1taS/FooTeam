@@ -23,15 +23,15 @@ struct ContentFooTeam: View {
                 VStack(alignment: .leading, spacing: 12) {
                     WellcomeFooTeamMenu()
                     BoxButtonFooTeamMenu(index: $index, show: $show)
+                        .padding(.top)
                     DividerFooTeamMenu()
                     OutButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut)
                 }
-                .padding(.top,25)
+                .offset(x: 0, y: -50)
                 .padding(.horizontal,20)
-                
                 Spacer(minLength: 0)
             }
-             
+            
             MainContentFooTeam(index: $index, show: $show)
             
         }

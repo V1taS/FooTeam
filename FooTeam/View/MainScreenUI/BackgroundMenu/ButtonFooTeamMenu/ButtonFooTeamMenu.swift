@@ -37,8 +37,10 @@ struct ButtonFooTeamMenu: View {
                 .background(self.index == indexButton ? Color("Color1").opacity(0.2) : Color.clear)
                 .cornerRadius(10)
             }
-            .padding(.top,25)
+            .padding(.top,5)
         }
+        .background(Color("Color").edgesIgnoringSafeArea(.all))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
