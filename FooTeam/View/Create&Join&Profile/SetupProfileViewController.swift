@@ -82,7 +82,7 @@ extension SetupProfileViewController {
                         
                         if self.whoAreYouSegmentedControl.titleForSegment(at: self.whoAreYouSegmentedControl.selectedSegmentIndex) == "Зритель" {
 
-                            let mainContentFooTeam = UIHostingController(rootView: ContentFooTeamMenu())
+                            let mainContentFooTeam = UIHostingController(rootView: ContentFooTeam())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             
                         } else {
@@ -102,7 +102,7 @@ extension SetupProfileViewController {
                             }
                             
                             let skipTeam = UIAlertAction(title: "Пропустить и продолжить", style: .destructive) { _ in
-                                let mainContentFooTeam = UIHostingController(rootView: ContentFooTeamMenu())
+                                let mainContentFooTeam = UIHostingController(rootView: ContentFooTeam())
                                 mainContentFooTeam.modalPresentationStyle = .fullScreen
                                 self.present(mainContentFooTeam, animated: true, completion: nil)
                             }

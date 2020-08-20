@@ -64,7 +64,7 @@ extension CreateTeamViewController {
             switch result {
             case .success(_):
                 self.showAlert(with: "Успешно!", and: "Вы создали команду!") {
-                    let mainContentFooTeam = UIHostingController(rootView: ContentFooTeamMenu())
+                    let mainContentFooTeam = UIHostingController(rootView: ContentFooTeam())
                     mainContentFooTeam.modalPresentationStyle = .fullScreen
                     self.present(mainContentFooTeam, animated: true, completion: nil)
                 }
