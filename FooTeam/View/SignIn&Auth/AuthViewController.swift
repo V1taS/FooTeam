@@ -151,7 +151,7 @@ extension AuthViewController: GIDSignInDelegate {
                     case .success(let player):
                         UIApplication.getTopViewController()?.showAlert(with: "Успешно", and: "Вы авторизованы") {
                             print(player)
-                            let mainContentFooTeam = UIHostingController(rootView: ContentFooTeam())
+                            let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)
                         }

@@ -10,9 +10,7 @@ import SwiftUI
 
 struct TopPlayersFooTeam: View {
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            BoxTopPlayersFooTeam()
-        }
+        BoxTopPlayersFooTeam()
     }
 }
 

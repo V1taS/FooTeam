@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
                     FirestoreService.shared.getUserData(user: user) { (result) in
                         switch result {
-                        case .success(_):
+                        case .success( _):
                             let mainContentFooTeam = UIHostingController(rootView: ContentFooTeam())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             self.window?.rootViewController = mainContentFooTeam

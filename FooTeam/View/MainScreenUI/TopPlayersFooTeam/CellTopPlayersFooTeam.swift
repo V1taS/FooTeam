@@ -28,9 +28,6 @@ struct CellTopPlayersFooTeam: View {
     
     var body: some View {
         ZStack {
-            Color(.blue)
-                .frame(width: 200, height: 300)
-                .clipShape(RoundedRectangle(cornerRadius: 45))
             BackgroundFooTeam(firstColor: .gray, centerColor: backgroundColor, lastColor: .gray)
                 .frame(width: 200, height: 300)
                 .clipShape(RoundedRectangle(cornerRadius: 45))
@@ -154,7 +151,7 @@ struct CellTopPlayersFooTeam: View {
                     .frame(width: 40, height: 1)
             } .offset(x: 0, y: 130)
         }
-        .frame(width: 240, height: 350)
+        .frame(width: 240, height: 320)
     }
 }
 
