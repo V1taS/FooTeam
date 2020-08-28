@@ -60,7 +60,14 @@ extension CreateTeamViewController {
     
     @objc private func goToChatsButtonTapped() {
         
-        FirestoreService.shared.saveTeamWith(avatarTeam: fullImageView.circleAvaTeamsImageView.image, teamName: nameTextField.text, location: cityTextField.text, teamType: self.availabilityTeamSegmentedControl.titleForSegment(at: self.availabilityTeamSegmentedControl.selectedSegmentIndex), rating: 0, playerID: currentPlayer) { result in
+        FirestoreService.shared.saveTeamWith(
+        avatarTeam: fullImageView.circleAvaTeamsImageView.image,
+        teamName: nameTextField.text,
+        location: cityTextField.text,
+        teamType: self.availabilityTeamSegmentedControl.titleForSegment(at: self.availabilityTeamSegmentedControl.selectedSegmentIndex),
+        rating: 0,
+        player: currentPlayer
+        ) { result in
             switch result {
             case .success(_):
                 self.showAlert(with: "Успешно!", and: "Вы создали команду!") {

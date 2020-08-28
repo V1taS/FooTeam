@@ -33,10 +33,10 @@ struct ImageWellcomeFooTeamMenu: View {
     }
 }
 
-struct ImageWellcomeFooTeamMenu_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageWellcomeFooTeamMenu(player: .constant(Players(name: "Виталий Сосин", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "12345", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 0, position: "ФРВ", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)))
-            .background(Color("Color").edgesIgnoringSafeArea(.all))
-            .edgesIgnoringSafeArea(.all)
-    }
-}
+//struct ImageWellcomeFooTeamMenu_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ImageWellcomeFooTeamMenu(player: .constant(Players(name: "Виталий Сосин", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "12345", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 0, position: "ФРВ", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)))
+//            .background(Color("Color").edgesIgnoringSafeArea(.all))
+//            .edgesIgnoringSafeArea(.all)
+//    }
+//}

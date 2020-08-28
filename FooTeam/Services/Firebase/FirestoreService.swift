@@ -53,7 +53,7 @@ class FirestoreService {
     
     
     // MARK: - Save Profile
-    func saveProfileWith(id: String, email: String, name: String?, avatarImage: UIImage?, whoAreYou: String?, positionPlayer: String, completion: @escaping (Result<Players, Error>) -> Void) {
+    func saveProfileWith(id: String, email: String, name: String, avatarImage: UIImage?, whoAreYou: String, positionPlayer: String, completion: @escaping (Result<Players, Error>) -> Void) {
         
         guard Validators.isFilled(username: name, whoAreYou: whoAreYou) else {
             completion(.failure(UserError.notFilled))
@@ -65,18 +65,35 @@ class FirestoreService {
             return
         }
         
-        var muser = Players(name: name!, email: email, avatarStringURL: "not exist", whoAreYou: whoAreYou!, id: id, teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 50, position: positionPlayer, numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
-
+        var player = Players(name: name,
+                             nameTeam: "Нет команды",
+                             email: email,
+                             avatarStringURL: "",
+                             whoAreYou: whoAreYou,
+                             id: id,
+                             idTeam: "",
+                             teamNumber: 0,
+                             payment: "0",
+                             iGo: false,
+                             subscription: false,
+                             rating: 0,
+                             position: positionPlayer,
+                             numberOfGames: 0,
+                             numberOfGoals: 0,
+                             winGame: 0,
+                             losGame: 0,
+                             captain: false)
+        
         StorageService.shared.upload(photo: avatarImage!) { (result) in
             switch result {
                 
             case .success(let url):
-                muser.avatarStringURL = url.absoluteString
-                self.usersRef.document(muser.id).setData(muser.representation) { (error) in
+                player.avatarStringURL = url.absoluteString
+                self.usersRef.document(player.id).setData(player.representation) { (error) in
                     if let error = error {
                         completion(.failure(error))
                     } else {
-                        completion(.success(muser))
+                        completion(.success(player))
                     }
                 }
             case .failure(let error):
@@ -87,7 +104,13 @@ class FirestoreService {
     
     
     // MARK: - Save Team
-    func saveTeamWith(avatarTeam: UIImage?, teamName: String?, location: String?, teamType: String?, rating: Int?, playerID: Players, completion: @escaping (Result<Teams, Error>) -> Void) {
+    func saveTeamWith(avatarTeam: UIImage?,
+                      teamName: String?,
+                      location: String?,
+                      teamType: String?,
+                      rating: Int?,
+                      player: Players,
+                      completion: @escaping (Result<Teams, Error>) -> Void) {
         
         guard Validators.isFilled(teamName: teamName, location: location) else {
             completion(.failure(UserError.notFilled))
@@ -99,14 +122,34 @@ class FirestoreService {
             return
         }
         
+        var player = player
         var team = Teams(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, rating: rating!)
-//        let teamRef = db.collection(["players", playerID.id, "team"].joined(separator: "/"))
-
+        let refCountPlayers = db.collection(["teams", team.id, "players"].joined(separator: "/"))
+        //        let teamRef = db.collection(["players", playerID.id, "team"].joined(separator: "/"))
+        
         StorageService.shared.upload(photo: avatarTeam!) { (result) in
             switch result {
                 
             case .success(let url):
                 team.avatarStringURL = url.absoluteString
+                
+                
+                player.captain = true
+                player.idTeam = team.id
+                player.nameTeam = teamName!
+                
+                self.usersRef.document(player.id).setData(player.representation) { (error) in
+                    if let error = error {
+                        completion(.failure(error))
+                    }
+                }
+                
+                refCountPlayers.document(team.id).setData(player.representation) { (error) in
+                    if let error = error {
+                        completion(.failure(error))
+                        return
+                    }
+                }
                 self.teamsRef.document(team.id).setData(team.representation) { (error) in
                     if let error = error {
                         completion(.failure(error))
