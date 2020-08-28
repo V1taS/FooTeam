@@ -16,30 +16,51 @@ class StorageService {
 
     let storageRef = Storage.storage().reference()
     
-    private var avatarsRef: StorageReference {
-        return storageRef.child("avatars")
+    private var avaPlayersRef: StorageReference {
+        return storageRef.child("avaPlayers")
     }
     
-    private var chatsRef: StorageReference {
-        return storageRef.child("chats")
+    private var avaTeamsRef: StorageReference {
+        return storageRef.child("avaTeams")
     }
     
     private var currentUserId: String {
         return Auth.auth().currentUser!.uid
     }
     
-    // MARK: - upload Image
-    func upload(photo: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
+    // MARK: - upload Image Player
+    func uploadAvaPlayer(photo: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
         guard let scaledImage = photo.scaledToSafeUploadSize, let imageData = scaledImage.jpegData(compressionQuality: 0.4) else { return }
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         
-        avatarsRef.child(currentUserId).putData(imageData, metadata: metadata) { (metadata, error) in
+        avaPlayersRef.child(currentUserId).putData(imageData, metadata: metadata) { (metadata, error) in
             guard let _ = metadata else {
                 completion(.failure(error!))
                 return
             }
-            self.avatarsRef.child(self.currentUserId).downloadURL { (url, error) in
+            self.avaPlayersRef.child(self.currentUserId).downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    completion(.failure(error!))
+                    return
+                }
+                completion(.success(downloadURL))
+            }
+        }
+    }
+    
+    // MARK: - upload Image Team
+    func uploadAvaTeam(photo: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
+        guard let scaledImage = photo.scaledToSafeUploadSize, let imageData = scaledImage.jpegData(compressionQuality: 0.4) else { return }
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        avaTeamsRef.child(currentUserId).putData(imageData, metadata: metadata) { (metadata, error) in
+            guard let _ = metadata else {
+                completion(.failure(error!))
+                return
+            }
+            self.avaTeamsRef.child(self.currentUserId).downloadURL { (url, error) in
                 guard let downloadURL = url else {
                     completion(.failure(error!))
                     return

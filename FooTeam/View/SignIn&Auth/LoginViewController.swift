@@ -64,7 +64,7 @@ extension LoginViewController {
                         FirestoreService.shared.getUserData(user: user) { (result) in
                             switch result {
                             case .success( _):
-                                let mainContentFooTeam = UIHostingController(rootView: ContentFooTeam())
+                                let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                                 mainContentFooTeam.modalPresentationStyle = .fullScreen
                                 self.present(mainContentFooTeam, animated: true, completion: nil)
                             case .failure(_):

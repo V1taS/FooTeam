@@ -9,9 +9,12 @@
 import SwiftUI
 
 struct TabViewFooTeam: View {
+    
+    @State var player = FirestoreService.shared.currentUser
+    
     var body: some View {
         TabView {
-            MainFooTeam()
+            MainFooTeam(player: $player)
                 .tabItem {
                     Image(systemName: "1.circle")
                     Text("Главная")

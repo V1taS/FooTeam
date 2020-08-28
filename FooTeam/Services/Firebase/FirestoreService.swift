@@ -60,11 +60,6 @@ class FirestoreService {
             return
         }
         
-        guard avatarImage != #imageLiteral(resourceName: "Даулет") else {
-            completion(.failure(UserError.photoNotExist))
-            return
-        }
-        
         var player = Players(name: name,
                              nameTeam: "Нет команды",
                              email: email,
@@ -84,7 +79,7 @@ class FirestoreService {
                              losGame: 0,
                              captain: false)
         
-        StorageService.shared.upload(photo: avatarImage!) { (result) in
+        StorageService.shared.uploadAvaPlayer(photo: avatarImage!) { (result) in
             switch result {
                 
             case .success(let url):
@@ -117,17 +112,11 @@ class FirestoreService {
             return
         }
         
-        guard avatarTeam != #imageLiteral(resourceName: "khimki") else {
-            completion(.failure(UserError.photoNotExist))
-            return
-        }
-        
         var player = player
         var team = Teams(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, rating: rating!)
         let refCountPlayers = db.collection(["teams", team.id, "players"].joined(separator: "/"))
-        //        let teamRef = db.collection(["players", playerID.id, "team"].joined(separator: "/"))
         
-        StorageService.shared.upload(photo: avatarTeam!) { (result) in
+        StorageService.shared.uploadAvaTeam(photo: avatarTeam!) { (result) in
             switch result {
                 
             case .success(let url):

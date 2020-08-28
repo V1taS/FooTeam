@@ -19,9 +19,7 @@ struct OutButtonFooTeamMenu: View {
         }) {
             HStack(spacing: 25){
                 Image("out")
-                    .foregroundColor(Color.white)
-                Text("Выход")
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.black)
             }
             .padding(.vertical, 10)
             .padding(.horizontal)
@@ -49,7 +47,7 @@ struct OutButtonFooTeamMenu: View {
 struct OutButtonFooTeamMenu_Previews: PreviewProvider {
     static var previews: some View {
         OutButtonFooTeamMenu(isPresentedAlertSignOut: .constant(false))
-        .background(Color("Color").edgesIgnoringSafeArea(.all))
+            .background(Color(.white).edgesIgnoringSafeArea(.all))
         .edgesIgnoringSafeArea(.all)
     }
 }

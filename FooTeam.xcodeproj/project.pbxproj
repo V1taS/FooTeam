@@ -10,6 +10,10 @@
 		1B02FEBC24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B02FEBB24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift */; };
 		1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446824F85B060008FC40 /* TabViewFooTeam.swift */; };
 		1B39446B24F85D250008FC40 /* MainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446A24F85D250008FC40 /* MainFooTeam.swift */; };
+		1B39446E24F9A3470008FC40 /* HeaderMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446D24F9A3470008FC40 /* HeaderMainFooTeam.swift */; };
+		1B39447024F9A3A00008FC40 /* ProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446F24F9A3A00008FC40 /* ProfileMainFooTeam.swift */; };
+		1B39447224F9A3E80008FC40 /* InformationMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39447124F9A3E80008FC40 /* InformationMainFooTeam.swift */; };
+		1B3F0C0324F9A50E00FA4F51 /* MyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F0C0224F9A50E00FA4F51 /* MyTeamMainFooTeam.swift */; };
 		1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3024EC714C0092770B /* AppDelegate.swift */; };
 		1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3224EC714C0092770B /* SceneDelegate.swift */; };
 		1B596F3D24EC714E0092770B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B596F3B24EC714E0092770B /* LaunchScreen.storyboard */; };
@@ -23,7 +27,6 @@
 		1B596F6F24EC73530092770B /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5624EC73530092770B /* CreateTeamViewController.swift */; };
 		1B596F7024EC73530092770B /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5724EC73530092770B /* SetupProfileViewController.swift */; };
 		1B596F7124EC73530092770B /* HeaderFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5A24EC73530092770B /* HeaderFooTeam.swift */; };
-		1B596F7324EC73530092770B /* ContentFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5C24EC73530092770B /* ContentFooTeam.swift */; };
 		1B596F7424EC73530092770B /* TopPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5E24EC73530092770B /* TopPlayersFooTeam.swift */; };
 		1B596F7524EC73530092770B /* CellTopPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5F24EC73530092770B /* CellTopPlayersFooTeam.swift */; };
 		1B596F7624EC73530092770B /* BoxTopPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F6024EC73530092770B /* BoxTopPlayersFooTeam.swift */; };
@@ -72,7 +75,6 @@
 		1B7BF9AC24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AB24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift */; };
 		1B7BF9AE24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AD24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift */; };
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
-		1B7BF9B224EDF5C000CDEDB9 /* MainContentFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B124EDF5C000CDEDB9 /* MainContentFooTeam.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
 		1BF35E4A24EDE79C001C6E83 /* WellcomeFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF35E4924EDE79C001C6E83 /* WellcomeFooTeamMenu.swift */; };
 		A7499DF13EC9442950F42EDA /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAB2070B0DDE1E36A11C5BE /* Pods_FooTeam.framework */; };
@@ -83,6 +85,10 @@
 		1B02FEBB24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWellcomeFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B39446824F85B060008FC40 /* TabViewFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewFooTeam.swift; sourceTree = "<group>"; };
 		1B39446A24F85D250008FC40 /* MainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFooTeam.swift; sourceTree = "<group>"; };
+		1B39446D24F9A3470008FC40 /* HeaderMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMainFooTeam.swift; sourceTree = "<group>"; };
+		1B39446F24F9A3A00008FC40 /* ProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainFooTeam.swift; sourceTree = "<group>"; };
+		1B39447124F9A3E80008FC40 /* InformationMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationMainFooTeam.swift; sourceTree = "<group>"; };
+		1B3F0C0224F9A50E00FA4F51 /* MyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamMainFooTeam.swift; sourceTree = "<group>"; };
 		1B596F2D24EC714C0092770B /* FooTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FooTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B596F3024EC714C0092770B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B596F3224EC714C0092770B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +104,6 @@
 		1B596F5624EC73530092770B /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTeamViewController.swift; sourceTree = "<group>"; };
 		1B596F5724EC73530092770B /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		1B596F5A24EC73530092770B /* HeaderFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFooTeam.swift; sourceTree = "<group>"; };
-		1B596F5C24EC73530092770B /* ContentFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentFooTeam.swift; sourceTree = "<group>"; };
 		1B596F5E24EC73530092770B /* TopPlayersFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1B596F5F24EC73530092770B /* CellTopPlayersFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTopPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1B596F6024EC73530092770B /* BoxTopPlayersFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxTopPlayersFooTeam.swift; sourceTree = "<group>"; };
@@ -147,7 +152,6 @@
 		1B7BF9AB24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9AD24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
-		1B7BF9B124EDF5C000CDEDB9 /* MainContentFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentFooTeam.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
 		1BF35E4924EDE79C001C6E83 /* WellcomeFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellcomeFooTeamMenu.swift; sourceTree = "<group>"; };
 		80260536C4805135524B07DC /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +177,19 @@
 				1B02FEBB24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift */,
 			);
 			path = WellcomeFooTeamMenu;
+			sourceTree = "<group>";
+		};
+		1B39446C24F9A3010008FC40 /* MainFooTeam */ = {
+			isa = PBXGroup;
+			children = (
+				1B39446A24F85D250008FC40 /* MainFooTeam.swift */,
+				1B39446D24F9A3470008FC40 /* HeaderMainFooTeam.swift */,
+				1B39446F24F9A3A00008FC40 /* ProfileMainFooTeam.swift */,
+				1B39447124F9A3E80008FC40 /* InformationMainFooTeam.swift */,
+				1B3F0C0224F9A50E00FA4F51 /* MyTeamMainFooTeam.swift */,
+				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
+			);
+			path = MainFooTeam;
 			sourceTree = "<group>";
 		};
 		1B596F2424EC714B0092770B = {
@@ -273,7 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				1B39446824F85B060008FC40 /* TabViewFooTeam.swift */,
-				1B39446A24F85D250008FC40 /* MainFooTeam.swift */,
+				1B39446C24F9A3010008FC40 /* MainFooTeam */,
 				1BF35E4824EDE74F001C6E83 /* BackgroundMenu */,
 				1B596F5924EC73530092770B /* HeaderFooTeam */,
 				1B596F5D24EC73530092770B /* TopPlayersFooTeam */,
@@ -428,7 +445,6 @@
 				1B7BF9AD24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift */,
 				1B7BF9AB24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift */,
 				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
-				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
 			);
 			path = ButtonFooTeamMenu;
 			sourceTree = "<group>";
@@ -436,8 +452,6 @@
 		1BF35E4824EDE74F001C6E83 /* BackgroundMenu */ = {
 			isa = PBXGroup;
 			children = (
-				1B7BF9B124EDF5C000CDEDB9 /* MainContentFooTeam.swift */,
-				1B596F5C24EC73530092770B /* ContentFooTeam.swift */,
 				1B02FEBD24EF1910005BF4AA /* WellcomeFooTeamMenu */,
 				1B7BF9B524EDF95600CDEDB9 /* ButtonFooTeamMenu */,
 			);
@@ -595,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B596F8124EC73650092770B /* Teams.swift in Sources */,
+				1B39446E24F9A3470008FC40 /* HeaderMainFooTeam.swift in Sources */,
 				1B596F9224EC73820092770B /* AuthService.swift in Sources */,
 				1B596FC724EC73A90092770B /* ButtonFormView.swift in Sources */,
 				1B596FC624EC73A90092770B /* GradientView.swift in Sources */,
@@ -614,7 +629,9 @@
 				1B596F7924EC73530092770B /* CellCaruselBodyFooTeam.swift in Sources */,
 				1B596F6A24EC73530092770B /* AuthViewController.swift in Sources */,
 				1B596F6924EC73530092770B /* SignUpViewController.swift in Sources */,
+				1B39447224F9A3E80008FC40 /* InformationMainFooTeam.swift in Sources */,
 				1B596FCD24EC73D60092770B /* Constants.swift in Sources */,
+				1B3F0C0324F9A50E00FA4F51 /* MyTeamMainFooTeam.swift in Sources */,
 				1B596F8024EC73650092770B /* Players.swift in Sources */,
 				1B596F7424EC73530092770B /* TopPlayersFooTeam.swift in Sources */,
 				1B596FBE24EC73A90092770B /* ColorExtension.swift in Sources */,
@@ -622,6 +639,7 @@
 				1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */,
 				1B596F7C24EC73530092770B /* ListPlayersFooTeam.swift in Sources */,
 				1B596FC224EC73A90092770B /* CustomeTextField.swift in Sources */,
+				1B39447024F9A3A00008FC40 /* ProfileMainFooTeam.swift in Sources */,
 				1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */,
 				1B596F7124EC73530092770B /* HeaderFooTeam.swift in Sources */,
 				1B596FBA24EC73A90092770B /* ScrollViewExtension.swift in Sources */,
@@ -641,7 +659,6 @@
 				1B596FC324EC73A90092770B /* AddAvaTeamsView.swift in Sources */,
 				1B596F8C24EC73820092770B /* NetworkWeatherManager.swift in Sources */,
 				1B7BF9AC24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift in Sources */,
-				1B596F7324EC73530092770B /* ContentFooTeam.swift in Sources */,
 				1B596F7B24EC73530092770B /* TeamsFooTeam.swift in Sources */,
 				1B596F7624EC73530092770B /* BoxTopPlayersFooTeam.swift in Sources */,
 				1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */,
@@ -650,7 +667,6 @@
 				1B39446B24F85D250008FC40 /* MainFooTeam.swift in Sources */,
 				1B596F6D24EC73530092770B /* JoinTeamViewController.swift in Sources */,
 				1B596F7024EC73530092770B /* SetupProfileViewController.swift in Sources */,
-				1B7BF9B224EDF5C000CDEDB9 /* MainContentFooTeam.swift in Sources */,
 				1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */,
 				1B596FBD24EC73A90092770B /* ViewExtension.swift in Sources */,
 				1B02FEBC24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift in Sources */,
