@@ -48,6 +48,8 @@ class SetupProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.nameTextField.delegate = self
+        
         view.backgroundColor = .white
         setupConstraints()
         goToButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
@@ -195,5 +197,20 @@ struct SetupProfileVCProvider: PreviewProvider {
         func updateUIViewController(_ uiViewController: SetupProfileVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SetupProfileVCProvider.ContainerView>) {
             
         }
+    }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension SetupProfileViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 }

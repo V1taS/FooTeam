@@ -41,6 +41,9 @@ class CreateTeamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.nameTextField.delegate = self
+        self.cityTextField.delegate = self
+        
         view.backgroundColor = .white
         setupConstraints()
         goToButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
@@ -129,5 +132,23 @@ extension CreateTeamViewController: UINavigationControllerDelegate, UIImagePicke
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         fullImageView.circleAvaTeamsImageView.image = image
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension CreateTeamViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField{
+            cityTextField.becomeFirstResponder()
+        } else {
+            cityTextField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 }
