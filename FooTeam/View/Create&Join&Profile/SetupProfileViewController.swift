@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 import FirebaseAuth
 import SDWebImage
 
@@ -87,8 +87,9 @@ extension SetupProfileViewController {
                 case .success(let player):
                     self.showAlert(with: "Успешно!", and: "Данные сохранены!", completion: {
                         
+                        FirestoreService.shared.getUserData(user: self.currentUser) { _ in }
+                        
                         if self.whoAreYouSegmentedControl.titleForSegment(at: self.whoAreYouSegmentedControl.selectedSegmentIndex) == "Зритель" {
-
                             let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             
@@ -118,7 +119,6 @@ extension SetupProfileViewController {
                             alertController.addAction(skipTeam)
                             self.present(alertController, animated: true, completion: nil)
                         }
-                        
                     })
                 case .failure(let error):
                     self.showAlert(with: "Ошибка! \(error)", and: error.localizedDescription)
@@ -177,29 +177,6 @@ extension SetupProfileViewController: UINavigationControllerDelegate, UIImagePic
         fullImageView.circleAvaPlayersImageView.image = image
     }
 }
-
-// MARK: - SwiftUI
-import SwiftUI
-
-struct SetupProfileVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let setupProfileVC = SetupProfileViewController(currentUser: Auth.auth().currentUser!)
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<SetupProfileVCProvider.ContainerView>) -> SetupProfileViewController {
-            return setupProfileVC
-        }
-        
-        func updateUIViewController(_ uiViewController: SetupProfileVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SetupProfileVCProvider.ContainerView>) {
-            
-        }
-    }
-}
-
 
 // MARK: - UITextFieldDelegate
 extension SetupProfileViewController: UITextFieldDelegate {

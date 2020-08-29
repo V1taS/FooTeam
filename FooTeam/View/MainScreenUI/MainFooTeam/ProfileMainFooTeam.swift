@@ -25,21 +25,22 @@ struct ProfileMainFooTeam: View {
                     .foregroundColor(Color(.red))
                 Text(player?.name ?? "Игрок")
                     .font(.subheadline)
-        
-                    WebImage(url: URL(string: player!.avatarStringURL))
-                        .onSuccess { image, data, cacheType in }
-                        .resizable()
-                        .placeholder(Image("player"))
-                        .indicator(.activity)
-                        .transition(.fade(duration: 0.5))
-                        .scaledToFill()
-                        .frame(width: 125, height: 125, alignment: .center)
-                        .cornerRadius(20)
-                        .aspectRatio(contentMode: .fill)
+                
+                WebImage(url: URL(string: player?.avatarStringURL ?? ""))
+                    .onSuccess { image, data, cacheType in }
+                    .resizable()
+                    .placeholder(Image("player"))
+                    .indicator(.activity)
+                    .transition(.fade(duration: 0.5))
+                    .scaledToFill()
+                    .frame(width: 125, height: 125, alignment: .center)
+                    .cornerRadius(20)
+                    .aspectRatio(contentMode: .fill)
             }
         }
     }
 }
+
 
 struct ProfileMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {

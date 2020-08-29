@@ -16,7 +16,7 @@ struct TabViewFooTeam: View {
         TabView {
             MainFooTeam(player: $player)
                 .tabItem {
-                    Image(systemName: "1.circle")
+                    Image(systemName: "shield")
                     Text("Главная")
             }
             

@@ -36,7 +36,7 @@ struct InformationMainFooTeam: View {
                             Text("Клуб: \(player?.nameTeam ?? "нет")")
                                 .font(.subheadline)
                             
-                            Text("Иду на игру: 🟢")
+                            Text("Иду на игру: \(player?.iGo ?? false ? "🟢" : "🔴")")
                                 .font(.subheadline)
                         }
                         
@@ -79,6 +79,6 @@ struct InformationMainFooTeam: View {
 
 struct InformationMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        InformationMainFooTeam(player: .constant(Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)))
+        InformationMainFooTeam(player: .constant(Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: true, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)))
     }
 }

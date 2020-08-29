@@ -22,7 +22,7 @@ struct HeaderMainFooTeam: View {
                     Text("Баланс:")
                     .padding(.leading)
                     Spacer()
-                    Text("100 000 руб")
+                    Text("\(player?.payment ?? "0") FCoin")
                         .padding(.trailing)
                 }
             }

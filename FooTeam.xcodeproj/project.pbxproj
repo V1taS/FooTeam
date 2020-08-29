@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B02FEBC24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B02FEBB24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift */; };
 		1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446824F85B060008FC40 /* TabViewFooTeam.swift */; };
 		1B39446B24F85D250008FC40 /* MainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446A24F85D250008FC40 /* MainFooTeam.swift */; };
 		1B39446E24F9A3470008FC40 /* HeaderMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446D24F9A3470008FC40 /* HeaderMainFooTeam.swift */; };
@@ -72,17 +71,13 @@
 		1B596FC724EC73A90092770B /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596FB424EC73A90092770B /* ButtonFormView.swift */; };
 		1B596FCA24EC73B20092770B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B596FC924EC73B20092770B /* Assets.xcassets */; };
 		1B596FCD24EC73D60092770B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596FCC24EC73D60092770B /* Constants.swift */; };
-		1B7BF9AC24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AB24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift */; };
-		1B7BF9AE24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AD24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift */; };
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
-		1BF35E4A24EDE79C001C6E83 /* WellcomeFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF35E4924EDE79C001C6E83 /* WellcomeFooTeamMenu.swift */; };
 		A7499DF13EC9442950F42EDA /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAB2070B0DDE1E36A11C5BE /* Pods_FooTeam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0EAB2070B0DDE1E36A11C5BE /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B02FEBB24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWellcomeFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B39446824F85B060008FC40 /* TabViewFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewFooTeam.swift; sourceTree = "<group>"; };
 		1B39446A24F85D250008FC40 /* MainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFooTeam.swift; sourceTree = "<group>"; };
 		1B39446D24F9A3470008FC40 /* HeaderMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMainFooTeam.swift; sourceTree = "<group>"; };
@@ -149,11 +144,8 @@
 		1B596FB424EC73A90092770B /* ButtonFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
 		1B596FC924EC73B20092770B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B596FCC24EC73D60092770B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		1B7BF9AB24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFooTeamMenu.swift; sourceTree = "<group>"; };
-		1B7BF9AD24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
-		1BF35E4924EDE79C001C6E83 /* WellcomeFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellcomeFooTeamMenu.swift; sourceTree = "<group>"; };
 		80260536C4805135524B07DC /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
 		FDF637A6E943857D53846E6B /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,15 +162,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B02FEBD24EF1910005BF4AA /* WellcomeFooTeamMenu */ = {
-			isa = PBXGroup;
-			children = (
-				1BF35E4924EDE79C001C6E83 /* WellcomeFooTeamMenu.swift */,
-				1B02FEBB24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift */,
-			);
-			path = WellcomeFooTeamMenu;
-			sourceTree = "<group>";
-		};
 		1B39446C24F9A3010008FC40 /* MainFooTeam */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +171,7 @@
 				1B39447124F9A3E80008FC40 /* InformationMainFooTeam.swift */,
 				1B3F0C0224F9A50E00FA4F51 /* MyTeamMainFooTeam.swift */,
 				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
+				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
 			);
 			path = MainFooTeam;
 			sourceTree = "<group>";
@@ -291,7 +275,6 @@
 			children = (
 				1B39446824F85B060008FC40 /* TabViewFooTeam.swift */,
 				1B39446C24F9A3010008FC40 /* MainFooTeam */,
-				1BF35E4824EDE74F001C6E83 /* BackgroundMenu */,
 				1B596F5924EC73530092770B /* HeaderFooTeam */,
 				1B596F5D24EC73530092770B /* TopPlayersFooTeam */,
 				1B596F6224EC73530092770B /* CaruselBodyFooTeam */,
@@ -437,25 +420,6 @@
 				1B596FCC24EC73D60092770B /* Constants.swift */,
 			);
 			path = "Supporting files";
-			sourceTree = "<group>";
-		};
-		1B7BF9B524EDF95600CDEDB9 /* ButtonFooTeamMenu */ = {
-			isa = PBXGroup;
-			children = (
-				1B7BF9AD24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift */,
-				1B7BF9AB24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift */,
-				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
-			);
-			path = ButtonFooTeamMenu;
-			sourceTree = "<group>";
-		};
-		1BF35E4824EDE74F001C6E83 /* BackgroundMenu */ = {
-			isa = PBXGroup;
-			children = (
-				1B02FEBD24EF1910005BF4AA /* WellcomeFooTeamMenu */,
-				1B7BF9B524EDF95600CDEDB9 /* ButtonFooTeamMenu */,
-			);
-			path = BackgroundMenu;
 			sourceTree = "<group>";
 		};
 		5AD05B77981D44B12A07023D /* Pods */ = {
@@ -644,7 +608,6 @@
 				1B596F7124EC73530092770B /* HeaderFooTeam.swift in Sources */,
 				1B596FBA24EC73A90092770B /* ScrollViewExtension.swift in Sources */,
 				1B596FB824EC73A90092770B /* SegmentedControlExtension.swift in Sources */,
-				1BF35E4A24EDE79C001C6E83 /* WellcomeFooTeamMenu.swift in Sources */,
 				1B596F7724EC73530092770B /* BackgroundFooTeam.swift in Sources */,
 				1B596F9024EC73820092770B /* StorageService.swift in Sources */,
 				1B596F7A24EC73530092770B /* BoxCaruselBodyFooTeam.swift in Sources */,
@@ -658,7 +621,6 @@
 				1B596FC124EC73A90092770B /* LabelExtension.swift in Sources */,
 				1B596FC324EC73A90092770B /* AddAvaTeamsView.swift in Sources */,
 				1B596F8C24EC73820092770B /* NetworkWeatherManager.swift in Sources */,
-				1B7BF9AC24EDEA9C00CDEDB9 /* ButtonFooTeamMenu.swift in Sources */,
 				1B596F7B24EC73530092770B /* TeamsFooTeam.swift in Sources */,
 				1B596F7624EC73530092770B /* BoxTopPlayersFooTeam.swift in Sources */,
 				1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */,
@@ -669,11 +631,9 @@
 				1B596F7024EC73530092770B /* SetupProfileViewController.swift in Sources */,
 				1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */,
 				1B596FBD24EC73A90092770B /* ViewExtension.swift in Sources */,
-				1B02FEBC24EF1904005BF4AA /* ImageWellcomeFooTeamMenu.swift in Sources */,
 				1B596F9924EC739A0092770B /* UserError.swift in Sources */,
 				1B596F7824EC73530092770B /* CaruselBodyFooTeam.swift in Sources */,
 				1B596FBF24EC73A90092770B /* ImageViewExtension.swift in Sources */,
-				1B7BF9AE24EDECB100CDEDB9 /* BoxButtonFooTeamMenu.swift in Sources */,
 				1B596F9124EC73820092770B /* ListenerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
