@@ -31,8 +31,13 @@ struct MainFooTeam: View {
                     Spacer()
                 }
                     
-                .navigationBarTitle("Главная", displayMode: .inline)
-                .navigationBarItems(trailing: OutButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut))
+                .navigationBarItems(trailing:
+                    HStack {
+                        JoinButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut)
+                        OutButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut)
+                        
+                })
+                    .navigationBarTitle("Главная", displayMode: .inline)
             }
         }
     }

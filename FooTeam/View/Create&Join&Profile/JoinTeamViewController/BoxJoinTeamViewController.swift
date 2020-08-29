@@ -11,47 +11,31 @@ import SwiftUI
 struct BoxJoinTeamViewController: View {
     
     @State private var searchText = ""
+    @State var isPresentedAlertSignOut = false
+    
+    let awards = Award.getAwards()
+    var activeAwards: [Award] {
+        awards.filter { $0.awarded }
+    }
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            
-            Text("Присоедениться к команде")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.top)
-            
-            TextField("Поиск...", text: $searchText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            HStack {
-                CellJoinTeamViewController()
-                CellJoinTeamViewController()
+        
+        NavigationView {
+            VStack {
+                TextField("Поиск...", text: $searchText)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                
+                GridView(items: activeAwards, columns: 2) { award in
+                    VStack {
+                        award.awardView
+                    }
+                } .padding(.top, 0)
             }
             
-            HStack {
-                CellJoinTeamViewController()
-                CellJoinTeamViewController()
-            }
-            HStack {
-                CellJoinTeamViewController()
-                CellJoinTeamViewController()
-            }
-            
-            HStack {
-                CellJoinTeamViewController()
-                CellJoinTeamViewController()
-            }
-            
-            HStack {
-                CellJoinTeamViewController()
-                CellJoinTeamViewController()
-            }
-            
-            HStack {
-                CellJoinTeamViewController()
-                CellJoinTeamViewController()
-            }
+            .navigationBarTitle("Присоедениться к команде", displayMode: .inline)
+            .navigationBarItems(trailing: OutButtonJoinTeam(isPresentedAlertSignOut: $isPresentedAlertSignOut))
         }
     }
 }

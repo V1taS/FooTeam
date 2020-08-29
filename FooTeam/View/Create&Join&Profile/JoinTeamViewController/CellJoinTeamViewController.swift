@@ -13,16 +13,17 @@ struct CellJoinTeamViewController: View {
     let colorText: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
     var body: some View {
+        
         ZStack {
             BackgroundFooTeam(firstColor: .gray, centerColor: Color.black.opacity(0.7), lastColor: .gray)
-                .frame(width: 180, height: 225)
+                .frame(width: 170, height: 200)
                 .clipShape(RoundedRectangle(cornerRadius: 45))
             
             VStack {
                 Image("khimki")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 80)
+                    .frame(width: 60)
                 Text("ФК Химки")
                     .foregroundColor(Color(colorText))
                 
@@ -42,7 +43,6 @@ struct CellJoinTeamViewController: View {
                     .lineLimit(1)
             }
             .frame(width: 160)
-            
         }
     }
 }
