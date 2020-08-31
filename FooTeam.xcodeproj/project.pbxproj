@@ -31,7 +31,6 @@
 		1B596F7824EC73530092770B /* CaruselBodyFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F6324EC73530092770B /* CaruselBodyFooTeam.swift */; };
 		1B596F7924EC73530092770B /* CellCaruselBodyFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F6424EC73530092770B /* CellCaruselBodyFooTeam.swift */; };
 		1B596F7A24EC73530092770B /* BoxCaruselBodyFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F6524EC73530092770B /* BoxCaruselBodyFooTeam.swift */; };
-		1B596F7B24EC73530092770B /* TeamsFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F6724EC73530092770B /* TeamsFooTeam.swift */; };
 		1B596F7C24EC73530092770B /* ListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F6824EC73530092770B /* ListPlayersFooTeam.swift */; };
 		1B596F8024EC73650092770B /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F7E24EC73650092770B /* Players.swift */; };
 		1B596F8124EC73650092770B /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F7F24EC73650092770B /* Teams.swift */; };
@@ -102,7 +101,6 @@
 		1B596F6324EC73530092770B /* CaruselBodyFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaruselBodyFooTeam.swift; sourceTree = "<group>"; };
 		1B596F6424EC73530092770B /* CellCaruselBodyFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCaruselBodyFooTeam.swift; sourceTree = "<group>"; };
 		1B596F6524EC73530092770B /* BoxCaruselBodyFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxCaruselBodyFooTeam.swift; sourceTree = "<group>"; };
-		1B596F6724EC73530092770B /* TeamsFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsFooTeam.swift; sourceTree = "<group>"; };
 		1B596F6824EC73530092770B /* ListPlayersFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1B596F7E24EC73650092770B /* Players.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		1B596F7F24EC73650092770B /* Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 		1B596F6624EC73530092770B /* TeamsFooTeam */ = {
 			isa = PBXGroup;
 			children = (
-				1B596F6724EC73530092770B /* TeamsFooTeam.swift */,
 				1B596F6824EC73530092770B /* ListPlayersFooTeam.swift */,
 			);
 			path = TeamsFooTeam;
@@ -614,7 +611,6 @@
 				1B596FC124EC73A90092770B /* LabelExtension.swift in Sources */,
 				1B596FC324EC73A90092770B /* AddAvaTeamsView.swift in Sources */,
 				1B596F8C24EC73820092770B /* NetworkWeatherManager.swift in Sources */,
-				1B596F7B24EC73530092770B /* TeamsFooTeam.swift in Sources */,
 				1B596F7624EC73530092770B /* BoxTopPlayersFooTeam.swift in Sources */,
 				1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */,
 				1B596F9824EC739A0092770B /* AuthError.swift in Sources */,

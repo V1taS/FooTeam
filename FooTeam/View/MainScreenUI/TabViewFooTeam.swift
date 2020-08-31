@@ -13,19 +13,20 @@ import FirebaseAuth
 struct TabViewFooTeam: View {
     
     @State var player = FirestoreService.shared.currentUser
+    @State var listPlayers = FirestoreService.shared.listPlayers
     
     var body: some View {
         TabView {
-            MainFooTeam(player: $player)
+            MainFooTeam(player: $player, listPlayers: $listPlayers)
                 .tabItem {
                     Image(systemName: "shield")
                     Text("Главная")
             }
             
-            Text("Second Content")
+            ListPlayersFooTeam(player: $player, listPlayers: $listPlayers)
                 .tabItem {
                     Image(systemName: "2.circle")
-                    Text("Составы")
+                    Text("Составы ")
             }
             
             Text("Second Content")
