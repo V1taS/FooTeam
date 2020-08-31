@@ -98,13 +98,13 @@ extension SetupProfileViewController {
                             let alertController = UIAlertController(title: "Чтобы продолжить", message: "присоеденись или создай команду", preferredStyle: .actionSheet)
                             
                             let creatTeam = UIAlertAction(title: "Создать команду", style: .default) { _ in
-                                let createTeam = CreateTeamViewController(currentPlayer: player)
+                                let createTeam = CreateTeamViewController(currentPlayer: player, currentUser: self.currentUser)
                                 createTeam.modalPresentationStyle = .fullScreen
                                 self.present(createTeam, animated: true, completion: nil)
                             }
                             
                             let joinTeam = UIAlertAction(title: "Присоедениться к команде", style: .default) { _ in
-                                let joinToFooTeam = UIHostingController(rootView: JoinTeamViewController())
+                                let joinToFooTeam = UIHostingController(rootView: TabViewFooTeam())
                                 joinToFooTeam.modalPresentationStyle = .fullScreen
                                 self.present(joinToFooTeam, animated: true, completion: nil)
                             }

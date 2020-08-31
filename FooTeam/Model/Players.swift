@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
+import Firebase
 
 struct Players: Hashable, Decodable {
     
@@ -169,6 +169,12 @@ struct Players: Hashable, Decodable {
         rep["winGame"] = winGame
         rep["losGame"] = losGame
         rep["captain"] = captain
+        return rep
+    }
+    
+    var refPlayerRepresentation: [String: Any] {
+        var rep: [String: Any]
+        rep = ["uid": id]
         return rep
     }
     

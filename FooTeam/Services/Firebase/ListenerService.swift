@@ -6,9 +6,8 @@
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
-import Firebase
 import FirebaseAuth
-import FirebaseFirestore
+import Firebase
 
 class ListenerService {
     

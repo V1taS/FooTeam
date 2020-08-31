@@ -21,8 +21,6 @@
 		1B596F6A24EC73530092770B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F4F24EC73530092770B /* AuthViewController.swift */; };
 		1B596F6B24EC73530092770B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5024EC73530092770B /* LoginViewController.swift */; };
 		1B596F6C24EC73530092770B /* CellJoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5324EC73530092770B /* CellJoinTeamViewController.swift */; };
-		1B596F6D24EC73530092770B /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5424EC73530092770B /* JoinTeamViewController.swift */; };
-		1B596F6E24EC73530092770B /* BoxJoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5524EC73530092770B /* BoxJoinTeamViewController.swift */; };
 		1B596F6F24EC73530092770B /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5624EC73530092770B /* CreateTeamViewController.swift */; };
 		1B596F7024EC73530092770B /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5724EC73530092770B /* SetupProfileViewController.swift */; };
 		1B596F7124EC73530092770B /* HeaderFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F5A24EC73530092770B /* HeaderFooTeam.swift */; };
@@ -73,10 +71,6 @@
 		1B596FCD24EC73D60092770B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596FCC24EC73D60092770B /* Constants.swift */; };
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
-		1B939F4324FAFDFA008F8366 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B939F4224FAFDFA008F8366 /* GridView.swift */; };
-		1B939F4524FB0007008F8366 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B939F4424FB0007008F8366 /* Award.swift */; };
-		1B939F4924FB0856008F8366 /* OutButtonJoinTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B939F4824FB0856008F8366 /* OutButtonJoinTeam.swift */; };
-		1BC9572124FB0C070034683A /* JoinButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9572024FB0C070034683A /* JoinButtonFooTeamMenu.swift */; };
 		A7499DF13EC9442950F42EDA /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAB2070B0DDE1E36A11C5BE /* Pods_FooTeam.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,8 +92,6 @@
 		1B596F4F24EC73530092770B /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		1B596F5024EC73530092770B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1B596F5324EC73530092770B /* CellJoinTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellJoinTeamViewController.swift; sourceTree = "<group>"; };
-		1B596F5424EC73530092770B /* JoinTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinTeamViewController.swift; sourceTree = "<group>"; };
-		1B596F5524EC73530092770B /* BoxJoinTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxJoinTeamViewController.swift; sourceTree = "<group>"; };
 		1B596F5624EC73530092770B /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTeamViewController.swift; sourceTree = "<group>"; };
 		1B596F5724EC73530092770B /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		1B596F5A24EC73530092770B /* HeaderFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFooTeam.swift; sourceTree = "<group>"; };
@@ -150,10 +142,6 @@
 		1B596FCC24EC73D60092770B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
-		1B939F4224FAFDFA008F8366 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		1B939F4424FB0007008F8366 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
-		1B939F4824FB0856008F8366 /* OutButtonJoinTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonJoinTeam.swift; sourceTree = "<group>"; };
-		1BC9572024FB0C070034683A /* JoinButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		80260536C4805135524B07DC /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
 		FDF637A6E943857D53846E6B /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,7 +167,6 @@
 				1B39447124F9A3E80008FC40 /* InformationMainFooTeam.swift */,
 				1B3F0C0224F9A50E00FA4F51 /* MyTeamMainFooTeam.swift */,
 				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
-				1BC9572024FB0C070034683A /* JoinButtonFooTeamMenu.swift */,
 				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
 			);
 			path = MainFooTeam;
@@ -272,11 +259,7 @@
 		1B596F5224EC73530092770B /* JoinTeamViewController */ = {
 			isa = PBXGroup;
 			children = (
-				1B596F5424EC73530092770B /* JoinTeamViewController.swift */,
 				1B596F5324EC73530092770B /* CellJoinTeamViewController.swift */,
-				1B939F4424FB0007008F8366 /* Award.swift */,
-				1B596F5524EC73530092770B /* BoxJoinTeamViewController.swift */,
-				1B939F4824FB0856008F8366 /* OutButtonJoinTeam.swift */,
 			);
 			path = JoinTeamViewController;
 			sourceTree = "<group>";
@@ -392,7 +375,6 @@
 				1B596FB224EC73A90092770B /* Bundle-Decodable.swift */,
 				1B596FB324EC73A90092770B /* GradientView.swift */,
 				1B596FB424EC73A90092770B /* ButtonFormView.swift */,
-				1B939F4224FAFDFA008F8366 /* GridView.swift */,
 				1B596FA224EC73A90092770B /* UIKit */,
 			);
 			path = Extensions;
@@ -592,18 +574,14 @@
 				1B596F8F24EC73820092770B /* CalendarFooTeam.swift in Sources */,
 				1B596F6C24EC73530092770B /* CellJoinTeamViewController.swift in Sources */,
 				1B596F8D24EC73820092770B /* Team.swift in Sources */,
-				1B939F4924FB0856008F8366 /* OutButtonJoinTeam.swift in Sources */,
 				1B596FC524EC73A90092770B /* Bundle-Decodable.swift in Sources */,
 				1B596F8E24EC73820092770B /* Notifications.swift in Sources */,
-				1B939F4324FAFDFA008F8366 /* GridView.swift in Sources */,
 				1B596FB524EC73A90092770B /* InsertableTextField.swift in Sources */,
-				1B596F6E24EC73530092770B /* BoxJoinTeamViewController.swift in Sources */,
 				1B596F7524EC73530092770B /* CellTopPlayersFooTeam.swift in Sources */,
 				1B596FB624EC73A90092770B /* StackViewExtension.swift in Sources */,
 				1B596F9E24EC73A00092770B /* AuthNavigatingDelegate.swift in Sources */,
 				1B596FC024EC73A90092770B /* AplicationExtension.swift in Sources */,
 				1B596F9A24EC739A0092770B /* Validators.swift in Sources */,
-				1B939F4524FB0007008F8366 /* Award.swift in Sources */,
 				1B596FC424EC73A90092770B /* AddAvaPlayersView.swift in Sources */,
 				1B596F7924EC73530092770B /* CellCaruselBodyFooTeam.swift in Sources */,
 				1B596F6A24EC73530092770B /* AuthViewController.swift in Sources */,
@@ -624,7 +602,6 @@
 				1B596FBA24EC73A90092770B /* ScrollViewExtension.swift in Sources */,
 				1B596FB824EC73A90092770B /* SegmentedControlExtension.swift in Sources */,
 				1B596F7724EC73530092770B /* BackgroundFooTeam.swift in Sources */,
-				1BC9572124FB0C070034683A /* JoinButtonFooTeamMenu.swift in Sources */,
 				1B596F9024EC73820092770B /* StorageService.swift in Sources */,
 				1B596F7A24EC73530092770B /* BoxCaruselBodyFooTeam.swift in Sources */,
 				1B596FBC24EC73A90092770B /* ButtonExtension.swift in Sources */,
@@ -643,7 +620,6 @@
 				1B596F9824EC739A0092770B /* AuthError.swift in Sources */,
 				1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */,
 				1B39446B24F85D250008FC40 /* MainFooTeam.swift in Sources */,
-				1B596F6D24EC73530092770B /* JoinTeamViewController.swift in Sources */,
 				1B596F7024EC73530092770B /* SetupProfileViewController.swift in Sources */,
 				1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */,
 				1B596FBD24EC73A90092770B /* ViewExtension.swift in Sources */,

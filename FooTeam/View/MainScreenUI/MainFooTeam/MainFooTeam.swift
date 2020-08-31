@@ -8,12 +8,13 @@
 
 import SwiftUI
 import FirebaseAuth
-import FirebaseFirestore
+import Firebase
 
 struct MainFooTeam: View {
     
     @Binding var player: Players?
     @State var isPresentedAlertSignOut = false
+    @State var isPresentedAlertJoinTeam = false
     
     var body: some View {
         NavigationView {
@@ -28,15 +29,13 @@ struct MainFooTeam: View {
                     } . padding(.horizontal)
                     
                     MyTeamMainFooTeam(player: $player)
+                    
                     Spacer()
                 }
                     
                 .navigationBarItems(trailing:
-                    HStack {
-                        JoinButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut)
-                        OutButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut)
-                        
-                })
+                    OutButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut))
+                    
                     .navigationBarTitle("Главная", displayMode: .inline)
             }
         }

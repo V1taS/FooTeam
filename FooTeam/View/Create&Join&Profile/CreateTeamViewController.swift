@@ -28,9 +28,12 @@ class CreateTeamViewController: UIViewController {
     let goToButton = UIButton(title: "Создать", titleColor: .white, backgroundColor: .buttonDark(), font: .bolt14(), cornerRadius: 4)
     
     private let currentPlayer: Players
+    private let currentUser: User
     
-    init(currentPlayer: Players) {
+    init(currentPlayer: Players, currentUser: User) {
         self.currentPlayer = currentPlayer
+        self.currentUser = currentUser
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -73,7 +76,10 @@ extension CreateTeamViewController {
         ) { result in
             switch result {
             case .success(_):
+                FirestoreService.shared.getUserData(user: self.currentUser) { _ in }
+                
                 self.showAlert(with: "Успешно!", and: "Вы создали команду!") {
+                    
                     let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                     mainContentFooTeam.modalPresentationStyle = .fullScreen
                     self.present(mainContentFooTeam, animated: true, completion: nil)

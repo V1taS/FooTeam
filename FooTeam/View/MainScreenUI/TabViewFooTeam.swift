@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 struct TabViewFooTeam: View {
     

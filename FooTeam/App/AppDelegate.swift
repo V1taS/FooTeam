@@ -9,7 +9,7 @@
 import SwiftUI
 
 import UIKit
-import FirebaseCore
+import Firebase
 import GoogleSignIn
 
 @UIApplicationMain

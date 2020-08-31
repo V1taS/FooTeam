@@ -7,7 +7,6 @@
 //
 
 import Firebase
-import FirebaseFirestore
 import FirebaseAuth
 
 class FirestoreService {
@@ -133,7 +132,7 @@ class FirestoreService {
                     }
                 }
                 
-                refCountPlayers.document(team.id).setData(player.representation) { (error) in
+                refCountPlayers.document(player.id).setData(player.refPlayerRepresentation) { (error) in
                     if let error = error {
                         completion(.failure(error))
                         return
