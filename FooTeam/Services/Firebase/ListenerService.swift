@@ -6,6 +6,7 @@
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
+import SwiftUI
 import FirebaseAuth
 import Firebase
 
@@ -23,7 +24,8 @@ class ListenerService {
         return Auth.auth().currentUser!.uid
     }
     
-    func usersObserve(players: [Players], completion: @escaping (Result<[Players], Error>) -> Void) -> ListenerRegistration? {
+    
+    func playersObserve(players: [Players], completion: @escaping (Result<[Players], Error>) -> Void) -> ListenerRegistration? {
         var players = players
         let usersListener = usersRef.addSnapshotListener { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
@@ -31,17 +33,17 @@ class ListenerService {
                 return
             }
             snapshot.documentChanges.forEach { (diff) in
-                guard let muser = Players(document: diff.document) else { return }
+                guard let player = Players(document: diff.document) else { return }
                 switch diff.type {
                 case .added:
-                    guard !players.contains(muser) else { return }
-                    guard muser.id != self.currentUserId else { return }
-                    players.append(muser)
+                    guard !players.contains(player) else { return }
+                    guard player.id != self.currentUserId else { return }
+                    players.append(player)
                 case .modified:
-                    guard let index = players.firstIndex(of: muser) else { return }
-                    players[index] = muser
+                    guard let index = players.firstIndex(of: player) else { return }
+                    players[index] = player
                 case .removed:
-                    guard let index = players.firstIndex(of: muser) else { return }
+                    guard let index = players.firstIndex(of: player) else { return }
                     players.remove(at: index)
                 }
             }

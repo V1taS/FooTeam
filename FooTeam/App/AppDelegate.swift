@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-        FirestoreService.shared.getlistPlayers()
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         return true

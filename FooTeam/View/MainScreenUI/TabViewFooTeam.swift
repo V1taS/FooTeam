@@ -13,26 +13,31 @@ import FirebaseAuth
 struct TabViewFooTeam: View {
     
     @State var player = FirestoreService.shared.currentUser
-    @State var listPlayers = FirestoreService.shared.listPlayers
+    @ObservedObject var playersListener = PlayersListener()
+    @ObservedObject var teamsListener = TeamsListener()
+    
     
     var body: some View {
         TabView {
-            MainFooTeam(player: $player, listPlayers: $listPlayers)
+            MainFooTeam(player: $player)
                 .tabItem {
                     Image(systemName: "shield")
                     Text("Главная")
             }
             
-            ListPlayersFooTeam(player: $player, listPlayers: $listPlayers)
+            ListPlayersFooTeam(player: $player)
                 .tabItem {
                     Image(systemName: "2.circle")
                     Text("Составы ")
             }
             
-            Text("Second Content")
-                .tabItem {
-                    Image(systemName: "3.circle")
-                    Text("Чат")
+            VStack {
+                Text("Кол-во игроков: \(playersListener.players.count)")
+                Text("Кол-во команд: \(teamsListener.teams.count)")
+            }
+            .tabItem {
+                Image(systemName: "3.circle")
+                Text("Чат")
             }
             
             Text("Second Content")
@@ -48,6 +53,8 @@ struct TabViewFooTeam: View {
             }
         }
     }
+    
+    
 }
 
 struct TabViewFooTeam_Previews: PreviewProvider {

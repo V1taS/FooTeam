@@ -11,10 +11,11 @@ import SwiftUI
 struct MyTeamMainFooTeam: View {
     
     @Binding var player: Players?
-    @Binding var listPlayers: [Players]?
+    
+    @ObservedObject var playersListener = PlayersListener()
     
     var iGolistPlayers: [Players] {
-        listPlayers?.filter { $0.iGo } ?? []
+        playersListener.players.filter { $0.iGo }
     }
     
     var body: some View {
@@ -36,7 +37,7 @@ struct MyTeamMainFooTeam: View {
                         .font(.title)
                         .foregroundColor(Color(.red))
                     
-                    Text("Всего игроков: \(listPlayers?.count ?? 0)")
+                    Text("Всего игроков: \(playersListener.players.count)")
                     Text("Придут на игру: \(iGolistPlayers.count)")
                 }
             }.padding(.horizontal, 36)
@@ -46,6 +47,6 @@ struct MyTeamMainFooTeam: View {
 
 struct MyTeamMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        MyTeamMainFooTeam(player: .constant(Players(name: "Виталий", nameTeam: "Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: false, subscription: false, rating: 0, position: "ФРВ", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)), listPlayers: .constant([Players(name: "Виталий", nameTeam: "Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: true, subscription: false, rating: 0, position: "ФРВ", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)]))
+        MyTeamMainFooTeam(player: .constant(Players(name: "Виталий", nameTeam: "Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: false, subscription: false, rating: 0, position: "ФРВ", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)))
     }
 }
