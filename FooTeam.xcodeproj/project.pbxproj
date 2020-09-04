@@ -18,7 +18,7 @@
 		1B453AB02501AA1800DA2DDA /* TeamsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */; };
 		1B4A3DC72502EAEA000EABD1 /* СompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DC62502EAEA000EABD1 /* СompositionsMyTeamMainFooTeam.swift */; };
 		1B4A3DCC2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCB2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift */; };
-		1B4A3DCE2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCD2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift */; };
+		1B4A3DCE2502EF6F000EABD1 /* BoxPositionsMyTeamMFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCD2502EF6F000EABD1 /* BoxPositionsMyTeamMFT.swift */; };
 		1B4A3DD02502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */; };
 		1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3024EC714C0092770B /* AppDelegate.swift */; };
 		1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3224EC714C0092770B /* SceneDelegate.swift */; };
@@ -92,7 +92,7 @@
 		1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsListener.swift; sourceTree = "<group>"; };
 		1B4A3DC62502EAEA000EABD1 /* СompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СompositionsMyTeamMainFooTeam.swift"; sourceTree = "<group>"; };
 		1B4A3DCB2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGcompositionsMyTeamMainFooTeam.swift; sourceTree = "<group>"; };
-		1B4A3DCD2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxCompositionsMyTeamMainFooTeam.swift; sourceTree = "<group>"; };
+		1B4A3DCD2502EF6F000EABD1 /* BoxPositionsMyTeamMFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxPositionsMyTeamMFT.swift; sourceTree = "<group>"; };
 		1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCompositionsMyTeamMainFooTeam.swift; sourceTree = "<group>"; };
 		1B596F2D24EC714C0092770B /* FooTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FooTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B596F3024EC714C0092770B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */,
-				1B4A3DCD2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift */,
+				1B4A3DCD2502EF6F000EABD1 /* BoxPositionsMyTeamMFT.swift */,
 				1B4A3DCB2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift */,
 			);
 			path = "Сompositions";
@@ -608,7 +608,7 @@
 				1B596F8F24EC73820092770B /* CalendarFooTeam.swift in Sources */,
 				1B596F6C24EC73530092770B /* CellJoinTeamViewController.swift in Sources */,
 				1B596F8D24EC73820092770B /* Team.swift in Sources */,
-				1B4A3DCE2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift in Sources */,
+				1B4A3DCE2502EF6F000EABD1 /* BoxPositionsMyTeamMFT.swift in Sources */,
 				1B596FC524EC73A90092770B /* Bundle-Decodable.swift in Sources */,
 				1B596F8E24EC73820092770B /* Notifications.swift in Sources */,
 				1B453AAE2501A30400DA2DDA /* PlayersListener.swift in Sources */,

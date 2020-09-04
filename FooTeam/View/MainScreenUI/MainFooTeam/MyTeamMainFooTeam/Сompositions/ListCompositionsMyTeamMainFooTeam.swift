@@ -34,7 +34,7 @@ struct ListCompositionsMyTeamMainFooTeam: View {
             
             HStack {
                 ZStack {
-                    BoxCompositionsMyTeamMainFooTeam(teamnumber: 1, ratingTeam: 89, backgroundColor: #colorLiteral(red: 0.5169272423, green: 0.3713009357, blue: 0.09045822173, alpha: 1))
+                    BoxPositionsMyTeamMFT(teamnumber: 1, ratingTeam: 89, backgroundColor: #colorLiteral(red: 0.5169272423, green: 0.3713009357, blue: 0.09045822173, alpha: 1))
                     
                     VStack(alignment: .leading, spacing: 1) {
                         ForEach(teamOne, id: \.self) { player in
@@ -48,7 +48,7 @@ struct ListCompositionsMyTeamMainFooTeam: View {
                 }
                 
                 ZStack {
-                    BoxCompositionsMyTeamMainFooTeam(teamnumber: 2, ratingTeam: 93, backgroundColor: #colorLiteral(red: 0.3060370684, green: 0.3729676306, blue: 0.2559336424, alpha: 1))
+                    BoxPositionsMyTeamMFT(teamnumber: 2, ratingTeam: 93, backgroundColor: #colorLiteral(red: 0.3060370684, green: 0.3729676306, blue: 0.2559336424, alpha: 1))
                     
                     VStack(alignment: .leading, spacing: 1) {
                         ForEach(teamTwo, id: \.self) { player in
@@ -62,7 +62,7 @@ struct ListCompositionsMyTeamMainFooTeam: View {
                 }
                 
                 ZStack {
-                    BoxCompositionsMyTeamMainFooTeam(teamnumber: 3, ratingTeam: 90, backgroundColor: #colorLiteral(red: 0.1261743307, green: 0.3719377518, blue: 0.481738627, alpha: 1))
+                    BoxPositionsMyTeamMFT(teamnumber: 3, ratingTeam: 90, backgroundColor: #colorLiteral(red: 0.1261743307, green: 0.3719377518, blue: 0.481738627, alpha: 1))
                     
                     VStack(alignment: .leading, spacing: 1) {
                         ForEach(teamThree, id: \.self) { player in
