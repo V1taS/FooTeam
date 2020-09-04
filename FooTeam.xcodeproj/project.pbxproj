@@ -16,6 +16,10 @@
 		1B453AAC2501A28B00DA2DDA /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */; };
 		1B453AAE2501A30400DA2DDA /* PlayersListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAD2501A30400DA2DDA /* PlayersListener.swift */; };
 		1B453AB02501AA1800DA2DDA /* TeamsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */; };
+		1B4A3DC72502EAEA000EABD1 /* СompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DC62502EAEA000EABD1 /* СompositionsMyTeamMainFooTeam.swift */; };
+		1B4A3DCC2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCB2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift */; };
+		1B4A3DCE2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCD2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift */; };
+		1B4A3DD02502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */; };
 		1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3024EC714C0092770B /* AppDelegate.swift */; };
 		1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3224EC714C0092770B /* SceneDelegate.swift */; };
 		1B596F3D24EC714E0092770B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B596F3B24EC714E0092770B /* LaunchScreen.storyboard */; };
@@ -86,6 +90,10 @@
 		1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
 		1B453AAD2501A30400DA2DDA /* PlayersListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListener.swift; sourceTree = "<group>"; };
 		1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsListener.swift; sourceTree = "<group>"; };
+		1B4A3DC62502EAEA000EABD1 /* СompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СompositionsMyTeamMainFooTeam.swift"; sourceTree = "<group>"; };
+		1B4A3DCB2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGcompositionsMyTeamMainFooTeam.swift; sourceTree = "<group>"; };
+		1B4A3DCD2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxCompositionsMyTeamMainFooTeam.swift; sourceTree = "<group>"; };
+		1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCompositionsMyTeamMainFooTeam.swift; sourceTree = "<group>"; };
 		1B596F2D24EC714C0092770B /* FooTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FooTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B596F3024EC714C0092770B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B596F3224EC714C0092770B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,15 +173,35 @@
 		1B39446C24F9A3010008FC40 /* MainFooTeam */ = {
 			isa = PBXGroup;
 			children = (
+				1B4A3DC52502EA98000EABD1 /* MyTeamMainFooTeam */,
 				1B39446A24F85D250008FC40 /* MainFooTeam.swift */,
 				1B39446D24F9A3470008FC40 /* HeaderMainFooTeam.swift */,
 				1B39446F24F9A3A00008FC40 /* ProfileMainFooTeam.swift */,
 				1B39447124F9A3E80008FC40 /* InformationMainFooTeam.swift */,
-				1B3F0C0224F9A50E00FA4F51 /* MyTeamMainFooTeam.swift */,
 				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
 				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
 			);
 			path = MainFooTeam;
+			sourceTree = "<group>";
+		};
+		1B4A3DC52502EA98000EABD1 /* MyTeamMainFooTeam */ = {
+			isa = PBXGroup;
+			children = (
+				1B3F0C0224F9A50E00FA4F51 /* MyTeamMainFooTeam.swift */,
+				1B4A3DC62502EAEA000EABD1 /* СompositionsMyTeamMainFooTeam.swift */,
+				1B4A3DC82502EAF6000EABD1 /* Сompositions */,
+			);
+			path = MyTeamMainFooTeam;
+			sourceTree = "<group>";
+		};
+		1B4A3DC82502EAF6000EABD1 /* Сompositions */ = {
+			isa = PBXGroup;
+			children = (
+				1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */,
+				1B4A3DCD2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift */,
+				1B4A3DCB2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift */,
+			);
+			path = "Сompositions";
 			sourceTree = "<group>";
 		};
 		1B596F2424EC714B0092770B = {
@@ -580,13 +608,16 @@
 				1B596F8F24EC73820092770B /* CalendarFooTeam.swift in Sources */,
 				1B596F6C24EC73530092770B /* CellJoinTeamViewController.swift in Sources */,
 				1B596F8D24EC73820092770B /* Team.swift in Sources */,
+				1B4A3DCE2502EF6F000EABD1 /* BoxCompositionsMyTeamMainFooTeam.swift in Sources */,
 				1B596FC524EC73A90092770B /* Bundle-Decodable.swift in Sources */,
 				1B596F8E24EC73820092770B /* Notifications.swift in Sources */,
 				1B453AAE2501A30400DA2DDA /* PlayersListener.swift in Sources */,
 				1B596FB524EC73A90092770B /* InsertableTextField.swift in Sources */,
+				1B4A3DD02502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift in Sources */,
 				1B596F7524EC73530092770B /* CellTopPlayersFooTeam.swift in Sources */,
 				1B596FB624EC73A90092770B /* StackViewExtension.swift in Sources */,
 				1B596F9E24EC73A00092770B /* AuthNavigatingDelegate.swift in Sources */,
+				1B4A3DCC2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift in Sources */,
 				1B596FC024EC73A90092770B /* AplicationExtension.swift in Sources */,
 				1B596F9A24EC739A0092770B /* Validators.swift in Sources */,
 				1B596FC424EC73A90092770B /* AddAvaPlayersView.swift in Sources */,
@@ -604,6 +635,7 @@
 				1B596F7C24EC73530092770B /* ListPlayersFooTeam.swift in Sources */,
 				1B596FC224EC73A90092770B /* CustomeTextField.swift in Sources */,
 				1B39447024F9A3A00008FC40 /* ProfileMainFooTeam.swift in Sources */,
+				1B4A3DC72502EAEA000EABD1 /* СompositionsMyTeamMainFooTeam.swift in Sources */,
 				1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */,
 				1B596F7124EC73530092770B /* HeaderFooTeam.swift in Sources */,
 				1B596FBA24EC73A90092770B /* ScrollViewExtension.swift in Sources */,

@@ -32,8 +32,7 @@ struct TabViewFooTeam: View {
             }
             
             VStack {
-                Text("Кол-во игроков: \(playersListener.players.count)")
-                Text("Кол-во команд: \(teamsListener.teams.count)")
+                PositionsMyTeamMainFooTeam()
             }
             .tabItem {
                 Image(systemName: "3.circle")

@@ -33,7 +33,7 @@ struct MyTeamMainFooTeam: View {
                 Spacer()
                 
                 VStack {
-                    Text("Моя команда")
+                    Text("Составы")
                         .font(.title)
                         .foregroundColor(Color(.red))
                     

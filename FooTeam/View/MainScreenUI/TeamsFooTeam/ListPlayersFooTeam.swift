@@ -22,33 +22,54 @@ struct ListPlayersFooTeam: View {
         playersListener.players.filter { !$0.subscription }
     }
     
+    var iGolistPlayers: [Players] {
+        playersListener.players.filter { $0.iGo }
+    }
+    
     var body: some View {
-        VStack {
-            List {
-                Section(header: Text("Основной состав")) {
-                    ForEach(generalListPlayers, id: \.self) { curPlayer in
-                        HStack {
-                            Text("\(curPlayer.name)")
-                            Text("I-GO")
-                                .foregroundColor(curPlayer.iGo ? .green : .red)
-                                .fontWeight(.bold)
-                        }
-                    }
+        NavigationView {
+            VStack {
+                
+                VStack {
+                    Text("Всего игроков: \(playersListener.players.count)")
+                    Text("Придут на игру: \(iGolistPlayers.count)")
                 }
                 
-                Section(header: Text("Запасные игроки")) {
-                    ForEach(reservListPlayers, id: \.self) { curPlayer in
-                        HStack {
-                            Text("\(curPlayer.name)")
-                            Text("I-GO")
-                                .foregroundColor(curPlayer.iGo ? .green : .red)
-                                .fontWeight(.bold)
+                List {
+                    Section(header: Text("Основной состав")) {
+                        ForEach(generalListPlayers, id: \.self) { player in
+                            NavigationLink(destination: TabViewFooTeam()) {
+                                HStack {
+                                    Text("\(player.name)")
+                                    Text("I-GO")
+                                        .foregroundColor(player.iGo ? .green : .red)
+                                        .fontWeight(.bold)
+                                    Text("\(player.captain ? "Капитан" : "")")
+                                }
+                            }
+                        }
+                    }
+                    
+                    Section(header: Text("Запасные игроки")) {
+                        ForEach(reservListPlayers, id: \.self) { player in
+                            NavigationLink(destination: TabViewFooTeam()) {
+                                HStack {
+                                    Text("\(player.name)")
+                                    Text("I-GO")
+                                        .foregroundColor(player.iGo ? .green : .red)
+                                        .fontWeight(.bold)
+                                    Text("\(player.captain ? "Капитан" : "")")
+                                        .foregroundColor(Color.red)
+                                        .fontWeight(.bold)
+                                }
+                            }
                         }
                     }
                 }
-            }
-        } .onAppear { UITableView.appearance().tableFooterView = UIView() }
-            .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
+            } .onAppear { UITableView.appearance().tableFooterView = UIView() }
+                .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
+            .navigationBarTitle(Text("Моя команда"))
+        }
     }
 }
 

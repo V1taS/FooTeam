@@ -11,7 +11,7 @@ import SwiftUI
 struct CellTopPlayersFooTeam: View {
     
     let colorLine: UIColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
-    let colorText: UIColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+    let colorText: UIColor = #colorLiteral(red: 0.2564926744, green: 0.03069057316, blue: 0.1076951697, alpha: 1)
     let backgroundColor: Color = Color(#colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1))
     
     let namePlayer: String = "Сосин Виталий"
