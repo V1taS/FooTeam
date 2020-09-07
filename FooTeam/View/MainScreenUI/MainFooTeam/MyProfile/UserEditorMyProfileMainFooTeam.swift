@@ -1,18 +1,23 @@
 //
-//  MyProfileMainFooTeam.swift
+//  UserEditorMyProfileMainFooTeam.swift
 //  FooTeam
 //
-//  Created by Виталий Сосин on 07.09.2020.
+//  Created by Виталий Сосин on 08.09.2020.
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
-struct MyProfileMainFooTeam: View {
-    
+struct UserEditorMyProfileMainFooTeam: View {
     @Binding var player: Players?
     @Binding var showModal: Bool
+    
+    @State var selection = 0
+    @State var newNumberOfGames = 0
+    @State var subscription = true
+    @State var iGo = true
+    
+    let positions = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
     
     var body: some View {
         NavigationView {
@@ -29,57 +34,55 @@ struct MyProfileMainFooTeam: View {
                     win: "\(player?.numberOfGoals ?? 0)",
                     los: "\(player?.losGame ?? 0)")
                 
+                
+                
                 Form {
+                    
                     HStack {
-                        Text("Играю в команде:")
+                        Text("Позиция:")
                         Spacer()
-                        Text("выйти")
-                        .foregroundColor(.red)
-                        Text("\(player?.nameTeam ?? "")")
-                            .font(.headline)
-
+                        Picker("dvdvd", selection: $selection) {
+                            ForEach(0..<positions.count) {
+                                Text(self.positions[$0])
+                            }
+                        } .pickerStyle(SegmentedPickerStyle())
                     }
                     
                     HStack {
-                        Text("Личный баланс:")
-                        Spacer()
-                        Text("пополнить")
-                        .foregroundColor(Color.green)
-                        Text("\(player?.payment ?? "0") FCoin")
-                            .font(.headline)
+                        Text("Имя:")
+                        TextField("", text: .constant(player?.name ?? ""))
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
+
+
                     
                     HStack {
                         Text("Месячнвя подписка:")
                         Spacer()
-                        Text("\(player?.subscription ?? false ? "активна" : "не активна")")
-                            .font(.headline)
+                        Toggle(isOn: $subscription) {
+                            
+                            Text("\(player?.subscription ?? false ? "активна" : "не активна")")
+                                .font(.headline)
+                        }
                     }
                     
                     HStack {
-                        Text("Иду на след. игру:")
+                        Text("Идет на след. игру:")
                         Spacer()
-                        Text("\(player?.iGo ?? false ? "да" : "нет")")
-                            .font(.headline)
+                        Toggle(isOn: $iGo) {
+                            Text("\(player?.iGo ?? false ? "да" : "нет")")
+                                .font(.headline)
+                        }
                     }
-                    
                 }
                 
                 
                 VStack {
-                    Text("Редактировать")
+                    Text("Сохранить")
                         .font(.headline)
-                        .fontWeight(.bold)
-                    Text("\(player?.captain ?? false ? "КАПИТАН" : "")")
-                        .font(.headline)
-                        .fontWeight(.bold)
                         .padding(.horizontal)
-                        .background(Color.yellow)
-                    
-                    
+                        .background(Color.green)
                 }
-                
-                
             }
                 
                 
@@ -97,8 +100,8 @@ struct MyProfileMainFooTeam: View {
     }
 }
 
-struct MyProfileMainFooTeam_Previews: PreviewProvider {
+struct UserEditorMyProfileMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        MyProfileMainFooTeam(player: .constant(Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 60, position: "ФРВ", numberOfGames: 30, numberOfGoals: 60, winGame: 20, losGame: 10, captain: true)), showModal: .constant(false))
+        UserEditorMyProfileMainFooTeam(player: .constant(Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 60, position: "ФРВ", numberOfGames: 30, numberOfGoals: 60, winGame: 20, losGame: 10, captain: true)), showModal: .constant(false))
     }
 }
