@@ -18,18 +18,18 @@ struct BoxPositionsMyTeamMFT: View {
         ZStack {
             BGcompositionsMyTeamMainFooTeam(backgroundColor: backgroundColor)
             VStack {
-                Text("Команда - \(teamnumber)")
+                Text("КОМАНДА - \(teamnumber)")
                     .fontWeight(.bold)
-                    .font(.title)
+                    .font(.headline)
                     .foregroundColor(.white)
-                } .offset(x: 0, y: -165)
+                } .offset(x: 0, y: -99)
             
             VStack {
-            Text("Рейтинг - \(ratingTeam)")
+            Text("РЕЙТИНГ - \(ratingTeam)")
                 .fontWeight(.bold)
-                .font(.title)
+                .font(.headline)
                 .foregroundColor(.white)
-            } .offset(x: 0, y: -105)
+            } .offset(x: 0, y: -59)
             
             
         } .padding(.leading)

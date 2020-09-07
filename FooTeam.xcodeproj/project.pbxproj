@@ -187,9 +187,9 @@
 		1B4A3DC52502EA98000EABD1 /* MyTeamMainFooTeam */ = {
 			isa = PBXGroup;
 			children = (
+				1B4A3DC82502EAF6000EABD1 /* Сompositions */,
 				1B3F0C0224F9A50E00FA4F51 /* MyTeamMainFooTeam.swift */,
 				1B4A3DC62502EAEA000EABD1 /* СompositionsMyTeamMainFooTeam.swift */,
-				1B4A3DC82502EAF6000EABD1 /* Сompositions */,
 			);
 			path = MyTeamMainFooTeam;
 			sourceTree = "<group>";

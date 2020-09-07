@@ -40,9 +40,7 @@ struct ListCompositionsMyTeamMainFooTeam: View {
                         ForEach(teamOne, id: \.self) { player in
                             Text("\(player.name)")
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .font(.headline)
-                                .padding(.top)
+                                .font(.subheadline)
                         }
                     }
                 }
@@ -54,9 +52,7 @@ struct ListCompositionsMyTeamMainFooTeam: View {
                         ForEach(teamTwo, id: \.self) { player in
                             Text("\(player.name)")
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .font(.headline)
-                                .padding(.top)
+                                .font(.subheadline)
                         }
                     }
                 }
@@ -68,9 +64,7 @@ struct ListCompositionsMyTeamMainFooTeam: View {
                         ForEach(teamThree, id: \.self) { player in
                             Text("\(player.name)")
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .font(.headline)
-                                .padding(.top)
+                                .font(.subheadline)
                         }
                     }
                 }

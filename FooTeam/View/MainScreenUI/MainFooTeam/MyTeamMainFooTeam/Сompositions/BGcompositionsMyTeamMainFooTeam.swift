@@ -16,18 +16,18 @@ struct BGcompositionsMyTeamMainFooTeam: View {
         
         ZStack {
             BackgroundFooTeam(firstColor: Color(backgroundColor), centerColor: Color(backgroundColor), lastColor: Color(backgroundColor))
-                .frame(width: 250, height: 400)
+                .frame(width: 200, height: 270)
                 .clipShape(RoundedRectangle(cornerRadius: 25))
             
             ZStack {
                 Color(backgroundColor).opacity(0.9)
-                    .frame(width: 250, height: 2)
-                } .offset(x: 0, y: -135)
+                    .frame(width: 200, height: 2)
+                } .offset(x: 0, y: -85)
             
             ZStack {
             Color(backgroundColor).opacity(0.9)
-                .frame(width: 250, height: 2)
-            } .offset(x: 0, y: -75)
+                .frame(width: 200, height: 2)
+            } .offset(x: 0, y: -45)
         }
     }
     
