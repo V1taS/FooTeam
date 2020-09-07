@@ -32,8 +32,10 @@ struct OutButtonFooTeamMenu: View {
                     Text("Выйти"), action: {
                         do {
                             try Auth.auth().signOut()
+                            
                             let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
                             window?.rootViewController = AuthViewController()
+                            
                         } catch {
                             print("Error signing out: \(error.localizedDescription)")
                         }

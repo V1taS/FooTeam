@@ -14,11 +14,12 @@ struct BoxTopPlayersFooTeam: View {
             .horizontal,
             showsIndicators: false) {
                 HStack {
-                    CellTopPlayersFooTeam()
-                    CellTopPlayersFooTeam()
-                    CellTopPlayersFooTeam()
-                    CellTopPlayersFooTeam()
-                    CellTopPlayersFooTeam()
+                    Text("")
+//                    CellTopPlayersFooTeam()
+//                    CellTopPlayersFooTeam()
+//                    CellTopPlayersFooTeam()
+//                    CellTopPlayersFooTeam()
+//                    CellTopPlayersFooTeam()
                     
                 }
                 

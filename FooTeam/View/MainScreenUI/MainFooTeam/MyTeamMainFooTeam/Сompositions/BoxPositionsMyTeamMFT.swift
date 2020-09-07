@@ -22,14 +22,14 @@ struct BoxPositionsMyTeamMFT: View {
                     .fontWeight(.bold)
                     .font(.headline)
                     .foregroundColor(.white)
-                } .offset(x: 0, y: -99)
+                } .offset(x: 0, y: -107)
             
             VStack {
             Text("РЕЙТИНГ - \(ratingTeam)")
                 .fontWeight(.bold)
                 .font(.headline)
                 .foregroundColor(.white)
-            } .offset(x: 0, y: -59)
+            } .offset(x: 0, y: -64)
             
             
         } .padding(.leading)

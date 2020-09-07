@@ -7,22 +7,23 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CellTopPlayersFooTeam: View {
     
-    let colorLine: UIColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
-    let colorText: UIColor = #colorLiteral(red: 0.2564926744, green: 0.03069057316, blue: 0.1076951697, alpha: 1)
-    let backgroundColor: Color = Color(#colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1))
+    let colorLine: UIColor
+    let colorText: UIColor
+    let backgroundColor: Color
     
-    let namePlayer: String = "Сосин Виталий"
-    let photoPlayer: String = "Сосин Виталий"
-    let ratingPlayer: String = "89"
-    let positionPlayer: String = "ФРВ"
+    let namePlayer: String
+    let photoPlayer: String
+    let ratingPlayer: String
+    let positionPlayer: String
     
-    let game: String = "4"
-    let goal: String = "13"
-    let win: String = "3"
-    let los: String = "1"
+    let game: String
+    let goal: String
+    let win: String
+    let los: String
     
     
     
@@ -31,16 +32,21 @@ struct CellTopPlayersFooTeam: View {
             BackgroundFooTeam(firstColor: .gray, centerColor: backgroundColor, lastColor: .gray)
                 .frame(width: 200, height: 300)
                 .clipShape(RoundedRectangle(cornerRadius: 45))
-//            .shadow(color: backgroundColor, radius: 10, x: 5, y: 0)
+
             VStack {
                 
                 
                 ZStack {
-                    Image(photoPlayer)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 125, height: 125)
-                        .cornerRadius(20)
+                    WebImage(url: URL(string: photoPlayer))
+                    .onSuccess { image, data, cacheType in }
+                    .resizable()
+                    .placeholder(Image("player"))
+                    .indicator(.activity)
+                    .transition(.fade(duration: 0.5))
+                    .scaledToFill()
+                    .frame(width: 125, height: 125, alignment: .center)
+                    .cornerRadius(20)
+                    .aspectRatio(contentMode: .fill)
                     
                     
                 } .offset(x: 20, y: -5)
@@ -67,7 +73,7 @@ struct CellTopPlayersFooTeam: View {
                             Text(game)
                                 .foregroundColor(Color(colorText))
                                 .fontWeight(.bold)
-                                .font(.system(size: 20))
+                                .font(.system(size: 18))
                                 .frame(width: 25)
                             
                             Text("GAME")
@@ -78,7 +84,7 @@ struct CellTopPlayersFooTeam: View {
                             Text(goal)
                                 .foregroundColor(Color(colorText))
                                 .fontWeight(.bold)
-                                .font(.system(size: 20))
+                                .font(.system(size: 18))
                                 .frame(width: 25)
                             
                             Text("GOAL")
@@ -95,7 +101,7 @@ struct CellTopPlayersFooTeam: View {
                             Text(win)
                                 .foregroundColor(Color(colorText))
                                 .fontWeight(.bold)
-                                .font(.system(size: 20))
+                                .font(.system(size: 18))
                                 .frame(width: 25)
                         }
                         
@@ -105,7 +111,7 @@ struct CellTopPlayersFooTeam: View {
                             Text(los)
                                 .foregroundColor(Color(colorText))
                                 .fontWeight(.bold)
-                                .font(.system(size: 20))
+                                .font(.system(size: 18))
                                 .frame(width: 25)
                         }
                     } .offset(x: -5, y: 0)
@@ -157,6 +163,6 @@ struct CellTopPlayersFooTeam: View {
 
 struct CellTopPlayersFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        CellTopPlayersFooTeam()
+        CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), colorText: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)), namePlayer: "Сосин Виталий", photoPlayer: "Сосин Виталий", ratingPlayer: "0", positionPlayer: "ФРВ", game: "2", goal: "2", win: "2", los: "2")
     }
 }

@@ -27,28 +27,8 @@ struct TabViewFooTeam: View {
             
             ListPlayersFooTeam(player: $player)
                 .tabItem {
-                    Image(systemName: "2.circle")
-                    Text("Составы ")
-            }
-            
-            VStack {
-                PositionsMyTeamMainFooTeam()
-            }
-            .tabItem {
-                Image(systemName: "3.circle")
-                Text("Чат")
-            }
-            
-            Text("Second Content")
-                .tabItem {
-                    Image(systemName: "4.circle")
-                    Text("Спонсоры")
-            }
-            
-            Text("Second Content")
-                .tabItem {
-                    Image(systemName: "5.circle")
-                    Text("Клуб")
+                    Image(systemName: "sportscourt.fill")
+                    Text("Команда ")
             }
         }
     }

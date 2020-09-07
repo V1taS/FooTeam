@@ -11,6 +11,7 @@ import SwiftUI
 struct MyTeamMainFooTeam: View {
     
     @Binding var player: Players?
+    @State var showModal: Bool = false
     
     @ObservedObject var playersListener = PlayersListener()
     
@@ -24,23 +25,32 @@ struct MyTeamMainFooTeam: View {
                 .frame(width: 380, height: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
-            HStack {
-                Image("teamCount")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 150)
+            Button(action: { self.showModal.toggle() }) {
                 
-                Spacer()
-                
-                VStack {
-                    Text("Составы")
-                        .font(.title)
-                        .foregroundColor(Color(.red))
+                HStack {
+                    Image("teamCount")
+                        .renderingMode(.original)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 150)
                     
-                    Text("Всего игроков: \(playersListener.players.count)")
-                    Text("Придут на игру: \(iGolistPlayers.count)")
-                }
-            }.padding(.horizontal, 36)
+                    Spacer()
+                    
+                    VStack {
+                        Text("Составы")
+                            .font(.title)
+                            .foregroundColor(Color(.red))
+                        
+                        Text("Всего игроков: \(playersListener.players.count)")
+                            .foregroundColor(Color(.black))
+                        Text("Придут на игру: \(iGolistPlayers.count)")
+                            .foregroundColor(Color(.black))
+                    }
+                }.padding(.horizontal, 36)
+            } .sheet(
+                isPresented: $showModal,
+                content: { PositionsMyTeamMainFooTeam(showModal: self.$showModal) }
+            )
         }
     }
 }

@@ -30,21 +30,23 @@ struct ListPlayersFooTeam: View {
         NavigationView {
             VStack {
                 
-                VStack {
-                    Text("Всего игроков: \(playersListener.players.count)")
-                    Text("Придут на игру: \(iGolistPlayers.count)")
-                }
+                //                VStack {
+                //                    Text("Всего игроков: \(playersListener.players.count)")
+                //                    Text("Придут на игру: \(iGolistPlayers.count)")
+                //                }
                 
                 List {
                     Section(header: Text("Основной состав")) {
                         ForEach(generalListPlayers, id: \.self) { player in
-                            NavigationLink(destination: TabViewFooTeam()) {
+                            NavigationLink(destination: ProfileListPlayersFooTeam(player: player)) {
                                 HStack {
                                     Text("\(player.name)")
+                                    Spacer()
+                                    Text("\(player.captain ? "Капитан" : "")")
+                                        .font(.headline)
                                     Text("I-GO")
                                         .foregroundColor(player.iGo ? .green : .red)
                                         .fontWeight(.bold)
-                                    Text("\(player.captain ? "Капитан" : "")")
                                 }
                             }
                         }
@@ -52,15 +54,16 @@ struct ListPlayersFooTeam: View {
                     
                     Section(header: Text("Запасные игроки")) {
                         ForEach(reservListPlayers, id: \.self) { player in
-                            NavigationLink(destination: TabViewFooTeam()) {
+                            NavigationLink(destination: ProfileListPlayersFooTeam(player: player)) {
                                 HStack {
                                     Text("\(player.name)")
+                                    Spacer()
+                                    Text("\(player.captain ? "Капитан" : "")")
+                                        .font(.headline)
                                     Text("I-GO")
                                         .foregroundColor(player.iGo ? .green : .red)
                                         .fontWeight(.bold)
-                                    Text("\(player.captain ? "Капитан" : "")")
-                                        .foregroundColor(Color.red)
-                                        .fontWeight(.bold)
+                                    
                                 }
                             }
                         }
@@ -68,7 +71,7 @@ struct ListPlayersFooTeam: View {
                 }
             } .onAppear { UITableView.appearance().tableFooterView = UIView() }
                 .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
-            .navigationBarTitle(Text("Моя команда"))
+                .navigationBarTitle(Text("Моя команда"))
         }
     }
 }
