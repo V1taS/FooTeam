@@ -8,48 +8,43 @@
 
 import UIKit
 
-class CalendarFooTeam {
+class CalendarFooTeam: ObservableObject {
+    
+    @Published var datePlay: String = ""
     
     static let shared = CalendarFooTeam()
     
-    private init() {}
+    init() {
+        timeFoot()
+    }
     
-    func timeFoot(_ timeLabel: UILabel) {
+    func timeFoot() {
             let date = Date()
             let calendar = Calendar.current
-            
             let weekday = calendar.component(.weekday, from: date)
             
             switch weekday {
             case 1:
                 //            print("Сегодня Воскресенье")
-                timeLabel.text = " через: 2 дня"
+                datePlay = "3 дня"
             case 2:
                 //            print("Сегодня Понедельник")
-                timeLabel.text = " через: день"
+                datePlay = "2 дня"
             case 3:
                 //            print("Сегодня Вторник")
-                timeLabel.text = " завтра"
+                datePlay = "1 день"
             case 4:
                 //            print("Сегодня Среда")
-                timeLabel.text = " сегодня"
-                timeLabel.textColor = .green
+                datePlay = "сегодня"
             case 5:
                 //            print("Сегодня Четверг")
-                timeLabel.text = " через: 5 дней"
-    //            let players = self.players.filter("inTeam = true")
-    //            players.forEach { player in
-    //                try! realm.write {
-    //                    let paymentInt = Int(player.payment)! - 1
-    //                    player.payment = String(paymentInt)
-    //                }
-    //            }
+                datePlay = "6 дней"
             case 6:
                 //            print("Сегодня Пятница")
-                timeLabel.text = " через: 4 дня"
+                datePlay = "5 дней"
             case 7:
                 //            print("Сегодня Суббота")
-                timeLabel.text = " через: 3 дня"
+                datePlay = "4 дня"
             default:
                 print("Error")
             }

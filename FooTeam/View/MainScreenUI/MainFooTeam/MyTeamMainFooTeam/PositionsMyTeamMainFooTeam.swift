@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PositionsMyTeamMainFooTeam: View {
     
+    @ObservedObject var weather = NetworkWeatherManager()
     @Binding var showModal: Bool
     
     var body: some View {
@@ -44,12 +45,10 @@ struct PositionsMyTeamMainFooTeam: View {
                     HStack {
                         Text("Погода на игру:")
                         Spacer()
-                        Text("23С")
+                        Text("\(weather.weather.first?.temperatureString ?? "")°С")
                         .font(.headline)
                     }
                 }
-                
-                
                 
                 Spacer()
                     .navigationBarTitle("Составы на игру", displayMode: .automatic)

@@ -80,6 +80,8 @@
 		1BB6D2A32506B4D000007EAD /* ProfileListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */; };
 		1BB6D2A52506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */; };
 		1BB6D2A72506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A62506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift */; };
+		1BB6D2AB2506FD6300007EAD /* CurrentWeatherDater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A92506FD6300007EAD /* CurrentWeatherDater.swift */; };
+		1BB6D2AC2506FD6300007EAD /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2AA2506FD6300007EAD /* CurrentWeather.swift */; };
 		7A885E0DFF2C33839C833200 /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F5E20F65EACA5F72B185D5 /* Pods_FooTeam.framework */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +161,8 @@
 		1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditorMyProfileMainFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A62506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditorMyProfileMainFooTeam.swift; sourceTree = "<group>"; };
+		1BB6D2A92506FD6300007EAD /* CurrentWeatherDater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherDater.swift; sourceTree = "<group>"; };
+		1BB6D2AA2506FD6300007EAD /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		66118B00ADD38F7EFE3CF6CB /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
 		A73B54B272AFB99E548C6B5E /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
 		B4F5E20F65EACA5F72B185D5 /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,6 +372,7 @@
 			children = (
 				1B596F7E24EC73650092770B /* Players.swift */,
 				1B596F7F24EC73650092770B /* Teams.swift */,
+				1BB6D2A82506FD6300007EAD /* Weather */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -465,6 +470,15 @@
 				1B596FCC24EC73D60092770B /* Constants.swift */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		1BB6D2A82506FD6300007EAD /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				1BB6D2A92506FD6300007EAD /* CurrentWeatherDater.swift */,
+				1BB6D2AA2506FD6300007EAD /* CurrentWeather.swift */,
+			);
+			path = Weather;
 			sourceTree = "<group>";
 		};
 		5AD05B77981D44B12A07023D /* Pods */ = {
@@ -622,6 +636,7 @@
 				1B596F9224EC73820092770B /* AuthService.swift in Sources */,
 				1B596FC724EC73A90092770B /* ButtonFormView.swift in Sources */,
 				1B596FC624EC73A90092770B /* GradientView.swift in Sources */,
+				1BB6D2AB2506FD6300007EAD /* CurrentWeatherDater.swift in Sources */,
 				1B596F8F24EC73820092770B /* CalendarFooTeam.swift in Sources */,
 				1B596F6C24EC73530092770B /* CellJoinTeamViewController.swift in Sources */,
 				1B596F8D24EC73820092770B /* Team.swift in Sources */,
@@ -674,6 +689,7 @@
 				1B596FC324EC73A90092770B /* AddAvaTeamsView.swift in Sources */,
 				1B596F8C24EC73820092770B /* NetworkWeatherManager.swift in Sources */,
 				1B596F7624EC73530092770B /* BoxTopPlayersFooTeam.swift in Sources */,
+				1BB6D2AC2506FD6300007EAD /* CurrentWeather.swift in Sources */,
 				1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */,
 				1B596F9824EC739A0092770B /* AuthError.swift in Sources */,
 				1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */,

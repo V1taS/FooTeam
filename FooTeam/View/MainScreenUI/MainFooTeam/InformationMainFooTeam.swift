@@ -11,67 +11,59 @@ import SwiftUI
 struct InformationMainFooTeam: View {
     
     @Binding var player: Players?
+    @ObservedObject var weather = NetworkWeatherManager()
+    @ObservedObject var calendarFooTeam = CalendarFooTeam()
+    @State var iGo = true
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+            Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
                 .frame(width: 180, height: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke()
+            )
+            
             VStack {
                 Text("ИНФОРМАЦИЯ")
                     .font(.headline)
                     .foregroundColor(Color(.red))
                 
-                ZStack {
-                    Color(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1))
-                        .frame(width: 180, height: 50)
+                DividerFooTeamMenu()
+                
+                
+                VStack(alignment: .leading, spacing: 1) {
+                    
+                    HStack {
+                        Text("Клуб:")
+                        Text("\(player?.nameTeam ?? "нет")")
+                        .font(.headline)
+                    }
                     
                     HStack {
                         
-                        Color(.black)
-                            .frame(width: 1, height: 30)
-                        
-                        VStack {
-                            Text("Клуб: \(player?.nameTeam ?? "нет")")
-                                .font(.subheadline)
-                            
-                            Text("Иду на игру: \(player?.iGo ?? false ? "🟢" : "🔴")")
-                                .font(.subheadline)
-                        }
-                        
-                        Color(.black)
-                            .frame(width: 1, height: 30)
+                        Toggle(isOn: $iGo) {
+                            Text("Иду на игру:")
+                            } .frame(width: 160)
                     }
                 }
                 
-        
-                ZStack {
-                    Color(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1))
-                        .frame(width: 180, height: 80)
+                DividerFooTeamMenu()
+                
+                VStack(alignment: .leading, spacing: 1) {
                     
                     HStack {
-                        
-                        Color(.black)
-                            .frame(width: 1, height: 60)
-                        
-                        VStack {
-                            Text("Игра через 1 день")
-                                .font(.subheadline)
-                            
-                            Text("Погода: хорошая")
-                                .font(.subheadline)
-                            
-                            Text("Температура: 15С")
-                                .font(.subheadline)
-                        }
-                        
-                        Color(.black)
-                            .frame(width: 1, height: 60)
+                        Text("Игра через:")
+                        Text("\(calendarFooTeam.datePlay)")
+                        .font(.headline)
+                    }
+
+                    HStack {
+                        Text("Температура:")
+                        Text("\(weather.weather.first?.temperatureString ?? "")°С")
+                        .font(.headline)
                     }
                 }
-                
-                
             }
         }
     }
