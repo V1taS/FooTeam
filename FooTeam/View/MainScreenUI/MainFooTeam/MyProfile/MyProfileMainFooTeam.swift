@@ -13,6 +13,11 @@ struct MyProfileMainFooTeam: View {
     
     @Binding var player: Players?
     @Binding var showModal: Bool
+    @State var userEditorShow = false
+    
+    var staticPlayer: Players {
+        player!
+    }
     
     var body: some View {
         NavigationView {
@@ -67,9 +72,15 @@ struct MyProfileMainFooTeam: View {
                 
                 
                 VStack {
-                    Text("Редактировать")
-                        .font(.headline)
-                        .fontWeight(.bold)
+                    Button(action: {
+
+                        self.userEditorShow.toggle()
+                    }) {
+                        Text("Редактировать")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                    }
+                    
                     Text("\(player?.captain ?? false ? "КАПИТАН" : "")")
                         .font(.headline)
                         .fontWeight(.bold)
@@ -91,9 +102,12 @@ struct MyProfileMainFooTeam: View {
             }) {
                 Image(systemName: "multiply")
                     .renderingMode(.original)
-                    .font(.headline)
+                    .font(.title)
             })
-        }
+        } .sheet(
+            isPresented: $userEditorShow,
+            content: { UserEditorMyProfileMainFooTeam(player: self.$player, showModal: self.$userEditorShow) }
+        )
     }
 }
 

@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct ProfileListPlayersFooTeam: View {
+    
     let player: Players
+    @State var adminEditorShow = false
     
     var body: some View {
         VStack {
@@ -55,20 +57,20 @@ struct ProfileListPlayersFooTeam: View {
                 }
                 
             }
-            
-            
-            VStack {
-                Text("\(player.captain ? "Редактировать" : "")")
-                    .font(.headline)
-                    .fontWeight(.bold)
-                Text("\(player.captain ? "КАПИТАН" : "")")
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)))
-            }
-        }
-            
-        .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
+                
+            .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {
+                self.adminEditorShow.toggle()
+            }) {
+                Image(systemName: "pencil").renderingMode(.original)
+                    .font(.title)
+                    .foregroundColor(Color.black)
+            })
+        } .sheet(
+            isPresented: $adminEditorShow,
+            content: { AdminEditorMyProfileMainFooTeam(player: self.player, showModal: self.$adminEditorShow) }
+        )
+        
     }
 }
 

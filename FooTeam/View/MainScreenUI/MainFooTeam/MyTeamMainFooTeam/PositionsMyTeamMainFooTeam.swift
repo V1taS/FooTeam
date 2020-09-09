@@ -57,7 +57,7 @@ struct PositionsMyTeamMainFooTeam: View {
                     }) {
                         Image(systemName: "multiply")
                             .renderingMode(.original)
-                            .font(.headline)
+                            .font(.title)
                     })
                 
             }

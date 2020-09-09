@@ -77,6 +77,7 @@
 		1B596FCD24EC73D60092770B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596FCC24EC73D60092770B /* Constants.swift */; };
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
+		1B85C933250824C1002C3106 /* AddListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85C932250824C1002C3106 /* AddListPlayersFooTeam.swift */; };
 		1BB6D2A32506B4D000007EAD /* ProfileListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */; };
 		1BB6D2A52506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */; };
 		1BB6D2A72506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A62506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift */; };
@@ -158,6 +159,7 @@
 		1B596FCC24EC73D60092770B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
+		1B85C932250824C1002C3106 /* AddListPlayersFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditorMyProfileMainFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A62506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditorMyProfileMainFooTeam.swift; sourceTree = "<group>"; };
@@ -228,7 +230,6 @@
 			children = (
 				1B39446F24F9A3A00008FC40 /* ProfileMainFooTeam.swift */,
 				1B50E65725066F97009B10C7 /* MyProfileMainFooTeam.swift */,
-				1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */,
 				1BB6D2A62506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift */,
 			);
 			path = MyProfile;
@@ -363,6 +364,8 @@
 			children = (
 				1B596F6824EC73530092770B /* ListPlayersFooTeam.swift */,
 				1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */,
+				1B85C932250824C1002C3106 /* AddListPlayersFooTeam.swift */,
+				1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */,
 			);
 			path = TeamsFooTeam;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				1B4A3DD02502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift in Sources */,
 				1B596F7524EC73530092770B /* CellTopPlayersFooTeam.swift in Sources */,
 				1B596FB624EC73A90092770B /* StackViewExtension.swift in Sources */,
+				1B85C933250824C1002C3106 /* AddListPlayersFooTeam.swift in Sources */,
 				1B50E65825066F97009B10C7 /* MyProfileMainFooTeam.swift in Sources */,
 				1B596F9E24EC73A00092770B /* AuthNavigatingDelegate.swift in Sources */,
 				1B4A3DCC2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift in Sources */,

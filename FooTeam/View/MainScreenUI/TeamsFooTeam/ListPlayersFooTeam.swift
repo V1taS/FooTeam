@@ -26,6 +26,8 @@ struct ListPlayersFooTeam: View {
         playersListener.players.filter { $0.iGo }
     }
     
+    @State var showModal: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -72,9 +74,20 @@ struct ListPlayersFooTeam: View {
             } .onAppear { UITableView.appearance().tableFooterView = UIView() }
                 .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
                 .navigationBarTitle(Text("Моя команда"))
-        }
+                .navigationBarItems(trailing:
+                    Button(action: { self.showModal.toggle() }) {
+                        Image(systemName: "square.and.pencil").renderingMode(.original)
+                            .font(.title)
+                            .foregroundColor(Color.black)
+                        
+                })
+            } .sheet(
+                isPresented: $showModal,
+                content: { AddListPlayersFooTeam(showModal: self.$showModal) }
+            )
     }
 }
+
 
 struct ListPlayersFooTeam_Previews: PreviewProvider {
     static var previews: some View {

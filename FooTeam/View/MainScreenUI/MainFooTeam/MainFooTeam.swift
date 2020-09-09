@@ -17,9 +17,16 @@ struct MainFooTeam: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack {
                     HeaderMainFooTeam(player: $player)
+                    
+                    HStack {
+                        Text("Панель управления")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Spacer()
+                    } .padding(.horizontal)
                     
                     HStack {
                         ProfileMainFooTeam(player: $player)
@@ -27,8 +34,23 @@ struct MainFooTeam: View {
                         InformationMainFooTeam(player: $player)
                     } . padding(.horizontal)
                     
+                    HStack {
+                        Text("Составы на игру")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Spacer()
+                    } .padding(.horizontal)
+                    
                     MyTeamMainFooTeam(player: $player)
                     
+                    HStack {
+                        Text("TOP - Игроки")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Spacer()
+                    } .padding(.horizontal)
+                    
+                    BoxTopPlayersFooTeam()
                     Spacer()
                 }
                     

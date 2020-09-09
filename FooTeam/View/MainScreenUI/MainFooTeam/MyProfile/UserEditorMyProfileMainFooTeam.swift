@@ -57,7 +57,7 @@ struct UserEditorMyProfileMainFooTeam: View {
 
                     
                     HStack {
-                        Text("Месячнвя подписка:")
+                        Text("Месячная подписка:")
                         Spacer()
                         Toggle(isOn: $subscription) {
                             
@@ -88,13 +88,13 @@ struct UserEditorMyProfileMainFooTeam: View {
                 
                 
                 
-            .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
+            .navigationBarTitle(Text("Редактирование"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 self.showModal = false
             }) {
                 Image(systemName: "multiply")
                     .renderingMode(.original)
-                    .font(.headline)
+                    .font(.title)
             })
         }
     }
