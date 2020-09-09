@@ -6,14 +6,16 @@
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
-import Foundation
-import FirebaseFirestore
+import SwiftUI
+import Firebase
 
 enum FCollectionReferenc: String {
+
     case Player
     case Players = "players"
     case Team
     case Teams = "teams"
+    
 }
 
 func FirebaseReference(_ collectionReference: FCollectionReferenc) -> CollectionReference {

@@ -51,4 +51,35 @@ class ListenerService {
         }
         return usersListener
     } // usersObserve
+    
+    
+    func waitingPlayersObserve(player: [Players], completion: @escaping (Result<[Players], Error>) -> Void) -> ListenerRegistration? {
+        var player = player
+        let waitingPlayer = db.collection(["players", currentUserId, "waitingTeams"].joined(separator: "/"))
+        let playerListener = waitingPlayer.addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                completion(.failure(error!))
+                return
+            }
+            
+            snapshot.documentChanges.forEach { (diff) in
+                guard let waitingPlayer = Players(document: diff.document) else { return }
+                switch diff.type {
+                case .added:
+                    guard !player.contains(waitingPlayer) else { return }
+                    player.append(waitingPlayer)
+                case .modified:
+                    guard let index = player.firstIndex(of: waitingPlayer) else { return }
+                    player[index] = waitingPlayer
+                case .removed:
+                    guard let index = player.firstIndex(of: waitingPlayer) else { return }
+                    player.remove(at: index)
+                }
+            }
+            
+            completion(.success(player))
+        }
+        
+        return playerListener
+    }
 }

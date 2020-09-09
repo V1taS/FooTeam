@@ -77,6 +77,10 @@
 		1B596FCD24EC73D60092770B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596FCC24EC73D60092770B /* Constants.swift */; };
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
+		1B7F262C25098A5B0053E124 /* BoxJoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F262B25098A5B0053E124 /* BoxJoinTeamViewController.swift */; };
+		1B7F262E250990280053E124 /* WaitingMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F262D250990280053E124 /* WaitingMainFooTeam.swift */; };
+		1B7F26312509914E0053E124 /* PlayerWaitingMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F26302509914E0053E124 /* PlayerWaitingMainFooTeam.swift */; };
+		1B7F26332509952B0053E124 /* MainWaitingMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F26322509952B0053E124 /* MainWaitingMainFooTeam.swift */; };
 		1B85C933250824C1002C3106 /* AddListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85C932250824C1002C3106 /* AddListPlayersFooTeam.swift */; };
 		1BB6D2A32506B4D000007EAD /* ProfileListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */; };
 		1BB6D2A52506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */; };
@@ -159,6 +163,10 @@
 		1B596FCC24EC73D60092770B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
+		1B7F262B25098A5B0053E124 /* BoxJoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxJoinTeamViewController.swift; sourceTree = "<group>"; };
+		1B7F262D250990280053E124 /* WaitingMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingMainFooTeam.swift; sourceTree = "<group>"; };
+		1B7F26302509914E0053E124 /* PlayerWaitingMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWaitingMainFooTeam.swift; sourceTree = "<group>"; };
+		1B7F26322509952B0053E124 /* MainWaitingMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWaitingMainFooTeam.swift; sourceTree = "<group>"; };
 		1B85C932250824C1002C3106 /* AddListPlayersFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditorMyProfileMainFooTeam.swift; sourceTree = "<group>"; };
@@ -201,6 +209,7 @@
 				1B4A3DC52502EA98000EABD1 /* MyTeamMainFooTeam */,
 				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
 				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
+				1B7F262F2509912C0053E124 /* WaitingMain */,
 			);
 			path = MainFooTeam;
 			sourceTree = "<group>";
@@ -322,6 +331,7 @@
 		1B596F5224EC73530092770B /* JoinTeamViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1B7F262B25098A5B0053E124 /* BoxJoinTeamViewController.swift */,
 				1B596F5324EC73530092770B /* CellJoinTeamViewController.swift */,
 			);
 			path = JoinTeamViewController;
@@ -396,10 +406,10 @@
 			isa = PBXGroup;
 			children = (
 				1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */,
+				1B596F8924EC73820092770B /* ListenerService.swift */,
 				1B453AAD2501A30400DA2DDA /* PlayersListener.swift */,
 				1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */,
 				1B596F8824EC73820092770B /* StorageService.swift */,
-				1B596F8924EC73820092770B /* ListenerService.swift */,
 				1B596F8A24EC73820092770B /* AuthService.swift */,
 				1B596F8B24EC73820092770B /* FirestoreService.swift */,
 			);
@@ -473,6 +483,16 @@
 				1B596FCC24EC73D60092770B /* Constants.swift */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		1B7F262F2509912C0053E124 /* WaitingMain */ = {
+			isa = PBXGroup;
+			children = (
+				1B7F26322509952B0053E124 /* MainWaitingMainFooTeam.swift */,
+				1B7F262D250990280053E124 /* WaitingMainFooTeam.swift */,
+				1B7F26302509914E0053E124 /* PlayerWaitingMainFooTeam.swift */,
+			);
+			path = WaitingMain;
 			sourceTree = "<group>";
 		};
 		1BB6D2A82506FD6300007EAD /* Weather */ = {
@@ -676,10 +696,12 @@
 				1B39447024F9A3A00008FC40 /* ProfileMainFooTeam.swift in Sources */,
 				1B4A3DC72502EAEA000EABD1 /* PositionsMyTeamMainFooTeam.swift in Sources */,
 				1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */,
+				1B7F26332509952B0053E124 /* MainWaitingMainFooTeam.swift in Sources */,
 				1B596FBA24EC73A90092770B /* ScrollViewExtension.swift in Sources */,
 				1B596FB824EC73A90092770B /* SegmentedControlExtension.swift in Sources */,
 				1B596F7724EC73530092770B /* BackgroundFooTeam.swift in Sources */,
 				1B596F9024EC73820092770B /* StorageService.swift in Sources */,
+				1B7F26312509914E0053E124 /* PlayerWaitingMainFooTeam.swift in Sources */,
 				1B596F7A24EC73530092770B /* BoxCaruselBodyFooTeam.swift in Sources */,
 				1B596FBC24EC73A90092770B /* ButtonExtension.swift in Sources */,
 				1B596F6F24EC73530092770B /* CreateTeamViewController.swift in Sources */,
@@ -688,6 +710,7 @@
 				1B453AAC2501A28B00DA2DDA /* FirebaseReference.swift in Sources */,
 				1B596FB724EC73A90092770B /* ViewControllerExtension.swift in Sources */,
 				1B596FBB24EC73A90092770B /* ImageExtension.swift in Sources */,
+				1B7F262E250990280053E124 /* WaitingMainFooTeam.swift in Sources */,
 				1B596FB924EC73A90092770B /* FontExtension.swift in Sources */,
 				1B596FC124EC73A90092770B /* LabelExtension.swift in Sources */,
 				1B596FC324EC73A90092770B /* AddAvaTeamsView.swift in Sources */,
@@ -701,6 +724,7 @@
 				1B596F7024EC73530092770B /* SetupProfileViewController.swift in Sources */,
 				1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */,
 				1B596FBD24EC73A90092770B /* ViewExtension.swift in Sources */,
+				1B7F262C25098A5B0053E124 /* BoxJoinTeamViewController.swift in Sources */,
 				1BB6D2A52506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift in Sources */,
 				1B596F9924EC739A0092770B /* UserError.swift in Sources */,
 				1B596F7824EC73530092770B /* CaruselBodyFooTeam.swift in Sources */,

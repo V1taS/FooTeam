@@ -10,6 +10,8 @@ import SwiftUI
 
 struct CellJoinTeamViewController: View {
     
+    @ObservedObject var teamsListener = TeamsListener()
+    
     let colorText: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
     var body: some View {
@@ -17,27 +19,28 @@ struct CellJoinTeamViewController: View {
         ZStack {
             BackgroundFooTeam(firstColor: .gray, centerColor: Color.black.opacity(0.7), lastColor: .gray)
                 .frame(width: 170, height: 200)
-                .clipShape(RoundedRectangle(cornerRadius: 45))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
             
             VStack {
                 Image("khimki")
+                    .renderingMode(.original)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 60)
-                Text("ФК Химки")
+                Text("\(teamsListener.teams.first?.teamName ?? "")")
                     .foregroundColor(Color(colorText))
                 
-                Text("Открыта")
+                Text("\(teamsListener.teams.first?.teamType ?? "")")
                 .font(.system(size: 15))
                 .foregroundColor(.green)
                 .fontWeight(.bold)
                     .padding(.top, 10)
                 
-                Text("Место: Химки")
+                Text("Место: \(teamsListener.teams.first?.location ?? "")")
                     .foregroundColor(Color(colorText))
                     .font(.system(size: 15))
                     .lineLimit(1)
-                Text("Игроков: 18")
+                Text("Игроков: \(teamsListener.teams.first?.teamName ?? "")")
                     .foregroundColor(Color(colorText))
                     .font(.system(size: 15))
                     .lineLimit(1)

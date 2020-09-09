@@ -28,7 +28,19 @@ struct TabViewFooTeam: View {
             ListPlayersFooTeam(player: $player)
                 .tabItem {
                     Image(systemName: "sportscourt.fill")
-                    Text("Команда ")
+                    Text("Команда")
+            }
+            
+            BoxJoinTeamViewController(player: player!)
+                .tabItem {
+                    Image(systemName: "sportscourt.fill")
+                    Text("Присоединиться")
+            }
+            
+            MainWaitingMainFooTeam()
+                .tabItem {
+                    Image(systemName: "sportscourt.fill")
+                    Text("Ожидают подтверждение")
             }
         }
     }
