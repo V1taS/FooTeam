@@ -11,30 +11,30 @@ import Firebase
 
 struct Players: Hashable, Decodable {
     
-    let name: String
+    var name: String
     var nameTeam: String
     
-    let email: String
+    var email: String
     var avatarStringURL: String
     
-    let whoAreYou: String
-    let id: String
+    var whoAreYou: String
+    var id: String
     var idTeam: String
     
-    let teamNumber: Int
-    let payment: String
+    var teamNumber: Int
+    var payment: String
     
-    let iGo: Bool
-    let subscription: Bool
+    var iGo: Bool
+    var subscription: Bool
     
-    let rating: Int
-    let position: String
+    var rating: Int
+    var position: String
     
-    let numberOfGames: Int
-    let numberOfGoals: Int
+    var numberOfGames: Int
+    var numberOfGoals: Int
     
-    let winGame: Int
-    let losGame: Int
+    var winGame: Int
+    var losGame: Int
     
     var captain: Bool
     
@@ -172,7 +172,7 @@ struct Players: Hashable, Decodable {
         return rep
     }
     
-    var refPlayerRepresentation: [String: Any] {
+    var representationPlayer: [String: Any] {
         var rep: [String: Any]
         rep = ["uid": id]
         return rep

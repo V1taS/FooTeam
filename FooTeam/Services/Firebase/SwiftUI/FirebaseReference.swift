@@ -10,12 +10,8 @@ import SwiftUI
 import Firebase
 
 enum FCollectionReferenc: String {
-
-    case Player
-    case Players = "players"
-    case Team
-    case Teams = "teams"
-    
+    case players = "players"
+    case teams = "teams"
 }
 
 func FirebaseReference(_ collectionReference: FCollectionReferenc) -> CollectionReference {

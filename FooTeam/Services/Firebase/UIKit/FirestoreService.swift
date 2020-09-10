@@ -13,7 +13,7 @@ class FirestoreService {
     
     static let shared = FirestoreService()
     
-    let db = Firestore.firestore()
+    private let db = Firestore.firestore()
     
     private var usersRef: CollectionReference {
         return db.collection("players")
@@ -132,7 +132,7 @@ class FirestoreService {
                     }
                 }
                 
-                refCountPlayers.document(player.id).setData(player.refPlayerRepresentation) { (error) in
+                refCountPlayers.document(player.id).setData(player.representationPlayer) { (error) in
                     if let error = error {
                         completion(.failure(error))
                         return

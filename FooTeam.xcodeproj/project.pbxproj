@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B33582E250A8B46007EA9A7 /* JoinTheTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */; };
 		1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446824F85B060008FC40 /* TabViewFooTeam.swift */; };
 		1B39446B24F85D250008FC40 /* MainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446A24F85D250008FC40 /* MainFooTeam.swift */; };
 		1B39446E24F9A3470008FC40 /* HeaderMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446D24F9A3470008FC40 /* HeaderMainFooTeam.swift */; };
@@ -20,7 +21,17 @@
 		1B4A3DCC2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCB2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift */; };
 		1B4A3DCE2502EF6F000EABD1 /* BoxPositionsMyTeamMFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCD2502EF6F000EABD1 /* BoxPositionsMyTeamMFT.swift */; };
 		1B4A3DD02502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */; };
+		1B4B0EE7250AAE8C00EF701B /* ActionsPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */; };
+		1B4B0EE9250AB77F00EF701B /* PlayersID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B0EE8250AB77F00EF701B /* PlayersID.swift */; };
 		1B50E65825066F97009B10C7 /* MyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B50E65725066F97009B10C7 /* MyProfileMainFooTeam.swift */; };
+		1B539579250ADB8C00C8DFD9 /* WaitingPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B539578250ADB8C00C8DFD9 /* WaitingPlayers.swift */; };
+		1B53957B250ADF1500C8DFD9 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B53957A250ADF1500C8DFD9 /* CurrentUser.swift */; };
+		1B53957D250AE35800C8DFD9 /* EditPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B53957C250AE35800C8DFD9 /* EditPlayer.swift */; };
+		1B53957F250AE91C00C8DFD9 /* DeletPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B53957E250AE91C00C8DFD9 /* DeletPlayer.swift */; };
+		1B539581250AE92A00C8DFD9 /* DeletTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B539580250AE92A00C8DFD9 /* DeletTeam.swift */; };
+		1B539583250AEB2400C8DFD9 /* EditTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B539582250AEB2400C8DFD9 /* EditTeam.swift */; };
+		1B539585250AECE300C8DFD9 /* AddPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B539584250AECE300C8DFD9 /* AddPlayer.swift */; };
+		1B539587250AEF9900C8DFD9 /* AddTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B539586250AEF9900C8DFD9 /* AddTeam.swift */; };
 		1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3024EC714C0092770B /* AppDelegate.swift */; };
 		1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F3224EC714C0092770B /* SceneDelegate.swift */; };
 		1B596F3D24EC714E0092770B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B596F3B24EC714E0092770B /* LaunchScreen.storyboard */; };
@@ -82,6 +93,7 @@
 		1B7F26312509914E0053E124 /* PlayerWaitingMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F26302509914E0053E124 /* PlayerWaitingMainFooTeam.swift */; };
 		1B7F26332509952B0053E124 /* MainWaitingMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F26322509952B0053E124 /* MainWaitingMainFooTeam.swift */; };
 		1B85C933250824C1002C3106 /* AddListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85C932250824C1002C3106 /* AddListPlayersFooTeam.swift */; };
+		1BAB1DD9250A9CC900BA5DA8 /* AcceptInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAB1DD8250A9CC900BA5DA8 /* AcceptInvitation.swift */; };
 		1BB6D2A32506B4D000007EAD /* ProfileListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */; };
 		1BB6D2A52506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */; };
 		1BB6D2A72506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A62506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift */; };
@@ -91,6 +103,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTheTeam.swift; sourceTree = "<group>"; };
 		1B39446824F85B060008FC40 /* TabViewFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewFooTeam.swift; sourceTree = "<group>"; };
 		1B39446A24F85D250008FC40 /* MainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFooTeam.swift; sourceTree = "<group>"; };
 		1B39446D24F9A3470008FC40 /* HeaderMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMainFooTeam.swift; sourceTree = "<group>"; };
@@ -104,7 +117,17 @@
 		1B4A3DCB2502EB50000EABD1 /* BGcompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGcompositionsMyTeamMainFooTeam.swift; sourceTree = "<group>"; };
 		1B4A3DCD2502EF6F000EABD1 /* BoxPositionsMyTeamMFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxPositionsMyTeamMFT.swift; sourceTree = "<group>"; };
 		1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCompositionsMyTeamMainFooTeam.swift; sourceTree = "<group>"; };
+		1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsPlayers.swift; sourceTree = "<group>"; };
+		1B4B0EE8250AB77F00EF701B /* PlayersID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersID.swift; sourceTree = "<group>"; };
 		1B50E65725066F97009B10C7 /* MyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileMainFooTeam.swift; sourceTree = "<group>"; };
+		1B539578250ADB8C00C8DFD9 /* WaitingPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingPlayers.swift; sourceTree = "<group>"; };
+		1B53957A250ADF1500C8DFD9 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		1B53957C250AE35800C8DFD9 /* EditPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayer.swift; sourceTree = "<group>"; };
+		1B53957E250AE91C00C8DFD9 /* DeletPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletPlayer.swift; sourceTree = "<group>"; };
+		1B539580250AE92A00C8DFD9 /* DeletTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletTeam.swift; sourceTree = "<group>"; };
+		1B539582250AEB2400C8DFD9 /* EditTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTeam.swift; sourceTree = "<group>"; };
+		1B539584250AECE300C8DFD9 /* AddPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayer.swift; sourceTree = "<group>"; };
+		1B539586250AEF9900C8DFD9 /* AddTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeam.swift; sourceTree = "<group>"; };
 		1B596F2D24EC714C0092770B /* FooTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FooTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B596F3024EC714C0092770B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B596F3224EC714C0092770B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +191,7 @@
 		1B7F26302509914E0053E124 /* PlayerWaitingMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWaitingMainFooTeam.swift; sourceTree = "<group>"; };
 		1B7F26322509952B0053E124 /* MainWaitingMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWaitingMainFooTeam.swift; sourceTree = "<group>"; };
 		1B85C932250824C1002C3106 /* AddListPlayersFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListPlayersFooTeam.swift; sourceTree = "<group>"; };
+		1BAB1DD8250A9CC900BA5DA8 /* AcceptInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInvitation.swift; sourceTree = "<group>"; };
 		1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditorMyProfileMainFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A62506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditorMyProfileMainFooTeam.swift; sourceTree = "<group>"; };
@@ -197,6 +221,38 @@
 				1B596F5D24EC73530092770B /* TopPlayersFooTeam */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		1B33582B250A897C007EA9A7 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */,
+				1B453AAD2501A30400DA2DDA /* PlayersListener.swift */,
+				1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */,
+				1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */,
+				1BAB1DD8250A9CC900BA5DA8 /* AcceptInvitation.swift */,
+				1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */,
+				1B539578250ADB8C00C8DFD9 /* WaitingPlayers.swift */,
+				1B53957A250ADF1500C8DFD9 /* CurrentUser.swift */,
+				1B539584250AECE300C8DFD9 /* AddPlayer.swift */,
+				1B53957C250AE35800C8DFD9 /* EditPlayer.swift */,
+				1B53957E250AE91C00C8DFD9 /* DeletPlayer.swift */,
+				1B539586250AEF9900C8DFD9 /* AddTeam.swift */,
+				1B539582250AEB2400C8DFD9 /* EditTeam.swift */,
+				1B539580250AE92A00C8DFD9 /* DeletTeam.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		1B33582C250A899B007EA9A7 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				1B596F8A24EC73820092770B /* AuthService.swift */,
+				1B596F8924EC73820092770B /* ListenerService.swift */,
+				1B596F8824EC73820092770B /* StorageService.swift */,
+				1B596F8B24EC73820092770B /* FirestoreService.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		1B39446C24F9A3010008FC40 /* MainFooTeam */ = {
@@ -384,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				1B596F7E24EC73650092770B /* Players.swift */,
+				1B4B0EE8250AB77F00EF701B /* PlayersID.swift */,
 				1B596F7F24EC73650092770B /* Teams.swift */,
 				1BB6D2A82506FD6300007EAD /* Weather */,
 			);
@@ -405,13 +462,8 @@
 		1B596F8724EC73820092770B /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */,
-				1B596F8924EC73820092770B /* ListenerService.swift */,
-				1B453AAD2501A30400DA2DDA /* PlayersListener.swift */,
-				1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */,
-				1B596F8824EC73820092770B /* StorageService.swift */,
-				1B596F8A24EC73820092770B /* AuthService.swift */,
-				1B596F8B24EC73820092770B /* FirestoreService.swift */,
+				1B33582B250A897C007EA9A7 /* SwiftUI */,
+				1B33582C250A899B007EA9A7 /* UIKit */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -658,8 +710,10 @@
 				1B39446E24F9A3470008FC40 /* HeaderMainFooTeam.swift in Sources */,
 				1B596F9224EC73820092770B /* AuthService.swift in Sources */,
 				1B596FC724EC73A90092770B /* ButtonFormView.swift in Sources */,
+				1B53957F250AE91C00C8DFD9 /* DeletPlayer.swift in Sources */,
 				1B596FC624EC73A90092770B /* GradientView.swift in Sources */,
 				1BB6D2AB2506FD6300007EAD /* CurrentWeatherDater.swift in Sources */,
+				1BAB1DD9250A9CC900BA5DA8 /* AcceptInvitation.swift in Sources */,
 				1B596F8F24EC73820092770B /* CalendarFooTeam.swift in Sources */,
 				1B596F6C24EC73530092770B /* CellJoinTeamViewController.swift in Sources */,
 				1B596F8D24EC73820092770B /* Team.swift in Sources */,
@@ -669,6 +723,7 @@
 				1B596F8E24EC73820092770B /* Notifications.swift in Sources */,
 				1B453AAE2501A30400DA2DDA /* PlayersListener.swift in Sources */,
 				1B596FB524EC73A90092770B /* InsertableTextField.swift in Sources */,
+				1B539587250AEF9900C8DFD9 /* AddTeam.swift in Sources */,
 				1B4A3DD02502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift in Sources */,
 				1B596F7524EC73530092770B /* CellTopPlayersFooTeam.swift in Sources */,
 				1B596FB624EC73A90092770B /* StackViewExtension.swift in Sources */,
@@ -687,6 +742,7 @@
 				1B596FCD24EC73D60092770B /* Constants.swift in Sources */,
 				1B3F0C0324F9A50E00FA4F51 /* MyTeamMainFooTeam.swift in Sources */,
 				1B596F8024EC73650092770B /* Players.swift in Sources */,
+				1B4B0EE7250AAE8C00EF701B /* ActionsPlayers.swift in Sources */,
 				1B596F7424EC73530092770B /* TopPlayersFooTeam.swift in Sources */,
 				1B596FBE24EC73A90092770B /* ColorExtension.swift in Sources */,
 				1B596F9F24EC73A00092770B /* SelfConfiguringCell.swift in Sources */,
@@ -698,14 +754,18 @@
 				1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */,
 				1B7F26332509952B0053E124 /* MainWaitingMainFooTeam.swift in Sources */,
 				1B596FBA24EC73A90092770B /* ScrollViewExtension.swift in Sources */,
+				1B539579250ADB8C00C8DFD9 /* WaitingPlayers.swift in Sources */,
 				1B596FB824EC73A90092770B /* SegmentedControlExtension.swift in Sources */,
 				1B596F7724EC73530092770B /* BackgroundFooTeam.swift in Sources */,
 				1B596F9024EC73820092770B /* StorageService.swift in Sources */,
 				1B7F26312509914E0053E124 /* PlayerWaitingMainFooTeam.swift in Sources */,
+				1B53957B250ADF1500C8DFD9 /* CurrentUser.swift in Sources */,
 				1B596F7A24EC73530092770B /* BoxCaruselBodyFooTeam.swift in Sources */,
 				1B596FBC24EC73A90092770B /* ButtonExtension.swift in Sources */,
 				1B596F6F24EC73530092770B /* CreateTeamViewController.swift in Sources */,
+				1B539585250AECE300C8DFD9 /* AddPlayer.swift in Sources */,
 				1B596F9324EC73820092770B /* FirestoreService.swift in Sources */,
+				1B33582E250A8B46007EA9A7 /* JoinTheTeam.swift in Sources */,
 				1B596F6B24EC73530092770B /* LoginViewController.swift in Sources */,
 				1B453AAC2501A28B00DA2DDA /* FirebaseReference.swift in Sources */,
 				1B596FB724EC73A90092770B /* ViewControllerExtension.swift in Sources */,
@@ -715,9 +775,12 @@
 				1B596FC124EC73A90092770B /* LabelExtension.swift in Sources */,
 				1B596FC324EC73A90092770B /* AddAvaTeamsView.swift in Sources */,
 				1B596F8C24EC73820092770B /* NetworkWeatherManager.swift in Sources */,
+				1B53957D250AE35800C8DFD9 /* EditPlayer.swift in Sources */,
 				1B596F7624EC73530092770B /* BoxTopPlayersFooTeam.swift in Sources */,
 				1BB6D2AC2506FD6300007EAD /* CurrentWeather.swift in Sources */,
 				1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */,
+				1B539581250AE92A00C8DFD9 /* DeletTeam.swift in Sources */,
+				1B539583250AEB2400C8DFD9 /* EditTeam.swift in Sources */,
 				1B596F9824EC739A0092770B /* AuthError.swift in Sources */,
 				1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */,
 				1B39446B24F85D250008FC40 /* MainFooTeam.swift in Sources */,
@@ -726,6 +789,7 @@
 				1B596FBD24EC73A90092770B /* ViewExtension.swift in Sources */,
 				1B7F262C25098A5B0053E124 /* BoxJoinTeamViewController.swift in Sources */,
 				1BB6D2A52506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift in Sources */,
+				1B4B0EE9250AB77F00EF701B /* PlayersID.swift in Sources */,
 				1B596F9924EC739A0092770B /* UserError.swift in Sources */,
 				1B596F7824EC73530092770B /* CaruselBodyFooTeam.swift in Sources */,
 				1B596FBF24EC73A90092770B /* ImageViewExtension.swift in Sources */,

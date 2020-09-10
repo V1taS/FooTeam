@@ -7,11 +7,18 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct BoxJoinTeamViewController: View {
     
+    private var currentUserId: String {
+        return Auth.auth().currentUser!.uid
+    }
+    
     @State var showAlert = false
+    
     let player: Players
+    @ObservedObject var teamsListener = TeamsListener()
     @ObservedObject var playersListener = PlayersListener()
     
     var body: some View {
@@ -27,14 +34,11 @@ struct BoxJoinTeamViewController: View {
                 Alert(title: Text("Отправить запрос команде?"),
                       primaryButton: .default(Text("Отправить запрос")) {
                         
-                        print("")
+                        JoinTheTeam.shared.SaveIDinTeam(player: self.player, team: self.teamsListener.teams.first!)
                         
                     },
                       secondaryButton: .destructive(Text("Отмена")))
             }
-                
-                
-                
                 
                 .navigationBarTitle(Text("Присоединиться"))
         }

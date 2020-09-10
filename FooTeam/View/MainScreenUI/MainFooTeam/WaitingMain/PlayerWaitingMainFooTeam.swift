@@ -12,6 +12,9 @@ import SDWebImageSwiftUI
 struct PlayerWaitingMainFooTeam: View {
     
     var player: Players
+    
+    @ObservedObject var teamsListener = TeamsListener()
+    
     @State var showAlert = false
     
     var body: some View {
@@ -49,7 +52,10 @@ struct PlayerWaitingMainFooTeam: View {
                 Alert(title: Text("Добавить игрока в команду?"),
                       primaryButton: .destructive(Text("Отмена")),
                       secondaryButton: .default(Text("Добавить")) {
+                        
                         print("")
+                        AcceptInvitation.shared.acceptInvitation(player: self.player, team: self.teamsListener.teams.first!)
+                        
                     } )
             }
         }

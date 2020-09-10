@@ -10,7 +10,7 @@ import UIKit
 import GoogleSignIn
 
 class AuthViewController: UIViewController {
-    
+
     var logoImageView = UIImageView(image: #imageLiteral(resourceName: "logo"), contentMode: .scaleAspectFill)
     
     let registerInFTLabel = UILabel(text: "Зарегистрироваться в FooTeam", font: .bolt20(), textAlignment: .center)

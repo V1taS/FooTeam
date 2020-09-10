@@ -12,10 +12,10 @@ import Firebase
 struct Teams: Hashable, Decodable {
     
     var avatarStringURL: String?
-    let teamName: String?
-    let location: String?
-    let teamType: String?
-    let id: String
+    var teamName: String?
+    var location: String?
+    var teamType: String?
+    var id: String
     var rating: Int?
     
     init(avatarStringURL: String, teamName: String, location: String, teamType: String, rating: Int) {
