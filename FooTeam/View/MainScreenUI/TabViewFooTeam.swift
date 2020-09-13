@@ -12,26 +12,25 @@ import FirebaseAuth
 
 struct TabViewFooTeam: View {
     
-    @State var player = FirestoreService.shared.currentUser
     @ObservedObject var playersListener = PlayersListener()
     @ObservedObject var teamsListener = TeamsListener()
     
     
     var body: some View {
         TabView {
-            MainFooTeam(player: $player)
+            MainFooTeam()
                 .tabItem {
                     Image(systemName: "shield")
                     Text("Главная")
             }
             
-            ListPlayersFooTeam(player: $player)
+            ListPlayersFooTeam()
                 .tabItem {
                     Image(systemName: "sportscourt.fill")
                     Text("Команда")
             }
             
-            BoxJoinTeamViewController(player: player!)
+            BoxJoinTeamViewController()
                 .tabItem {
                     Image(systemName: "sportscourt.fill")
                     Text("Присоединиться")

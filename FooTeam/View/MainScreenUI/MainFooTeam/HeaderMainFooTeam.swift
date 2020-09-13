@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HeaderMainFooTeam: View {
     
-    @Binding var player: Players?
+    @ObservedObject var currentUser = CurrentUser()
     
     var body: some View {
         HStack {
@@ -23,7 +23,7 @@ struct HeaderMainFooTeam: View {
                     Text("Баланс:")
                     .padding(.leading)
                     Spacer()
-                    Text("\(player?.payment ?? "0")")
+                    Text("\(currentUser.player?.payment ?? "0")")
                         .font(.headline)
                     Text("FCoin")
                     .padding(.trailing)
@@ -35,6 +35,6 @@ struct HeaderMainFooTeam: View {
 
 struct HeaderMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderMainFooTeam(player: .constant(Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)))
+        HeaderMainFooTeam()
     }
 }

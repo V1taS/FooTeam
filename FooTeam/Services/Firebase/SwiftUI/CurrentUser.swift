@@ -17,7 +17,7 @@ class CurrentUser: ObservableObject {
     private let db = Firestore.firestore()
     
     private var currentUserId: String {
-        return Auth.auth().currentUser!.uid
+        return Auth.auth().currentUser?.uid ?? ""
     }
     
     init() {
@@ -28,7 +28,7 @@ class CurrentUser: ObservableObject {
         
         let usersRef = db.collection("players")
         
-        usersRef.whereField("uid", isEqualTo: currentUserId).getDocuments() { (querySnapshot, err) in
+        usersRef.whereField("uid", isEqualTo: currentUserId).addSnapshotListener() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting documents: \(err)")

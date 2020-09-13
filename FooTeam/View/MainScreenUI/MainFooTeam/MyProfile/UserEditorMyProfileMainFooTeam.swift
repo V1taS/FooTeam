@@ -9,15 +9,17 @@
 import SwiftUI
 
 struct UserEditorMyProfileMainFooTeam: View {
-    @Binding var player: Players?
-    @Binding var showModal: Bool
     
-    @State var selection = 0
-    @State var newNumberOfGames = 0
-    @State var subscription = true
+    @Binding var showModal: Bool
+    let currentUser: CurrentUser
+    
+    @State var dynamicName = ""
     @State var iGo = true
     
     let positions = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
+    @State var selection = 0
+    
+    
     
     var body: some View {
         NavigationView {
@@ -25,14 +27,14 @@ struct UserEditorMyProfileMainFooTeam: View {
                 CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1),
                                       colorText: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1),
                                       backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)),
-                                      namePlayer: "\(player?.name ?? "noName")",
-                    photoPlayer: "\(player?.avatarStringURL ?? "")",
-                    ratingPlayer: "\(player?.rating ?? 0)",
-                    positionPlayer: "\(player?.position ?? "")",
-                    game: "\(player?.numberOfGames ?? 0)",
-                    goal: "\(player?.numberOfGoals ?? 0)",
-                    win: "\(player?.numberOfGoals ?? 0)",
-                    los: "\(player?.losGame ?? 0)")
+                                      namePlayer: "\(currentUser.player?.name ?? "Игрок")",
+                    photoPlayer: "\(currentUser.player?.avatarStringURL ?? "")",
+                    ratingPlayer: "\(currentUser.player?.rating ?? 99)",
+                    positionPlayer: "\(currentUser.player?.position ?? "ФРВ")",
+                    game: "\(currentUser.player?.numberOfGames ?? 10)",
+                    goal: "\(currentUser.player?.numberOfGoals ?? 20)",
+                    win: "\(currentUser.player?.winGame ?? 9)",
+                    los: "\(currentUser.player?.losGame ?? 1)")
                 
                 
                 
@@ -40,29 +42,18 @@ struct UserEditorMyProfileMainFooTeam: View {
                     
                     HStack {
                         Text("Позиция:")
-                        Spacer()
                         Picker("dvdvd", selection: $selection) {
-                            ForEach(0..<positions.count) {
-                                Text(self.positions[$0])
-                            }
+                            ForEach(0..<positions.count) { Text(self.positions[$0]) }
                         } .pickerStyle(SegmentedPickerStyle())
                     }
                     
                     HStack {
                         Text("Имя:")
-                        TextField("", text: .constant(player?.name ?? ""))
+                        TextField("\(currentUser.player?.name ?? "")",
+                            text: $dynamicName)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-
-
-                    
-                    HStack {
-                        Text("Месячная подписка:")
-                        Spacer()
-                        Toggle(isOn: $subscription) {
-                            
-                            Text("\(player?.subscription ?? false ? "активна" : "не активна")")
-                                .font(.headline)
+                            .onAppear() {
+                                self.dynamicName = self.currentUser.player?.name ?? ""
                         }
                     }
                     
@@ -70,18 +61,46 @@ struct UserEditorMyProfileMainFooTeam: View {
                         Text("Идет на след. игру:")
                         Spacer()
                         Toggle(isOn: $iGo) {
-                            Text("\(player?.iGo ?? false ? "да" : "нет")")
+                            Text("\(self.iGo ? "да" : "нет")")
                                 .font(.headline)
+                                .onAppear() {
+                                    self.iGo = self.currentUser.player?.iGo ?? false
+                            }
                         }
                     }
                 }
                 
                 
-                VStack {
+                Button(action: {
+                    EditPlayer.shared.editPlayerInTeam(
+                        player: self.currentUser.player!,
+                        name: self.dynamicName,
+                        avatarImage: nil,
+                        email: self.currentUser.player!.email,
+                        whoAreYou: self.currentUser.player!.whoAreYou,
+                        teamNumber: self.currentUser.player!.teamNumber,
+                        payment: self.currentUser.player!.payment,
+                        iGo: self.iGo,
+                        subscription: self.currentUser.player!.subscription,
+                        rating: self.currentUser.player!.rating,
+                        position: self.positions[self.selection],
+                        numberOfGames: self.currentUser.player!.numberOfGames,
+                        numberOfGoals: self.currentUser.player!.numberOfGoals,
+                        winGame: self.currentUser.player!.winGame,
+                        losGame: self.currentUser.player!.losGame,
+                        captain: self.currentUser.player!.captain)
+                    
+                    self.showModal = false
+                    
+                    
+                } ) {
                     Text("Сохранить")
-                        .font(.headline)
+                        .font(.system(.headline, design: .serif))
+                        .foregroundColor(Color.black)
                         .padding(.horizontal)
+                        .padding(.vertical, 5)
                         .background(Color.green)
+                        .cornerRadius(5)
                 }
             }
                 
@@ -102,6 +121,7 @@ struct UserEditorMyProfileMainFooTeam: View {
 
 struct UserEditorMyProfileMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        UserEditorMyProfileMainFooTeam(player: .constant(Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 60, position: "ФРВ", numberOfGames: 30, numberOfGoals: 60, winGame: 20, losGame: 10, captain: true)), showModal: .constant(false))
+        UserEditorMyProfileMainFooTeam(showModal: .constant(false),
+                                       currentUser: CurrentUser())
     }
 }

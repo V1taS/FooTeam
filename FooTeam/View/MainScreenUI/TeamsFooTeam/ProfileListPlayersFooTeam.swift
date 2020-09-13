@@ -24,7 +24,7 @@ struct ProfileListPlayersFooTeam: View {
                 positionPlayer: "\(player.position)",
                 game: "\(player.numberOfGames)",
                 goal: "\(player.numberOfGoals)",
-                win: "\(player.numberOfGoals)",
+                win: "\(player.winGame)",
                 los: "\(player.losGame)")
             
             Form {
@@ -68,7 +68,7 @@ struct ProfileListPlayersFooTeam: View {
             })
         } .sheet(
             isPresented: $adminEditorShow,
-            content: { AdminEditorMyProfileMainFooTeam(player: self.player, showModal: self.$adminEditorShow) }
+            content: { AdminEditorMyProfileMainFooTeam(currentUser: self.player, showModal: self.$adminEditorShow) }
         )
         
     }

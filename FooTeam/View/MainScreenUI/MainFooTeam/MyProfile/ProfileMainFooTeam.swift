@@ -11,7 +11,8 @@ import SDWebImageSwiftUI
 
 struct ProfileMainFooTeam: View {
     
-    @Binding var player: Players?
+    @ObservedObject var currentUser = CurrentUser()
+    
     @State var showModal: Bool = false
     
     var body: some View {
@@ -29,10 +30,10 @@ struct ProfileMainFooTeam: View {
                     Text("ПРОФИЛЬ")
                         .font(.headline)
                         .foregroundColor(Color(.red))
-                    Text(player?.name ?? "Игрок")
+                    Text(currentUser.player?.name ?? "" )
                         .foregroundColor(.black)
                     
-                    WebImage(url: URL(string: player?.avatarStringURL ?? ""))
+                    WebImage(url: URL(string: currentUser.player?.avatarStringURL ?? ""))
                         .renderingMode(.original)
                         .onSuccess { image, data, cacheType in }
                         .resizable()
@@ -46,8 +47,7 @@ struct ProfileMainFooTeam: View {
                 }
             } .sheet(
                 isPresented: $showModal,
-                content: { MyProfileMainFooTeam(player: self.$player,
-                                                showModal: self.$showModal) }
+                content: { MyProfileMainFooTeam(showModal: self.$showModal) }
             )
             
         }
@@ -57,6 +57,6 @@ struct ProfileMainFooTeam: View {
 
 struct ProfileMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileMainFooTeam(player: .constant(Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)))
+        ProfileMainFooTeam()
     }
 }

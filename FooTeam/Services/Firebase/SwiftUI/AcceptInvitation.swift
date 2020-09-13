@@ -15,7 +15,8 @@ class AcceptInvitation {
     
     private let db = Firestore.firestore()
     
-    // MARK: - Accept Invitation
+    
+    // MARK: Удаляем из режима ОЖИДАНИЯ ПОДТВЕРЖДЕНИЯ игроков текущей команды
     func acceptInvitation(player: Players, team: Teams) {
         
         let refWaitingPlayer = db.collection(["teams", team.id, "waitingPlayers"].joined(separator: "/"))
@@ -28,7 +29,7 @@ class AcceptInvitation {
         
         db.collection("players").document(player.id).setData(player.representation) { (error) in }
         
-        refWaitingPlayer.whereField("uid", isEqualTo: player.id).getDocuments() { (querySnapshot, err) in
+        refWaitingPlayer.whereField("uid", isEqualTo: player.id).addSnapshotListener() { (querySnapshot, err) in
           if let err = err {
             print("Error getting documents: \(err)")
           } else {

@@ -10,16 +10,12 @@ import SwiftUI
 
 struct WaitingMainFooTeam: View {
     
-    @ObservedObject var playersListener = PlayersListener()
-    
-    var topPlayers: [Players] {
-        playersListener.players.filter { $0.rating >= 50 }
-    }
+    @ObservedObject var waitingPlayers = WaitingPlayers()
     
     var body: some View {
         ScrollView(.horizontal,showsIndicators: false) {
                 HStack {
-                    ForEach(topPlayers, id: \.self) { player in
+                    ForEach(waitingPlayers.players, id: \.self) { player in
                         
                         PlayerWaitingMainFooTeam(player: player)
                             .padding(.leading)

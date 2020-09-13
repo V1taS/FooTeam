@@ -17,36 +17,41 @@ struct BoxJoinTeamViewController: View {
     
     @State var showAlert = false
     
-    let player: Players
+    @ObservedObject var currentUser = CurrentUser()
+    
     @ObservedObject var teamsListener = TeamsListener()
-    @ObservedObject var playersListener = PlayersListener()
     
     var body: some View {
         NavigationView {
-            VStack {
-                Button(action: { self.showAlert.toggle() } ) {
-                    CellJoinTeamViewController()
-                        .padding(.top)
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    ForEach(teamsListener.teams, id: \.self) { team in
+                        Button(action: { self.showAlert.toggle() } ) {
+                            CellJoinTeamViewController(team: team)
+                                .padding(.top)
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                } .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Отправить запрос команде?"),
+                          primaryButton: .default(Text("Отправить запрос")) {
+                            
+                            JoinTheTeam.shared.SaveIDinTeam(player: self.currentUser.player!, team: self.teamsListener.teams.first!)
+                            
+                        },
+                          secondaryButton: .destructive(Text("Отмена")))
                 }
-                Spacer()
-                
-            } .alert(isPresented: $showAlert) {
-                Alert(title: Text("Отправить запрос команде?"),
-                      primaryButton: .default(Text("Отправить запрос")) {
-                        
-                        JoinTheTeam.shared.SaveIDinTeam(player: self.player, team: self.teamsListener.teams.first!)
-                        
-                    },
-                      secondaryButton: .destructive(Text("Отмена")))
-            }
-                
+                    
                 .navigationBarTitle(Text("Присоединиться"))
+            }
         }
     }
 }
 
 struct BoxJoinTeamViewController_Previews: PreviewProvider {
     static var previews: some View {
-        BoxJoinTeamViewController( player: Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: true, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true))
+        BoxJoinTeamViewController()
     }
 }

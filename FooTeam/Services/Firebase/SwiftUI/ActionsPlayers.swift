@@ -19,23 +19,22 @@ class ActionsPlayers: ObservableObject {
         downloadPlayers()
     }
     
+    // MARK: Получаем всех активных игроков текущей команды
     func downloadPlayers() {
         
         let currentPlayer = FirestoreService.shared.currentUser
         
-        guard currentPlayer?.captain == true else { return }
-        
         let refActionsPlayer = db.collection(["teams", currentPlayer!.idTeam, "actionsPlayers"].joined(separator: "/"))
         let usersRef = db.collection("players")
         
-        refActionsPlayer.getDocuments { (snapshot, error) in
+        refActionsPlayer.addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else { return }
             if !snapshot.isEmpty {
                 for snapshot in snapshot.documents {
                     
                     let playerIDget = PlayersID(document: snapshot)
                     
-                    usersRef.whereField("uid", isEqualTo: playerIDget!.id).getDocuments() { (querySnapshot, err) in
+                    usersRef.whereField("uid", isEqualTo: playerIDget!.id).addSnapshotListener() { (querySnapshot, err) in
                         
                         if let err = err {
                             print("Error getting documents: \(err)")

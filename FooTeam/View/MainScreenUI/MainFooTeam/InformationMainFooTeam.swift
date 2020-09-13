@@ -10,9 +10,11 @@ import SwiftUI
 
 struct InformationMainFooTeam: View {
     
-    @Binding var player: Players?
+    @ObservedObject var currentUser = CurrentUser()
+    
     @ObservedObject var weather = NetworkWeatherManager()
     @ObservedObject var calendarFooTeam = CalendarFooTeam()
+    
     @State var iGo = true
     
     var body: some View {
@@ -36,15 +38,14 @@ struct InformationMainFooTeam: View {
                     
                     HStack {
                         Text("Клуб:")
-                        Text("\(player?.nameTeam ?? "нет")")
-                        .font(.headline)
+                        Text("\(currentUser.player?.nameTeam ?? "" )")
+                            .font(.headline)
                     }
                     
                     HStack {
-                        
-                        Toggle(isOn: $iGo) {
-                            Text("Иду на игру:")
-                            } .frame(width: 160)
+                        Text("Иду на игру:")
+                        Text("\(self.currentUser.player?.iGo ?? false ? "да" : "нет")")
+                            .font(.headline)
                     }
                 }
                 
@@ -55,13 +56,13 @@ struct InformationMainFooTeam: View {
                     HStack {
                         Text("Игра через:")
                         Text("\(calendarFooTeam.datePlay)")
-                        .font(.headline)
+                            .font(.headline)
                     }
-
+                    
                     HStack {
                         Text("Температура:")
                         Text("\(weather.weather.first?.temperatureString ?? "")°С")
-                        .font(.headline)
+                            .font(.headline)
                     }
                 }
             }
@@ -71,6 +72,6 @@ struct InformationMainFooTeam: View {
 
 struct InformationMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        InformationMainFooTeam(player: .constant(Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: true, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)))
+        InformationMainFooTeam(currentUser: CurrentUser())
     }
 }

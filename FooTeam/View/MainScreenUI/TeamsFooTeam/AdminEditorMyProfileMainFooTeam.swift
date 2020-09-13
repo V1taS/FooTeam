@@ -10,20 +10,30 @@ import SwiftUI
 
 struct AdminEditorMyProfileMainFooTeam: View {
     
-    var player: Players
+    var currentUser: Players
     
     @Binding var showModal: Bool
     
-    @State var selection = 0
     @State var newNumberOfGames = 0
-    @State var subscription = true
-    @State var iGo = true
-    @State var playInTeam = true
     
-    @State var selectionWhoAreYou = 0
     let whoAreYou = ["Игрок", "Зритель"]
+    @State var selectionWhoAreYou = 0
+    
+    
+    @State var dynamicName = ""
+    @State var dynamicMail = ""
+    @State var dynamicPayment = ""
+    
+    @State var dynamicNumberOfGames = 0
+    @State var dynamicNumberOfGoals = 0
+    @State var dynamicWinGame = 0
+    @State var dynamicLosGame = 0
+    
+    @State var iGo = true
+    @State var subscription = true
     
     let positions = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
+    @State var selection = 0
     
     var body: some View {
         NavigationView {
@@ -31,14 +41,14 @@ struct AdminEditorMyProfileMainFooTeam: View {
                 CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1),
                                       colorText: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1),
                                       backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)),
-                                      namePlayer: "\(player.name)",
-                    photoPlayer: "\(player.avatarStringURL)",
-                    ratingPlayer: "\(player.rating)",
-                    positionPlayer: "\(player.position)",
-                    game: "\(player.numberOfGames)",
-                    goal: "\(player.numberOfGoals)",
-                    win: "\(player.numberOfGoals)",
-                    los: "\(player.losGame)")
+                                      namePlayer: "\(currentUser.name)",
+                    photoPlayer: "\(currentUser.avatarStringURL)",
+                    ratingPlayer: "\(currentUser.rating)",
+                    positionPlayer: "\(currentUser.position)",
+                    game: "\(currentUser.numberOfGames)",
+                    goal: "\(currentUser.numberOfGoals)",
+                    win: "\(currentUser.winGame)",
+                    los: "\(currentUser.losGame)")
                 
                 
                 
@@ -56,52 +66,58 @@ struct AdminEditorMyProfileMainFooTeam: View {
                         
                         HStack {
                             Text("Имя:")
-                            TextField("", text: .constant(player.name))
+                            TextField("\(self.currentUser.name)",
+                                text: $dynamicName)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .onAppear() {
+                                    self.dynamicName = self.currentUser.name
+                            }
                         }
                         
                         HStack {
                             Text("Электронная почта:")
-                            TextField("\(player.email)", text: .constant(player.email))
+                            TextField("\(currentUser.email)",
+                                text: $dynamicMail)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .onAppear() {
+                                    self.dynamicMail = self.currentUser.email
+                            }
                         }
                     }
                     
                     if selectionWhoAreYou == 0 {
                         HStack {
                             Text("Баланс:")
-                            Spacer()
-                            TextField("\(player.payment)", text: .constant(player.payment))
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            TextField("\(currentUser.payment)",
+                                text: $dynamicPayment)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .onAppear() {
+                                    self.dynamicPayment = self.currentUser.payment
+                            }
                             Text(" FCoin")
                                 .font(.headline)
-                        }
-                        
-                        HStack {
-                            Text("Играет в команде:")
-                            Spacer()
-                            Toggle(isOn: $playInTeam) {
-                                Text("\(player.nameTeam)")
-                                    .font(.headline)
-                            }
                         }
                         
                         HStack {
                             Text("Месячная подписка:")
                             Spacer()
                             Toggle(isOn: $subscription) {
-                                
-                                Text("\(player.subscription ? "активна" : "не активна")")
-                                    .font(.headline)
+                                Text("\(subscription ? "активна" : "не активна")")
+                                    .onAppear() {
+                                        self.subscription = self.currentUser.subscription
+                                }
+                                .font(.headline)
                             }
                         }
                         
                         HStack {
                             Text("Идет на след. игру:")
-                            Spacer()
                             Toggle(isOn: $iGo) {
-                                Text("\(player.iGo ? "да" : "нет")")
+                                Text("\(self.iGo ? "да" : "нет")")
                                     .font(.headline)
+                                    .onAppear() {
+                                        self.iGo = self.currentUser.iGo
+                                }
                             }
                         }
                         
@@ -116,38 +132,71 @@ struct AdminEditorMyProfileMainFooTeam: View {
                         
                         HStack {
                             Text("Игр сыграл:")
-                            Stepper("\(player.numberOfGames)", value: $newNumberOfGames)
+                            Stepper("\(dynamicNumberOfGames)", value: $dynamicNumberOfGames)
+                                .onAppear() {
+                                    self.dynamicNumberOfGames = self.currentUser.numberOfGames
+                            }
                         }
                         
                         HStack {
                             Text("Игр выиграл:")
-                            Stepper("\(player.winGame)", value: $newNumberOfGames)
-                        }
-                        
-                        HStack {
-                            Text("Игр проиграл:")
-                            Stepper("\(player.losGame)", value: $newNumberOfGames)
+                            Stepper("\(dynamicWinGame)", value: $dynamicWinGame)
+                                .onAppear() {
+                                    self.dynamicWinGame = self.currentUser.winGame
+                            }
                         }
                         
                         HStack {
                             Text("Мячей забил:")
-                            Stepper("\(player.numberOfGoals)", value: $newNumberOfGames)
+                            Stepper("\(dynamicNumberOfGoals)", value: $dynamicNumberOfGoals)
+                                .onAppear() {
+                                    self.dynamicNumberOfGoals = self.currentUser.numberOfGoals
+                            }
                         }
+                        
+                        HStack {
+                            Text("Игр проиграл:")
+                            Stepper("\(dynamicLosGame)", value: $dynamicLosGame)
+                                .onAppear() {
+                                    self.dynamicLosGame = self.currentUser.losGame
+                            }
+                        }
+                        
+                        
                         
                     }
                 }
                 
-                
-                
-                
-                
-                
-                
-                VStack {
+                Button(action: {
+                    
+                    EditPlayer.shared.editPlayerInTeam(
+                        player: self.currentUser,
+                        name: self.dynamicName,
+                        avatarImage: nil,
+                        email: self.dynamicMail,
+                        whoAreYou: self.whoAreYou[self.selectionWhoAreYou],
+                        teamNumber: self.currentUser.teamNumber,
+                        payment: self.dynamicPayment,
+                        iGo: self.iGo,
+                        subscription: self.subscription,
+                        rating: self.currentUser.rating,
+                        position: self.positions[self.selection],
+                        numberOfGames: self.dynamicNumberOfGames,
+                        numberOfGoals: self.dynamicNumberOfGoals,
+                        winGame: self.dynamicWinGame,
+                        losGame: self.dynamicLosGame,
+                        captain: self.currentUser.captain)
+                    
+                    self.showModal = false
+                    
+                } ) {
                     Text("Сохранить")
-                        .font(.headline)
+                        .font(.system(.headline, design: .serif))
+                        .foregroundColor(Color.black)
                         .padding(.horizontal)
+                        .padding(.vertical, 5)
                         .background(Color.green)
+                        .cornerRadius(5)
                 }
             }
                 
@@ -168,6 +217,6 @@ struct AdminEditorMyProfileMainFooTeam: View {
 
 struct EditorMyProfileMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        AdminEditorMyProfileMainFooTeam(player: (Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 60, position: "ФРВ", numberOfGames: 30, numberOfGoals: 60, winGame: 20, losGame: 10, captain: true)), showModal: .constant(false))
+        AdminEditorMyProfileMainFooTeam(currentUser: (Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 60, position: "ФРВ", numberOfGames: 30, numberOfGoals: 60, winGame: 20, losGame: 10, captain: true)), showModal: .constant(false))
     }
 }

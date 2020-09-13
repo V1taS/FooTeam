@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CellJoinTeamViewController: View {
     
-    @ObservedObject var teamsListener = TeamsListener()
+    var team: Teams
     
     let colorText: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
@@ -27,20 +27,20 @@ struct CellJoinTeamViewController: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 60)
-                Text("\(teamsListener.teams.first?.teamName ?? "")")
+                Text("\(team.teamName ?? "")")
                     .foregroundColor(Color(colorText))
                 
-                Text("\(teamsListener.teams.first?.teamType ?? "")")
+                Text("\(team.teamType ?? "")")
                 .font(.system(size: 15))
                 .foregroundColor(.green)
                 .fontWeight(.bold)
                     .padding(.top, 10)
                 
-                Text("Место: \(teamsListener.teams.first?.location ?? "")")
+                Text("Место: \(team.location ?? "")")
                     .foregroundColor(Color(colorText))
                     .font(.system(size: 15))
                     .lineLimit(1)
-                Text("Игроков: \(teamsListener.teams.first?.teamName ?? "")")
+                Text("Игроков: \(team.rating ?? 0)")
                     .foregroundColor(Color(colorText))
                     .font(.system(size: 15))
                     .lineLimit(1)
@@ -52,6 +52,6 @@ struct CellJoinTeamViewController: View {
 
 struct CellJoinTeamViewController_Previews: PreviewProvider {
     static var previews: some View {
-        CellJoinTeamViewController()
+        CellJoinTeamViewController(team: Teams(avatarStringURL: "", teamName: "Khimki", location: "Russia", teamType: "Close", rating: 17))
     }
 }

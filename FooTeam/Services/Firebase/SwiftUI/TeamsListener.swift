@@ -18,7 +18,7 @@ class TeamsListener: ObservableObject {
     }
     
     func downloadTeams() {
-        FirebaseReference(.teams).getDocuments { (snapshot, error) in
+        FirebaseReference(.teams).addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else { return }
             if !snapshot.isEmpty {
                 self.teams = TeamsListener.teamsFromDictionary(snapshot)

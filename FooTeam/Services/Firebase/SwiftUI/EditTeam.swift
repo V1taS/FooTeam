@@ -32,14 +32,15 @@ class EditTeam {
         if let teamType = teamType { team.teamType = teamType }
         if let rating = rating { team.rating = rating }
         
-        StorageService.shared.uploadAvaTeam(photo: avatarImage!) { (result) in
-            switch result {
-            case .success(let url): team.avatarStringURL = url.absoluteString
-            case .failure(let error): print(error)
+        if let avatarImage = avatarImage {
+            StorageService.shared.uploadAvaTeam(photo: avatarImage) { (result) in
+                switch result {
+                case .success(let url): team.avatarStringURL = url.absoluteString
+                case .failure(let error): print(error)
+                }
             }
         }
-
-    
+        
         teamRef.document(team.id).setData(team.representation) { (error) in }
     }
 } // Edit Team

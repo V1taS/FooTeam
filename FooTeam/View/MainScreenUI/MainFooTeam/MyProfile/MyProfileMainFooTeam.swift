@@ -11,13 +11,10 @@ import SDWebImageSwiftUI
 
 struct MyProfileMainFooTeam: View {
     
-    @Binding var player: Players?
+    @ObservedObject var currentUser = CurrentUser()
+    
     @Binding var showModal: Bool
     @State var userEditorShow = false
-    
-    var staticPlayer: Players {
-        player!
-    }
     
     var body: some View {
         NavigationView {
@@ -25,55 +22,52 @@ struct MyProfileMainFooTeam: View {
                 CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1),
                                       colorText: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1),
                                       backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)),
-                                      namePlayer: "\(player?.name ?? "noName")",
-                    photoPlayer: "\(player?.avatarStringURL ?? "")",
-                    ratingPlayer: "\(player?.rating ?? 0)",
-                    positionPlayer: "\(player?.position ?? "")",
-                    game: "\(player?.numberOfGames ?? 0)",
-                    goal: "\(player?.numberOfGoals ?? 0)",
-                    win: "\(player?.numberOfGoals ?? 0)",
-                    los: "\(player?.losGame ?? 0)")
+                                      namePlayer: "\(currentUser.player?.name ?? "")",
+                    photoPlayer: "\(currentUser.player?.avatarStringURL ?? "")",
+                    ratingPlayer: "\(currentUser.player?.rating ?? 0)",
+                    positionPlayer: "\(currentUser.player?.position ?? "")",
+                    game: "\(currentUser.player?.numberOfGames ?? 0)",
+                    goal: "\(currentUser.player?.numberOfGoals ?? 0)",
+                    win: "\(currentUser.player?.numberOfGoals ?? 0)",
+                    los: "\(currentUser.player?.losGame ?? 0)")
                 
                 Form {
                     HStack {
                         Text("Играю в команде:")
                         Spacer()
                         Text("выйти")
-                        .foregroundColor(.red)
-                        Text("\(player?.nameTeam ?? "")")
+                            .foregroundColor(.red)
+                        Text("\(currentUser.player?.nameTeam ?? "")")
                             .font(.headline)
-
+                        
                     }
                     
                     HStack {
                         Text("Личный баланс:")
                         Spacer()
-                        Text("пополнить")
-                        .foregroundColor(Color.green)
-                        Text("\(player?.payment ?? "0") FCoin")
+                            .foregroundColor(Color.green)
+                        Text("\(currentUser.player?.payment ?? "") FCoin")
                             .font(.headline)
                     }
                     
                     HStack {
                         Text("Месячнвя подписка:")
                         Spacer()
-                        Text("\(player?.subscription ?? false ? "активна" : "не активна")")
+                        Text("\(currentUser.player?.subscription ?? false ? "активна" : "не активна")")
                             .font(.headline)
                     }
                     
                     HStack {
                         Text("Иду на след. игру:")
                         Spacer()
-                        Text("\(player?.iGo ?? false ? "да" : "нет")")
+                        Text("\(currentUser.player?.iGo ?? false ? "да" : "нет")")
                             .font(.headline)
                     }
-                    
                 }
-                
                 
                 VStack {
                     Button(action: {
-
+                        
                         self.userEditorShow.toggle()
                     }) {
                         Text("Редактировать")
@@ -81,7 +75,7 @@ struct MyProfileMainFooTeam: View {
                             .fontWeight(.bold)
                     }
                     
-                    Text("\(player?.captain ?? false ? "КАПИТАН" : "")")
+                    Text("\(currentUser.player?.captain ?? false ? "КАПИТАН" : "")")
                         .font(.headline)
                         .fontWeight(.bold)
                         .padding(.horizontal)
@@ -90,15 +84,13 @@ struct MyProfileMainFooTeam: View {
                     
                 }
                 
-                
-            }
-                
-                
-                
+                }
                 
             .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
+                
                 self.showModal = false
+                
             }) {
                 Image(systemName: "multiply")
                     .renderingMode(.original)
@@ -106,13 +98,13 @@ struct MyProfileMainFooTeam: View {
             })
         } .sheet(
             isPresented: $userEditorShow,
-            content: { UserEditorMyProfileMainFooTeam(player: self.$player, showModal: self.$userEditorShow) }
+            content: { UserEditorMyProfileMainFooTeam(showModal: self.$userEditorShow, currentUser: self.currentUser) }
         )
     }
 }
 
 struct MyProfileMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        MyProfileMainFooTeam(player: .constant(Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 60, position: "ФРВ", numberOfGames: 30, numberOfGoals: 60, winGame: 20, losGame: 10, captain: true)), showModal: .constant(false))
+        MyProfileMainFooTeam(showModal: .constant(false))
     }
 }
