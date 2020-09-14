@@ -18,6 +18,7 @@ class EditTeam {
     // MARK: - Edit Team
     func editTeamInTeam(
         team: Teams,
+        teams: [Teams],
         teamName: String?,
         avatarImage: UIImage?,
         location: String?,
@@ -26,6 +27,7 @@ class EditTeam {
     ) {
         let teamRef = db.collection("teams")
         var team = team
+        var teams = teams
         
         if let teamName = teamName { team.teamName = teamName }
         if let location = location { team.location = location }
@@ -41,6 +43,25 @@ class EditTeam {
             }
         }
         
-        teamRef.document(team.id).setData(team.representation) { (error) in }
+        teamRef.addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else { return }
+            
+            snapshot.documentChanges.forEach { (diff) in
+                guard let team = Teams(document: diff.document) else { return }
+                switch diff.type {
+                case .added:
+                    guard !teams.contains(team) else { return }
+                    teams.append(team)
+                case .modified:
+                    guard let index = teams.firstIndex(of: team) else { return }
+                    teams[index] = team
+                case .removed:
+                    guard let index = teams.firstIndex(of: team) else { return }
+                    teams.remove(at: index)
+                }
+            }
+        }
+        
+        teamRef.document(team.id).updateData(team.representation) { (error) in }
     }
 } // Edit Team

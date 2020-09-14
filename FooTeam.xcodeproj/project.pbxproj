@@ -23,6 +23,7 @@
 		1B4A3DD02502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */; };
 		1B4B0EE7250AAE8C00EF701B /* ActionsPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */; };
 		1B4B0EE9250AB77F00EF701B /* PlayersID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B0EE8250AB77F00EF701B /* PlayersID.swift */; };
+		1B4C2B7C250EC26C0064A029 /* CountPlayersInTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C2B7B250EC26C0064A029 /* CountPlayersInTeam.swift */; };
 		1B50E65825066F97009B10C7 /* MyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B50E65725066F97009B10C7 /* MyProfileMainFooTeam.swift */; };
 		1B539579250ADB8C00C8DFD9 /* WaitingPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B539578250ADB8C00C8DFD9 /* WaitingPlayers.swift */; };
 		1B53957B250ADF1500C8DFD9 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B53957A250ADF1500C8DFD9 /* CurrentUser.swift */; };
@@ -99,6 +100,7 @@
 		1BB6D2A72506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A62506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift */; };
 		1BB6D2AB2506FD6300007EAD /* CurrentWeatherDater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A92506FD6300007EAD /* CurrentWeatherDater.swift */; };
 		1BB6D2AC2506FD6300007EAD /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2AA2506FD6300007EAD /* CurrentWeather.swift */; };
+		1BC8B61C250EE34C00FC8B27 /* CurrentTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC8B61B250EE34C00FC8B27 /* CurrentTeam.swift */; };
 		7A885E0DFF2C33839C833200 /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F5E20F65EACA5F72B185D5 /* Pods_FooTeam.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +121,7 @@
 		1B4A3DCF2502F5D6000EABD1 /* ListCompositionsMyTeamMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCompositionsMyTeamMainFooTeam.swift; sourceTree = "<group>"; };
 		1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsPlayers.swift; sourceTree = "<group>"; };
 		1B4B0EE8250AB77F00EF701B /* PlayersID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersID.swift; sourceTree = "<group>"; };
+		1B4C2B7B250EC26C0064A029 /* CountPlayersInTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountPlayersInTeam.swift; sourceTree = "<group>"; };
 		1B50E65725066F97009B10C7 /* MyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileMainFooTeam.swift; sourceTree = "<group>"; };
 		1B539578250ADB8C00C8DFD9 /* WaitingPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingPlayers.swift; sourceTree = "<group>"; };
 		1B53957A250ADF1500C8DFD9 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
@@ -197,6 +200,7 @@
 		1BB6D2A62506DD2400007EAD /* UserEditorMyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditorMyProfileMainFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A92506FD6300007EAD /* CurrentWeatherDater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherDater.swift; sourceTree = "<group>"; };
 		1BB6D2AA2506FD6300007EAD /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		1BC8B61B250EE34C00FC8B27 /* CurrentTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTeam.swift; sourceTree = "<group>"; };
 		66118B00ADD38F7EFE3CF6CB /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
 		A73B54B272AFB99E548C6B5E /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
 		B4F5E20F65EACA5F72B185D5 /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,10 +234,12 @@
 				1B453AAD2501A30400DA2DDA /* PlayersListener.swift */,
 				1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */,
 				1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */,
+				1B539578250ADB8C00C8DFD9 /* WaitingPlayers.swift */,
 				1BAB1DD8250A9CC900BA5DA8 /* AcceptInvitation.swift */,
 				1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */,
-				1B539578250ADB8C00C8DFD9 /* WaitingPlayers.swift */,
+				1B4C2B7B250EC26C0064A029 /* CountPlayersInTeam.swift */,
 				1B53957A250ADF1500C8DFD9 /* CurrentUser.swift */,
+				1BC8B61B250EE34C00FC8B27 /* CurrentTeam.swift */,
 				1B539584250AECE300C8DFD9 /* AddPlayer.swift */,
 				1B53957C250AE35800C8DFD9 /* EditPlayer.swift */,
 				1B53957E250AE91C00C8DFD9 /* DeletPlayer.swift */,
@@ -706,6 +712,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4C2B7C250EC26C0064A029 /* CountPlayersInTeam.swift in Sources */,
 				1B596F8124EC73650092770B /* Teams.swift in Sources */,
 				1B39446E24F9A3470008FC40 /* HeaderMainFooTeam.swift in Sources */,
 				1B596F9224EC73820092770B /* AuthService.swift in Sources */,
@@ -744,6 +751,7 @@
 				1B596F8024EC73650092770B /* Players.swift in Sources */,
 				1B4B0EE7250AAE8C00EF701B /* ActionsPlayers.swift in Sources */,
 				1B596F7424EC73530092770B /* TopPlayersFooTeam.swift in Sources */,
+				1BC8B61C250EE34C00FC8B27 /* CurrentTeam.swift in Sources */,
 				1B596FBE24EC73A90092770B /* ColorExtension.swift in Sources */,
 				1B596F9F24EC73A00092770B /* SelfConfiguringCell.swift in Sources */,
 				1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */,

@@ -11,23 +11,27 @@ import SDWebImageSwiftUI
 
 struct AddListPlayersFooTeam: View {
     
-    @Binding var showModal: Bool
+    @ObservedObject var players = PlayersListener()
+    let player = FirestoreService.shared.currentUser
     
-    var player = Players(name: "Виталий", nameTeam: "Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: false, subscription: false, rating: 0, position: "ФРВ", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: true)
+    @Binding var showModal: Bool
     
     @State var name = ""
     @State var email = ""
+    @State var payment = "0"
+    
     @State var selectionWhoAreYou = 0
     let whoAreYou = ["Игрок", "Зритель"]
-    @State var payment = "0"
-    let positions = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
+    
     @State var selectionPositions = 0
+    let positions = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
+    
         
         var body: some View {
             NavigationView {
                 VStack {
                     VStack {
-                        WebImage(url: URL(string: player.avatarStringURL))
+                        WebImage(url: URL(string: ""))
                         .onSuccess { image, data, cacheType in }
                         .resizable()
                         .placeholder(Image("player"))
@@ -72,7 +76,7 @@ struct AddListPlayersFooTeam: View {
                                 Text("Баланс:")
                                 TextField("Баланс", text: $payment)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                            }.disabled(true)
+                            }
                   
                         
                             HStack {
@@ -87,21 +91,43 @@ struct AddListPlayersFooTeam: View {
                             HStack {
                                 Text("Играет в команде:")
                                 Spacer()
-                                Text("\(player.nameTeam)")
+                                Text("\(player?.nameTeam ?? "")")
                                     .font(.headline)
                             }
                         }
                         
                         
+                    }
+                    Button(action: {
+                        AddPlayer.shared.addPlayerWith(
+                            newPlayer: self.player!,
+                            avatarImage: nil,
+                            name: self.name,
+                            email: self.email,
+                            whoAreYou: self.whoAreYou[self.selectionWhoAreYou],
+                            teamNumber: 0,
+                            payment: self.payment,
+                            iGo: false,
+                            subscription: false,
+                            rating: 50,
+                            position: self.positions[self.selectionPositions],
+                            numberOfGames: 0,
+                            numberOfGoals: 0,
+                            winGame: 0,
+                            losGame: 0,
+                            captain: false)
                         
-                        HStack {
-                            Spacer()
-                            Text("Сохранить")
-                                .padding(.horizontal)
-                                .background(Color.green)
-                                
-                            Spacer()
-                        }
+                        self.showModal = false
+                        
+                        
+                    } ) {
+                        Text("Сохранить")
+                            .font(.system(.headline, design: .serif))
+                            .foregroundColor(Color.black)
+                            .padding(.horizontal)
+                            .padding(.vertical, 5)
+                            .background(Color.green)
+                            .cornerRadius(5)
                     }
                 }
                     

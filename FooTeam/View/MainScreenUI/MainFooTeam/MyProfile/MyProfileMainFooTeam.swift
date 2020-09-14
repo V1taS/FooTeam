@@ -12,6 +12,7 @@ import SDWebImageSwiftUI
 struct MyProfileMainFooTeam: View {
     
     @ObservedObject var currentUser = CurrentUser()
+    @ObservedObject var playersListener = PlayersListener()
     
     @Binding var showModal: Bool
     @State var userEditorShow = false
@@ -98,7 +99,7 @@ struct MyProfileMainFooTeam: View {
             })
         } .sheet(
             isPresented: $userEditorShow,
-            content: { UserEditorMyProfileMainFooTeam(showModal: self.$userEditorShow, currentUser: self.currentUser) }
+            content: { UserEditorMyProfileMainFooTeam(showModal: self.$userEditorShow, currentUser: self.currentUser, players: self.playersListener.players) }
         )
     }
 }

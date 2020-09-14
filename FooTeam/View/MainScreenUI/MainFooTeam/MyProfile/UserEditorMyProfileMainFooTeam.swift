@@ -12,6 +12,7 @@ struct UserEditorMyProfileMainFooTeam: View {
     
     @Binding var showModal: Bool
     let currentUser: CurrentUser
+    let players: [Players]
     
     @State var dynamicName = ""
     @State var iGo = true
@@ -74,6 +75,7 @@ struct UserEditorMyProfileMainFooTeam: View {
                 Button(action: {
                     EditPlayer.shared.editPlayerInTeam(
                         player: self.currentUser.player!,
+                        players: self.players,
                         name: self.dynamicName,
                         avatarImage: nil,
                         email: self.currentUser.player!.email,
@@ -119,9 +121,9 @@ struct UserEditorMyProfileMainFooTeam: View {
     }
 }
 
-struct UserEditorMyProfileMainFooTeam_Previews: PreviewProvider {
-    static var previews: some View {
-        UserEditorMyProfileMainFooTeam(showModal: .constant(false),
-                                       currentUser: CurrentUser())
-    }
-}
+//struct UserEditorMyProfileMainFooTeam_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserEditorMyProfileMainFooTeam(showModal: .constant(false),
+//                                       currentUser: CurrentUser())
+//    }
+//}

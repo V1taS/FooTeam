@@ -14,10 +14,6 @@ struct ListPlayersFooTeam: View {
     
     @ObservedObject var playersListener = ActionsPlayers()
     
-    var generalListPlayers: [Players] {
-        playersListener.players.filter { $0.subscription }
-    }
-    
     var reservListPlayers: [Players] {
         playersListener.players.filter { !$0.subscription }
     }

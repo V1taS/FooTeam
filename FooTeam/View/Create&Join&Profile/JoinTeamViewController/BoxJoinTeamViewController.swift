@@ -11,14 +11,7 @@ import FirebaseAuth
 
 struct BoxJoinTeamViewController: View {
     
-    private var currentUserId: String {
-        return Auth.auth().currentUser!.uid
-    }
-    
-    @State var showAlert = false
-    
     @ObservedObject var currentUser = CurrentUser()
-    
     @ObservedObject var teamsListener = TeamsListener()
     
     var body: some View {
@@ -26,24 +19,12 @@ struct BoxJoinTeamViewController: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
                     ForEach(teamsListener.teams, id: \.self) { team in
-                        Button(action: { self.showAlert.toggle() } ) {
-                            CellJoinTeamViewController(team: team)
-                                .padding(.top)
-                        }
+                        CellJoinTeamViewController(team: team, currentUser: self.currentUser)
+                            .padding(.top)
                     }
                     
                     Spacer()
-                    
-                } .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Отправить запрос команде?"),
-                          primaryButton: .default(Text("Отправить запрос")) {
-                            
-                            JoinTheTeam.shared.SaveIDinTeam(player: self.currentUser.player!, team: self.teamsListener.teams.first!)
-                            
-                        },
-                          secondaryButton: .destructive(Text("Отмена")))
                 }
-                    
                 .navigationBarTitle(Text("Присоединиться"))
             }
         }

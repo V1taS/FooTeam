@@ -11,7 +11,9 @@ import SwiftUI
 struct ProfileListPlayersFooTeam: View {
     
     let player: Players
+    
     @State var adminEditorShow = false
+    @ObservedObject var playersListener = PlayersListener()
     
     var body: some View {
         VStack {
@@ -68,7 +70,7 @@ struct ProfileListPlayersFooTeam: View {
             })
         } .sheet(
             isPresented: $adminEditorShow,
-            content: { AdminEditorMyProfileMainFooTeam(currentUser: self.player, showModal: self.$adminEditorShow) }
+            content: { AdminEditorMyProfileMainFooTeam(currentUser: self.player, players: self.playersListener.players, showModal: self.$adminEditorShow) }
         )
         
     }

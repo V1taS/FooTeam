@@ -15,6 +15,10 @@ struct PlayerWaitingMainFooTeam: View {
     
     @ObservedObject var teamsListener = TeamsListener()
     
+    var team: [Teams] {
+        teamsListener.teams.filter { $0.id == player.idTeam }
+    }
+    
     @State var showAlert = false
     
     var body: some View {
@@ -53,8 +57,7 @@ struct PlayerWaitingMainFooTeam: View {
                       primaryButton: .destructive(Text("Отмена")),
                       secondaryButton: .default(Text("Добавить")) {
                         
-                        print("")
-                        AcceptInvitation.shared.acceptInvitation(player: self.player, team: self.teamsListener.teams.first!)
+                        AcceptInvitation.shared.acceptInvitation(player: self.player, team: self.team.first!)
                         
                     } )
             }

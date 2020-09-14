@@ -17,7 +17,7 @@ class AddPlayer {
     
     // MARK: - Add Player
     func addPlayerWith(
-        player: Players,
+        newPlayer: Players,
         avatarImage: UIImage?,
         name: String?,
         email: String?,
@@ -35,7 +35,9 @@ class AddPlayer {
         captain: Bool?
     ) {
         let usersRef = db.collection("players")
-        var player = player
+        let refActionsPlayer = db.collection(["teams", newPlayer.idTeam, "actionsPlayers"].joined(separator: "/"))
+        
+        var player = Players(name: "", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
         
         if let name = name { player.name = name }
         if let email = email { player.email = email }
@@ -52,15 +54,22 @@ class AddPlayer {
         if let losGame = losGame { player.losGame = losGame }
         if let captain = captain { player.captain = captain }
         
+        player.idTeam = newPlayer.idTeam
+        player.nameTeam = newPlayer.nameTeam
+        player.id = UUID().uuidString
         
-        StorageService.shared.uploadAvaPlayer(photo: avatarImage!) { (result) in
-            switch result {
-            case .success(let url): player.avatarStringURL = url.absoluteString
-            case .failure(let error): print(error)
+        if let avatarImage = avatarImage {
+            StorageService.shared.uploadAvaPlayer(photo: avatarImage) { (result) in
+                switch result {
+                case .success(let url): player.avatarStringURL = url.absoluteString
+                case .failure(let error): print(error)
+                }
             }
         }
         
         usersRef.document(player.id).setData(player.representation) { (error) in }
+        refActionsPlayer.document(player.id).setData(player.representationPlayer) { (error) in }
+        
     }
     
 } // Add Player

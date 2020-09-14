@@ -18,7 +18,7 @@ class PlayersListener: ObservableObject {
     }
     
     func downloadPlayers() {
-        FirebaseReference(.players).getDocuments { (snapshot, error) in
+        FirebaseReference(.players).addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else { return }
             if !snapshot.isEmpty {
                 self.players = PlayersListener.playersFromDictionary(snapshot)

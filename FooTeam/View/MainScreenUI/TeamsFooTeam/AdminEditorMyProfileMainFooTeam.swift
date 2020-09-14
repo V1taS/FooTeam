@@ -11,6 +11,7 @@ import SwiftUI
 struct AdminEditorMyProfileMainFooTeam: View {
     
     var currentUser: Players
+    let players: [Players]
     
     @Binding var showModal: Bool
     
@@ -171,6 +172,7 @@ struct AdminEditorMyProfileMainFooTeam: View {
                     
                     EditPlayer.shared.editPlayerInTeam(
                         player: self.currentUser,
+                        players: self.players,
                         name: self.dynamicName,
                         avatarImage: nil,
                         email: self.dynamicMail,
@@ -215,8 +217,8 @@ struct AdminEditorMyProfileMainFooTeam: View {
     }
 }
 
-struct EditorMyProfileMainFooTeam_Previews: PreviewProvider {
-    static var previews: some View {
-        AdminEditorMyProfileMainFooTeam(currentUser: (Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 60, position: "ФРВ", numberOfGames: 30, numberOfGoals: 60, winGame: 20, losGame: 10, captain: true)), showModal: .constant(false))
-    }
-}
+//struct EditorMyProfileMainFooTeam_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AdminEditorMyProfileMainFooTeam(currentUser: (Players(name: "Sosin Vitalii", nameTeam: "ФК Химки", email: "375693@mail.ru", avatarStringURL: "", whoAreYou: "Игрок", id: "", idTeam: "", teamNumber: 0, payment: "500", iGo: true, subscription: true, rating: 60, position: "ФРВ", numberOfGames: 30, numberOfGoals: 60, winGame: 20, losGame: 10, captain: true)), showModal: .constant(false))
+//    }
+//}

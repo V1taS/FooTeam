@@ -18,6 +18,7 @@ class EditPlayer {
     // MARK: - Edit Player
     func editPlayerInTeam(
         player: Players,
+        players: [Players],
         name: String?,
         avatarImage: UIImage?,
         email: String?,
@@ -36,6 +37,7 @@ class EditPlayer {
     ) {
         let usersRef = db.collection("players")
         var player = player
+        var players = players
         
         if let name = name { player.name = name }
         if let email = email { player.email = email }
@@ -60,7 +62,31 @@ class EditPlayer {
                 }
             }
         }
-    
-        usersRef.document(player.id).setData(player.representation) { (error) in }
+        
+        usersRef.addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else { return }
+            
+            snapshot.documentChanges.forEach { (diff) in
+                guard let player = Players(document: diff.document) else { return }
+                switch diff.type {
+                case .added:
+                    guard !players.contains(player) else { return }
+                    if let currentUserId = Auth.auth().currentUser?.uid {
+                        guard player.id != currentUserId else { return }
+                    }
+                    players.append(player)
+                case .modified:
+                    guard let index = players.firstIndex(of: player) else { return }
+                    players[index] = player
+                case .removed:
+                    guard let index = players.firstIndex(of: player) else { return }
+                    players.remove(at: index)
+                }
+            }
+        }
+        
+        
+        
+        usersRef.document(player.id).updateData(player.representation) { (error) in }
     }
 } // edit Player In Team
