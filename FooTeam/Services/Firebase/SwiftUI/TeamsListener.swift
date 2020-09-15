@@ -27,12 +27,12 @@ class TeamsListener: ObservableObject {
     }
     
     static func teamsFromDictionary(_ snapshot: QuerySnapshot) -> [Teams] {
-        var players: [Teams] = []
+        var teams: [Teams] = []
         
         for snapshot in snapshot.documents {
-            let playerItem = Teams(document: snapshot)
-            players.append(playerItem!)
+            let team = Teams(document: snapshot) ?? Teams(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0)
+            teams.append(team)
         }
-        return players
+        return teams
     }
 }

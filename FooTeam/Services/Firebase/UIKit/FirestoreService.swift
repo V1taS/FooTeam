@@ -113,7 +113,7 @@ class FirestoreService {
         
         var player = player
         var team = Teams(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, rating: rating!)
-        let refCountPlayers = db.collection(["teams", team.id, "players"].joined(separator: "/"))
+        let refCountPlayers = db.collection(["teams", team.id, "actionsPlayers"].joined(separator: "/"))
         
         StorageService.shared.uploadAvaTeam(photo: avatarTeam!) { (result) in
             switch result {

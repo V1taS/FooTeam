@@ -57,7 +57,7 @@ struct PlayerWaitingMainFooTeam: View {
                       primaryButton: .destructive(Text("Отмена")),
                       secondaryButton: .default(Text("Добавить")) {
                         
-                        AcceptInvitation.shared.acceptInvitation(player: self.player, team: self.team.first!)
+//                        AcceptInvitation.shared.acceptInvitation(player: self.player, capitanPlayer: self.team.first!)
                         
                     } )
             }

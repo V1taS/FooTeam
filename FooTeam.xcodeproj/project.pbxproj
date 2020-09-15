@@ -87,6 +87,7 @@
 		1B596FC724EC73A90092770B /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596FB424EC73A90092770B /* ButtonFormView.swift */; };
 		1B596FCA24EC73B20092770B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B596FC924EC73B20092770B /* Assets.xcassets */; };
 		1B596FCD24EC73D60092770B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596FCC24EC73D60092770B /* Constants.swift */; };
+		1B77086D250FF327006B1549 /* PopapCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B77086C250FF327006B1549 /* PopapCard.swift */; };
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
 		1B7F262C25098A5B0053E124 /* BoxJoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F262B25098A5B0053E124 /* BoxJoinTeamViewController.swift */; };
@@ -94,6 +95,7 @@
 		1B7F26312509914E0053E124 /* PlayerWaitingMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F26302509914E0053E124 /* PlayerWaitingMainFooTeam.swift */; };
 		1B7F26332509952B0053E124 /* MainWaitingMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F26322509952B0053E124 /* MainWaitingMainFooTeam.swift */; };
 		1B85C933250824C1002C3106 /* AddListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85C932250824C1002C3106 /* AddListPlayersFooTeam.swift */; };
+		1B9B2CF1251020FB00DAF164 /* EditPlayerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B2CF0251020FB00DAF164 /* EditPlayerTwo.swift */; };
 		1BAB1DD9250A9CC900BA5DA8 /* AcceptInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAB1DD8250A9CC900BA5DA8 /* AcceptInvitation.swift */; };
 		1BB6D2A32506B4D000007EAD /* ProfileListPlayersFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */; };
 		1BB6D2A52506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */; };
@@ -101,6 +103,7 @@
 		1BB6D2AB2506FD6300007EAD /* CurrentWeatherDater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2A92506FD6300007EAD /* CurrentWeatherDater.swift */; };
 		1BB6D2AC2506FD6300007EAD /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6D2AA2506FD6300007EAD /* CurrentWeather.swift */; };
 		1BC8B61C250EE34C00FC8B27 /* CurrentTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC8B61B250EE34C00FC8B27 /* CurrentTeam.swift */; };
+		1BCEFFA0251031C300552AB3 /* NoAcceptInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */; };
 		7A885E0DFF2C33839C833200 /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F5E20F65EACA5F72B185D5 /* Pods_FooTeam.framework */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +190,7 @@
 		1B596FB424EC73A90092770B /* ButtonFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
 		1B596FC924EC73B20092770B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B596FCC24EC73D60092770B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1B77086C250FF327006B1549 /* PopapCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopapCard.swift; sourceTree = "<group>"; };
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7F262B25098A5B0053E124 /* BoxJoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxJoinTeamViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		1B7F26302509914E0053E124 /* PlayerWaitingMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWaitingMainFooTeam.swift; sourceTree = "<group>"; };
 		1B7F26322509952B0053E124 /* MainWaitingMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWaitingMainFooTeam.swift; sourceTree = "<group>"; };
 		1B85C932250824C1002C3106 /* AddListPlayersFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListPlayersFooTeam.swift; sourceTree = "<group>"; };
+		1B9B2CF0251020FB00DAF164 /* EditPlayerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerTwo.swift; sourceTree = "<group>"; };
 		1BAB1DD8250A9CC900BA5DA8 /* AcceptInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptInvitation.swift; sourceTree = "<group>"; };
 		1BB6D2A22506B4D000007EAD /* ProfileListPlayersFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListPlayersFooTeam.swift; sourceTree = "<group>"; };
 		1BB6D2A42506CFCB00007EAD /* AdminEditorMyProfileMainFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditorMyProfileMainFooTeam.swift; sourceTree = "<group>"; };
@@ -201,6 +206,7 @@
 		1BB6D2A92506FD6300007EAD /* CurrentWeatherDater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherDater.swift; sourceTree = "<group>"; };
 		1BB6D2AA2506FD6300007EAD /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		1BC8B61B250EE34C00FC8B27 /* CurrentTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTeam.swift; sourceTree = "<group>"; };
+		1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAcceptInvitation.swift; sourceTree = "<group>"; };
 		66118B00ADD38F7EFE3CF6CB /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
 		A73B54B272AFB99E548C6B5E /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
 		B4F5E20F65EACA5F72B185D5 /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +227,7 @@
 		1B0BB4472506AC9D00B3AA06 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1B77086C250FF327006B1549 /* PopapCard.swift */,
 				1B596F6224EC73530092770B /* CaruselBodyFooTeam */,
 				1B596F5D24EC73530092770B /* TopPlayersFooTeam */,
 			);
@@ -236,12 +243,14 @@
 				1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */,
 				1B539578250ADB8C00C8DFD9 /* WaitingPlayers.swift */,
 				1BAB1DD8250A9CC900BA5DA8 /* AcceptInvitation.swift */,
+				1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */,
 				1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */,
 				1B4C2B7B250EC26C0064A029 /* CountPlayersInTeam.swift */,
 				1B53957A250ADF1500C8DFD9 /* CurrentUser.swift */,
 				1BC8B61B250EE34C00FC8B27 /* CurrentTeam.swift */,
 				1B539584250AECE300C8DFD9 /* AddPlayer.swift */,
 				1B53957C250AE35800C8DFD9 /* EditPlayer.swift */,
+				1B9B2CF0251020FB00DAF164 /* EditPlayerTwo.swift */,
 				1B53957E250AE91C00C8DFD9 /* DeletPlayer.swift */,
 				1B539586250AEF9900C8DFD9 /* AddTeam.swift */,
 				1B539582250AEB2400C8DFD9 /* EditTeam.swift */,
@@ -723,6 +732,7 @@
 				1BAB1DD9250A9CC900BA5DA8 /* AcceptInvitation.swift in Sources */,
 				1B596F8F24EC73820092770B /* CalendarFooTeam.swift in Sources */,
 				1B596F6C24EC73530092770B /* CellJoinTeamViewController.swift in Sources */,
+				1B9B2CF1251020FB00DAF164 /* EditPlayerTwo.swift in Sources */,
 				1B596F8D24EC73820092770B /* Team.swift in Sources */,
 				1B4A3DCE2502EF6F000EABD1 /* BoxPositionsMyTeamMFT.swift in Sources */,
 				1B596FC524EC73A90092770B /* Bundle-Decodable.swift in Sources */,
@@ -742,6 +752,7 @@
 				1B596F9A24EC739A0092770B /* Validators.swift in Sources */,
 				1B596FC424EC73A90092770B /* AddAvaPlayersView.swift in Sources */,
 				1B596F7924EC73530092770B /* CellCaruselBodyFooTeam.swift in Sources */,
+				1BCEFFA0251031C300552AB3 /* NoAcceptInvitation.swift in Sources */,
 				1B596F6A24EC73530092770B /* AuthViewController.swift in Sources */,
 				1B596F6924EC73530092770B /* SignUpViewController.swift in Sources */,
 				1B39447224F9A3E80008FC40 /* InformationMainFooTeam.swift in Sources */,
@@ -780,6 +791,7 @@
 				1B596FBB24EC73A90092770B /* ImageExtension.swift in Sources */,
 				1B7F262E250990280053E124 /* WaitingMainFooTeam.swift in Sources */,
 				1B596FB924EC73A90092770B /* FontExtension.swift in Sources */,
+				1B77086D250FF327006B1549 /* PopapCard.swift in Sources */,
 				1B596FC124EC73A90092770B /* LabelExtension.swift in Sources */,
 				1B596FC324EC73A90092770B /* AddAvaTeamsView.swift in Sources */,
 				1B596F8C24EC73820092770B /* NetworkWeatherManager.swift in Sources */,

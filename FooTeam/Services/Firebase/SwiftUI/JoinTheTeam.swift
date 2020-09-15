@@ -20,7 +20,7 @@ class JoinTheTeam {
         
         let refWaitingPlayer = db.collection(["teams", team.id, "waitingPlayers"].joined(separator: "/"))
 
-        db.collection("players").document(player.id).setData(player.representation) { (error) in }
+//        db.collection("players").document(player.id).updateData(player.representation) { (error) in }
         
         refWaitingPlayer.document(player.id).setData(player.representationPlayer) { (error) in }
 

@@ -11,7 +11,8 @@ import FirebaseAuth
 
 struct BoxJoinTeamViewController: View {
     
-    @ObservedObject var currentUser = CurrentUser()
+    let currentPlayer = FirestoreService.shared.currentUser
+//
     @ObservedObject var teamsListener = TeamsListener()
     
     var body: some View {
@@ -19,12 +20,12 @@ struct BoxJoinTeamViewController: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
                     ForEach(teamsListener.teams, id: \.self) { team in
-                        CellJoinTeamViewController(team: team, currentUser: self.currentUser)
+                        CellJoinTeamViewController(team: team)
                             .padding(.top)
                     }
                     
                     Spacer()
-                }
+                }.frame(width: 170, height: 200)
                 .navigationBarTitle(Text("Присоединиться"))
             }
         }

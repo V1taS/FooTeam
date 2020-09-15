@@ -42,7 +42,7 @@ class ActionsPlayers: ObservableObject {
                             
                             for document in querySnapshot!.documents {
                                 let playerNew = Players(document: document)
-                                self.players.append(playerNew!)
+                                self.players.append(playerNew ?? Players(name: "", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false))
                             }
                         }
                     }
