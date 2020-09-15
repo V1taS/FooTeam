@@ -38,18 +38,6 @@ struct TabViewFooTeam: View {
                         Text("Команда")
                 }
                 
-                BoxJoinTeamViewController()
-                    .tabItem {
-                        Image(systemName: "sportscourt.fill")
-                        Text("Присоединиться")
-                }
-                
-                MainWaitingMainFooTeam()
-                    .tabItem {
-                        Image(systemName: "sportscourt.fill")
-                        Text("Ожидают подтверждение")
-                }
-                
             }
             
             VStack {

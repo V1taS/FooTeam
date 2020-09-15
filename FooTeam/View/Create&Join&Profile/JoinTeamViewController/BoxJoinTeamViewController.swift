@@ -11,8 +11,10 @@ import FirebaseAuth
 
 struct BoxJoinTeamViewController: View {
     
+    @State var isPresentedAlertSignOut = false
+    
     let currentPlayer = FirestoreService.shared.currentUser
-//
+
     @ObservedObject var teamsListener = TeamsListener()
     
     var body: some View {
@@ -28,6 +30,8 @@ struct BoxJoinTeamViewController: View {
                 }.frame(width: 170, height: 200)
                 .navigationBarTitle(Text("Присоединиться"))
             }
+            .navigationBarItems(trailing:
+            OutButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut))
         }
     }
 }
