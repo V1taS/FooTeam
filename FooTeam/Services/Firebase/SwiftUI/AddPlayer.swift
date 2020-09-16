@@ -17,7 +17,7 @@ class AddPlayer {
     
     // MARK: - Add Player
     func addPlayerWith(
-        newPlayer: Players,
+        capitanPlayer: Players,
         avatarImage: UIImage?,
         name: String?,
         email: String?,
@@ -35,7 +35,7 @@ class AddPlayer {
         captain: Bool?
     ) {
         let usersRef = db.collection("players")
-        let refActionsPlayer = db.collection(["teams", newPlayer.idTeam, "actionsPlayers"].joined(separator: "/"))
+        let refActionsPlayer = db.collection(["teams", capitanPlayer.idTeam, "actionsPlayers"].joined(separator: "/"))
         
         var player = Players(name: "", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
         
@@ -54,8 +54,8 @@ class AddPlayer {
         if let losGame = losGame { player.losGame = losGame }
         if let captain = captain { player.captain = captain }
         
-        player.idTeam = newPlayer.idTeam
-        player.nameTeam = newPlayer.nameTeam
+        player.idTeam = capitanPlayer.idTeam
+        player.nameTeam = capitanPlayer.nameTeam
         player.id = UUID().uuidString
         
         if let avatarImage = avatarImage {
