@@ -7,40 +7,39 @@
 //
 
 import Foundation
+import Combine
 
 protocol InformationsMainScreenViewModelProtocol {
     var nameTeam: String { get }
     var iGo: Bool { get }
     var temperatureString: String { get }
     var datePlay: String { get }
-    
-    init(player: CurrentUser)
-    init(weather: NetworkWeatherManager)
-    init(datePlay: CalendarFooTeam)
 }
 
 class InformationsMainScreenViewModel: InformationsMainScreenViewModelProtocol, ObservableObject {
+    
+    @Published var currentUser = CurrentUser()
+    @Published var networkWeather = NetworkWeatherManager()
+    @Published var calendarFooTeam = CalendarFooTeam()
+    
+    private var cancellables = Set<AnyCancellable>()
 
     @Published var nameTeam: String = ""
-    
     @Published var iGo: Bool = false
-    
     @Published var temperatureString: String = ""
-    
     @Published var datePlay: String = ""
-    
-    required init(player: CurrentUser) {
-        player.downloadPlayers()
+
+    init() {
         
-        self.nameTeam = player.player.nameTeam
-        self.iGo = player.player.iGo
-    }
-    
-    required init(weather: NetworkWeatherManager) {
-        temperatureString = "\(weather.weather.first?.temperatureString ?? "")°С"
-    }
-    
-    required init(datePlay: CalendarFooTeam) {
-        self.datePlay = "\(datePlay.datePlay)"
+        self.currentUser.$player.sink { player in
+            self.nameTeam = player.nameTeam
+            self.iGo = player.iGo
+            } .store(in: &cancellables)
+        
+        self.networkWeather.$weather.sink { weather in
+            self.temperatureString = weather.first?.temperatureString ?? ""
+        } .store(in: &cancellables)
+
+        self.datePlay = calendarFooTeam.datePlay
     }
 }

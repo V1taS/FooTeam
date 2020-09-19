@@ -7,16 +7,23 @@
 //
 
 import Foundation
+import Combine
 
 protocol HeaderMainScreenViewModelProtocol {
-    var getBalance: String { get }
-    func fetchBalance()
+    var balance: String { get }
 }
 
 class HeaderMainScreenViewModel: HeaderMainScreenViewModelProtocol, ObservableObject {
-    @Published var getBalance: String = ""
     
-    func fetchBalance() {
-        self.getBalance = FirestoreService.shared.currentUser.payment
+    @Published var currentUser = CurrentUser()
+    private var cancellables = Set<AnyCancellable>()
+    
+    @Published var balance: String = ""
+    
+    init() {
+        self.currentUser.$player.sink { player in
+            self.balance = player.payment
+            }
+            .store(in: &cancellables)
     }
 }

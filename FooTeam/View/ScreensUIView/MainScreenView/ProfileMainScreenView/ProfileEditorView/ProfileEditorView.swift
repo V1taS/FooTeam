@@ -11,8 +11,7 @@ import SwiftUI
 struct ProfileEditorView: View {
     
     @StateObject private var viewModel = ProfileEditorViewModel()
-    @State var closeShowModal: Bool = false
-    @Binding var showModal: Bool
+    @Binding var closeIsPresentedShowModal: Bool
     
     var body: some View {
         NavigationView {
@@ -137,7 +136,7 @@ struct ProfileEditorView: View {
                         losGame: self.viewModel.losGame,
                         captain: self.viewModel.captain)
                     
-                    self.showModal = false
+                    self.closeIsPresentedShowModal = false
                     
                 } ) {
                     Text("Сохранить")
@@ -150,12 +149,9 @@ struct ProfileEditorView: View {
                 }
             }
             
-            
-            
-            
             .navigationBarTitle(Text("Редактирование"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
-                self.showModal = false
+                self.closeIsPresentedShowModal = false
             }) {
                 Image(systemName: "multiply")
                     .renderingMode(.original)

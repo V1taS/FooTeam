@@ -16,8 +16,6 @@ class CurrentUser: ObservableObject {
     
     private let db = Firestore.firestore()
     
-    private var currentUserId = FirestoreService.shared.currentUser
-    
     init() {
         downloadPlayers()
     }
@@ -26,18 +24,21 @@ class CurrentUser: ObservableObject {
         
         let usersRef = db.collection("players")
         
-        usersRef.whereField("uid", isEqualTo: currentUserId!.id).addSnapshotListener() { (querySnapshot, err) in
-            
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    if let playerNew = Player(document: document) {
-                        self.player = playerNew
+        if let currentUserId = FirestoreService.shared.currentUser {
+            usersRef.whereField("uid", isEqualTo: currentUserId.id).addSnapshotListener() { (querySnapshot, err) in
+                
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        if let playerNew = Player(document: document) {
+                            self.player = playerNew
+                        }
                     }
                 }
             }
         }
+        
     }
 }
 

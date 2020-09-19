@@ -14,8 +14,6 @@ struct MainScreenView: View {
     
     @State var isPresentedAlertSignOut = false
     
-//    @StateObject private var viewModel = MainScreenViewModel()
-    
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {

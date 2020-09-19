@@ -10,12 +10,14 @@ import SwiftUI
 
 struct InformationsMainScreenView: View {
     
-    //    @StateObject private var viewModel = InformationsMainScreenViewModel()
+        @StateObject private var viewModel = InformationsMainScreenViewModel()
     
-    @ObservedObject var currentUser = CurrentUser()
+//    @ObservedObject var currentUser = CurrentUser()
+//
+//    @ObservedObject var weather = NetworkWeatherManager()
+//    @ObservedObject var calendarFooTeam = CalendarFooTeam()
     
-    @ObservedObject var weather = NetworkWeatherManager()
-    @ObservedObject var calendarFooTeam = CalendarFooTeam()
+    @ObservedObject var networkWeather = NetworkWeatherManager()
     
     @State var iGo = true
     
@@ -40,13 +42,13 @@ struct InformationsMainScreenView: View {
                     
                     HStack {
                         Text("Клуб:")
-                        Text("\(currentUser.player.nameTeam)")
+                        Text("\(viewModel.nameTeam)")
                             .font(.headline)
                     }
                     
                     HStack {
                         Text("Иду на игру:")
-                        Text("\(self.currentUser.player.iGo ? "да" : "нет")")
+                        Text("\(viewModel.iGo ? "да" : "нет")")
                             .font(.headline)
                     }
                 }
@@ -57,13 +59,13 @@ struct InformationsMainScreenView: View {
                     
                     HStack {
                         Text("Игра через:")
-                        Text("\(calendarFooTeam.datePlay)")
+                        Text("\(viewModel.datePlay)")
                             .font(.headline)
                     }
                     
                     HStack {
                         Text("Температура:")
-                        Text("\(weather.weather.first?.temperatureString ?? "")°С")
+                        Text("\(viewModel.temperatureString)°С")
                             .font(.headline)
                     }
                 }
@@ -74,6 +76,6 @@ struct InformationsMainScreenView: View {
 
 struct InformationMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        InformationsMainScreenView(currentUser: CurrentUser())
+        InformationsMainScreenView()
     }
 }

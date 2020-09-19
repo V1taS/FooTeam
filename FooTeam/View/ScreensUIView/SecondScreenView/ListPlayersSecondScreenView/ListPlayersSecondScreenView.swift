@@ -11,37 +11,17 @@ import SDWebImageSwiftUI
 
 struct ListPlayersSecondScreenView: View {
     
-    //    @StateObject private var viewModel = ListPlayersSecondScreenViewModel()
-    
-    @ObservedObject var currentUser = CurrentUser()
-    @ObservedObject var playersListener = PlayersListener()
-    
-    @ObservedObject var actionsPlayers = ActionsPlayers()
-    
-    var reservListPlayers: [Player] {
-        actionsPlayers.players.filter { !$0.subscription }
-    }
-    
-    var iGolistPlayers: [Player] {
-        actionsPlayers.players.filter { $0.iGo }
-    }
-    
-    @State var showModal: Bool = false
+    @StateObject private var viewModel = ListPlayersSecondScreenViewModel()
+    @State var isPresentedShowModal: Bool = false
     
     var body: some View {
         NavigationView {
             VStack {
-                
-                //                VStack {
-                //                    Text("Всего игроков: \(playersListener.players.count)")
-                //                    Text("Придут на игру: \(iGolistPlayers.count)")
-                //                }
-                
                 List {
                     Section(header: Text("Основной состав")) {
-                        ForEach(actionsPlayers.players.filter { $0.subscription },
+                        ForEach(viewModel.playersMain,
                                 id: \.self) { player in
-                                    NavigationLink(destination: ProfileShowModalMainScreenView(showModal: self.$showModal)) {
+                            NavigationLink(destination: ProfileShowModalMainScreenView(closeIsPresentedShowModal: $isPresentedShowModal)) {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
@@ -56,8 +36,8 @@ struct ListPlayersSecondScreenView: View {
                     }
                     
                     Section(header: Text("Запасные игроки")) {
-                        ForEach(reservListPlayers, id: \.self) { player in
-                            NavigationLink(destination: ProfileShowModalMainScreenView(showModal: self.$showModal)) {
+                        ForEach(viewModel.playersReserv, id: \.self) { player in
+                            NavigationLink(destination: ProfileShowModalMainScreenView(closeIsPresentedShowModal: $isPresentedShowModal)) {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
@@ -72,20 +52,19 @@ struct ListPlayersSecondScreenView: View {
                         }
                     }
                 }
-            } .onAppear { UITableView.appearance().tableFooterView = UIView() }
-                .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
-                .navigationBarTitle(Text("Моя команда"))
-                .navigationBarItems(trailing:
-                    Button(action: { self.showModal.toggle() }) {
-                        Image(systemName: "square.and.pencil").renderingMode(.original)
-                            .font(.title)
-                            .foregroundColor(Color.black)
-                        
-                })
-            } .sheet(
-                isPresented: $showModal,
-                content: { ProfileAddPlayerView(showModal: self.$showModal) }
-            )
+            }
+            .navigationBarTitle(Text("Моя команда"))
+            .navigationBarItems(trailing:
+                                    Button(action: { self.isPresentedShowModal.toggle() }) {
+                                        Image(systemName: "square.and.pencil").renderingMode(.original)
+                                            .font(.title)
+                                            .foregroundColor(Color.black)
+                                        
+                                    })
+        } .sheet(
+            isPresented: $isPresentedShowModal,
+            content: { ProfileAddPlayerView(showModal: self.$isPresentedShowModal) }
+        )
     }
 }
 

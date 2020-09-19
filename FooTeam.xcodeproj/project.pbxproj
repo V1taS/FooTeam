@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B02408D251172210074100A /* ProfileShowModalMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B02408C251172210074100A /* ProfileShowModalMainScreenViewModel.swift */; };
-		1B18C2DB251166A700551C6D /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B18C2DA251166A700551C6D /* MainScreenViewModel.swift */; };
 		1B18C2DE25116AFD00551C6D /* HeaderMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B18C2DD25116AFD00551C6D /* HeaderMainScreenViewModel.swift */; };
 		1B18C2E125116D4C00551C6D /* ProfileMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B18C2E025116D4C00551C6D /* ProfileMainScreenViewModel.swift */; };
 		1B28E3FE2511A031007B53A8 /* ListPlayersSecondScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */; };
@@ -98,6 +97,8 @@
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
 		1B7F262C25098A5B0053E124 /* BoxJoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F262B25098A5B0053E124 /* BoxJoinTeamViewController.swift */; };
+		1B80415E2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B80415C2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift */; };
+		1B80415F2516C11400C32E10 /* ProfileShowModalMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B80415D2516C11400C32E10 /* ProfileShowModalMainScreenView.swift */; };
 		1B85C933250824C1002C3106 /* ProfileAddPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85C932250824C1002C3106 /* ProfileAddPlayerView.swift */; };
 		1B9B2CF1251020FB00DAF164 /* EditPlayerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B2CF0251020FB00DAF164 /* EditPlayerTwo.swift */; };
 		1BA9509725119B27008269BD /* ProfileAddPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA9509625119B27008269BD /* ProfileAddPlayerViewModel.swift */; };
@@ -116,7 +117,6 @@
 
 /* Begin PBXFileReference section */
 		1B02408C251172210074100A /* ProfileShowModalMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileShowModalMainScreenViewModel.swift; sourceTree = "<group>"; };
-		1B18C2DA251166A700551C6D /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		1B18C2DD25116AFD00551C6D /* HeaderMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1B18C2E025116D4C00551C6D /* ProfileMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlayersSecondScreenViewModel.swift; sourceTree = "<group>"; };
@@ -208,6 +208,8 @@
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7F262B25098A5B0053E124 /* BoxJoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxJoinTeamViewController.swift; sourceTree = "<group>"; };
+		1B80415C2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileShowModalMainScreenViewModel.swift; sourceTree = "<group>"; };
+		1B80415D2516C11400C32E10 /* ProfileShowModalMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileShowModalMainScreenView.swift; sourceTree = "<group>"; };
 		1B85C932250824C1002C3106 /* ProfileAddPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddPlayerView.swift; sourceTree = "<group>"; };
 		1B9B2CF0251020FB00DAF164 /* EditPlayerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerTwo.swift; sourceTree = "<group>"; };
 		1BA9509625119B27008269BD /* ProfileAddPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddPlayerViewModel.swift; sourceTree = "<group>"; };
@@ -494,8 +496,8 @@
 		1B596F6624EC73530092770B /* SecondScreenView */ = {
 			isa = PBXGroup;
 			children = (
-				1B596F6824EC73530092770B /* ListPlayersSecondScreenView.swift */,
-				1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */,
+				1B8041622516C14100C32E10 /* ListPlayersSecondScreenView */,
+				1B80415B2516C11400C32E10 /* ShowProfile */,
 			);
 			path = SecondScreenView;
 			sourceTree = "<group>";
@@ -628,6 +630,24 @@
 			path = ProfileAddPlayerView;
 			sourceTree = "<group>";
 		};
+		1B80415B2516C11400C32E10 /* ShowProfile */ = {
+			isa = PBXGroup;
+			children = (
+				1B80415D2516C11400C32E10 /* ProfileShowModalMainScreenView.swift */,
+				1B80415C2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift */,
+			);
+			path = ShowProfile;
+			sourceTree = "<group>";
+		};
+		1B8041622516C14100C32E10 /* ListPlayersSecondScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				1B596F6824EC73530092770B /* ListPlayersSecondScreenView.swift */,
+				1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */,
+			);
+			path = ListPlayersSecondScreenView;
+			sourceTree = "<group>";
+		};
 		1BAD99E025117D1300022700 /* ProfileEditorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -650,7 +670,6 @@
 			isa = PBXGroup;
 			children = (
 				1B39446A24F85D250008FC40 /* MainScreenView.swift */,
-				1B18C2DA251166A700551C6D /* MainScreenViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -817,6 +836,7 @@
 				1B4C2B7C250EC26C0064A029 /* CountPlayersInTeam.swift in Sources */,
 				1B596F8124EC73650092770B /* Teams.swift in Sources */,
 				1B39446E24F9A3470008FC40 /* HeaderMainScreenView.swift in Sources */,
+				1B80415E2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift in Sources */,
 				1B596F9224EC73820092770B /* AuthService.swift in Sources */,
 				1B596FC724EC73A90092770B /* ButtonFormView.swift in Sources */,
 				1BA9509725119B27008269BD /* ProfileAddPlayerViewModel.swift in Sources */,
@@ -844,7 +864,6 @@
 				1B85C933250824C1002C3106 /* ProfileAddPlayerView.swift in Sources */,
 				1B50E65825066F97009B10C7 /* ProfileShowModalMainScreenView.swift in Sources */,
 				1B596F9E24EC73A00092770B /* AuthNavigatingDelegate.swift in Sources */,
-				1B18C2DB251166A700551C6D /* MainScreenViewModel.swift in Sources */,
 				1B02408D251172210074100A /* ProfileShowModalMainScreenViewModel.swift in Sources */,
 				1B596FC024EC73A90092770B /* AplicationExtension.swift in Sources */,
 				1B596F9A24EC739A0092770B /* Validators.swift in Sources */,
@@ -910,6 +929,7 @@
 				1B7F262C25098A5B0053E124 /* BoxJoinTeamViewController.swift in Sources */,
 				1BB6D2A52506CFCB00007EAD /* ProfileEditorView.swift in Sources */,
 				1B4B0EE9250AB77F00EF701B /* PlayersID.swift in Sources */,
+				1B80415F2516C11400C32E10 /* ProfileShowModalMainScreenView.swift in Sources */,
 				1B596F9924EC739A0092770B /* UserError.swift in Sources */,
 				1B596F7824EC73530092770B /* CaruselBodyFooTeam.swift in Sources */,
 				1B596FBF24EC73A90092770B /* ImageViewExtension.swift in Sources */,

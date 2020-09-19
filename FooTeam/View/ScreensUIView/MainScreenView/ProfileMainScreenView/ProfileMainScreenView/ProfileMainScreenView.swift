@@ -34,8 +34,8 @@ struct ProfileMainScreenView: View {
                     
                     ImagePlayer(avatarStringURL: viewModel.avatarStringURL, avatarSize: 125)
                 }
-            }
-            .sheet(isPresented: $isPresentedShowModal) { ProfileShowModalMainScreenView(showModal: $isPresentedShowModal) }
+            }.sheet(isPresented: $isPresentedShowModal) {
+                ProfileShowModalMainScreenView(closeIsPresentedShowModal: $isPresentedShowModal) }
         }
     }
 }

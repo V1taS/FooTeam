@@ -12,7 +12,7 @@ struct HeaderMainScreenView: View {
     
     @ObservedObject var currentUser = CurrentUser()
     
-    //    @StateObject private var viewModel = HeaderMainScreenViewModel()
+        @StateObject private var viewModel = HeaderMainScreenViewModel()
     
     var body: some View {
         HStack {
@@ -25,7 +25,7 @@ struct HeaderMainScreenView: View {
                     Text("Баланс:")
                     .padding(.leading)
                     Spacer()
-                    Text("\(currentUser.player.payment)")
+                    Text("\(viewModel.balance)")
                         .font(.headline)
                     Text("FCoin")
                     .padding(.trailing)

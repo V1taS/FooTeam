@@ -11,9 +11,7 @@ import UIKit
 class CalendarFooTeam: ObservableObject {
     
     @Published var datePlay: String = ""
-    
-    static let shared = CalendarFooTeam()
-    
+
     init() {
         timeFoot()
     }

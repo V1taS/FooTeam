@@ -7,47 +7,44 @@
 //
 
 import Foundation
+import Combine
 
 protocol ListTeamsMainScreenViewModelProtocol {
-    var countPlayersIgo: Int { get }
+    var iGoCount: Int { get }
     var countTeams: Int { get }
     
     var temperatureString: String { get }
+    var temperatureIcon: String { get }
     var datePlay: String { get }
-    
-    var closeShowModal: Bool { get }
-    
-    init(players: ActionsPlayers)
-    init(weather: NetworkWeatherManager)
-    init(datePlay: CalendarFooTeam)
 }
 
 class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, ObservableObject {
+
+    @Published var actionsPlayers = ActionsPlayers()
+    @Published var networkWeather = NetworkWeatherManager()
+    @Published var calendarFooTeam = CalendarFooTeam()
+    private var cancellables = Set<AnyCancellable>()
     
-    @Published var countPlayersIgo: Int = 0
-    
+    @Published var iGoCount: Int = 0
     @Published var countTeams: Int = 0 // Настроить логику (алгоритм готовый на почте)
-    
     @Published var temperatureString: String = ""
+    @Published var temperatureIcon: String = ""
     
     @Published var datePlay: String = ""
+
     
-    @Published var closeShowModal: Bool = false // Настроить логику
-    
-    required init(players: ActionsPlayers) {
-        players.downloadPlayers()
-        let playersIgo = players.players.filter { $0.iGo }
+    init() {
+        self.actionsPlayers.$players.sink { players in
+            
+            let iGoCount = players.filter { $0.iGo }
+            self.iGoCount = iGoCount.count
+
+        } .store(in: &cancellables)
         
-        self.countPlayersIgo = playersIgo.count
+        self.networkWeather.$weather.sink { weather in
+            self.temperatureString = weather.first?.temperatureString ?? ""
+        } .store(in: &cancellables)
+
+        self.datePlay = calendarFooTeam.datePlay
     }
-    
-    required init(weather: NetworkWeatherManager) {
-        temperatureString = "\(weather.weather.first?.temperatureString ?? "")°С"
-    }
-    
-    required init(datePlay: CalendarFooTeam) {
-        self.datePlay = "\(datePlay.datePlay)"
-    }
-    
-    
 }

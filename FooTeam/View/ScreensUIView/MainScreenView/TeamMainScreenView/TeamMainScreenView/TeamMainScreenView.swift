@@ -10,15 +10,8 @@ import SwiftUI
 
 struct TeamMainScreenView: View {
     
-    //    @StateObject private var viewModel = TeamMainScreenViewModel()
-    
-    @ObservedObject var playersListener = ActionsPlayers()
-
-    @State var showModal: Bool = false
-    
-    var iGolistPlayers: [Player] {
-        playersListener.players.filter { $0.iGo }
-    }
+    @StateObject private var viewModel = TeamMainScreenViewModel()
+    @State var isPresentedShowModal: Bool = false
     
     var body: some View {
         ZStack {
@@ -26,10 +19,10 @@ struct TeamMainScreenView: View {
                 .frame(width: 380, height: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke()
+                            .stroke()
                 )
             
-            Button(action: { self.showModal.toggle() }) {
+            Button(action: { self.isPresentedShowModal.toggle() }) {
                 
                 HStack {
                     Image("teamCount")
@@ -45,15 +38,15 @@ struct TeamMainScreenView: View {
                             .font(.title)
                             .foregroundColor(Color(.red))
                         
-                        Text("Всего игроков: \(playersListener.players.count)")
+                        Text("Всего игроков: \(viewModel.playersCount)")
                             .foregroundColor(Color(.black))
-                        Text("Придут на игру: \(iGolistPlayers.count)")
+                        Text("Придут на игру: \(viewModel.iGoCount)")
                             .foregroundColor(Color(.black))
                     }
                 }.padding(.horizontal, 36)
             } .sheet(
-                isPresented: $showModal,
-                content: { ListTeamsMainScreenView(showModal: self.$showModal) }
+                isPresented: $isPresentedShowModal,
+                content: { ListTeamsMainScreenView(closeIsPresentedShowModal: self.$isPresentedShowModal) }
             )
         }
     }
