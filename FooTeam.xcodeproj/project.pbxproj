@@ -97,8 +97,6 @@
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
 		1B7F262C25098A5B0053E124 /* BoxJoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F262B25098A5B0053E124 /* BoxJoinTeamViewController.swift */; };
-		1B80415E2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B80415C2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift */; };
-		1B80415F2516C11400C32E10 /* ProfileShowModalMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B80415D2516C11400C32E10 /* ProfileShowModalMainScreenView.swift */; };
 		1B85C933250824C1002C3106 /* ProfileAddPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85C932250824C1002C3106 /* ProfileAddPlayerView.swift */; };
 		1B9B2CF1251020FB00DAF164 /* EditPlayerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B2CF0251020FB00DAF164 /* EditPlayerTwo.swift */; };
 		1BA9509725119B27008269BD /* ProfileAddPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA9509625119B27008269BD /* ProfileAddPlayerViewModel.swift */; };
@@ -112,7 +110,7 @@
 		1BC99DFB25118971007EE289 /* TeamMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC99DFA25118971007EE289 /* TeamMainScreenViewModel.swift */; };
 		1BCEFFA0251031C300552AB3 /* NoAcceptInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */; };
 		1BF32C96251574E100941F44 /* ImagePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF32C95251574E100941F44 /* ImagePlayer.swift */; };
-		F889F1C305D7162B13758114 /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F39AF9C1ABAFE67190F6DA7C /* Pods_FooTeam.framework */; };
+		D02706FBC9D63697342D802C /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA697D99BF920C0DACBC30C /* Pods_FooTeam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,8 +206,6 @@
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7F262B25098A5B0053E124 /* BoxJoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxJoinTeamViewController.swift; sourceTree = "<group>"; };
-		1B80415C2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileShowModalMainScreenViewModel.swift; sourceTree = "<group>"; };
-		1B80415D2516C11400C32E10 /* ProfileShowModalMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileShowModalMainScreenView.swift; sourceTree = "<group>"; };
 		1B85C932250824C1002C3106 /* ProfileAddPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddPlayerView.swift; sourceTree = "<group>"; };
 		1B9B2CF0251020FB00DAF164 /* EditPlayerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerTwo.swift; sourceTree = "<group>"; };
 		1BA9509625119B27008269BD /* ProfileAddPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddPlayerViewModel.swift; sourceTree = "<group>"; };
@@ -223,9 +219,9 @@
 		1BC99DFA25118971007EE289 /* TeamMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAcceptInvitation.swift; sourceTree = "<group>"; };
 		1BF32C95251574E100941F44 /* ImagePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlayer.swift; sourceTree = "<group>"; };
-		35E2522933D06A6E4E9D34B2 /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
-		870C570036CF1807AB50CA42 /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
-		F39AF9C1ABAFE67190F6DA7C /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31547FB1B37B719FC927882A /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
+		6A1085B3817BBDFDF757C0A8 /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
+		EEA697D99BF920C0DACBC30C /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,7 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F889F1C305D7162B13758114 /* Pods_FooTeam.framework in Frameworks */,
+				D02706FBC9D63697342D802C /* Pods_FooTeam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +370,7 @@
 				1B596F2F24EC714C0092770B /* FooTeam */,
 				1B596F2E24EC714C0092770B /* Products */,
 				5AD05B77981D44B12A07023D /* Pods */,
-				43C9CDECDED2A6C669A40E77 /* Frameworks */,
+				8ED492C51A6CE9E6C5F61F2A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -497,7 +493,6 @@
 			isa = PBXGroup;
 			children = (
 				1B8041622516C14100C32E10 /* ListPlayersSecondScreenView */,
-				1B80415B2516C11400C32E10 /* ShowProfile */,
 			);
 			path = SecondScreenView;
 			sourceTree = "<group>";
@@ -630,15 +625,6 @@
 			path = ProfileAddPlayerView;
 			sourceTree = "<group>";
 		};
-		1B80415B2516C11400C32E10 /* ShowProfile */ = {
-			isa = PBXGroup;
-			children = (
-				1B80415D2516C11400C32E10 /* ProfileShowModalMainScreenView.swift */,
-				1B80415C2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift */,
-			);
-			path = ShowProfile;
-			sourceTree = "<group>";
-		};
 		1B8041622516C14100C32E10 /* ListPlayersSecondScreenView */ = {
 			isa = PBXGroup;
 			children = (
@@ -683,21 +669,21 @@
 			path = TeamMainScreenView;
 			sourceTree = "<group>";
 		};
-		43C9CDECDED2A6C669A40E77 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F39AF9C1ABAFE67190F6DA7C /* Pods_FooTeam.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5AD05B77981D44B12A07023D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				870C570036CF1807AB50CA42 /* Pods-FooTeam.debug.xcconfig */,
-				35E2522933D06A6E4E9D34B2 /* Pods-FooTeam.release.xcconfig */,
+				31547FB1B37B719FC927882A /* Pods-FooTeam.debug.xcconfig */,
+				6A1085B3817BBDFDF757C0A8 /* Pods-FooTeam.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8ED492C51A6CE9E6C5F61F2A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEA697D99BF920C0DACBC30C /* Pods_FooTeam.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -707,12 +693,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B596F4124EC714E0092770B /* Build configuration list for PBXNativeTarget "FooTeam" */;
 			buildPhases = (
-				54D7590BFF5AEA701D1D51BB /* [CP] Check Pods Manifest.lock */,
+				FD9BAA3DE9D6C36B52BA8920 /* [CP] Check Pods Manifest.lock */,
 				1B596F2924EC714C0092770B /* Sources */,
 				1B596F2A24EC714C0092770B /* Frameworks */,
 				1B596F2B24EC714C0092770B /* Resources */,
-				243DB4D67BAEBB87DF9169DA /* [CP] Embed Pods Frameworks */,
-				92F0D6AB0A1B43F9B26B0E3E /* [CP] Copy Pods Resources */,
+				E3B17EA04465516EDB45389B /* [CP] Embed Pods Frameworks */,
+				5C7ECBA767E9F68D2E857183 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -770,7 +756,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		243DB4D67BAEBB87DF9169DA /* [CP] Embed Pods Frameworks */ = {
+		5C7ECBA767E9F68D2E857183 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3B17EA04465516EDB45389B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -787,7 +790,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		54D7590BFF5AEA701D1D51BB /* [CP] Check Pods Manifest.lock */ = {
+		FD9BAA3DE9D6C36B52BA8920 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -809,23 +812,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		92F0D6AB0A1B43F9B26B0E3E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -836,7 +822,6 @@
 				1B4C2B7C250EC26C0064A029 /* CountPlayersInTeam.swift in Sources */,
 				1B596F8124EC73650092770B /* Teams.swift in Sources */,
 				1B39446E24F9A3470008FC40 /* HeaderMainScreenView.swift in Sources */,
-				1B80415E2516C11400C32E10 /* ProfileShowModalMainScreenViewModel.swift in Sources */,
 				1B596F9224EC73820092770B /* AuthService.swift in Sources */,
 				1B596FC724EC73A90092770B /* ButtonFormView.swift in Sources */,
 				1BA9509725119B27008269BD /* ProfileAddPlayerViewModel.swift in Sources */,
@@ -929,7 +914,6 @@
 				1B7F262C25098A5B0053E124 /* BoxJoinTeamViewController.swift in Sources */,
 				1BB6D2A52506CFCB00007EAD /* ProfileEditorView.swift in Sources */,
 				1B4B0EE9250AB77F00EF701B /* PlayersID.swift in Sources */,
-				1B80415F2516C11400C32E10 /* ProfileShowModalMainScreenView.swift in Sources */,
 				1B596F9924EC739A0092770B /* UserError.swift in Sources */,
 				1B596F7824EC73530092770B /* CaruselBodyFooTeam.swift in Sources */,
 				1B596FBF24EC73A90092770B /* ImageViewExtension.swift in Sources */,
@@ -1070,7 +1054,7 @@
 		};
 		1B596F4224EC714E0092770B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 870C570036CF1807AB50CA42 /* Pods-FooTeam.debug.xcconfig */;
+			baseConfigurationReference = 31547FB1B37B719FC927882A /* Pods-FooTeam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1091,7 +1075,7 @@
 		};
 		1B596F4324EC714E0092770B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35E2522933D06A6E4E9D34B2 /* Pods-FooTeam.release.xcconfig */;
+			baseConfigurationReference = 6A1085B3817BBDFDF757C0A8 /* Pods-FooTeam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
