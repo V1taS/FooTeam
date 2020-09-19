@@ -10,33 +10,9 @@ import SwiftUI
 
 struct ProfileEditorView: View {
     
-    //    @StateObject private var viewModel = ProfileEditorViewModel()
-    
-    var currentUser: Players
-    let players: [Players]
-    
+    @StateObject private var viewModel = ProfileEditorViewModel()
+    @State var closeShowModal: Bool = false
     @Binding var showModal: Bool
-    
-    @State var newNumberOfGames = 0
-    
-    let whoAreYou = ["Игрок", "Зритель"]
-    @State var selectionWhoAreYou = 0
-    
-    
-    @State var dynamicName = ""
-    @State var dynamicMail = ""
-    @State var dynamicPayment = ""
-    
-    @State var dynamicNumberOfGames = 0
-    @State var dynamicNumberOfGoals = 0
-    @State var dynamicWinGame = 0
-    @State var dynamicLosGame = 0
-    
-    @State var iGo = true
-    @State var subscription = true
-    
-    let positions = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
-    @State var selection = 0
     
     var body: some View {
         NavigationView {
@@ -44,59 +20,47 @@ struct ProfileEditorView: View {
                 CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1),
                                       colorText: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1),
                                       backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)),
-                                      namePlayer: "\(currentUser.name)",
-                    photoPlayer: "\(currentUser.avatarStringURL)",
-                    ratingPlayer: "\(currentUser.rating)",
-                    positionPlayer: "\(currentUser.position)",
-                    game: "\(currentUser.numberOfGames)",
-                    goal: "\(currentUser.numberOfGoals)",
-                    win: "\(currentUser.winGame)",
-                    los: "\(currentUser.losGame)")
-                
-                
-                
+                                      namePlayer: "\(viewModel.name)",
+                                      photoPlayer: "\(viewModel.avatarStringURL)",
+                                      ratingPlayer: "\(viewModel.rating)",
+                                      positionPlayer: "\(viewModel.position)",
+                                      game: "\(viewModel.numberOfGames)",
+                                      goal: "\(viewModel.numberOfGoals)",
+                                      win: "\(viewModel.winGame)",
+                                      los: "\(viewModel.losGame)")
                 Form {
                     
                     VStack {
                         HStack {
                             Text("Кто ты?")
-                            Picker("dvdvd", selection: $selectionWhoAreYou) {
-                                ForEach(0..<whoAreYou.count) {
-                                    Text(self.whoAreYou[$0])
+                            Picker("dvdvd", selection: $viewModel.selectionWhoAreYou) {
+                                ForEach(0..<viewModel.whoAreYou.count) {
+                                    Text(self.viewModel.whoAreYou[$0])
                                 }
                             } .pickerStyle(SegmentedPickerStyle())
                         }
                         
                         HStack {
                             Text("Имя:")
-                            TextField("\(self.currentUser.name)",
-                                text: $dynamicName)
+                            TextField("\(self.viewModel.name)",
+                                      text: $viewModel.name)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .onAppear() {
-                                    self.dynamicName = self.currentUser.name
-                            }
                         }
                         
                         HStack {
                             Text("Электронная почта:")
-                            TextField("\(currentUser.email)",
-                                text: $dynamicMail)
+                            TextField("\(viewModel.email)",
+                                      text: $viewModel.email)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .onAppear() {
-                                    self.dynamicMail = self.currentUser.email
-                            }
                         }
                     }
                     
-                    if selectionWhoAreYou == 0 {
+                    if viewModel.selectionWhoAreYou == 0 {
                         HStack {
                             Text("Баланс:")
-                            TextField("\(currentUser.payment)",
-                                text: $dynamicPayment)
+                            TextField("\(viewModel.payment)",
+                                      text: $viewModel.payment)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .onAppear() {
-                                    self.dynamicPayment = self.currentUser.payment
-                            }
                             Text(" FCoin")
                                 .font(.headline)
                         }
@@ -104,65 +68,47 @@ struct ProfileEditorView: View {
                         HStack {
                             Text("Месячная подписка:")
                             Spacer()
-                            Toggle(isOn: $subscription) {
-                                Text("\(subscription ? "активна" : "не активна")")
-                                    .onAppear() {
-                                        self.subscription = self.currentUser.subscription
-                                }
-                                .font(.headline)
+                            Toggle(isOn: $viewModel.subscription) {
+                                Text("\(viewModel.subscription ? "активна" : "не активна")")
+                                    .font(.headline)
                             }
                         }
                         
                         HStack {
                             Text("Идет на след. игру:")
-                            Toggle(isOn: $iGo) {
-                                Text("\(self.iGo ? "да" : "нет")")
+                            Toggle(isOn: $viewModel.iGo) {
+                                Text("\(self.viewModel.iGo ? "да" : "нет")")
                                     .font(.headline)
-                                    .onAppear() {
-                                        self.iGo = self.currentUser.iGo
-                                }
                             }
                         }
                         
                         HStack {
                             Text("Позиция:")
-                            Picker("dvdvd", selection: $selection) {
-                                ForEach(0..<positions.count) {
-                                    Text(self.positions[$0])
+                            Picker("dvdvd", selection: $viewModel.selectionPositions) {
+                                ForEach(0..<viewModel.positions.count) {
+                                    Text(self.viewModel.positions[$0])
                                 }
                             } .pickerStyle(SegmentedPickerStyle())
                         }
                         
                         HStack {
                             Text("Игр сыграл:")
-                            Stepper("\(dynamicNumberOfGames)", value: $dynamicNumberOfGames)
-                                .onAppear() {
-                                    self.dynamicNumberOfGames = self.currentUser.numberOfGames
-                            }
+                            Stepper("\(viewModel.numberOfGames)", value: $viewModel.numberOfGames)
                         }
                         
                         HStack {
                             Text("Игр выиграл:")
-                            Stepper("\(dynamicWinGame)", value: $dynamicWinGame)
-                                .onAppear() {
-                                    self.dynamicWinGame = self.currentUser.winGame
-                            }
+                            Stepper("\(viewModel.winGame)", value: $viewModel.winGame)
                         }
                         
                         HStack {
                             Text("Мячей забил:")
-                            Stepper("\(dynamicNumberOfGoals)", value: $dynamicNumberOfGoals)
-                                .onAppear() {
-                                    self.dynamicNumberOfGoals = self.currentUser.numberOfGoals
-                            }
+                            Stepper("\(viewModel.numberOfGoals)", value: $viewModel.numberOfGoals)
                         }
                         
                         HStack {
                             Text("Игр проиграл:")
-                            Stepper("\(dynamicLosGame)", value: $dynamicLosGame)
-                                .onAppear() {
-                                    self.dynamicLosGame = self.currentUser.losGame
-                            }
+                            Stepper("\(viewModel.losGame)", value: $viewModel.losGame)
                         }
                         
                         
@@ -173,23 +119,23 @@ struct ProfileEditorView: View {
                 Button(action: {
                     
                     EditPlayer.shared.editPlayerInTeam(
-                        player: self.currentUser,
-                        players: self.players,
-                        name: self.dynamicName,
+                        player: self.viewModel.currentPlayer,
+                        players: self.viewModel.currentPlayers,
+                        name: self.viewModel.name,
                         avatarImage: nil,
-                        email: self.dynamicMail,
-                        whoAreYou: self.whoAreYou[self.selectionWhoAreYou],
-                        teamNumber: self.currentUser.teamNumber,
-                        payment: self.dynamicPayment,
-                        iGo: self.iGo,
-                        subscription: self.subscription,
-                        rating: self.currentUser.rating,
-                        position: self.positions[self.selection],
-                        numberOfGames: self.dynamicNumberOfGames,
-                        numberOfGoals: self.dynamicNumberOfGoals,
-                        winGame: self.dynamicWinGame,
-                        losGame: self.dynamicLosGame,
-                        captain: self.currentUser.captain)
+                        email: self.viewModel.email,
+                        whoAreYou: self.viewModel.whoAreYou[self.viewModel.selectionWhoAreYou],
+                        teamNumber: nil,
+                        payment: self.viewModel.payment,
+                        iGo: self.viewModel.iGo,
+                        subscription: self.viewModel.subscription,
+                        rating: self.viewModel.rating,
+                        position: self.viewModel.positions[self.viewModel.selectionPositions],
+                        numberOfGames: self.viewModel.numberOfGames,
+                        numberOfGoals: self.viewModel.numberOfGoals,
+                        winGame: self.viewModel.winGame,
+                        losGame: self.viewModel.losGame,
+                        captain: self.viewModel.captain)
                     
                     self.showModal = false
                     
@@ -203,10 +149,10 @@ struct ProfileEditorView: View {
                         .cornerRadius(5)
                 }
             }
-                
-                
-                
-                
+            
+            
+            
+            
             .navigationBarTitle(Text("Редактирование"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 self.showModal = false

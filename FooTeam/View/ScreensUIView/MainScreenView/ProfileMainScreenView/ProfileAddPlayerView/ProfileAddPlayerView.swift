@@ -32,16 +32,7 @@ struct ProfileAddPlayerView: View {
             NavigationView {
                 VStack {
                     VStack {
-                        WebImage(url: URL(string: ""))
-                        .onSuccess { image, data, cacheType in }
-                        .resizable()
-                        .placeholder(Image("player"))
-                        .indicator(.activity)
-                        .transition(.fade(duration: 0.5))
-                        .scaledToFill()
-                        .frame(width: 125, height: 125, alignment: .center)
-                        .cornerRadius(20)
-                        .aspectRatio(contentMode: .fill)
+                        ImagePlayer(avatarStringURL: "", avatarSize: 125)
      
                         Text("Загрузить")
                         .padding(.horizontal)

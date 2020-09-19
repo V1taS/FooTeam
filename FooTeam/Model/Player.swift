@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-struct Players: Hashable, Decodable {
+struct Player: Hashable, Decodable {
     
     var name: String
     var nameTeam: String
@@ -182,7 +182,7 @@ struct Players: Hashable, Decodable {
         hasher.combine(id)
     }
     
-    static func == (lhs: Players, rhs: Players) -> Bool {
+    static func == (lhs: Player, rhs: Player) -> Bool {
         return lhs.id == rhs.id
     }
     

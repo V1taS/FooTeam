@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol ProfileEditorViewModelProtocol {
     var name: String { get }
@@ -22,46 +23,39 @@ protocol ProfileEditorViewModelProtocol {
     var subscription: Bool { get }
     var iGo: Bool { get }
     var captain: Bool { get }
+    var email: String { get }
     
     var whoAreYou: [String] { get }
     var selectionWhoAreYou: Int { get }
     
     var positions: [String] { get }
     var selectionPositions: Int { get }
-    
-    var closeShowModal: Bool { get }
-    
-    init(player: CurrentUser)
-    init(players: PlayersListener)
 }
 
 class ProfileEditorViewModel: ProfileEditorViewModelProtocol, ObservableObject {
+
+    @Published var currentUser = CurrentUser()
+    @Published var playersListener = PlayersListener()
+    
+    @Published var currentPlayer = Player(name: "Default player", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+    @Published var currentPlayers: [Player] = []
+    
+    private var cancellables = Set<AnyCancellable>()
     
     @Published var name: String = ""
-    
     @Published var avatarStringURL: String = ""
-    
     @Published var rating: Int = 0
-    
     @Published var position: String = ""
-    
     @Published var numberOfGames: Int = 0
-    
     @Published var numberOfGoals: Int = 0
-    
     @Published var winGame: Int = 0
-    
     @Published var losGame: Int = 0
-    
     @Published var nameTeam: String = ""
-    
     @Published var payment: String = ""
-    
     @Published var subscription: Bool = false
-    
     @Published var iGo: Bool = false
-    
     @Published var captain: Bool = false
+    @Published var email: String = ""
     
     var whoAreYou: [String] = ["Игрок", "Зритель"] // Настроить логику
     @Published var selectionWhoAreYou: Int = 0 // Настроить логику
@@ -69,33 +63,31 @@ class ProfileEditorViewModel: ProfileEditorViewModelProtocol, ObservableObject {
     var positions: [String] = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"] // Настроить логику
     @Published var selectionPositions: Int = 0 // Настроить логику
     
-    @Published var closeShowModal: Bool = false // Настроить логику
-    
-    var currentPlayer: Players?
-    var listenerPlayers: [Players]?
-    
-    required init(player: CurrentUser) {
-        player.downloadPlayers()
-        self.currentPlayer = player.player ?? Players(name: "", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
+    init() {
         
-        self.name = player.player?.name ?? ""
-        self.avatarStringURL = player.player?.avatarStringURL ?? ""
-        self.rating = player.player?.rating ?? 0
-        self.position = player.player?.position ?? ""
-        self.numberOfGames = player.player?.numberOfGames ?? 0
-        self.numberOfGoals = player.player?.numberOfGoals ?? 0
-        self.winGame = player.player?.winGame ?? 0
-        self.losGame = player.player?.losGame ?? 0
-        self.nameTeam = player.player?.nameTeam ?? ""
-        self.payment = player.player?.payment ?? ""
-        self.subscription = player.player?.subscription ?? false
-        self.iGo = player.player?.iGo ?? false
-        self.captain = player.player?.captain ?? false
-    }
-    
-    required init(players: PlayersListener) {
-        players.downloadPlayers()
-        self.listenerPlayers = players.players
+        self.playersListener.$players.sink { player in
+            self.currentPlayers = player
+        }
+        .store(in: &cancellables)
+        
+        self.currentUser.$player.sink { player in
+            self.name = player.name
+            self.avatarStringURL = player.avatarStringURL
+            self.rating = player.rating
+            self.position = player.position
+            self.numberOfGames = player.numberOfGames
+            self.numberOfGoals = player.numberOfGoals
+            self.winGame = player.winGame
+            self.losGame = player.losGame
+            self.nameTeam = player.nameTeam
+            self.payment = player.payment
+            self.subscription = player.subscription
+            self.iGo = player.iGo
+            self.captain = player.captain
+            self.email = player.email
+            self.currentPlayer = player
+        }
+        .store(in: &cancellables)
     }
     
     

@@ -25,7 +25,7 @@ class ListenerService {
     }
     
     
-    func playersObserve(players: [Players], completion: @escaping (Result<[Players], Error>) -> Void) -> ListenerRegistration? {
+    func playersObserve(players: [Player], completion: @escaping (Result<[Player], Error>) -> Void) -> ListenerRegistration? {
         var players = players
         let usersListener = usersRef.addSnapshotListener { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
@@ -33,7 +33,7 @@ class ListenerService {
                 return
             }
             snapshot.documentChanges.forEach { (diff) in
-                guard let player = Players(document: diff.document) else { return }
+                guard let player = Player(document: diff.document) else { return }
                 switch diff.type {
                 case .added:
                     guard !players.contains(player) else { return }
@@ -53,7 +53,7 @@ class ListenerService {
     } // usersObserve
     
     
-    func waitingPlayersObserve(player: [Players], completion: @escaping (Result<[Players], Error>) -> Void) -> ListenerRegistration? {
+    func waitingPlayersObserve(player: [Player], completion: @escaping (Result<[Player], Error>) -> Void) -> ListenerRegistration? {
         var player = player
         let waitingPlayer = db.collection(["players", currentUserId, "waitingTeams"].joined(separator: "/"))
         let playerListener = waitingPlayer.addSnapshotListener { (querySnapshot, error) in
@@ -63,7 +63,7 @@ class ListenerService {
             }
             
             snapshot.documentChanges.forEach { (diff) in
-                guard let waitingPlayer = Players(document: diff.document) else { return }
+                guard let waitingPlayer = Player(document: diff.document) else { return }
                 switch diff.type {
                 case .added:
                     guard !player.contains(waitingPlayer) else { return }

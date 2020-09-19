@@ -11,12 +11,12 @@ import Firebase
 
 class CountPlayersInTeam: ObservableObject {
     
-    @Published var players: [Players] = []
+    @Published var players: [Player] = []
     
     private let db = Firestore.firestore()
     
     // MARK: Получаем всех активных игроков текущей команды
-    func downloadPlayers(playersActions: [Players], team: Teams) {
+    func downloadPlayers(playersActions: [Player], team: Teams) {
         
         let refActionsPlayer = db.collection(["teams", team.id, "actionsPlayers"].joined(separator: "/"))
         let usersRef = db.collection("players")
@@ -35,7 +35,7 @@ class CountPlayersInTeam: ObservableObject {
                         } else {
                             
                             querySnapshot!.documentChanges.forEach { (diff) in
-                                guard let player = Players(document: diff.document) else { return }
+                                guard let player = Player(document: diff.document) else { return }
                                 switch diff.type {
                                 case .added:
                                     guard !playersActions.contains(player) else { return }

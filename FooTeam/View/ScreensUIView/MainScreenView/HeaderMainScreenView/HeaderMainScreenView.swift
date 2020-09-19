@@ -25,7 +25,7 @@ struct HeaderMainScreenView: View {
                     Text("Баланс:")
                     .padding(.leading)
                     Spacer()
-                    Text("\(currentUser.player?.payment ?? "0")")
+                    Text("\(currentUser.player.payment)")
                         .font(.headline)
                     Text("FCoin")
                     .padding(.trailing)

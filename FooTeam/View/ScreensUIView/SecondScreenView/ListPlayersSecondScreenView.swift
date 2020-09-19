@@ -18,11 +18,11 @@ struct ListPlayersSecondScreenView: View {
     
     @ObservedObject var actionsPlayers = ActionsPlayers()
     
-    var reservListPlayers: [Players] {
+    var reservListPlayers: [Player] {
         actionsPlayers.players.filter { !$0.subscription }
     }
     
-    var iGolistPlayers: [Players] {
+    var iGolistPlayers: [Player] {
         actionsPlayers.players.filter { $0.iGo }
     }
     
@@ -41,7 +41,7 @@ struct ListPlayersSecondScreenView: View {
                     Section(header: Text("Основной состав")) {
                         ForEach(actionsPlayers.players.filter { $0.subscription },
                                 id: \.self) { player in
-                                    NavigationLink(destination: ProfileShowModalMainScreenView(currentUser: self.currentUser, playersListener: self.playersListener, showModal: self.$showModal)) {
+                                    NavigationLink(destination: ProfileShowModalMainScreenView(showModal: self.$showModal)) {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
@@ -57,7 +57,7 @@ struct ListPlayersSecondScreenView: View {
                     
                     Section(header: Text("Запасные игроки")) {
                         ForEach(reservListPlayers, id: \.self) { player in
-                            NavigationLink(destination: ProfileShowModalMainScreenView(currentUser: self.currentUser, playersListener: self.playersListener, showModal: self.$showModal)) {
+                            NavigationLink(destination: ProfileShowModalMainScreenView(showModal: self.$showModal)) {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()

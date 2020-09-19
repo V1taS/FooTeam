@@ -31,14 +31,14 @@ class FirestoreService {
         return db.collection(["players", currentUser.id, "activeChats"].joined(separator: "/"))
     }
     
-    var currentUser: Players!
+    var currentUser: Player!
     
     // MARK: - Get User Data
-    func getUserData(user: User, completion: @escaping (Result<Players, Error>) -> Void) {
+    func getUserData(user: User, completion: @escaping (Result<Player, Error>) -> Void) {
         let docRef = usersRef.document(user.uid)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                guard let player = Players(document: document) else {
+                guard let player = Player(document: document) else {
                     completion(.failure(UserError.cannotUnwrapToMUser))
                     return
                 }
@@ -52,14 +52,14 @@ class FirestoreService {
     
     
     // MARK: - Save Profile
-    func saveProfileWith(id: String, email: String, name: String, avatarImage: UIImage?, whoAreYou: String, positionPlayer: String, completion: @escaping (Result<Players, Error>) -> Void) {
+    func saveProfileWith(id: String, email: String, name: String, avatarImage: UIImage?, whoAreYou: String, positionPlayer: String, completion: @escaping (Result<Player, Error>) -> Void) {
         
         guard Validators.isFilled(username: name, whoAreYou: whoAreYou) else {
             completion(.failure(UserError.notFilled))
             return
         }
         
-        var player = Players(name: name,
+        var player = Player(name: name,
                              nameTeam: "Нет команды",
                              email: email,
                              avatarStringURL: "",
@@ -103,7 +103,7 @@ class FirestoreService {
                       location: String?,
                       teamType: String?,
                       rating: Int?,
-                      player: Players,
+                      player: Player,
                       completion: @escaping (Result<Teams, Error>) -> Void) {
         
         guard Validators.isFilled(teamName: teamName, location: location) else {

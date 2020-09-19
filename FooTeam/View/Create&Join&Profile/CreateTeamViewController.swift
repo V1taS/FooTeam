@@ -27,10 +27,10 @@ class CreateTeamViewController: UIViewController {
     
     let goToButton = UIButton(title: "Создать", titleColor: .white, backgroundColor: .buttonDark(), font: .bolt14(), cornerRadius: 4)
     
-    private let currentPlayer: Players
+    private let currentPlayer: Player
     private let currentUser: User
     
-    init(currentPlayer: Players, currentUser: User) {
+    init(currentPlayer: Player, currentUser: User) {
         self.currentPlayer = currentPlayer
         self.currentUser = currentUser
         

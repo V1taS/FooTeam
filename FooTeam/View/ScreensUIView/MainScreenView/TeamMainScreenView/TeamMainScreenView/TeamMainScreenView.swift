@@ -16,7 +16,7 @@ struct TeamMainScreenView: View {
 
     @State var showModal: Bool = false
     
-    var iGolistPlayers: [Players] {
+    var iGolistPlayers: [Player] {
         playersListener.players.filter { $0.iGo }
     }
     

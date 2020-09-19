@@ -37,18 +37,7 @@ struct CellTopPlayersFooTeam: View {
                 
                 
                 ZStack {
-                    WebImage(url: URL(string: photoPlayer))
-                    .onSuccess { image, data, cacheType in }
-                    .resizable()
-                    .placeholder(Image("player"))
-                    .indicator(.activity)
-                    .transition(.fade(duration: 0.5))
-                    .scaledToFill()
-                    .frame(width: 125, height: 125, alignment: .center)
-                    .cornerRadius(20)
-                    .aspectRatio(contentMode: .fill)
-                    
-                    
+                    ImagePlayer(avatarStringURL: photoPlayer, avatarSize: 125)
                 } .offset(x: 20, y: -5)
                 
                 

@@ -55,19 +55,7 @@ struct PopapCard: View {
         .padding(.horizontal, 60)
         .overlay(
             VStack {
-                WebImage(url: URL(string: waitingPlayers.players.first?.avatarStringURL ?? ""))
-                .onSuccess { image, data, cacheType in }
-                .resizable()
-                .placeholder(Image("player"))
-                .indicator(.activity)
-                .transition(.fade(duration: 0.5))
-                .scaledToFill()
-                .frame(width: 100, height: 100, alignment: .center)
-                .clipShape(Circle())
-                .aspectRatio(contentMode: .fill)
-                    .overlay(Circle().stroke(Color.black.opacity(0.1), lineWidth: 1))
-                    .offset(y: -135)
-                    
+                ImagePlayer(avatarStringURL: waitingPlayers.players.first?.avatarStringURL ?? "", avatarSize: 100)
                 
                 Text(waitingPlayers.players.first?.name ?? "")
                 .offset(y: -130)

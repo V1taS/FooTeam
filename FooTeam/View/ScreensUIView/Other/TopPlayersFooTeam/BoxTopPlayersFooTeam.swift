@@ -12,7 +12,7 @@ struct BoxTopPlayersFooTeam: View {
     
     @ObservedObject var playersListener = PlayersListener()
     
-    var topPlayers: [Players] {
+    var topPlayers: [Player] {
         playersListener.players.filter { $0.rating >= 50 }
     }
     

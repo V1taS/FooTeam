@@ -11,7 +11,7 @@ import Firebase
 
 class PlayersListener: ObservableObject {
     
-    @Published var players: [Players] = []
+    @Published var players: [Player] = []
     
     init() {
         downloadPlayers()
@@ -26,11 +26,11 @@ class PlayersListener: ObservableObject {
         }
     }
     
-    static func playersFromDictionary(_ snapshot: QuerySnapshot) -> [Players] {
-        var players: [Players] = []
+    static func playersFromDictionary(_ snapshot: QuerySnapshot) -> [Player] {
+        var players: [Player] = []
         
         for snapshot in snapshot.documents {
-            let playerItem = Players(document: snapshot)
+            let playerItem = Player(document: snapshot)
             players.append(playerItem!)
         }
         return players

@@ -56,7 +56,7 @@
 		1B596F7924EC73530092770B /* CellCaruselBodyFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F6424EC73530092770B /* CellCaruselBodyFooTeam.swift */; };
 		1B596F7A24EC73530092770B /* BoxCaruselBodyFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F6524EC73530092770B /* BoxCaruselBodyFooTeam.swift */; };
 		1B596F7C24EC73530092770B /* ListPlayersSecondScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F6824EC73530092770B /* ListPlayersSecondScreenView.swift */; };
-		1B596F8024EC73650092770B /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F7E24EC73650092770B /* Players.swift */; };
+		1B596F8024EC73650092770B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F7E24EC73650092770B /* Player.swift */; };
 		1B596F8124EC73650092770B /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F7F24EC73650092770B /* Teams.swift */; };
 		1B596F8C24EC73820092770B /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F8324EC73820092770B /* NetworkWeatherManager.swift */; };
 		1B596F8D24EC73820092770B /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B596F8424EC73820092770B /* Team.swift */; };
@@ -110,7 +110,8 @@
 		1BC99DF8251181FE007EE289 /* InformationsMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC99DF7251181FE007EE289 /* InformationsMainScreenViewModel.swift */; };
 		1BC99DFB25118971007EE289 /* TeamMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC99DFA25118971007EE289 /* TeamMainScreenViewModel.swift */; };
 		1BCEFFA0251031C300552AB3 /* NoAcceptInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */; };
-		7A885E0DFF2C33839C833200 /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F5E20F65EACA5F72B185D5 /* Pods_FooTeam.framework */; };
+		1BF32C96251574E100941F44 /* ImagePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF32C95251574E100941F44 /* ImagePlayer.swift */; };
+		F889F1C305D7162B13758114 /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F39AF9C1ABAFE67190F6DA7C /* Pods_FooTeam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,7 +166,7 @@
 		1B596F6424EC73530092770B /* CellCaruselBodyFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCaruselBodyFooTeam.swift; sourceTree = "<group>"; };
 		1B596F6524EC73530092770B /* BoxCaruselBodyFooTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxCaruselBodyFooTeam.swift; sourceTree = "<group>"; };
 		1B596F6824EC73530092770B /* ListPlayersSecondScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPlayersSecondScreenView.swift; sourceTree = "<group>"; };
-		1B596F7E24EC73650092770B /* Players.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		1B596F7E24EC73650092770B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1B596F7F24EC73650092770B /* Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		1B596F8324EC73820092770B /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		1B596F8424EC73820092770B /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -219,9 +220,10 @@
 		1BC99DF7251181FE007EE289 /* InformationsMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1BC99DFA25118971007EE289 /* TeamMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAcceptInvitation.swift; sourceTree = "<group>"; };
-		66118B00ADD38F7EFE3CF6CB /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
-		A73B54B272AFB99E548C6B5E /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
-		B4F5E20F65EACA5F72B185D5 /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BF32C95251574E100941F44 /* ImagePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlayer.swift; sourceTree = "<group>"; };
+		35E2522933D06A6E4E9D34B2 /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
+		870C570036CF1807AB50CA42 /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
+		F39AF9C1ABAFE67190F6DA7C /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A885E0DFF2C33839C833200 /* Pods_FooTeam.framework in Frameworks */,
+				F889F1C305D7162B13758114 /* Pods_FooTeam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +250,7 @@
 		1B0BB4472506AC9D00B3AA06 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1BF32C95251574E100941F44 /* ImagePlayer.swift */,
 				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
 				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
 				1B77086C250FF327006B1549 /* PopapCard.swift */,
@@ -369,7 +372,7 @@
 				1B596F2F24EC714C0092770B /* FooTeam */,
 				1B596F2E24EC714C0092770B /* Products */,
 				5AD05B77981D44B12A07023D /* Pods */,
-				DFE04E0125CE2058511B9DB1 /* Frameworks */,
+				43C9CDECDED2A6C669A40E77 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -500,7 +503,7 @@
 		1B596F7D24EC73650092770B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1B596F7E24EC73650092770B /* Players.swift */,
+				1B596F7E24EC73650092770B /* Player.swift */,
 				1B4B0EE8250AB77F00EF701B /* PlayersID.swift */,
 				1B596F7F24EC73650092770B /* Teams.swift */,
 				1BB6D2A82506FD6300007EAD /* Weather */,
@@ -661,21 +664,21 @@
 			path = TeamMainScreenView;
 			sourceTree = "<group>";
 		};
+		43C9CDECDED2A6C669A40E77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F39AF9C1ABAFE67190F6DA7C /* Pods_FooTeam.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5AD05B77981D44B12A07023D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				66118B00ADD38F7EFE3CF6CB /* Pods-FooTeam.debug.xcconfig */,
-				A73B54B272AFB99E548C6B5E /* Pods-FooTeam.release.xcconfig */,
+				870C570036CF1807AB50CA42 /* Pods-FooTeam.debug.xcconfig */,
+				35E2522933D06A6E4E9D34B2 /* Pods-FooTeam.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		DFE04E0125CE2058511B9DB1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B4F5E20F65EACA5F72B185D5 /* Pods_FooTeam.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -685,12 +688,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B596F4124EC714E0092770B /* Build configuration list for PBXNativeTarget "FooTeam" */;
 			buildPhases = (
-				E797B05BB5C9A04CB631A44C /* [CP] Check Pods Manifest.lock */,
+				54D7590BFF5AEA701D1D51BB /* [CP] Check Pods Manifest.lock */,
 				1B596F2924EC714C0092770B /* Sources */,
 				1B596F2A24EC714C0092770B /* Frameworks */,
 				1B596F2B24EC714C0092770B /* Resources */,
-				3E4DAD939E7243A786CCEB10 /* [CP] Embed Pods Frameworks */,
-				AED5D7A7D24E416CB0A80876 /* [CP] Copy Pods Resources */,
+				243DB4D67BAEBB87DF9169DA /* [CP] Embed Pods Frameworks */,
+				92F0D6AB0A1B43F9B26B0E3E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -708,7 +711,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Vitalii Sosin";
 				TargetAttributes = {
 					1B596F2C24EC714C0092770B = {
@@ -748,7 +751,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3E4DAD939E7243A786CCEB10 /* [CP] Embed Pods Frameworks */ = {
+		243DB4D67BAEBB87DF9169DA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -765,24 +768,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AED5D7A7D24E416CB0A80876 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E797B05BB5C9A04CB631A44C /* [CP] Check Pods Manifest.lock */ = {
+		54D7590BFF5AEA701D1D51BB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -802,6 +788,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92F0D6AB0A1B43F9B26B0E3E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FooTeam/Pods-FooTeam-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -837,6 +840,7 @@
 				1B4A3DD02502F5D6000EABD1 /* CardsWithPlayersMainScreenView.swift in Sources */,
 				1B596F7524EC73530092770B /* CellTopPlayersFooTeam.swift in Sources */,
 				1B596FB624EC73A90092770B /* StackViewExtension.swift in Sources */,
+				1BF32C96251574E100941F44 /* ImagePlayer.swift in Sources */,
 				1B85C933250824C1002C3106 /* ProfileAddPlayerView.swift in Sources */,
 				1B50E65825066F97009B10C7 /* ProfileShowModalMainScreenView.swift in Sources */,
 				1B596F9E24EC73A00092770B /* AuthNavigatingDelegate.swift in Sources */,
@@ -852,7 +856,7 @@
 				1B39447224F9A3E80008FC40 /* InformationsMainScreenView.swift in Sources */,
 				1B596FCD24EC73D60092770B /* Constants.swift in Sources */,
 				1B3F0C0324F9A50E00FA4F51 /* TeamMainScreenView.swift in Sources */,
-				1B596F8024EC73650092770B /* Players.swift in Sources */,
+				1B596F8024EC73650092770B /* Player.swift in Sources */,
 				1B4B0EE7250AAE8C00EF701B /* ActionsPlayers.swift in Sources */,
 				1B596F7424EC73530092770B /* TopPlayersFooTeam.swift in Sources */,
 				1BC8B61C250EE34C00FC8B27 /* CurrentTeam.swift in Sources */,
@@ -954,6 +958,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -978,7 +983,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1014,6 +1019,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1032,7 +1038,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1044,13 +1050,13 @@
 		};
 		1B596F4224EC714E0092770B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66118B00ADD38F7EFE3CF6CB /* Pods-FooTeam.debug.xcconfig */;
+			baseConfigurationReference = 870C570036CF1807AB50CA42 /* Pods-FooTeam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1065,13 +1071,13 @@
 		};
 		1B596F4324EC714E0092770B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A73B54B272AFB99E548C6B5E /* Pods-FooTeam.release.xcconfig */;
+			baseConfigurationReference = 35E2522933D06A6E4E9D34B2 /* Pods-FooTeam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

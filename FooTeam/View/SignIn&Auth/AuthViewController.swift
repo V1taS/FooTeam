@@ -2,7 +2,7 @@
 //  AuthViewController.swift
 //  FooTeam
 //
-//  Created by Виталий Сосин on 12.07.2020.
+//  Created by Виталий Сосин on 28.03.2020.
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 

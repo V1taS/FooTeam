@@ -6,27 +6,27 @@
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
-import Foundation
+import Combine
+import SwiftUI
 
 protocol ProfileMainScreenViewModelProtocol {
-    var isPresentedShowModal: Bool { get }
     var name: String { get }
     var avatarStringURL: String { get }
-    init(player: CurrentUser)
-    
 }
 
 class ProfileMainScreenViewModel: ProfileMainScreenViewModelProtocol, ObservableObject {
     
-    @Published var isPresentedShowModal: Bool = false // Настроить логику
+    @Published var currentUser = CurrentUser()
+    private var cancellables = Set<AnyCancellable>()
     
     @Published var name: String = ""
-    
     @Published var avatarStringURL: String = ""
-    
-    required init(player: CurrentUser) {
-        player.downloadPlayers()
-        self.name = player.player?.name ?? ""
-        self.avatarStringURL = player.player?.avatarStringURL ?? ""
+
+    init() {
+        self.currentUser.$player.sink { player in
+                self.name = player.name
+                self.avatarStringURL = player.avatarStringURL
+            }
+            .store(in: &cancellables)
     }
 }

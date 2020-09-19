@@ -14,19 +14,19 @@ struct CardsWithPlayersMainScreenView: View {
     
     @ObservedObject var playersListener = PlayersListener()
     
-    var teamOne: [Players] {
+    var teamOne: [Player] {
         playersListener.players.filter { $0.teamNumber == 1 }
     }
     
-    var teamTwo: [Players] {
+    var teamTwo: [Player] {
         playersListener.players.filter { $0.teamNumber == 2 }
     }
     
-    var teamThree: [Players] {
+    var teamThree: [Player] {
         playersListener.players.filter { $0.teamNumber == 3 }
     }
     
-    var teamFour: [Players] {
+    var teamFour: [Player] {
         playersListener.players.filter { $0.teamNumber == 4 }
     }
     

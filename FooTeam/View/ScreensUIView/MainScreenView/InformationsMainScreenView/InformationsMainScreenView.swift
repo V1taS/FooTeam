@@ -40,13 +40,13 @@ struct InformationsMainScreenView: View {
                     
                     HStack {
                         Text("Клуб:")
-                        Text("\(currentUser.player?.nameTeam ?? "" )")
+                        Text("\(currentUser.player.nameTeam)")
                             .font(.headline)
                     }
                     
                     HStack {
                         Text("Иду на игру:")
-                        Text("\(self.currentUser.player?.iGo ?? false ? "да" : "нет")")
+                        Text("\(self.currentUser.player.iGo ? "да" : "нет")")
                             .font(.headline)
                     }
                 }

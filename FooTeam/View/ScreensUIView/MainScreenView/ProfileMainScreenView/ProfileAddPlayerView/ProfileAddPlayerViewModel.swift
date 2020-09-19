@@ -55,18 +55,18 @@ class ProfileAddPlayerViewModel: ProfileAddPlayerViewModelProtocol, ObservableOb
     
     @Published var closeShowModal: Bool = false // Настроить логику
     
-    var currentPlayer: Players?
+    var currentPlayer: Player?
     
     required init(player: CurrentUser) {
         player.downloadPlayers()
-        self.currentPlayer = player.player ?? Players(name: "", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
+        self.currentPlayer = player.player
         
-        self.name = player.player?.name ?? ""
-        self.avatarStringURL = player.player?.avatarStringURL ?? ""
-        self.position = player.player?.position ?? ""
-        self.nameTeam = player.player?.nameTeam ?? ""
-        self.payment = player.player?.payment ?? ""
-        self.subscription = player.player?.subscription ?? false
-        self.iGo = player.player?.iGo ?? false
+        self.name = player.player.name
+        self.avatarStringURL = player.player.avatarStringURL
+        self.position = player.player.position
+        self.nameTeam = player.player.nameTeam
+        self.payment = player.player.payment
+        self.subscription = player.player.subscription
+        self.iGo = player.player.iGo
     }
 }

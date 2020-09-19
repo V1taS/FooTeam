@@ -11,10 +11,8 @@ import SDWebImageSwiftUI
 
 struct ProfileMainScreenView: View {
     
-    @ObservedObject var currentUser = CurrentUser()
-    @State var showModal: Bool = false
-    
-    //    @StateObject private var viewModel = ProfileMainScreenViewModel()
+    @StateObject private var viewModel = ProfileMainScreenViewModel()
+    @State var isPresentedShowModal: Bool = false
     
     var body: some View {
         ZStack {
@@ -22,35 +20,22 @@ struct ProfileMainScreenView: View {
                 .frame(width: 180, height: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke()
-            )
+                            .stroke()
+                )
             
-            Button(action: { self.showModal.toggle() }) {
+            Button(action: { isPresentedShowModal.toggle() }) {
                 
                 VStack {
                     Text("ПРОФИЛЬ")
                         .font(.headline)
                         .foregroundColor(Color(.red))
-                    Text(currentUser.player?.name ?? "" )
+                    Text(viewModel.name)
                         .foregroundColor(.black)
                     
-                    WebImage(url: URL(string: currentUser.player?.avatarStringURL ?? ""))
-                        .renderingMode(.original)
-                        .onSuccess { image, data, cacheType in }
-                        .resizable()
-                        .placeholder(Image("player"))
-                        .indicator(.activity)
-                        .transition(.fade(duration: 0.5))
-                        .scaledToFill()
-                        .frame(width: 125, height: 125, alignment: .center)
-                        .cornerRadius(20)
-                        .aspectRatio(contentMode: .fill)
+                    ImagePlayer(avatarStringURL: viewModel.avatarStringURL, avatarSize: 125)
                 }
-            } .sheet(
-                isPresented: $showModal,
-                content: { ProfileShowModalMainScreenView(showModal: self.$showModal) }
-            )
-            
+            }
+            .sheet(isPresented: $isPresentedShowModal) { ProfileShowModalMainScreenView(showModal: $isPresentedShowModal) }
         }
     }
 }

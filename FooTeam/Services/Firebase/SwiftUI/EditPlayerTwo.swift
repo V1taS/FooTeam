@@ -18,7 +18,7 @@ class EditPlayerTwo {
     
     // MARK: - Edit Player
     func editPlayerInTeam(
-        player: Players,
+        player: Player,
         captain: Bool?
     ) {
         let usersRef = db.collection("players")

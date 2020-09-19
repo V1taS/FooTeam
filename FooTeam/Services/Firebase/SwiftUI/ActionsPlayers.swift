@@ -11,7 +11,7 @@ import Firebase
 
 class ActionsPlayers: ObservableObject {
     
-    @Published var players: [Players] = []
+    @Published var players: [Player] = []
     
     private let db = Firestore.firestore()
     
@@ -41,8 +41,8 @@ class ActionsPlayers: ObservableObject {
                         } else {
                             
                             for document in querySnapshot!.documents {
-                                let playerNew = Players(document: document)
-                                self.players.append(playerNew ?? Players(name: "", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false))
+                                let playerNew = Player(document: document)
+                                self.players.append(playerNew ?? Player(name: "", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false))
                             }
                         }
                     }

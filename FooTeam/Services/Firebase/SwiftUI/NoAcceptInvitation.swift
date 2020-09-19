@@ -17,7 +17,7 @@ class NoAcceptInvitation {
     
     
     // MARK: Удаляем из режима ОЖИДАНИЯ ПОДТВЕРЖДЕНИЯ игроков текущей команды
-    func acceptInvitation(player: Players, capitanPlayer: Players) {
+    func acceptInvitation(player: Player, capitanPlayer: Player) {
         
         let refWaitingPlayer = db.collection(["teams", capitanPlayer.idTeam, "waitingPlayers"].joined(separator: "/"))
 

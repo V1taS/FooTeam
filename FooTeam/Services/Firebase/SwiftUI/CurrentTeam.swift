@@ -16,7 +16,7 @@ class CurrentTeam {
     private let db = Firestore.firestore()
     
     // MARK: - Current Team
-    func currentTeam(player: Players) -> Teams {
+    func currentTeam(player: Player) -> Teams {
 
         let teamRef = db.collection("teams")
         var team: Teams?

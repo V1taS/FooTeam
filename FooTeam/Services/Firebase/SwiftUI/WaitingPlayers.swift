@@ -11,7 +11,7 @@ import Firebase
 
 class WaitingPlayers: ObservableObject {
     
-    @Published var players: [Players] = []
+    @Published var players: [Player] = []
     
     private let db = Firestore.firestore()
     
@@ -41,7 +41,7 @@ class WaitingPlayers: ObservableObject {
                         } else {
                             
                             for document in querySnapshot!.documents {
-                                let playerNew = Players(document: document)
+                                let playerNew = Player(document: document)
                                 self.players.append(playerNew!)
                             }
                         }

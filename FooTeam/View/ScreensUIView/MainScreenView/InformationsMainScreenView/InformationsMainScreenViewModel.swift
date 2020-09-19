@@ -32,8 +32,8 @@ class InformationsMainScreenViewModel: InformationsMainScreenViewModelProtocol, 
     required init(player: CurrentUser) {
         player.downloadPlayers()
         
-        self.nameTeam = player.player?.nameTeam ?? ""
-        self.iGo = player.player?.iGo ?? false
+        self.nameTeam = player.player.nameTeam
+        self.iGo = player.player.iGo
     }
     
     required init(weather: NetworkWeatherManager) {

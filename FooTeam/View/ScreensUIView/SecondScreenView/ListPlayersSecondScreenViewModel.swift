@@ -12,8 +12,8 @@ protocol ListPlayersSecondScreenViewModelProtocol {
     var name: String { get }
     var captain: Bool { get }
     
-    var playersiGo: [Players] { get }
-    var playersReserv: [Players] { get }
+    var playersiGo: [Player] { get }
+    var playersReserv: [Player] { get }
     
     init(player: CurrentUser)
     init(listenerPlayers: PlayersListener)
@@ -26,20 +26,20 @@ class ListPlayersSecondScreenViewModel: ListPlayersSecondScreenViewModelProtocol
     
     @Published var captain: Bool = false
     
-    @Published var playersiGo: [Players] = []
+    @Published var playersiGo: [Player] = []
     
-    @Published var playersReserv: [Players] = []
+    @Published var playersReserv: [Player] = []
     
-    var player: Players?
-    var listenerPlayers: [Players]?
-    var actionsPlayers: [Players]?
+    var player: Player?
+    var listenerPlayers: [Player]?
+    var actionsPlayers: [Player]?
     
     required init(player: CurrentUser) {
         player.downloadPlayers()
         
         self.player = player.player
-        self.name = player.player?.name ?? ""
-        self.captain = player.player?.captain ?? false
+        self.name = player.player.name ?? ""
+        self.captain = player.player.captain ?? false
     }
     
     required init(listenerPlayers: PlayersListener) {
