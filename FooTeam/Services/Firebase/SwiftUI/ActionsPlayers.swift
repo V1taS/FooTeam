@@ -1,5 +1,5 @@
 //
-//  WaitingPlayers.swift
+//  ActionsPlayers.swift
 //  FooTeam
 //
 //  Created by Виталий Сосин on 10.09.2020.

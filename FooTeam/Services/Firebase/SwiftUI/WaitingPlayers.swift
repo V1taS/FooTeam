@@ -22,33 +22,42 @@ class WaitingPlayers: ObservableObject {
     // MARK: Получаем всех ОЖИДАЮЩИХ ПОДТВЕРЖДЕНИЯ игроков текущей команды
     func downloadPlayers() {
         
-        let currentPlayer = FirestoreService.shared.currentUser
-
-        let refActionsPlayer = db.collection(["teams", currentPlayer!.idTeam, "waitingPlayers"].joined(separator: "/"))
-        let usersRef = db.collection("players")
-        
-        refActionsPlayer.addSnapshotListener { (snapshot, error) in
-            guard let snapshot = snapshot else { return }
-            if !snapshot.isEmpty {
-                for snapshot in snapshot.documents {
-                    
-                    let playerIDget = PlayersID(document: snapshot)
-                    
-                    usersRef.whereField("uid", isEqualTo: playerIDget!.id).addSnapshotListener() { (querySnapshot, err) in
+        if let currentPlayer = FirestoreService.shared.currentUser {
+            
+            let refWaitingPlayers = db.collection(["teams", currentPlayer.idTeam, "waitingPlayers"].joined(separator: "/"))
+            let usersRef = db.collection("players")
+            
+            refWaitingPlayers.addSnapshotListener { (snapshot, error) in
+                guard let snapshot = snapshot else { return }
+                if !snapshot.isEmpty {
+                    for snapshot in snapshot.documents {
                         
-                        if let err = err {
-                            print("Error getting documents: \(err)")
-                        } else {
+                        let playerIDget = PlayersID(document: snapshot)
+                        
+                        usersRef.whereField("uid", isEqualTo: playerIDget!.id).addSnapshotListener() { [self] (querySnapshot, err) in
                             
-                            for document in querySnapshot!.documents {
-                                let playerNew = Player(document: document)
-                                self.players.append(playerNew!)
+                            guard let snapshot = querySnapshot else { return }
+                            
+                            snapshot.documentChanges.forEach { (diff) in
+                                guard let player = Player(document: diff.document) else { return }
+                                switch diff.type {
+                                case .added:
+                                    guard !self.players.contains(player) else { return }
+                                    self.players.append(player)
+                                case .modified:
+                                    guard let index = players.firstIndex(of: player) else { return }
+                                    self.players[index] = player
+                                case .removed:
+                                    guard let index = players.firstIndex(of: player) else { return }
+                                    players.remove(at: index)
+                                }
                             }
                         }
                     }
                 }
             }
         }
+        
     }
 }
 

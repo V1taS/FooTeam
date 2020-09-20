@@ -13,26 +13,34 @@ class TeamsListener: ObservableObject {
     
     @Published var teams: [Teams] = []
     
+    private let db = Firestore.firestore()
+    
     init() {
         downloadTeams()
     }
     
     func downloadTeams() {
-        FirebaseReference(.teams).addSnapshotListener { (snapshot, error) in
-            guard let snapshot = snapshot else { return }
-            if !snapshot.isEmpty {
-                self.teams = TeamsListener.teamsFromDictionary(snapshot)
+        
+        let teamsRef = db.collection("teams")
+        
+        teamsRef.addSnapshotListener() { [self] (querySnapshot, err) in
+            
+            guard let snapshot = querySnapshot else { return }
+            
+            snapshot.documentChanges.forEach { (diff) in
+                guard let player = Teams(document: diff.document) else { return }
+                switch diff.type {
+                case .added:
+                    guard !self.teams.contains(player) else { return }
+                    self.teams.append(player)
+                case .modified:
+                    guard let index = teams.firstIndex(of: player) else { return }
+                    self.teams[index] = player
+                case .removed:
+                    guard let index = teams.firstIndex(of: player) else { return }
+                    teams.remove(at: index)
+                }
             }
         }
-    }
-    
-    static func teamsFromDictionary(_ snapshot: QuerySnapshot) -> [Teams] {
-        var teams: [Teams] = []
-        
-        for snapshot in snapshot.documents {
-            let team = Teams(document: snapshot) ?? Teams(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0)
-            teams.append(team)
-        }
-        return teams
     }
 }
