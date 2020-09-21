@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         case .success(let player):
                             
                             if player.idTeam.isEmpty {
-                                let mainContentFooTeam = UIHostingController(rootView: BoxJoinTeamViewController())
+                                let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
                                 mainContentFooTeam.modalPresentationStyle = .fullScreen
                                 self.window?.rootViewController = mainContentFooTeam
                             } else {

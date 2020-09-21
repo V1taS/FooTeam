@@ -104,7 +104,7 @@ extension SetupProfileViewController {
                             }
                             
                             let joinTeam = UIAlertAction(title: "Присоединиться к команде", style: .default) { _ in
-                                let joinToFooTeam = UIHostingController(rootView: BoxJoinTeamViewController())
+                                let joinToFooTeam = UIHostingController(rootView: JoinToTeamView())
                                 joinToFooTeam.modalPresentationStyle = .fullScreen
                                 self.present(joinToFooTeam, animated: true, completion: nil)
                             }

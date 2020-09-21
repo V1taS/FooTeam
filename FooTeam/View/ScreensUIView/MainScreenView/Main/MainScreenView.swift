@@ -49,7 +49,7 @@ struct MainScreenView: View {
                         Spacer()
                     } .padding(.horizontal)
                     
-                    BoxTopPlayersFooTeam()
+                    TopPlayersScreenView()
                     Spacer()
                 }
                     

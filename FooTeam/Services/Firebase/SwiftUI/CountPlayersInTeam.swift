@@ -9,26 +9,27 @@
 import Foundation
 import Firebase
 
-class CountPlayersInTeam: ObservableObject {
+class CountPlayersInTeam {
     
-    @Published var players: [Player] = []
+    static let shared = CountPlayersInTeam()
+    
+    var players: [Player] = []
     
     private let db = Firestore.firestore()
     
     // MARK: Получаем всех активных игроков текущей команды
-    func downloadPlayers(playersActions: [Player], team: Teams) {
+    func downloadPlayers(currentTeam: Teams) {
         
-        let refActionsPlayer = db.collection(["teams", team.id, "actionsPlayers"].joined(separator: "/"))
+        let refActionsPlayer = db.collection(["teams", currentTeam.id, "actionsPlayers"].joined(separator: "/"))
         let usersRef = db.collection("players")
         
-        refActionsPlayer.addSnapshotListener { (snapshot, error) in
+        refActionsPlayer.getDocuments { (snapshot, error) in
             guard let snapshot = snapshot else { return }
             if !snapshot.isEmpty {
                 for snapshot in snapshot.documents {
                     
                     let playerIDget = PlayersID(document: snapshot)
-                    usersRef.whereField("uid", isEqualTo:
-                        playerIDget!.id).addSnapshotListener() { (querySnapshot, err) in
+                    usersRef.whereField("uid", isEqualTo: playerIDget!.id).getDocuments() { (querySnapshot, err) in
                         
                         if let err = err {
                             print("Error getting documents: \(err)")
@@ -36,27 +37,8 @@ class CountPlayersInTeam: ObservableObject {
                             
                             querySnapshot!.documentChanges.forEach { (diff) in
                                 guard let player = Player(document: diff.document) else { return }
-                                switch diff.type {
-                                case .added:
-                                    guard !playersActions.contains(player) else { return }
-                                    self.players.append(player)
-                                case .modified:
-                                    guard let index = self.players.firstIndex(of: player) else { return }
-                                    self.players[index] = player
-                                case .removed:
-                                    guard let index = self.players.firstIndex(of: player) else { return }
-                                    self.players.remove(at: index)
-                                }
+                                self.players.append(player)
                             }
-                            
-                            
-                            
-                            
-//
-//                            for document in querySnapshot!.documents {
-//                                let playerNew = Players(document: document)
-//                                self.players.append(playerNew!)
-//                            }
                         }
                     }
                 }

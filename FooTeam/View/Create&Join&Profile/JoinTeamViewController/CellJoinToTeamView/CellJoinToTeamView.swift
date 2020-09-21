@@ -1,5 +1,5 @@
 //
-//  CellJoinTeamViewController.swift
+//  CellJoinToTeamView.swift
 //  FooTeam
 //
 //  Created by Виталий Сосин on 17.08.2020.
@@ -8,13 +8,11 @@
 
 import SwiftUI
 
-struct CellJoinTeamViewController: View {
+struct CellJoinToTeamView: View {
     
     var team: Teams
     var currentUser = FirestoreService.shared.currentUser
-    
-    @ObservedObject var countPlayersInTeam = CountPlayersInTeam()
-    
+
     @State var showAlert = false
     
     let colorText: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -30,30 +28,29 @@ struct CellJoinTeamViewController: View {
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                     
                     VStack {
-                        Image("khimki")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 60)
+                        ImagePlayer(avatarStringURL: team.avatarStringURL ?? "", avatarSize: 60, placeholder: "team")
+
                         Text("\(team.teamName ?? "")")
                             .foregroundColor(Color(colorText))
+                            .font(.title)
                         
                         Text("\(team.teamType ?? "")")
                             .font(.system(size: 15))
                             .foregroundColor(.green)
                             .fontWeight(.bold)
-                            .padding(.top, 10)
+                            .padding(.top, 1)
                         
                         Text("\(team.location ?? "")")
                             .foregroundColor(Color(colorText))
                             .font(.system(size: 15))
-                            .lineLimit(1)
-                        Text("Игроков:  ")
-                            .foregroundColor(Color(colorText))
-                            .font(.system(size: 15))
-                            .lineLimit(1)
+                            .padding(.top, 1)
+//                        Text("Игроков: \(countPlayersInTeam.players.count)")
+//                            .foregroundColor(Color(colorText))
+//                            .font(.system(size: 15))
+//                            .lineLimit(1)
+
                     }
-                    .frame(width: 160)
+                    .frame(width: 160, height: 170)
                 }
                     
                 .alert(isPresented: $showAlert) {
@@ -71,7 +68,7 @@ struct CellJoinTeamViewController: View {
     
     struct CellJoinTeamViewController_Previews: PreviewProvider {
         static var previews: some View {
-            CellJoinTeamViewController(team: Teams(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0))
+            CellJoinToTeamView(team: Teams(avatarStringURL: "", teamName: "Teadfdfd", location: "Rus", teamType: "Type", rating: 80))
         }
     }
 }

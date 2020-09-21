@@ -21,7 +21,7 @@ struct ListPlayersSecondScreenView: View {
                     Section(header: Text("Основной состав")) {
                         ForEach(viewModel.playersMain,
                                 id: \.self) { player in
-                            NavigationLink(destination: ProfileShowModalMainScreenView(closeIsPresentedShowModal: $isPresentedShowModal)) {
+                            NavigationLink(destination: ListPlayersProfileShow(player: player)) {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
@@ -37,7 +37,7 @@ struct ListPlayersSecondScreenView: View {
                     
                     Section(header: Text("Запасные игроки")) {
                         ForEach(viewModel.playersReserv, id: \.self) { player in
-                            NavigationLink(destination: ProfileShowModalMainScreenView(closeIsPresentedShowModal: $isPresentedShowModal)) {
+                            NavigationLink(destination: ListPlayersProfileShow(player: player)) {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()

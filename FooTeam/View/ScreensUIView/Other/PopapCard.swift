@@ -18,7 +18,7 @@ struct PopapCard: View {
     @Binding var showeWaitingPlayer: Int
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 20) {
             Button(action: {
 
                 AcceptInvitation.shared.acceptInvitation(player: self.waitingPlayers.players.first!, capitanPlayer: self.capitanPlayer!)
@@ -54,14 +54,15 @@ struct PopapCard: View {
         .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
         .padding(.horizontal, 60)
         .overlay(
+            
+            
             VStack {
                 ImagePlayer(avatarStringURL: waitingPlayers.players.first?.avatarStringURL ?? "", avatarSize: 100)
                 
-                Text(waitingPlayers.players.first?.name ?? "")
-                .offset(y: -130)
+                Text(waitingPlayers.players.first?.name ?? "вамвм")
                     .frame(width: 200)
-                    .font(.headline)
-            }
+                    .font(.title2)
+            } .offset(y: -130)
             
             
         )
