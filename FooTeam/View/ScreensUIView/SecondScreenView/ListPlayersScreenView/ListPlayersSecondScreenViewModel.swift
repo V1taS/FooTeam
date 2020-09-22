@@ -40,9 +40,7 @@ class ListPlayersSecondScreenViewModel: ListPlayersSecondScreenViewModelProtocol
             self.playersiGo = playersiGo
             self.playersMain = playersMain
             self.playersReserv = playersReserv
-
+            
         } .store(in: &cancellables)
     }
-    
-    
 }

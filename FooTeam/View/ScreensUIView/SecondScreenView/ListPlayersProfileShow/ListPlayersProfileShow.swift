@@ -11,7 +11,6 @@ import SwiftUI
 struct ListPlayersProfileShow: View {
     
     var player: Player
-    
     @State var isPresentedShowModal = false
     
     var body: some View {
@@ -27,13 +26,12 @@ struct ListPlayersProfileShow: View {
                                   goal: "\(player.numberOfGoals)",
                                   win: "\(player.winGame)",
                                   los: "\(player.losGame)")
+                .padding(.vertical)
             
             Form {
                 HStack {
                     Text("Играю в команде:")
                     Spacer()
-                    Text("выйти")
-                        .foregroundColor(.red)
                     Text("\(player.nameTeam)")
                         .font(.headline)
                     
@@ -61,17 +59,24 @@ struct ListPlayersProfileShow: View {
                         .font(.headline)
                 }
             }
-        }
+        } .onAppear { BufferIDplayer.shared.saveUserID(id: player.id) }
+        
         .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
         
-        .navigationBarItems(trailing: Button(action: { isPresentedShowModal.toggle() }) {
-            Image(systemName: "pencil")
-                .renderingMode(.original)
-                .font(.title)
-        })
+        .navigationBarItems(trailing:
+                                VStack {
+                                    if player.captain {
+                                        Button(action: { isPresentedShowModal.toggle() }) {
+                                            Image(systemName: "pencil")
+                                                .renderingMode(.original)
+                                                .font(.title)
+                                        }
+                                    }
+                                }
+        )
         .sheet(
             isPresented: $isPresentedShowModal,
-            content: { ListPlayersProfileEditor(closeIsPresentedShowModal: $isPresentedShowModal) }
+            content: { PlayersProfileEditor(closeIsPresentedShowModal: $isPresentedShowModal, player: player) }
         )
     }
 }

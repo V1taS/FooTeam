@@ -13,6 +13,8 @@ struct JoinToTeamView: View {
     
     @StateObject private var viewModel = JoinToTeamViewModel()
     
+    @StateObject private var currentUser = CurrentUser()
+    
     @State var isPresentedAlertSignOut = false
     
     var body: some View {

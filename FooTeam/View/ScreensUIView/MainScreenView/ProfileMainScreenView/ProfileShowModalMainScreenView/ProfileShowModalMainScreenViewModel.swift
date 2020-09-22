@@ -46,6 +46,8 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
     @Published var iGo: Bool = false
     @Published var captain: Bool = false
     
+    @Published var currentPlayer: Player = Player(name: "Default player", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+    
     @Published var isPresentedShowModal: Bool = false
 
     init() {
@@ -63,6 +65,8 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
             self.subscription = player.subscription
             self.iGo = player.iGo
             self.captain = player.captain
+            
+            self.currentPlayer = player
         }
         .store(in: &cancellables)
     }

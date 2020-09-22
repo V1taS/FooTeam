@@ -13,6 +13,8 @@ struct ProfileShowModalMainScreenView: View {
     
     @StateObject private var viewModel = ProfileShowModalMainScreenViewModel()
     @Binding var closeIsPresentedShowModal: Bool
+    @State var isPresentedAlert: Bool = false
+    @State var outFromTeam: Bool = false
     
     var body: some View {
         NavigationView {
@@ -28,16 +30,14 @@ struct ProfileShowModalMainScreenView: View {
                                       goal: "\(viewModel.numberOfGoals)",
                                       win: "\(viewModel.winGame)",
                                       los: "\(viewModel.losGame)")
+                    .padding(.vertical)
                 
                 Form {
                     HStack {
                         Text("Играю в команде:")
                         Spacer()
-                        Text("выйти")
-                            .foregroundColor(.red)
                         Text("\(viewModel.nameTeam)")
                             .font(.headline)
-                        
                     }
                     
                     HStack {
@@ -64,34 +64,54 @@ struct ProfileShowModalMainScreenView: View {
                 }
                 
                 VStack {
-                    Button(action: {
-                        
-                        self.viewModel.isPresentedShowModal.toggle()
-                    }) {
-                        Text("Редактировать")
-                            .font(.headline)
-                            .fontWeight(.bold)
+                    Button(action: { self.isPresentedAlert.toggle()} ) {
+                        Text("Выйти")
+                            .font(.system(.headline, design: .serif))
+                            .foregroundColor(Color.black)
+                            .padding(.horizontal)
+                            .padding(.vertical, 5)
+                            .cornerRadius(5)
                     }
+                    .fullScreenCover(isPresented: $outFromTeam, content: {
+                        JoinToTeamView()
+                    })
                     
-                    Text("\(viewModel.captain ? "КАПИТАН" : "")")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .padding(.horizontal)
-                        .background(Color.yellow)
                 }
+            } .alert(isPresented: self.$isPresentedAlert) {
+                Alert(title: Text("Внимание"),
+                      message: Text("Вы хотите выйти из команды?"),
+                      primaryButton: Alert.Button.default(Text("Отмена")),
+                      secondaryButton: Alert.Button.destructive(
+                        Text("Выйти"), action: {
+                            DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: FirestoreService.shared.currentUser)
+                            outFromTeam.toggle()
+                        }
+                      )
+                )
             }
+            
+            
             .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
             
-            .navigationBarItems(trailing: Button(action: { closeIsPresentedShowModal = false }) {
-                Image(systemName: "multiply")
-                    .renderingMode(.original)
-                    .font(.title)
-            })
+            .navigationBarItems(
+                leading: Button(action: {
+                    BufferIDplayer.shared.saveUserID(id: viewModel.currentPlayer.id)
+                    self.viewModel.isPresentedShowModal.toggle()
+                    
+                }) {
+                    Image(systemName: "pencil")
+                        .renderingMode(.original)
+                        .font(.title)
+                }.sheet(
+                    isPresented: $viewModel.isPresentedShowModal,
+                    content: { PlayersProfileEditor(closeIsPresentedShowModal: $viewModel.isPresentedShowModal, player: viewModel.currentPlayer) }
+                ),
+                trailing: Button(action: { closeIsPresentedShowModal = false }) {
+                    Image(systemName: "multiply")
+                        .renderingMode(.original)
+                        .font(.title)
+                })
         }
-        .sheet(
-            isPresented: $viewModel.isPresentedShowModal,
-            content: { ProfileEditorView(closeIsPresentedShowModal: $viewModel.isPresentedShowModal) }
-        )
     }
 }
 

@@ -10,20 +10,23 @@ import Foundation
 import Combine
 
 protocol TopPlayersScreenViewModelProtocol {
-    var players: [Player] { get }
+    var playersMain: [Player] { get }
 }
 
 class TopPlayersScreenViewModel: TopPlayersScreenViewModelProtocol, ObservableObject {
-
     @Published var actionsPlayers = ActionsPlayers()
+    
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var players: [Player] = []
+    @Published var playersMain: [Player] = []
     
     init() {
         self.actionsPlayers.$players.sink { players in
-            self.players = players
-        }
-        .store(in: &cancellables)
+            let playersMain = players.filter { $0.subscription }
+            
+            self.playersMain = playersMain
+            
+        } .store(in: &cancellables)
     }
 }
+

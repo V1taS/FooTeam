@@ -19,8 +19,7 @@ struct ListPlayersSecondScreenView: View {
             VStack {
                 List {
                     Section(header: Text("Основной состав")) {
-                        ForEach(viewModel.playersMain,
-                                id: \.self) { player in
+                        ForEach(viewModel.playersMain, id: \.self) { player in
                             NavigationLink(destination: ListPlayersProfileShow(player: player)) {
                                 HStack {
                                     Text("\(player.name)")
@@ -53,14 +52,23 @@ struct ListPlayersSecondScreenView: View {
                     }
                 }
             }
-            .navigationBarTitle(Text("Моя команда"))
+            
             .navigationBarItems(trailing:
-                                    Button(action: { self.isPresentedShowModal.toggle() }) {
-                                        Image(systemName: "square.and.pencil").renderingMode(.original)
-                                            .font(.title)
-                                            .foregroundColor(Color.black)
-                                        
-                                    })
+                                    VStack {
+                                        if !viewModel.captain {
+                                            Button(action: {
+                                                self.isPresentedShowModal.toggle()
+                                            }) {
+                                                Image(systemName: "square.and.pencil")
+                                                    .renderingMode(.original)
+                                                    .font(.title)
+                                                    .foregroundColor(Color.black)
+                                            }
+                                        }
+                                    }
+            )
+            .navigationBarTitle(Text("Моя команда"))
+            
         } .sheet(
             isPresented: $isPresentedShowModal,
             content: { ProfileAddPlayerView(showModal: self.$isPresentedShowModal) }

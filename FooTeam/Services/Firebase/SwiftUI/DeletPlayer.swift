@@ -16,11 +16,11 @@ class DeletPlayer {
     private let db = Firestore.firestore()
     
     // MARK: - Delet Player
-    func deletPlayerInTeam(player: Player) {
+    func deletPlayerInTeam(playerID: String) {
         
         let usersRef = db.collection("players")
         
-        usersRef.whereField("uid", isEqualTo: player.id).getDocuments() { (querySnapshot, err) in
+        usersRef.whereField("uid", isEqualTo: playerID).getDocuments() { (querySnapshot, err) in
           if let err = err {
             print("Error getting documents: \(err)")
           } else {

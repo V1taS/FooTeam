@@ -18,7 +18,7 @@ struct OutButtonFooTeamMenu: View {
             self.isPresentedAlertSignOut.toggle()
         }) {
             HStack(spacing: 25){
-                Image("out")
+                Image(systemName: "greetingcard")
                     .foregroundColor(Color.black)
             }
             .padding(.vertical, 10)
