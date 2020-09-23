@@ -23,7 +23,7 @@ struct CellJoinToTeamView: View {
             
             Button(action: { self.showAlert.toggle() } ) {
                 ZStack {
-                    BackgroundFooTeam(firstColor: .gray, centerColor: Color.black.opacity(0.7), lastColor: .gray)
+                    BackgroundFooTeam(centerColor: Color.black.opacity(0.7))
                         .frame(width: 170, height: 200)
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                     

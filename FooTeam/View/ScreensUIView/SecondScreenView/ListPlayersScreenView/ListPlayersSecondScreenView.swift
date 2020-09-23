@@ -55,7 +55,7 @@ struct ListPlayersSecondScreenView: View {
             
             .navigationBarItems(trailing:
                                     VStack {
-                                        if !viewModel.captain {
+                                        if FirestoreService.shared.currentUser.captain {
                                             Button(action: {
                                                 self.isPresentedShowModal.toggle()
                                             }) {

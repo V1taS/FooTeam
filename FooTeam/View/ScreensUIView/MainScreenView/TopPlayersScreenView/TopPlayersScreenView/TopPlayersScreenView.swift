@@ -13,16 +13,16 @@ struct TopPlayersScreenView: View {
     @StateObject private var viewModel = TopPlayersScreenViewModel()
     
     var body: some View {
-        NavigationView {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16) {
-                    ForEach(viewModel.playersMain, id: \.self) { player in
-                        
-                        CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), colorText: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), backgroundColor: Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)), namePlayer: player.name, photoPlayer: player.avatarStringURL, ratingPlayer: "\(player.rating)", positionPlayer: "\(player.position)", game: "\(player.numberOfGames)", goal: "\(player.numberOfGoals)", win: "\(player.winGame)", los: "\(player.losGame)")
-                    }
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16) {
+                ForEach(viewModel.playersMain, id: \.self) { player in
+                    
+                    CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), colorText: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)), namePlayer: player.name, photoPlayer: player.avatarStringURL, ratingPlayer: "\(player.rating)", positionPlayer: "\(player.position)", game: "\(player.numberOfGames)", goal: "\(player.numberOfGoals)", win: "\(player.winGame)", los: "\(player.losGame)")
+                        .padding(.vertical, 1)
                 }
-                .frame(width: 200, height: 300)
             }
+            .padding(.horizontal)
+            .padding(.bottom)
         }
     }
 }

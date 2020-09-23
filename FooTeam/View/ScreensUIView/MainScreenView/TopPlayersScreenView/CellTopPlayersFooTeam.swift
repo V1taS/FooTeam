@@ -29,9 +29,13 @@ struct CellTopPlayersFooTeam: View {
     
     var body: some View {
         ZStack {
-            BackgroundFooTeam(firstColor: .gray, centerColor: backgroundColor, lastColor: .gray)
+            BackgroundFooTeam(centerColor: backgroundColor)
                 .frame(width: 200, height: 300)
                 .clipShape(RoundedRectangle(cornerRadius: 45))
+                .overlay(RoundedRectangle(cornerRadius: 45)
+                            .stroke()
+                )
+                
 
             VStack {
                 
@@ -146,12 +150,11 @@ struct CellTopPlayersFooTeam: View {
                     .frame(width: 40, height: 1)
             } .offset(x: 0, y: 130)
         }
-        .frame(width: 200, height: 300)
     }
 }
 
 struct CellTopPlayersFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), colorText: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)), namePlayer: "Сосин Виталий", photoPlayer: "Сосин Виталий", ratingPlayer: "0", positionPlayer: "ФРВ", game: "2", goal: "2", win: "2", los: "2")
+        CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), colorText: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgroundColor: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)), namePlayer: "Сосин Виталий", photoPlayer: "Сосин Виталий", ratingPlayer: "0", positionPlayer: "ФРВ", game: "2", goal: "2", win: "2", los: "2")
     }
 }

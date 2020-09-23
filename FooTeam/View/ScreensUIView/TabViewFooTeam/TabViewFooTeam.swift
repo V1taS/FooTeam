@@ -37,21 +37,23 @@ struct TabViewFooTeam: View {
             
             VStack {
                 Spacer()
-                PopapCard(showeWaitingPlayer: $showeWaitingPlayer)
-                    .offset(y: CGFloat(!waitingPlayers.players.isEmpty ? showeWaitingPlayer : 1000))
-                    .offset(y: viewState.height)
-                    .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
-                    .gesture(
-                        DragGesture().onChanged { value in
-                            self.viewState = value.translation
-                            if self.viewState.height > 50 {
-                                self.showeWaitingPlayer = 1000
+                if FirestoreService.shared.currentUser.captain {
+                    PopapCard(showeWaitingPlayer: $showeWaitingPlayer)
+                        .offset(y: CGFloat(!waitingPlayers.players.isEmpty ? showeWaitingPlayer : 1000))
+                        .offset(y: viewState.height)
+                        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+                        .gesture(
+                            DragGesture().onChanged { value in
+                                self.viewState = value.translation
+                                if self.viewState.height > 50 {
+                                    self.showeWaitingPlayer = 1000
+                                }
                             }
-                        }
-                        .onEnded { value in
-                            self.viewState = .zero
-                        }
-                )
+                            .onEnded { value in
+                                self.viewState = .zero
+                            }
+                        )
+                }
             }
         }
     }

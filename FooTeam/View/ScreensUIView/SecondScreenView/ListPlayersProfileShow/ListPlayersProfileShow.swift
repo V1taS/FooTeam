@@ -65,7 +65,7 @@ struct ListPlayersProfileShow: View {
         
         .navigationBarItems(trailing:
                                 VStack {
-                                    if player.captain {
+                                    if FirestoreService.shared.currentUser.captain {
                                         Button(action: { isPresentedShowModal.toggle() }) {
                                             Image(systemName: "pencil")
                                                 .renderingMode(.original)

@@ -23,7 +23,7 @@ struct CellCaruselBodyFooTeam: View {
             Color(.blue)
                 .frame(width: 360, height: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
-            BackgroundFooTeam(firstColor: .gray, centerColor: backgroundColor, lastColor: .gray)
+            BackgroundFooTeam(centerColor: backgroundColor)
                 .frame(width: 360, height: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
             HStack {

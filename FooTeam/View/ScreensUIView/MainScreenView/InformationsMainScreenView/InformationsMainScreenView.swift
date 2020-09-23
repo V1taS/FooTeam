@@ -10,12 +10,7 @@ import SwiftUI
 
 struct InformationsMainScreenView: View {
     
-        @StateObject private var viewModel = InformationsMainScreenViewModel()
-    
-//    @ObservedObject var currentUser = CurrentUser()
-//
-//    @ObservedObject var weather = NetworkWeatherManager()
-//    @ObservedObject var calendarFooTeam = CalendarFooTeam()
+    @StateObject private var viewModel = InformationsMainScreenViewModel()
     
     @ObservedObject var networkWeather = NetworkWeatherManager()
     
@@ -27,8 +22,8 @@ struct InformationsMainScreenView: View {
                 .frame(width: 180, height: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke()
-            )
+                            .stroke()
+                )
             
             VStack {
                 Text("ИНФОРМАЦИЯ")
@@ -44,6 +39,7 @@ struct InformationsMainScreenView: View {
                         Text("Клуб:")
                         Text("\(viewModel.nameTeam)")
                             .font(.headline)
+                            .lineLimit(1)
                     }
                     
                     HStack {
@@ -51,14 +47,14 @@ struct InformationsMainScreenView: View {
                         Text("\(viewModel.iGo ? "да" : "нет")")
                             .font(.headline)
                     }
-                }
+                } .frame(width: 160, alignment: .leading)
                 
                 DividerFooTeamMenu()
                 
                 VStack(alignment: .leading, spacing: 1) {
                     
                     HStack {
-                        Text("Игра через:")
+                        Text("Игра:")
                         Text("\(viewModel.datePlay)")
                             .font(.headline)
                     }
@@ -68,7 +64,7 @@ struct InformationsMainScreenView: View {
                         Text("\(viewModel.temperatureString)°С")
                             .font(.headline)
                     }
-                }
+                } .frame(width: 160, alignment: .leading)
             }
         }
     }

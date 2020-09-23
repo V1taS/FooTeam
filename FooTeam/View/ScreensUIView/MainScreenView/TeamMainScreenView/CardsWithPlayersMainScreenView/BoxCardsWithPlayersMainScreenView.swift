@@ -43,7 +43,7 @@ struct CellCardsWithPlayersMainScreenView: View {
     var body: some View {
         
         ZStack {
-            BackgroundFooTeam(firstColor: Color(backgroundColor), centerColor: Color(backgroundColor), lastColor: Color(backgroundColor))
+            BackgroundFooTeam(centerColor: Color(backgroundColor))
                 .frame(width: 200, height: 270)
                 .clipShape(RoundedRectangle(cornerRadius: 25))
             

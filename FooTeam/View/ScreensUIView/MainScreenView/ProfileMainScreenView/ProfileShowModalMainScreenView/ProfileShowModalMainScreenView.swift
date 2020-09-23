@@ -19,9 +19,9 @@ struct ProfileShowModalMainScreenView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1),
-                                      colorText: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1),
-                                      backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)),
+                CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+                                      colorText: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+                                      backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
                                       namePlayer: "\(viewModel.name)",
                                       photoPlayer: "\(viewModel.avatarStringURL)",
                                       ratingPlayer: "\(viewModel.rating)",
