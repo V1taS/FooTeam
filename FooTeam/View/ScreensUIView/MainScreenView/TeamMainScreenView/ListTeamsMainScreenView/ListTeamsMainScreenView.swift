@@ -16,12 +16,8 @@ struct ListTeamsMainScreenView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
-                CardsWithPlayersMainScreenView()
-                    .padding(.top)
-                
+                CellCardsWithPlayersMainScreenView()
                 Form {
-                    
                     HStack {
                         Text("Кол-во игроков:")
                         Spacer()
@@ -49,8 +45,6 @@ struct ListTeamsMainScreenView: View {
                             .font(.headline)
                     }
                 }
-                
-                Spacer()
                     .navigationBarTitle("Составы на игру", displayMode: .automatic)
                     .navigationBarItems(trailing: Button(action: {
                         self.closeIsPresentedShowModal = false
@@ -59,7 +53,6 @@ struct ListTeamsMainScreenView: View {
                             .renderingMode(.original)
                             .font(.title)
                     })
-                
             }
         }
     }

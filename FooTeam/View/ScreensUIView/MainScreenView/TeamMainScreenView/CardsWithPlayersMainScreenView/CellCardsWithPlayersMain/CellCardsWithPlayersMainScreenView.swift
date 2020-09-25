@@ -1,0 +1,48 @@
+//
+//  CellCardsWithPlayersMainScreenView.swift
+//  FooTeam
+//
+//  Created by Виталий Сосин on 05.09.2020.
+//  Copyright © 2020 Vitalii Sosin. All rights reserved.
+//
+
+import SwiftUI
+
+struct CellCardsWithPlayersMainScreenView: View {
+    
+    @StateObject private var viewModel = CellCardsWithPlayersMainScreenViewModel()
+    
+    @State var viewState = CGSize.zero
+    @State var show = false
+    
+    var body: some View {
+        
+        VStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 190))], spacing: 10) {
+                    ForEach(viewModel.teamsOne, id: \.self) { player in
+                        CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)),
+                                              namePlayer: player.name,
+                                              photoPlayer: player.avatarStringURL,
+                                              ratingPlayer: "\(player.rating)",
+                                              positionPlayer: player.position,
+                                              game: "\(player.numberOfGames)",
+                                              goal: "\(player.numberOfGoals)",
+                                              win: "\(player.winGame)",
+                                              los: "\(player.losGame)")
+                            .scaleEffect(0.55)
+                            .frame(width: 50, height: 165)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            .navigationBarTitle(Text("Присоединиться"))
+        }
+    }
+}
+
+struct BoxPositionsMyTeamMFT_Previews: PreviewProvider {
+    static var previews: some View {
+        CellCardsWithPlayersMainScreenView()
+    }
+}

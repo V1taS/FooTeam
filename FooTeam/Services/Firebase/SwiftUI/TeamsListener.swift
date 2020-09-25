@@ -11,7 +11,7 @@ import Firebase
 
 class TeamsListener: ObservableObject {
     
-    @Published var teams: [Teams] = []
+    @Published var teams: [Team] = []
     
     private let db = Firestore.firestore()
     
@@ -28,7 +28,7 @@ class TeamsListener: ObservableObject {
             guard let snapshot = querySnapshot else { return }
             
             snapshot.documentChanges.forEach { (diff) in
-                guard let player = Teams(document: diff.document) else { return }
+                guard let player = Team(document: diff.document) else { return }
                 switch diff.type {
                 case .added:
                     guard !self.teams.contains(player) else { return }

@@ -11,8 +11,6 @@ import SDWebImageSwiftUI
 
 struct CellTopPlayersFooTeam: View {
     
-    let colorLine: UIColor
-    let colorText: UIColor
     let backgroundColor: Color
     
     let namePlayer: String
@@ -46,14 +44,14 @@ struct CellTopPlayersFooTeam: View {
                 
                 
                 Text(namePlayer)
-                    .foregroundColor(Color(colorText))
+                    .foregroundColor(Color(.black))
                     .font(.headline)
                     .fontWeight(.bold)
                     .frame(width: 180)
                     .lineLimit(1)
                 
                 ZStack {
-                    Color(colorLine)
+                    Color(.black)
                         .frame(width: 180, height: 1)
                 } .offset(x: 0, y: -10)
                 
@@ -64,24 +62,24 @@ struct CellTopPlayersFooTeam: View {
                     VStack {
                         HStack {
                             Text(game)
-                                .foregroundColor(Color(colorText))
+                                .foregroundColor(Color(.black))
                                 .fontWeight(.bold)
                                 .font(.system(size: 18))
                                 .frame(width: 25)
                             
                             Text("GAME")
-                                .foregroundColor(Color(colorText))
+                                .foregroundColor(Color(.black))
                         }
                         
                         HStack {
                             Text(goal)
-                                .foregroundColor(Color(colorText))
+                                .foregroundColor(Color(.black))
                                 .fontWeight(.bold)
                                 .font(.system(size: 18))
                                 .frame(width: 25)
                             
                             Text("GOAL")
-                                .foregroundColor(Color(colorText))
+                                .foregroundColor(Color(.black))
                         }
                     } .offset(x: -10, y: 0)
                     
@@ -90,9 +88,9 @@ struct CellTopPlayersFooTeam: View {
                     VStack {
                         HStack {
                             Text("WIN")
-                                .foregroundColor(Color(colorText))
+                                .foregroundColor(Color(.black))
                             Text(win)
-                                .foregroundColor(Color(colorText))
+                                .foregroundColor(Color(.black))
                                 .fontWeight(.bold)
                                 .font(.system(size: 18))
                                 .frame(width: 25)
@@ -100,9 +98,9 @@ struct CellTopPlayersFooTeam: View {
                         
                         HStack {
                             Text("LOS")
-                                .foregroundColor(Color(colorText))
+                                .foregroundColor(Color(.black))
                             Text(los)
-                                .foregroundColor(Color(colorText))
+                                .foregroundColor(Color(.black))
                                 .fontWeight(.bold)
                                 .font(.system(size: 18))
                                 .frame(width: 25)
@@ -113,22 +111,22 @@ struct CellTopPlayersFooTeam: View {
             ZStack {
                 VStack {
                     Text(ratingPlayer)
-                        .foregroundColor(Color(colorText))
+                        .foregroundColor(Color(.black))
                         .font(.system(size: 23))
                         .fontWeight(.bold)
                     
                     Text(positionPlayer)
-                        .foregroundColor(Color(colorText))
+                        .foregroundColor(Color(.black))
                         .font(.system(size: 12))
                     
-                    Color(colorLine)
+                    Color(.black)
                         .frame(width: 20, height: 1)
                     
                     Image("russia")
                         .resizable()
                         .frame(width: 25, height: 15)
                     
-                    Color(colorLine)
+                    Color(.black)
                         .frame(width: 20, height: 1)
                     
                     Image("khimki")
@@ -141,12 +139,12 @@ struct CellTopPlayersFooTeam: View {
             
             ZStack {
                 
-                Color(colorLine)
+                Color(.black)
                     .frame(width: 1, height: 60)
             } .offset(x: 0, y: 90)
             
             ZStack {
-                Color(colorLine)
+                Color(.black)
                     .frame(width: 40, height: 1)
             } .offset(x: 0, y: 130)
         }
@@ -155,6 +153,6 @@ struct CellTopPlayersFooTeam: View {
 
 struct CellTopPlayersFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), colorText: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgroundColor: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)), namePlayer: "Сосин Виталий", photoPlayer: "Сосин Виталий", ratingPlayer: "0", positionPlayer: "ФРВ", game: "2", goal: "2", win: "2", los: "2")
+        CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)), namePlayer: "Сосин Виталий", photoPlayer: "Сосин Виталий", ratingPlayer: "0", positionPlayer: "ФРВ", game: "2", goal: "2", win: "2", los: "2")
     }
 }

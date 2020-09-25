@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 protocol JoinToTeamViewModelProtocol {
-    var teams: [Teams] { get }
+    var teams: [Team] { get }
 }
 
 class JoinToTeamViewModel: JoinToTeamViewModelProtocol, ObservableObject {
@@ -18,7 +18,7 @@ class JoinToTeamViewModel: JoinToTeamViewModelProtocol, ObservableObject {
     @Published var teamsListener = TeamsListener()
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var teams: [Teams] = []
+    @Published var teams: [Team] = []
     
     init() {
         self.teamsListener.$teams.sink { team in

@@ -108,15 +108,9 @@ extension SetupProfileViewController {
                                 joinToFooTeam.modalPresentationStyle = .fullScreen
                                 self.present(joinToFooTeam, animated: true, completion: nil)
                             }
-                            
-                            let skipTeam = UIAlertAction(title: "Пропустить и продолжить", style: .destructive) { _ in
-                                let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
-                                mainContentFooTeam.modalPresentationStyle = .fullScreen
-                                self.present(mainContentFooTeam, animated: true, completion: nil)
-                            }
+
                             alertController.addAction(creatTeam)
                             alertController.addAction(joinTeam)
-                            alertController.addAction(skipTeam)
                             self.present(alertController, animated: true, completion: nil)
                         }
                     })

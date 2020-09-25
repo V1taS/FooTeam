@@ -34,7 +34,6 @@ class DeletePlayerFromTeam {
         }
         
         player.idTeam = ""
-        player.nameTeam = ""
         
         usersRef.document(player.id).updateData(player.representation) { (error) in }
     }

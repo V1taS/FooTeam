@@ -51,7 +51,7 @@ struct ListPlayersSecondScreenView: View {
                         }
                     }
                 }
-            }
+            } .onAppear { RatingOfPlayers.shared.setRating(players:viewModel.playersiGo)}
             
             .navigationBarItems(trailing:
                                     VStack {

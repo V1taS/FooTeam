@@ -60,7 +60,6 @@ class FirestoreService {
         }
         
         var player = Player(name: name,
-                             nameTeam: "Нет команды",
                              email: email,
                              avatarStringURL: "",
                              whoAreYou: whoAreYou,
@@ -104,7 +103,7 @@ class FirestoreService {
                       teamType: String?,
                       rating: Int?,
                       player: Player,
-                      completion: @escaping (Result<Teams, Error>) -> Void) {
+                      completion: @escaping (Result<Team, Error>) -> Void) {
         
         guard Validators.isFilled(teamName: teamName, location: location) else {
             completion(.failure(UserError.notFilled))
@@ -112,7 +111,7 @@ class FirestoreService {
         }
         
         var player = player
-        var team = Teams(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, rating: rating!)
+        var team = Team(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, rating: rating!)
         let refCountPlayers = db.collection(["teams", team.id, "actionsPlayers"].joined(separator: "/"))
         
         StorageService.shared.uploadAvaTeam(photo: avatarTeam!) { (result) in
@@ -124,7 +123,6 @@ class FirestoreService {
                 
                 player.captain = true
                 player.idTeam = team.id
-                player.nameTeam = teamName!
                 
                 self.usersRef.document(player.id).setData(player.representation) { (error) in
                     if let error = error {

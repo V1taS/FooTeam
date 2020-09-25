@@ -17,6 +17,7 @@ protocol TeamMainScreenViewModelProtocol {
 class TeamMainScreenViewModel: TeamMainScreenViewModelProtocol, ObservableObject {
     
     @Published var actionsPlayers = ActionsPlayers()
+    @Published var ratingOfPlayers = RatingOfPlayers()
     private var cancellables = Set<AnyCancellable>()
     
     @Published var iGoCount: Int = 0

@@ -6,32 +6,29 @@
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
-import Foundation
+import Combine
 
 protocol CellJoinToTeamViewModelProtocol {
-    var avatarStringURL: String { get }
-    var teamName: String { get }
-    var location: String { get }
-    var teamType: String { get }
-    var rating: String { get }
-    
-    init(team: Teams)
+
 }
 
 class CellJoinToTeamViewModel: CellJoinToTeamViewModelProtocol, ObservableObject {
     
-    @Published var avatarStringURL: String = ""
-    @Published var teamName: String = ""
-    @Published var location: String = ""
-    @Published var teamType: String = ""
-    @Published var rating: String = ""
+    @Published var currentUser = CurrentUser()
+    private var cancellables = Set<AnyCancellable>()
     
-    required init(team: Teams) {
-        self.avatarStringURL = team.avatarStringURL ?? ""
-        self.teamName = team.teamName ?? ""
-        self.location = team.location ?? ""
-        self.teamType = team.teamType ?? ""
-        self.rating = "\(team.rating ?? 0)"
+    @Published var downloadAmount: Double = 0.0
+    @Published var isPresented: Bool = false
+    
+    @Published var showAlertAccept: Bool = false
+    
+    init() {
+        
+        self.currentUser.$player.sink { player in
+            if !player.idTeam.isEmpty {
+                self.isPresented = true
+            }
+        } .store(in: &cancellables)
     }
     
 }

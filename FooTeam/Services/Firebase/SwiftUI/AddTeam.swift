@@ -17,7 +17,7 @@ class AddTeam {
     
     // MARK: - Add Team
     func addTeamWith(
-        team: Teams,
+        team: Team,
         teamName: String?,
         avatarImage: UIImage?,
         location: String?,

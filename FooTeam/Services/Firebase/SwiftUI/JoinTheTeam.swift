@@ -16,11 +16,9 @@ class JoinTheTeam {
     private let db = Firestore.firestore()
     
     // MARK: - Save UID Player In Team
-    func SaveIDinTeam(player: Player, team: Teams) {
+    func SaveIDinTeam(player: Player, team: Team) {
         
         let refWaitingPlayer = db.collection(["teams", team.id, "waitingPlayers"].joined(separator: "/"))
-
-//        db.collection("players").document(player.id).updateData(player.representation) { (error) in }
         
         refWaitingPlayer.document(player.id).setData(player.representationPlayer) { (error) in }
 

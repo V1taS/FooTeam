@@ -10,29 +10,29 @@ import SwiftUI
 
 struct CellJoinToTeamView: View {
     
-    var team: Teams
-    var currentUser = FirestoreService.shared.currentUser
-
-    @State var showAlert = false
+    @StateObject private var viewModel = CellJoinToTeamViewModel()
     
-    let colorText: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    var team: Team
+
+    let colorText: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
     var body: some View {
         
         VStack {
             
-            Button(action: { self.showAlert.toggle() } ) {
+            Button(action: { viewModel.showAlertAccept.toggle() } ) {
                 ZStack {
-                    BackgroundFooTeam(centerColor: Color.black.opacity(0.7))
+                    BackgroundFooTeam(centerColor: Color.black)
                         .frame(width: 170, height: 200)
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                     
-                    VStack {
-                        ImagePlayer(avatarStringURL: team.avatarStringURL ?? "", avatarSize: 60, placeholder: "team")
+                    VStack(alignment: .center) {
+                        ImagePlayer(avatarStringURL: team.avatarStringURL ?? "", avatarSize: 100, placeholder: "team")
 
                         Text("\(team.teamName ?? "")")
                             .foregroundColor(Color(colorText))
-                            .font(.title)
+                            .font(.headline)
+                            .lineLimit(2)
                         
                         Text("\(team.teamType ?? "")")
                             .font(.system(size: 15))
@@ -53,22 +53,25 @@ struct CellJoinToTeamView: View {
                     .frame(width: 160, height: 170)
                 }
                     
-                .alert(isPresented: $showAlert) {
+                .alert(isPresented: $viewModel.showAlertAccept) {
                     Alert(title: Text("Отправить запрос команде?"),
                           primaryButton: .default(Text("Отправить запрос")) {
                             
-                            JoinTheTeam.shared.SaveIDinTeam(player: self.currentUser!, team: self.team)
+                            JoinTheTeam.shared.SaveIDinTeam(player: FirestoreService.shared.currentUser, team: self.team)
+                            viewModel.isPresented = true
                             
                         },
                           secondaryButton: .destructive(Text("Отмена")))
                 }
             }
+        } .fullScreenCover(isPresented: $viewModel.isPresented) {
+            WaitingForConfirmationView()
         }
     }
     
     struct CellJoinTeamViewController_Previews: PreviewProvider {
         static var previews: some View {
-            CellJoinToTeamView(team: Teams(avatarStringURL: "", teamName: "Teadfdfd", location: "Rus", teamType: "Type", rating: 80))
+            CellJoinToTeamView(team: Team(avatarStringURL: "", teamName: "Teadfdfd", location: "Rus", teamType: "Type", rating: 80))
         }
     }
 }

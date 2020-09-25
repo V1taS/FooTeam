@@ -18,9 +18,7 @@ struct PlayersProfileEditor: View {
     var body: some View {
         NavigationView {
             VStack {
-                CellTopPlayersFooTeam(colorLine: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
-                                      colorText: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
-                                      backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
+                CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
                                       namePlayer: "\(viewModel.name)",
                                       photoPlayer: "\(viewModel.avatarStringURL)",
                                       ratingPlayer: "\(viewModel.rating)",
@@ -186,6 +184,6 @@ struct PlayersProfileEditor: View {
 
 struct ListPlayersProfileEditor_Previews: PreviewProvider {
     static var previews: some View {
-        PlayersProfileEditor(closeIsPresentedShowModal: .constant(false), player: Player(name: "Default player", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
+        PlayersProfileEditor(closeIsPresentedShowModal: .constant(false), player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
     }
 }

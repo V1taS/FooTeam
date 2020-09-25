@@ -12,7 +12,6 @@ protocol ProfileAddPlayerViewModelProtocol {
     var name: String { get }
     var avatarStringURL: String { get }
     var position: String { get }
-    var nameTeam: String { get }
     var payment: String { get }
     var subscription: Bool { get }
     var iGo: Bool { get }
@@ -36,8 +35,6 @@ class ProfileAddPlayerViewModel: ProfileAddPlayerViewModelProtocol, ObservableOb
     @Published var avatarStringURL: String = ""
     
     @Published var position: String = ""
-    
-    @Published var nameTeam: String = ""
     
     @Published var payment: String = ""
     
@@ -64,7 +61,6 @@ class ProfileAddPlayerViewModel: ProfileAddPlayerViewModelProtocol, ObservableOb
         self.name = player.player.name
         self.avatarStringURL = player.player.avatarStringURL
         self.position = player.player.position
-        self.nameTeam = player.player.nameTeam
         self.payment = player.player.payment
         self.subscription = player.player.subscription
         self.iGo = player.player.iGo

@@ -16,7 +16,7 @@ class DeletTeam {
     private let db = Firestore.firestore()
     
     // MARK: - delet Team In Team
-    func deletTeamInTeam(team: Teams) {
+    func deletTeamInTeam(team: Team) {
         
         let usersRef = db.collection("teams")
         

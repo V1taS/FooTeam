@@ -25,7 +25,6 @@ class AcceptInvitation {
         var player = player
         
         player.idTeam = capitanPlayer.idTeam
-        player.nameTeam = capitanPlayer.nameTeam
         
         db.collection("players").document(player.id).updateData(player.representation) { (error) in }
         

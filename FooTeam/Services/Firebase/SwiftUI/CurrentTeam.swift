@@ -8,32 +8,35 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
-class CurrentTeam {
+class CurrentTeam: ObservableObject {
     
-    static let shared = CurrentTeam()
+    @Published var team = Team(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0)
     
     private let db = Firestore.firestore()
     
-    // MARK: - Current Team
-    func currentTeam(player: Player) -> Teams {
-
+    init() {
+        downloadTeam()
+    }
+    
+    func downloadTeam() {
+        
         let teamRef = db.collection("teams")
-        var team: Teams?
-
-        teamRef.whereField("uid", isEqualTo: player.idTeam).addSnapshotListener() { (querySnapshot, err) in
-            
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                
-                for document in querySnapshot!.documents {
-                    let teamNew = Teams(document: document)
-                    team = teamNew ?? Teams(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0)
+        
+        if let currentUserId = FirestoreService.shared.currentUser {
+            teamRef.whereField("id", isEqualTo: currentUserId.idTeam).addSnapshotListener() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        if let team = Team(document: document) {
+                            self.team = team
+                        }
+                    }
                 }
             }
         }
-        return team ?? Teams(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0)
     }
-} // Current Team
+}
 

@@ -36,7 +36,7 @@ struct CardsWithPlayersMainScreenView: View {
             
             HStack {
                 ZStack {
-                    BoxCardsWithPlayersMainScreenView(teamnumber: 1, ratingTeam: 89, backgroundColor: #colorLiteral(red: 0.5169272423, green: 0.3713009357, blue: 0.09045822173, alpha: 1))
+
                     
                     VStack(alignment: .leading, spacing: 8) {
                         ForEach(teamOne, id: \.self) { player in
@@ -49,7 +49,7 @@ struct CardsWithPlayersMainScreenView: View {
                 }
                 
                 ZStack {
-                    BoxCardsWithPlayersMainScreenView(teamnumber: 2, ratingTeam: 93, backgroundColor: #colorLiteral(red: 0.3060370684, green: 0.3729676306, blue: 0.2559336424, alpha: 1))
+
                     
                     VStack(alignment: .leading, spacing: 8) {
                         ForEach(teamTwo, id: \.self) { player in
@@ -62,7 +62,7 @@ struct CardsWithPlayersMainScreenView: View {
                 }
                 
                 ZStack {
-                    BoxCardsWithPlayersMainScreenView(teamnumber: 3, ratingTeam: 90, backgroundColor: #colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1))
+
                     
                     VStack(alignment: .leading, spacing: 8) {
                         ForEach(teamThree, id: \.self) { player in

@@ -18,7 +18,6 @@ protocol ProfileShowModalMainScreenViewModelProtocol {
     var numberOfGoals: Int { get }
     var winGame: Int { get }
     var losGame: Int { get }
-    var nameTeam: String { get }
     var payment: String { get }
     var subscription: Bool { get }
     var iGo: Bool { get }
@@ -30,6 +29,7 @@ protocol ProfileShowModalMainScreenViewModelProtocol {
 class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelProtocol, ObservableObject {
     
     @Published var currentUser = CurrentUser()
+    @Published var currentTeam = CurrentTeam()
     private var cancellables = Set<AnyCancellable>()
     
     @Published var name: String = ""
@@ -40,13 +40,14 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
     @Published var numberOfGoals: Int = 0
     @Published var winGame: Int = 0
     @Published var losGame: Int = 0
-    @Published var nameTeam: String = ""
     @Published var payment: String = ""
     @Published var subscription: Bool = false
     @Published var iGo: Bool = false
     @Published var captain: Bool = false
     
-    @Published var currentPlayer: Player = Player(name: "Default player", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+    @Published var nameTeam: String = ""
+    
+    @Published var currentPlayer: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
     
     @Published var isPresentedShowModal: Bool = false
 
@@ -60,7 +61,6 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
             self.numberOfGoals = player.numberOfGoals
             self.winGame = player.winGame
             self.losGame = player.losGame
-            self.nameTeam = player.nameTeam
             self.payment = player.payment
             self.subscription = player.subscription
             self.iGo = player.iGo
@@ -69,5 +69,9 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
             self.currentPlayer = player
         }
         .store(in: &cancellables)
+        
+        self.currentTeam.$team.sink { team in
+            self.nameTeam = team.teamName ?? ""
+            } .store(in: &cancellables)
     }
 }

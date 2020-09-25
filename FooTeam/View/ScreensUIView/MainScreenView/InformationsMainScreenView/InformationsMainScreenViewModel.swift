@@ -19,6 +19,7 @@ protocol InformationsMainScreenViewModelProtocol {
 class InformationsMainScreenViewModel: InformationsMainScreenViewModelProtocol, ObservableObject {
     
     @Published var currentUser = CurrentUser()
+    @Published var currentTeam = CurrentTeam()
     @Published var networkWeather = NetworkWeatherManager()
     @Published var calendarFooTeam = CalendarFooTeam()
     
@@ -32,13 +33,16 @@ class InformationsMainScreenViewModel: InformationsMainScreenViewModelProtocol, 
     init() {
         
         self.currentUser.$player.sink { player in
-            self.nameTeam = player.nameTeam
             self.iGo = player.iGo
             } .store(in: &cancellables)
         
         self.networkWeather.$weather.sink { weather in
             self.temperatureString = weather.first?.temperatureString ?? ""
         } .store(in: &cancellables)
+        
+        self.currentTeam.$team.sink { team in
+            self.nameTeam = team.teamName ?? ""
+            } .store(in: &cancellables)
 
         self.datePlay = calendarFooTeam.datePlay
     }

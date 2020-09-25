@@ -18,7 +18,7 @@ class CountPlayersInTeam {
     private let db = Firestore.firestore()
     
     // MARK: Получаем всех активных игроков текущей команды
-    func downloadPlayers(currentTeam: Teams) {
+    func downloadPlayers(currentTeam: Team) {
         
         let refActionsPlayer = db.collection(["teams", currentTeam.id, "actionsPlayers"].joined(separator: "/"))
         let usersRef = db.collection("players")

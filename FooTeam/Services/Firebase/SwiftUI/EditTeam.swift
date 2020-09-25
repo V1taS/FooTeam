@@ -17,8 +17,8 @@ class EditTeam {
     
     // MARK: - Edit Team
     func editTeamInTeam(
-        team: Teams,
-        teams: [Teams],
+        team: Team,
+        teams: [Team],
         teamName: String?,
         avatarImage: UIImage?,
         location: String?,
@@ -47,7 +47,7 @@ class EditTeam {
             guard let snapshot = querySnapshot else { return }
             
             snapshot.documentChanges.forEach { (diff) in
-                guard let team = Teams(document: diff.document) else { return }
+                guard let team = Team(document: diff.document) else { return }
                 switch diff.type {
                 case .added:
                     guard !teams.contains(team) else { return }

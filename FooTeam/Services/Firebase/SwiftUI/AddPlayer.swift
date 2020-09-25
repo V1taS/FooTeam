@@ -37,7 +37,7 @@ class AddPlayer {
         let usersRef = db.collection("players")
         let refActionsPlayer = db.collection(["teams", capitanPlayer.idTeam, "actionsPlayers"].joined(separator: "/"))
         
-        var player = Player(name: "", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
+        var player = Player(name: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
         
         if let name = name { player.name = name }
         if let email = email { player.email = email }
@@ -55,7 +55,6 @@ class AddPlayer {
         if let captain = captain { player.captain = captain }
         
         player.idTeam = capitanPlayer.idTeam
-        player.nameTeam = capitanPlayer.nameTeam
         player.id = UUID().uuidString
         
         if let avatarImage = avatarImage {

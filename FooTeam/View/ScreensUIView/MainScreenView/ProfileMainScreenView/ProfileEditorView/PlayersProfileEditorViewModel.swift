@@ -18,7 +18,6 @@ protocol ListPlayersProfileEditorViewModelProtocol {
     var numberOfGoals: Int { get }
     var winGame: Int { get }
     var losGame: Int { get }
-    var nameTeam: String { get }
     var payment: String { get }
     var subscription: Bool { get }
     var iGo: Bool { get }
@@ -35,7 +34,7 @@ protocol ListPlayersProfileEditorViewModelProtocol {
 class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, ObservableObject {
 
     @Published var playersListener = ActionsPlayers()
-    @Published var currentPlayer = Player(name: "Default player", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+    @Published var currentPlayer = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
     @Published var currentPlayers: [Player] = []
     
     private var cancellables = Set<AnyCancellable>()
@@ -50,7 +49,6 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
     @Published var numberOfGoals: Int = 0
     @Published var winGame: Int = 0
     @Published var losGame: Int = 0
-    @Published var nameTeam: String = ""
     @Published var payment: String = ""
     @Published var subscription: Bool = false
     @Published var iGo: Bool = false
@@ -67,7 +65,7 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
         
         self.playersListener.$players.sink { [self] player in
             let currentPL = player.filter { $0.id == BufferIDplayer.shared.playerID }
-            let currentNewPL = currentPL.first ?? Player(name: "Default player", nameTeam: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+            let currentNewPL = currentPL.first ?? Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
             
             self.name = currentNewPL.name
             self.avatarStringURL = currentNewPL.avatarStringURL
@@ -77,7 +75,6 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
             self.numberOfGoals = currentNewPL.numberOfGoals
             self.winGame = currentNewPL.winGame
             self.losGame = currentNewPL.losGame
-            self.nameTeam = currentNewPL.nameTeam
             self.payment = currentNewPL.payment
             self.subscription = currentNewPL.subscription
             self.iGo = currentNewPL.iGo
