@@ -51,10 +51,13 @@ class AuthViewController: UIViewController {
 // MARK: - Actions
 extension AuthViewController {
     @objc private func emailButtonTapped() {
+
+        signUpVC.modalPresentationStyle = .fullScreen
            present(signUpVC, animated: true, completion: nil)
        }
        
        @objc private func loginButtonTapped() {
+        loginVC.modalPresentationStyle = .fullScreen
            present(loginVC, animated: true, completion: nil)
        }
        
@@ -131,10 +134,12 @@ extension AuthViewController {
 // MARK: - AuthNavigatingDelegate
 extension AuthViewController: AuthNavigatingDelegate {
     func toLoginVC() {
+        loginVC.modalPresentationStyle = .fullScreen
         present(loginVC, animated: true, completion: nil)
     }
     
     func toSignUpVC() {
+        signUpVC.modalPresentationStyle = .fullScreen
         present(signUpVC, animated: true, completion: nil)
     }
 }

@@ -35,6 +35,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addKeyboardObserver()
         
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
@@ -58,7 +59,9 @@ extension SignUpViewController {
                 switch result {
                 case .success(let user):
                     self.showAlert(with: "Успешно!", and: "Вы зарегистрированны!") {
-                        self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+                        let setupVC = SetupProfileViewController(currentUser: user)
+                        setupVC.modalPresentationStyle = .fullScreen
+                        self.present(setupVC, animated: true, completion: nil)
                     }
                     
                 case .failure(let error):

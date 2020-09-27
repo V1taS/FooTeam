@@ -48,6 +48,7 @@ class SetupProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addKeyboardObserver()
         self.nameTextField.delegate = self
         
         view.backgroundColor = .white
@@ -175,12 +176,12 @@ extension SetupProfileViewController: UINavigationControllerDelegate, UIImagePic
 
 // MARK: - UITextFieldDelegate
 extension SetupProfileViewController: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
         return true
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)

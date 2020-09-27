@@ -35,6 +35,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addKeyboardObserver()
+        
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         
@@ -45,8 +47,6 @@ class LoginViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
     }
-    
-    
 }
 
 // MARK: - Actions
@@ -176,7 +176,7 @@ struct LoginVCProvider: PreviewProvider {
 
 // MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
@@ -185,7 +185,7 @@ extension LoginViewController: UITextFieldDelegate {
         }
         return true
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)

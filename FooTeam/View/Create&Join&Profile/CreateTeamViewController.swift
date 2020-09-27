@@ -44,6 +44,8 @@ class CreateTeamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addKeyboardObserver()
+        
         self.nameTextField.delegate = self
         self.cityTextField.delegate = self
         
