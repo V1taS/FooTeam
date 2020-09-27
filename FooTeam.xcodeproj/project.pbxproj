@@ -19,6 +19,9 @@
 		1B39446E24F9A3470008FC40 /* HeaderMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446D24F9A3470008FC40 /* HeaderMainScreenView.swift */; };
 		1B39447024F9A3A00008FC40 /* ProfileMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446F24F9A3A00008FC40 /* ProfileMainScreenView.swift */; };
 		1B39447224F9A3E80008FC40 /* InformationsMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */; };
+		1B3BB6D8251FF5FB004340FD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */; };
+		1B3BB6DB251FF649004340FD /* EditPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6DA251FF649004340FD /* EditPhoto.swift */; };
+		1B3BB6FA252005CC004340FD /* EditPlayerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */; };
 		1B3F0C0324F9A50E00FA4F51 /* TeamMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F0C0224F9A50E00FA4F51 /* TeamMainScreenView.swift */; };
 		1B453AAC2501A28B00DA2DDA /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */; };
 		1B453AAE2501A30400DA2DDA /* PlayersListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAD2501A30400DA2DDA /* PlayersListener.swift */; };
@@ -137,6 +140,9 @@
 		1B39446D24F9A3470008FC40 /* HeaderMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMainScreenView.swift; sourceTree = "<group>"; };
 		1B39446F24F9A3A00008FC40 /* ProfileMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainScreenView.swift; sourceTree = "<group>"; };
 		1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsMainScreenView.swift; sourceTree = "<group>"; };
+		1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		1B3BB6DA251FF649004340FD /* EditPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhoto.swift; sourceTree = "<group>"; };
+		1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerThree.swift; sourceTree = "<group>"; };
 		1B3F0C0224F9A50E00FA4F51 /* TeamMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMainScreenView.swift; sourceTree = "<group>"; };
 		1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
 		1B453AAD2501A30400DA2DDA /* PlayersListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListener.swift; sourceTree = "<group>"; };
@@ -333,6 +339,7 @@
 				1B539584250AECE300C8DFD9 /* AddPlayer.swift */,
 				1B53957C250AE35800C8DFD9 /* EditPlayer.swift */,
 				1B9B2CF0251020FB00DAF164 /* EditPlayerTwo.swift */,
+				1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */,
 				1B53957E250AE91C00C8DFD9 /* DeletPlayer.swift */,
 				1B66458C25190E5C00962B4D /* DeletePlayerFromTeam.swift */,
 				1B539586250AEF9900C8DFD9 /* AddTeam.swift */,
@@ -495,6 +502,8 @@
 				1B596F5224EC73530092770B /* JoinTeamViewController */,
 				1B596F5724EC73530092770B /* SetupProfileViewController.swift */,
 				1B596F5624EC73530092770B /* CreateTeamViewController.swift */,
+				1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */,
+				1B3BB6DA251FF649004340FD /* EditPhoto.swift */,
 			);
 			path = "Create&Join&Profile";
 			sourceTree = "<group>";
@@ -935,6 +944,7 @@
 				1B596F9E24EC73A00092770B /* AuthNavigatingDelegate.swift in Sources */,
 				1B02408D251172210074100A /* ProfileShowModalMainScreenViewModel.swift in Sources */,
 				1B596FC024EC73A90092770B /* AplicationExtension.swift in Sources */,
+				1B3BB6FA252005CC004340FD /* EditPlayerThree.swift in Sources */,
 				1B596F9A24EC739A0092770B /* Validators.swift in Sources */,
 				1BC080962518F91600FA5908 /* BufferIDplayer.swift in Sources */,
 				1B596FC424EC73A90092770B /* AddAvaPlayersView.swift in Sources */,
@@ -945,6 +955,7 @@
 				1B596F6924EC73530092770B /* SignUpViewController.swift in Sources */,
 				1B39447224F9A3E80008FC40 /* InformationsMainScreenView.swift in Sources */,
 				1B4BECB1251D4A0100581FB2 /* WaitingForConfirmationViewModel.swift in Sources */,
+				1B3BB6D8251FF5FB004340FD /* ImagePicker.swift in Sources */,
 				1B596FCD24EC73D60092770B /* Constants.swift in Sources */,
 				1BBDD87E251D63E700517BB3 /* NumberOfTeams.swift in Sources */,
 				1B3F0C0324F9A50E00FA4F51 /* TeamMainScreenView.swift in Sources */,
@@ -954,6 +965,7 @@
 				1BC8B61C250EE34C00FC8B27 /* CurrentTeam.swift in Sources */,
 				1B596FBE24EC73A90092770B /* ColorExtension.swift in Sources */,
 				1B596F9F24EC73A00092770B /* SelfConfiguringCell.swift in Sources */,
+				1B3BB6DB251FF649004340FD /* EditPhoto.swift in Sources */,
 				1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */,
 				1B596F7C24EC73530092770B /* ListPlayersSecondScreenView.swift in Sources */,
 				1B596FC224EC73A90092770B /* CustomeTextField.swift in Sources */,
@@ -1150,6 +1162,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1157,7 +1170,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1171,6 +1184,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1178,7 +1192,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

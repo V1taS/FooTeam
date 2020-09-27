@@ -14,6 +14,7 @@ struct PlayersProfileEditor: View {
     @Binding var closeIsPresentedShowModal: Bool
     var player: Player
     @State var deletPlayer = false
+    @State var isPresentedShowModal: Bool = false
     
     var body: some View {
         NavigationView {
@@ -27,6 +28,9 @@ struct PlayersProfileEditor: View {
                                       goal: "\(viewModel.numberOfGoals)",
                                       win: "\(viewModel.winGame)",
                                       los: "\(viewModel.losGame)")
+                    .onTapGesture(count: 1) {
+                        isPresentedShowModal.toggle()
+                    }
                     .padding(.vertical)
                 Form {
                     
@@ -178,7 +182,8 @@ struct PlayersProfileEditor: View {
                     .renderingMode(.original)
                     .font(.title)
             })
-        }
+        } .sheet(isPresented: $isPresentedShowModal) {
+            EditPhoto(player: viewModel.currentPlayer) }
     }
 }
 
