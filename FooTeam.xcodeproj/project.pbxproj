@@ -409,6 +409,8 @@
 		1B50E65625066F58009B10C7 /* ProfileMainScreenView */ = {
 			isa = PBXGroup;
 			children = (
+				1B3BB6DA251FF649004340FD /* EditPhoto.swift */,
+				1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */,
 				1B18C2DF25116D3100551C6D /* ProfileMainScreenView */,
 				1B02408B251172010074100A /* ProfileShowModalMainScreenView */,
 				1BAD99E025117D1300022700 /* ProfileEditorView */,
@@ -506,8 +508,6 @@
 				1B596F5224EC73530092770B /* JoinTeamViewController */,
 				1B596F5724EC73530092770B /* SetupProfileViewController.swift */,
 				1B596F5624EC73530092770B /* CreateTeamViewController.swift */,
-				1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */,
-				1B3BB6DA251FF649004340FD /* EditPhoto.swift */,
 			);
 			path = "Create&Join&Profile";
 			sourceTree = "<group>";

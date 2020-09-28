@@ -18,19 +18,23 @@ struct ProfileShowModalMainScreenView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
-                                      namePlayer: "\(viewModel.name)",
-                                      photoPlayer: "\(viewModel.avatarStringURL)",
-                                      ratingPlayer: "\(viewModel.rating)",
-                                      positionPlayer: "\(viewModel.position)",
-                                      game: "\(viewModel.numberOfGames)",
-                                      goal: "\(viewModel.numberOfGoals)",
-                                      win: "\(viewModel.winGame)",
-                                      los: "\(viewModel.losGame)")
-                    .padding(.vertical)
+            Form {
                 
-                Form {
+                HStack {
+                    Spacer()
+                    CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
+                                          namePlayer: "\(viewModel.name)",
+                                          photoPlayer: "\(viewModel.avatarStringURL)",
+                                          ratingPlayer: "\(viewModel.rating)",
+                                          positionPlayer: "\(viewModel.position)",
+                                          game: "\(viewModel.numberOfGames)",
+                                          goal: "\(viewModel.numberOfGoals)",
+                                          win: "\(viewModel.winGame)",
+                                          los: "\(viewModel.losGame)")
+                        .padding(.vertical, 8)
+                    Spacer()
+                }
+                
                     HStack {
                         Text("Играю в команде:")
                         Spacer()
@@ -59,13 +63,13 @@ struct ProfileShowModalMainScreenView: View {
                         Text("\(viewModel.iGo ? "да" : "нет")")
                             .font(.headline)
                     }
-                }
                 
-                VStack {
+                HStack {
+                    Spacer()
                     Button(action: { self.isPresentedAlert.toggle()} ) {
                         Text("Выйти")
                             .font(.system(.headline, design: .serif))
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.red)
                             .padding(.horizontal)
                             .padding(.vertical, 5)
                             .cornerRadius(5)
@@ -73,7 +77,7 @@ struct ProfileShowModalMainScreenView: View {
                     .fullScreenCover(isPresented: $outFromTeam, content: {
                         JoinToTeamView()
                     })
-                    
+                    Spacer()
                 }
             } .alert(isPresented: self.$isPresentedAlert) {
                 Alert(title: Text("Внимание"),

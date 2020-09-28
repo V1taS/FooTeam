@@ -13,11 +13,26 @@ struct ListTeamsMainScreenView: View {
     @StateObject private var viewModel = ListTeamsMainScreenViewModel()
     @Binding var closeIsPresentedShowModal: Bool
     
+    var whoAreYou: [String] = ["Команда-1", "Команда-2", "Команда-3"] // Настроить логику
+    @State var selectionWhoAreYou: Int = 0 // Настроить логику
+    
     var body: some View {
         NavigationView {
-            VStack {
-                CellCardsWithPlayersMainScreenView()
-                Form {
+            Form {
+                
+                Section(header: Text("Выбери команду")) {
+                    
+                    HStack {
+                        Picker("", selection: $selectionWhoAreYou) {
+                            ForEach(0..<whoAreYou.count) {
+                                Text(self.whoAreYou[$0])
+                            }
+                        } .pickerStyle(SegmentedPickerStyle())
+                    }
+                    
+                    CellCardsWithPlayersMainScreenView()
+                }
+                Section(header: Text("Информация")) {
                     HStack {
                         Text("Кол-во игроков:")
                         Spacer()
@@ -35,7 +50,7 @@ struct ListTeamsMainScreenView: View {
                     HStack {
                         Text("Игра состоится:")
                         Spacer()
-                        Text("через \(viewModel.datePlay) в 21:30")
+                        Text("\(viewModel.datePlay) в 21:30")
                             .font(.headline)
                     }
                     HStack {
@@ -45,15 +60,16 @@ struct ListTeamsMainScreenView: View {
                             .font(.headline)
                     }
                 }
-                    .navigationBarTitle("Составы на игру", displayMode: .automatic)
-                    .navigationBarItems(trailing: Button(action: {
-                        self.closeIsPresentedShowModal = false
-                    }) {
-                        Image(systemName: "multiply")
-                            .renderingMode(.original)
-                            .font(.title)
-                    })
+                
             }
+            .navigationBarTitle("Составы на игру", displayMode: .automatic)
+            .navigationBarItems(trailing: Button(action: {
+                self.closeIsPresentedShowModal = false
+            }) {
+                Image(systemName: "multiply")
+                    .renderingMode(.original)
+                    .font(.title)
+            })
         }
     }
 }

@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct CellJoinToTeamView: View {
     
     @StateObject private var viewModel = CellJoinToTeamViewModel()
@@ -33,6 +34,7 @@ struct CellJoinToTeamView: View {
                             .foregroundColor(Color(colorText))
                             .font(.headline)
                             .lineLimit(2)
+                            .minimumScaleFactor(0.7)
                         
                         Text("\(team.teamType ?? "")")
                             .font(.system(size: 15))
@@ -57,7 +59,7 @@ struct CellJoinToTeamView: View {
                     Alert(title: Text("Отправить запрос команде?"),
                           primaryButton: .default(Text("Отправить запрос")) {
                             
-                            JoinTheTeam.shared.SaveIDinTeam(player: FirestoreService.shared.currentUser, team: self.team)
+                            JoinTheTeam.shared.SaveIDinTeam(player: FirestoreService.shared.currentUser, team: team)
                             viewModel.isPresented = true
                             
                         },
@@ -65,6 +67,7 @@ struct CellJoinToTeamView: View {
                 }
             }
         } .fullScreenCover(isPresented: $viewModel.isPresented) {
+            
             WaitingForConfirmationView()
         }
     }

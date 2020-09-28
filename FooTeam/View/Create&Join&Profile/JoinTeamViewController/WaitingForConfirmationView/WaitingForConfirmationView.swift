@@ -27,24 +27,24 @@ struct WaitingForConfirmationView: View {
             }
 
             
-        } .onAppear {
-            setTimer()
         }
+//        .onAppear {
+//            setTimer()
+//        }
         .fullScreenCover(isPresented: $viewModel.isPresented) {
             TabViewFooTeam()
         }
-        
     }
     
-    private func setTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if viewModel.downloadAmount < 100 {
-                viewModel.downloadAmount += 1.1
-            } else {
-                viewModel.downloadAmount = 0
-            }
-        }
-    }
+//    private func setTimer() {
+//        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+//            if viewModel.downloadAmount < 100 {
+//                viewModel.downloadAmount += 1.1
+//            } else {
+//                viewModel.downloadAmount = 0
+//            }
+//        }
+//    }
 }
 
 struct WaitingForConfirmation_Previews: PreviewProvider {

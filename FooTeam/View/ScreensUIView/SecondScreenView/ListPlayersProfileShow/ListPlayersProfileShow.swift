@@ -15,19 +15,22 @@ struct ListPlayersProfileShow: View {
     @State var isPresentedShowModal = false
     
     var body: some View {
-        VStack {
-            CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)),
-                                  namePlayer: "\(player.name)",
-                                  photoPlayer: "\(player.avatarStringURL)",
-                                  ratingPlayer: "\(player.rating)",
-                                  positionPlayer: "\(player.position)",
-                                  game: "\(player.numberOfGames)",
-                                  goal: "\(player.numberOfGoals)",
-                                  win: "\(player.winGame)",
-                                  los: "\(player.losGame)")
-                .padding(.vertical)
-            
-            Form {
+        Form {
+            HStack {
+                Spacer()
+                CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)),
+                                      namePlayer: "\(player.name)",
+                                      photoPlayer: "\(player.avatarStringURL)",
+                                      ratingPlayer: "\(player.rating)",
+                                      positionPlayer: "\(player.position)",
+                                      game: "\(player.numberOfGames)",
+                                      goal: "\(player.numberOfGoals)",
+                                      win: "\(player.winGame)",
+                                      los: "\(player.losGame)")
+                    .padding(.vertical, 8)
+                Spacer()
+            }
+
                 HStack {
                     Text("Играю в команде:")
                     Spacer()
@@ -57,7 +60,7 @@ struct ListPlayersProfileShow: View {
                     Text("\(player.iGo ? "да" : "нет")")
                         .font(.headline)
                 }
-            }
+                
         } .onAppear { BufferIDplayer.shared.saveUserID(id: player.id) }
         
         .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)

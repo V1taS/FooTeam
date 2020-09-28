@@ -21,7 +21,16 @@ class LoginViewController: UIViewController {
     let googleButton = UIButton(title: "Продолжить в Google", titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "googleLogo"))
     let emailTextField = CustomeTextField(placeholder: "  demo@mail.ru")
     let passwordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
+    
     let loginButton = UIButton(title: "Войти", titleColor: .white, backgroundColor: .buttonDark(), font: .bolt14())
+    let closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("закрыть", for: .normal)
+        button.setTitleColor(.buttonDark(), for: .normal)
+        button.titleLabel?.font = .bolt14()
+        return button
+    }()
+    
     let signUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Зарегистрироваться", for: .normal)
@@ -46,6 +55,7 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
+        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
     }
 }
 
@@ -86,6 +96,10 @@ extension LoginViewController {
             self.delegate?.toSignUpVC()
         }
     }
+    
+    @objc private func closeButtonTapped() {
+        self.dismiss(animated: true)
+    }
 }
 
 // MARK: - Setup constraints
@@ -116,15 +130,22 @@ extension LoginViewController {
         
         bottomStackView.alignment = .firstBaseline
         
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
         topStackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         bottomStackView.translatesAutoresizingMaskIntoConstraints = false
         footerStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        view.addSubview(closeButton)
         view.addSubview(topStackView)
         view.addSubview(stackView)
         view.addSubview(footerStackView)
         view.addSubview(bottomStackView)
+        
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 52),
+            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
+        ])
         
         NSLayoutConstraint.activate([
             topStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),

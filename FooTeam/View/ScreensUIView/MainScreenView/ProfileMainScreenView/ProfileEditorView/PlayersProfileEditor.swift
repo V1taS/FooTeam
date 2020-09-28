@@ -18,21 +18,24 @@ struct PlayersProfileEditor: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
-                                      namePlayer: "\(viewModel.name)",
-                                      photoPlayer: "\(viewModel.avatarStringURL)",
-                                      ratingPlayer: "\(viewModel.rating)",
-                                      positionPlayer: "\(viewModel.position)",
-                                      game: "\(viewModel.numberOfGames)",
-                                      goal: "\(viewModel.numberOfGoals)",
-                                      win: "\(viewModel.winGame)",
-                                      los: "\(viewModel.losGame)")
-                    .onTapGesture(count: 1) {
-                        isPresentedShowModal.toggle()
-                    }
-                    .padding(.vertical)
-                Form {
+            Form {
+                HStack {
+                    Spacer()
+                    CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
+                                          namePlayer: "\(viewModel.name)",
+                                          photoPlayer: "\(viewModel.avatarStringURL)",
+                                          ratingPlayer: "\(viewModel.rating)",
+                                          positionPlayer: "\(viewModel.position)",
+                                          game: "\(viewModel.numberOfGames)",
+                                          goal: "\(viewModel.numberOfGoals)",
+                                          win: "\(viewModel.winGame)",
+                                          los: "\(viewModel.losGame)")
+                        .onTapGesture(count: 1) {
+                            isPresentedShowModal.toggle()
+                        }
+                        .padding(.vertical, 8)
+                    Spacer()
+                }
                     
                     VStack {
                         HStack {
@@ -131,46 +134,49 @@ struct PlayersProfileEditor: View {
                         }
                         
                     }
-                }
                 
-                Button(action: {
-                    
-                    if deletPlayer {
-                        DeletPlayer.shared.deletPlayerInTeam(playerID: player.id)
-                        self.closeIsPresentedShowModal = false
-                    } else {
+                HStack {
+                    Spacer()
+                    Button(action: {
                         
-                        EditPlayer.shared.editPlayerInTeam(
-                            player: self.viewModel.currentPlayer,
-                            players: self.viewModel.currentPlayers,
-                            name: self.viewModel.name,
-                            avatarImage: nil,
-                            email: self.viewModel.email,
-                            whoAreYou: self.viewModel.whoAreYou[self.viewModel.selectionWhoAreYou],
-                            teamNumber: nil,
-                            payment: self.viewModel.payment,
-                            iGo: self.viewModel.iGo,
-                            subscription: self.viewModel.subscription,
-                            rating: self.viewModel.rating,
-                            position: self.viewModel.positions[self.viewModel.selectionPositions],
-                            numberOfGames: self.viewModel.numberOfGames,
-                            numberOfGoals: self.viewModel.numberOfGoals,
-                            winGame: self.viewModel.winGame,
-                            losGame: self.viewModel.losGame,
-                            captain: self.viewModel.captain)
+                        if deletPlayer {
+                            DeletPlayer.shared.deletPlayerInTeam(playerID: player.id)
+                            self.closeIsPresentedShowModal = false
+                        } else {
+                            
+                            EditPlayer.shared.editPlayerInTeam(
+                                player: self.viewModel.currentPlayer,
+                                players: self.viewModel.currentPlayers,
+                                name: self.viewModel.name,
+                                avatarImage: nil,
+                                email: self.viewModel.email,
+                                whoAreYou: self.viewModel.whoAreYou[self.viewModel.selectionWhoAreYou],
+                                teamNumber: nil,
+                                payment: self.viewModel.payment,
+                                iGo: self.viewModel.iGo,
+                                subscription: self.viewModel.subscription,
+                                rating: self.viewModel.rating,
+                                position: self.viewModel.positions[self.viewModel.selectionPositions],
+                                numberOfGames: self.viewModel.numberOfGames,
+                                numberOfGoals: self.viewModel.numberOfGoals,
+                                winGame: self.viewModel.winGame,
+                                losGame: self.viewModel.losGame,
+                                captain: self.viewModel.captain)
+                            
+                            self.closeIsPresentedShowModal = false
+                        }
                         
-                        self.closeIsPresentedShowModal = false
+                        
+                    } ) {
+                        Text("Сохранить")
+                            .font(.system(.headline, design: .serif))
+                            .foregroundColor(Color.black)
+                            .padding(.horizontal)
+                            .padding(.vertical, 5)
+                            .background(Color.green)
+                            .cornerRadius(5)
                     }
-                    
-                    
-                } ) {
-                    Text("Сохранить")
-                        .font(.system(.headline, design: .serif))
-                        .foregroundColor(Color.black)
-                        .padding(.horizontal)
-                        .padding(.vertical, 5)
-                        .background(Color.green)
-                        .cornerRadius(5)
+                    Spacer()
                 }
             }
             

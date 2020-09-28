@@ -21,8 +21,16 @@ class SignUpViewController: UIViewController {
     let emailTextField = CustomeTextField(placeholder: "  demo@mail.ru")
     let passwordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
     let confirmPasswordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
-    
+   
     let signUpButton = UIButton(title: "Зарегистрироваться", titleColor: .white, backgroundColor: .buttonDark(), font: .bolt14())
+    let closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("закрыть", for: .normal)
+        button.setTitleColor(.buttonDark(), for: .normal)
+        button.titleLabel?.font = .bolt14()
+        return button
+    }()
+    
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Войти", for: .normal)
@@ -46,6 +54,7 @@ class SignUpViewController: UIViewController {
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
     }
 }
 
@@ -74,6 +83,10 @@ extension SignUpViewController {
         self.dismiss(animated: true) {
             self.delegate?.toLoginVC()
         }
+    }
+    
+    @objc private func closeButtonTapped() {
+        self.dismiss(animated: true)
     }
 }
 
@@ -108,16 +121,22 @@ extension SignUpViewController {
         footerStackView.layer.borderWidth = 1
         
         
-        
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
         topStackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         bottomStackView.translatesAutoresizingMaskIntoConstraints = false
         footerStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        view.addSubview(closeButton)
         view.addSubview(topStackView)
         view.addSubview(stackView)
         view.addSubview(footerStackView)
         view.addSubview(bottomStackView)
+        
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 52),
+            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
+        ])
         
         NSLayoutConstraint.activate([
             topStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),

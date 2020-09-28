@@ -24,25 +24,25 @@ class CalendarFooTeam: ObservableObject {
             switch weekday {
             case 1:
                 //            print("Сегодня Воскресенье")
-                datePlay = "3 дня"
+                datePlay = "через 3 дня"
             case 2:
                 //            print("Сегодня Понедельник")
-                datePlay = "2 дня"
+                datePlay = "через 2 дня"
             case 3:
                 //            print("Сегодня Вторник")
-                datePlay = "1 день"
+                datePlay = "через 1 день"
             case 4:
                 //            print("Сегодня Среда")
                 datePlay = "сегодня"
             case 5:
                 //            print("Сегодня Четверг")
-                datePlay = "6 дней"
+                datePlay = "через 6 дней"
             case 6:
                 //            print("Сегодня Пятница")
-                datePlay = "5 дней"
+                datePlay = "через 5 дней"
             case 7:
                 //            print("Сегодня Суббота")
-                datePlay = "4 дня"
+                datePlay = "через 4 дня"
             default:
                 print("Error")
             }

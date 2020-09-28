@@ -40,6 +40,7 @@ struct InformationsMainScreenView: View {
                         Text("\(viewModel.nameTeam)")
                             .font(.headline)
                             .lineLimit(1)
+                            .minimumScaleFactor(0.7)
                     }
                     
                     HStack {
@@ -54,15 +55,17 @@ struct InformationsMainScreenView: View {
                 VStack(alignment: .leading, spacing: 1) {
                     
                     HStack {
-                        Text("Игра:")
+                        Text("Игра")
                         Text("\(viewModel.datePlay)")
                             .font(.headline)
+                            .minimumScaleFactor(0.7)
                     }
                     
                     HStack {
                         Text("Температура:")
                         Text("\(viewModel.temperatureString)°С")
                             .font(.headline)
+                            .minimumScaleFactor(0.7)
                     }
                 } .frame(width: 160, alignment: .leading)
             }

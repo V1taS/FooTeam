@@ -19,7 +19,7 @@ struct CellCardsWithPlayersMainScreenView: View {
         
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 190))], spacing: 10) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 190))], spacing: 0) {
                     ForEach(viewModel.teamsOne, id: \.self) { player in
                         CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)),
                                               namePlayer: player.name,
@@ -30,13 +30,13 @@ struct CellCardsWithPlayersMainScreenView: View {
                                               goal: "\(player.numberOfGoals)",
                                               win: "\(player.winGame)",
                                               los: "\(player.losGame)")
-                            .scaleEffect(0.55)
-                            .frame(width: 50, height: 165)
+                            .scaleEffect(0.5)
+                            .frame(width: 50, height: 145)
+                            .padding(.vertical, 8)
                     }
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .center)
-            .navigationBarTitle(Text("Присоединиться"))
+            .frame(height: 330)
         }
     }
 }
