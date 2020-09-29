@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 
 struct CellJoinToTeamView: View {
@@ -16,7 +17,6 @@ struct CellJoinToTeamView: View {
     var team: Team
 
     let colorText: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    
     var body: some View {
         
         VStack {
@@ -58,10 +58,8 @@ struct CellJoinToTeamView: View {
                 .alert(isPresented: $viewModel.showAlertAccept) {
                     Alert(title: Text("Отправить запрос команде?"),
                           primaryButton: .default(Text("Отправить запрос")) {
-                            
                             JoinTheTeam.shared.SaveIDinTeam(player: FirestoreService.shared.currentUser, team: team)
                             viewModel.isPresented = true
-                            
                         },
                           secondaryButton: .destructive(Text("Отмена")))
                 }

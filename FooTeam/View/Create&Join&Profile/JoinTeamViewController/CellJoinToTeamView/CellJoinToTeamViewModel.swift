@@ -23,15 +23,15 @@ class CellJoinToTeamViewModel: CellJoinToTeamViewModelProtocol, ObservableObject
     
     @Published var showAlertAccept: Bool = false
     
-    init() {
-        
-        self.currentUser.$player.sink { player in
-            
-            if !player.idTeam.isEmpty {
-                self.isPresented = true
-            }
-        } .store(in: &cancellables)
-
-    }
+//    init() {
+//        
+//        self.currentUser.$player.sink { player in
+//            
+//            if !player.idTeam.isEmpty {
+//                self.isPresented = true
+//            }
+//        } .store(in: &cancellables)
+//
+//    }
     
 }

@@ -18,7 +18,12 @@ struct ListPlayersSecondScreenView: View {
         NavigationView {
             VStack {
                 List {
-                    Section(header: Text("Основной состав")) {
+                    Section(header: HStack {
+                        Text("Основной состав")
+                        Spacer()
+                        Text("\(viewModel.playersMain.count)")
+                            .padding(.trailing, 8)
+                    } ) {
                         ForEach(viewModel.playersMain, id: \.self) { player in
                             NavigationLink(destination: ListPlayersProfileShow(player: player)) {
                                 HStack {
@@ -34,7 +39,12 @@ struct ListPlayersSecondScreenView: View {
                         }
                     }
                     
-                    Section(header: Text("Запасные игроки")) {
+                    Section(header: HStack {
+                        Text("Запасные игроки")
+                        Spacer()
+                        Text("\(viewModel.playersReserv.count)")
+                            .padding(.trailing, 8)
+                    } ) {
                         ForEach(viewModel.playersReserv, id: \.self) { player in
                             NavigationLink(destination: ListPlayersProfileShow(player: player)) {
                                 HStack {

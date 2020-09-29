@@ -23,7 +23,7 @@ class NoAcceptInvitation {
 
         db.collection("players").document(player.id).setData(player.representation) { (error) in }
         
-        refWaitingPlayer.whereField("uid", isEqualTo: player.id).addSnapshotListener() { (querySnapshot, err) in
+        refWaitingPlayer.whereField("uid", isEqualTo: player.id).getDocuments() { (querySnapshot, err) in
           if let err = err {
             print("Error getting documents: \(err)")
           } else {

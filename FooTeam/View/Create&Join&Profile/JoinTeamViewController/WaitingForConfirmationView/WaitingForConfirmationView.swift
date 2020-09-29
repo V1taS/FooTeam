@@ -21,30 +21,31 @@ struct WaitingForConfirmationView: View {
             ProgressView("", value: viewModel.downloadAmount, total: 100)
                 .padding()
             
-            Button(action: {} ) {
+            Button(action: {
+                let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
+                mainContentFooTeam.modalPresentationStyle = .fullScreen
+                UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
+            } ) {
                 Text("Отмена")
                     .foregroundColor(Color.red)
             }
 
             
         }
-//        .onAppear {
-//            setTimer()
-//        }
-        .fullScreenCover(isPresented: $viewModel.isPresented) {
-            TabViewFooTeam()
+        .onAppear {
+            setTimer()
         }
     }
     
-//    private func setTimer() {
-//        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-//            if viewModel.downloadAmount < 100 {
-//                viewModel.downloadAmount += 1.1
-//            } else {
-//                viewModel.downloadAmount = 0
-//            }
-//        }
-//    }
+    private func setTimer() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            if viewModel.downloadAmount < 100 {
+                viewModel.downloadAmount += 1.1
+            } else {
+                viewModel.downloadAmount = 0
+            }
+        }
+    }
 }
 
 struct WaitingForConfirmation_Previews: PreviewProvider {

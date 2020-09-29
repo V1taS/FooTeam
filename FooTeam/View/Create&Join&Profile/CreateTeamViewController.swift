@@ -79,7 +79,7 @@ extension CreateTeamViewController {
         ) { result in
             switch result {
             case .success(_):
-                FirestoreService.shared.getUserData(user: self.currentUser) { _ in }
+                FirestoreService.shared.getUserDataSimple()
                 
                 self.showAlert(with: "Успешно!", and: "Вы создали команду!") {
                     

@@ -7,28 +7,34 @@
 //
 
 import SwiftUI
+import Combine
 
 protocol TabViewFooTeamModelProtocol {
-    var waitingPlayersCount: Int { get }
-    var viewState: CGSize { get }
-    var showWaitingPlayer: Int { get }
     
-    init(waitingPlayers: WaitingPlayers)
+    
 }
 
 class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
     
-    @Published var waitingPlayersCount: Int = 0
+    @Published var waitingPlayers = WaitingPlayers()
     
-    @Published var viewState: CGSize = .zero // Настроить логику
+    private var cancellables = Set<AnyCancellable>()
     
-    @Published var showWaitingPlayer: Int = 0 // Настроить логику
     
-    required init(waitingPlayers: WaitingPlayers) {
-        waitingPlayers.downloadPlayers()
-        
-        self.waitingPlayersCount = waitingPlayers.players.count
+    @Published var viewState: CGSize = CGSize.zero
+    @Published var showAcceptPlayers: Bool = false
+    @Published var players: [Player] = [] {
+        didSet {
+            if !players.isEmpty {
+                self.showAcceptPlayers = true
+            }
+        }
     }
     
-    
+    init() {
+        self.waitingPlayers.$players.sink { players in
+            self.players = players
+        }
+        .store(in: &cancellables)
+    }
 }

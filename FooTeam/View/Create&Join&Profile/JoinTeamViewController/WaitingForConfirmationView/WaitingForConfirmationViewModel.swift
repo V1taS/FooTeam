@@ -8,6 +8,7 @@
 
 import Combine
 import FirebaseAuth
+import SwiftUI
 
 protocol WaitingForConfirmationViewModelProtocol {
     
@@ -16,28 +17,34 @@ protocol WaitingForConfirmationViewModelProtocol {
 class WaitingForConfirmationViewModel: WaitingForConfirmationViewModelProtocol, ObservableObject {
     
     @Published var currentUser = CurrentUser()
-//    @Published var actionsPlayers = ActionsPlayers()
+
     private var cancellables = Set<AnyCancellable>()
     
     @Published var downloadAmount: Double = 0.0
     @Published var isPresented: Bool = false
     
-    @Published var player: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
-//    @Published var players: [Player] = []
-    
     init() {
         self.currentUser.$player.sink { player in
-            self.player = player
+            if !player.idTeam.isEmpty {
+                if let user = Auth.auth().currentUser {
+                    FirestoreService.shared.getUserData(user: user) { (result) in
+                        switch result {
+                        case .success(let player):
+                            if player.idTeam.isEmpty {
+                                let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
+                                mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
+                            } else {
+                                let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
+                                mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
+                            }
+                        case .failure(_):
+                            UIApplication.shared.windows.first?.rootViewController = AuthViewController()
+                        }
+                    }
+                }
+            }
         } .store(in: &cancellables)
-        
-        print("waiting экран - \(self.player)")
-        
-//        self.actionsPlayers.$players.sink { players in
-//            self.players = players
-//        } .store(in: &cancellables)
-//        
-//        if self.players.contains(self.player) {
-//            isPresented = true
-//        }
     }
 }

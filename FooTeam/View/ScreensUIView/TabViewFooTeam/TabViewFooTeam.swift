@@ -12,11 +12,7 @@ import FirebaseAuth
 
 struct TabViewFooTeam: View {
     
-    //    @StateObject private var viewModel = TabViewFooTeamModel()
-    
-    @State var viewState = CGSize.zero
-    @ObservedObject var waitingPlayers = WaitingPlayers()
-    @State var showeWaitingPlayer = 0
+    @StateObject private var viewModel = TabViewFooTeamModel()
     
     var body: some View {
         ZStack {
@@ -26,39 +22,73 @@ struct TabViewFooTeam: View {
                     .tabItem {
                         Image(systemName: "shield")
                         Text("Главная")
-                }
+                    }
                 
                 ListPlayersSecondScreenView()
                     .tabItem {
                         Image(systemName: "sportscourt.fill")
                         Text("Команда")
-                }
+                    }
             }
             
-            VStack {
-                Spacer()
-                if FirestoreService.shared.currentUser.captain {
-                    PopapCard(showeWaitingPlayer: $showeWaitingPlayer)
-                        .offset(y: CGFloat(!waitingPlayers.players.isEmpty ? showeWaitingPlayer : 1000))
-                        .offset(y: viewState.height)
-                        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
-                        .gesture(
-                            DragGesture().onChanged { value in
-                                self.viewState = value.translation
-                                if self.viewState.height > 50 {
-                                    self.showeWaitingPlayer = 1000
+            
+            if FirestoreService.shared.currentUser.captain {
+                if viewModel.showAcceptPlayers {
+                    ZStack {
+                        Color.black.opacity(0.8)
+                            .edgesIgnoringSafeArea(.all)
+                    ZStack {
+                        
+                        List {
+                            Section(header: HStack {
+                                Text("Ожидают добавления")
+                                Spacer()
+                                Button(action: {
+                                    viewModel.showAcceptPlayers = false
+                                }) {
+                                    Image(systemName: "multiply")
+                                        .renderingMode(.original)
+                                        .font(.title)
+                                }
+                            } ) {
+                                ForEach(viewModel.players, id: \.self) { player in
+                                    
+                                    HStack {
+                                        ImagePlayer(avatarStringURL: player.avatarStringURL, avatarSize: 40)
+                                            .padding(.trailing, 8)
+                                        Text("\(player.name)")
+                                            .lineLimit(1)
+                                            .font(.headline)
+                                            .frame(width: 140)
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            NoAcceptInvitation.shared.acceptInvitation(player: player, capitanPlayer: FirestoreService.shared.currentUser)
+                                        }) {
+                                            Text("❌")
+                                                .padding(.trailing, 8)
+                                        }
+                                        Button(action: {
+                                            AcceptInvitation.shared.acceptInvitation(player: player, capitanPlayer: FirestoreService.shared.currentUser)
+                                        }) {
+                                            Text("✅")
+                                            
+                                        }
+                                    }
                                 }
                             }
-                            .onEnded { value in
-                                self.viewState = .zero
-                            }
-                        )
+                        }.buttonStyle(PlainButtonStyle())
+                    }
+                    .frame(width: 300, height: 150, alignment: .leading)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.green)
+                    )
+                }
                 }
             }
         }
     }
-    
-    
 }
 
 struct TabViewFooTeam_Previews: PreviewProvider {

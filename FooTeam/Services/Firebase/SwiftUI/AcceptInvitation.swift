@@ -28,7 +28,7 @@ class AcceptInvitation {
         
         db.collection("players").document(player.id).updateData(player.representation) { (error) in }
         
-        refWaitingPlayer.whereField("uid", isEqualTo: player.id).addSnapshotListener() { (querySnapshot, err) in
+        refWaitingPlayer.whereField("uid", isEqualTo: player.id).getDocuments() { (querySnapshot, err) in
             guard let querySnapshot = querySnapshot else { return }
           if let err = err {
             print("Error getting documents: \(err)")

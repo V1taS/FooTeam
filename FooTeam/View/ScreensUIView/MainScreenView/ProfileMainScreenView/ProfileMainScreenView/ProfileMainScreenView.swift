@@ -30,6 +30,8 @@ struct ProfileMainScreenView: View {
                         .font(.headline)
                         .foregroundColor(Color(.red))
                     Text(viewModel.name)
+                        .lineLimit(1)
+                        .frame(width: 150)
                         .foregroundColor(.black)
                     
                     ImagePlayer(avatarStringURL: viewModel.avatarStringURL, avatarSize: 125)

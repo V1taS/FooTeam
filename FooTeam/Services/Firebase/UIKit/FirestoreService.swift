@@ -31,6 +31,10 @@ class FirestoreService {
         return db.collection(["players", currentUser.id, "activeChats"].joined(separator: "/"))
     }
     
+    private var currentUserId: String {
+        return Auth.auth().currentUser!.uid
+    }
+    
     var currentUser: Player!
     
     // MARK: - Get User Data
@@ -46,6 +50,18 @@ class FirestoreService {
                 completion(.success(player))
             } else {
                 completion(.failure(UserError.cannotGetUserInfo))
+            }
+        }
+    }
+    
+    // MARK: - Get User Data Simple
+    func getUserDataSimple() {
+        let docRef = usersRef.document(currentUserId)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                guard let player = Player(document: document) else { return }
+                self.currentUser = player
+                print("Пользователь получен в getUserDataSimple")
             }
         }
     }

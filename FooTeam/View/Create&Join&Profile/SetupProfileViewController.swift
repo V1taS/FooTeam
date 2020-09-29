@@ -89,7 +89,7 @@ extension SetupProfileViewController {
                 case .success(let player):
                     self.showAlert(with: "Успешно!", and: "Данные сохранены!", completion: {
                         
-                        FirestoreService.shared.getUserData(user: self.currentUser) { _ in }
+                        FirestoreService.shared.getUserDataSimple()
                         
                         if self.whoAreYouSegmentedControl.titleForSegment(at: self.whoAreYouSegmentedControl.selectedSegmentIndex) == "Зритель" {
                             let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
