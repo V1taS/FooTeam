@@ -79,12 +79,12 @@ struct TabViewFooTeam: View {
                             }
                         }.buttonStyle(PlainButtonStyle())
                     }
-                    .frame(width: 300, height: 150, alignment: .leading)
+                    .frame(width: 350, height: 250, alignment: .leading)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.green)
-                    )
-                }
+                    ).offset(x: 0, y: -100)
+                    }
                 }
             }
         }

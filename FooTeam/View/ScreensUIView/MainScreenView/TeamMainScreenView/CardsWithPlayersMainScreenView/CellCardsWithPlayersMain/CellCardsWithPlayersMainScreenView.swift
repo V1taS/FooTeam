@@ -20,7 +20,7 @@ struct CellCardsWithPlayersMainScreenView: View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 190))], spacing: 0) {
-                    ForEach(viewModel.teamsOne, id: \.self) { player in
+                    ForEach(viewModel.teamsTwo, id: \.self) { player in
                         CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)),
                                               namePlayer: player.name,
                                               photoPlayer: player.avatarStringURL,

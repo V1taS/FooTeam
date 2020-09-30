@@ -23,17 +23,15 @@ class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
     
     @Published var viewState: CGSize = CGSize.zero
     @Published var showAcceptPlayers: Bool = false
-    @Published var players: [Player] = [] {
-        didSet {
-            if !players.isEmpty {
-                self.showAcceptPlayers = true
-            }
-        }
-    }
+    @Published var players: [Player] = []
     
     init() {
         self.waitingPlayers.$players.sink { players in
             self.players = players
+            
+            if !players.isEmpty {
+                self.showAcceptPlayers = true
+            }
         }
         .store(in: &cancellables)
     }

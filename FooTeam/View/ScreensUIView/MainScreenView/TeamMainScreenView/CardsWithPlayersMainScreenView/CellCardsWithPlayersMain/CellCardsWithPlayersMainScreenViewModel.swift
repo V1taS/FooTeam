@@ -26,8 +26,10 @@ class CellCardsWithPlayersMainScreenViewModel: CellCardsWithPlayersMainScreenVie
     init() {
         self.actionsPlayers.$players.sink { playrs in
             let iGoPlayers = playrs.filter { $0.iGo }
-            let sortedPlayers = iGoPlayers.sorted(by: { $0.rating > $1.rating })
-            self.teamsOne = sortedPlayers
+            self.teamsOne = iGoPlayers.filter { $0.teamNumber == 0 }
+            self.teamsTwo = iGoPlayers.filter { $0.teamNumber == 1 }
+            self.teamsThree = iGoPlayers.filter { $0.teamNumber == 2 }
+            self.teamsFour = iGoPlayers.filter { $0.teamNumber == 3 }
             
         }.store(in: &cancellables)
     }

@@ -13,19 +13,15 @@ struct ListTeamsMainScreenView: View {
     @StateObject private var viewModel = ListTeamsMainScreenViewModel()
     @Binding var closeIsPresentedShowModal: Bool
     
-    var whoAreYou: [String] = ["Команда-1", "Команда-2", "Команда-3"] // Настроить логику
-    @State var selectionWhoAreYou: Int = 0 // Настроить логику
-    
     var body: some View {
         NavigationView {
             Form {
-                
                 Section(header: Text("Выбери команду")) {
                     
                     HStack {
-                        Picker("", selection: $selectionWhoAreYou) {
-                            ForEach(0..<whoAreYou.count) {
-                                Text(self.whoAreYou[$0])
+                        Picker("", selection: $viewModel.selectionTeams) {
+                            ForEach(0..<viewModel.countTeams, id: \.self) { index in
+                                Text("Команда - \(index + 1)")
                             }
                         } .pickerStyle(SegmentedPickerStyle())
                     }

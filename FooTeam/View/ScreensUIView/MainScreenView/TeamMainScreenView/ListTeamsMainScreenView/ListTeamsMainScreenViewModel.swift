@@ -25,8 +25,20 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
     @Published var calendarFooTeam = CalendarFooTeam()
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var iGoCount: Int = 0
-    @Published var countTeams: Int = 0 // Настроить логику (алгоритм готовый на почте)
+    @Published var iGoCount: Int = 0 {
+        didSet {
+            let countT = NumberOfTeams.shared.numberOfTeams(countPlauers: iGoCount)
+            countTeams = countT
+        }
+    }
+    @Published var countTeams: Int = 0
+    @Published var selectionTeams: Int = 0
+    @Published var iGoPlayers: [Player] = [] {
+        didSet {
+            InWhichTeam.shared.setNumberInWhichTeam(players: iGoPlayers, countNumbers: countTeams)
+        }
+    }
+    
     @Published var temperatureString: String = ""
     @Published var temperatureIcon: String = ""
     
@@ -37,6 +49,7 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
         self.actionsPlayers.$players.sink { players in
             
             let iGoCount = players.filter { $0.iGo }
+            self.iGoPlayers = iGoCount
             self.iGoCount = iGoCount.count
 
         } .store(in: &cancellables)
@@ -46,5 +59,6 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
         } .store(in: &cancellables)
 
         self.datePlay = calendarFooTeam.datePlay
+        
     }
 }

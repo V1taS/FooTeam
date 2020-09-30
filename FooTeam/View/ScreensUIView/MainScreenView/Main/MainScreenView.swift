@@ -19,7 +19,6 @@ struct MainScreenView: View {
             ScrollView(showsIndicators: false) {
                 VStack {
                     HeaderMainScreenView()
-                    
                     HStack {
                         Text("Панель управления")
                             .font(.title)

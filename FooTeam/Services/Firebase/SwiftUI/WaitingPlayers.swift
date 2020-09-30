@@ -1,8 +1,8 @@
 //
-//  WaitingPlayers.swift
+//  Testt.swift
 //  FooTeam
 //
-//  Created by Виталий Сосин on 11.09.2020.
+//  Created by Виталий Сосин on 30.09.2020.
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
@@ -19,15 +19,15 @@ class WaitingPlayers: ObservableObject {
         downloadPlayers()
     }
     
-    // MARK: Получаем всех ОЖИДАЮЩИХ ПОДТВЕРЖДЕНИЯ игроков текущей команды
+    // MARK: Получаем всех активных игроков текущей команды
     func downloadPlayers() {
         
         if let currentPlayer = FirestoreService.shared.currentUser {
             
-            let refWaitingPlayers = db.collection(["teams", currentPlayer.idTeam, "waitingPlayers"].joined(separator: "/"))
+            let refActionsPlayer = db.collection(["teams", currentPlayer.idTeam, "waitingPlayers"].joined(separator: "/"))
             let usersRef = db.collection("players")
             
-            refWaitingPlayers.addSnapshotListener { (snapshot, error) in
+            refActionsPlayer.addSnapshotListener { (snapshot, error) in
                 guard let snapshot = snapshot else { return }
                 if !snapshot.isEmpty {
                     for snapshot in snapshot.documents {
@@ -46,10 +46,10 @@ class WaitingPlayers: ObservableObject {
                                     self.players.append(player)
                                 case .modified:
                                     guard let index = players.firstIndex(of: player) else { return }
-                                    self.players[index] = player
-                                case .removed:
-                                    guard let index = players.firstIndex(of: player) else { return }
                                     players.remove(at: index)
+                                case .removed:
+                                    let index = players.firstIndex(of: player)
+                                    players.remove(at: index!)
                                 }
                             }
                         }

@@ -20,14 +20,19 @@ class NoAcceptInvitation {
     func acceptInvitation(player: Player, capitanPlayer: Player) {
         
         let refWaitingPlayer = db.collection(["teams", capitanPlayer.idTeam, "waitingPlayers"].joined(separator: "/"))
-
-        db.collection("players").document(player.id).setData(player.representation) { (error) in }
+        
+        var player = player
+        
+        player.teamNumber = 0
+        
+        db.collection("players").document(player.id).updateData(player.representation) { (error) in }
         
         refWaitingPlayer.whereField("uid", isEqualTo: player.id).getDocuments() { (querySnapshot, err) in
+            guard let querySnapshot = querySnapshot else { return }
           if let err = err {
             print("Error getting documents: \(err)")
           } else {
-            for document in querySnapshot!.documents {
+            for document in querySnapshot.documents {
               document.reference.delete()
             }
           }
