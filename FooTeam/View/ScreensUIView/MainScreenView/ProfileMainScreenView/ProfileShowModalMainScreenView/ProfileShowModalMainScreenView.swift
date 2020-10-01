@@ -12,6 +12,7 @@ import SDWebImageSwiftUI
 struct ProfileShowModalMainScreenView: View {
     
     @StateObject private var viewModel = ProfileShowModalMainScreenViewModel()
+    @ObservedObject var currentTeam = CurrentTeam()
     @Binding var closeIsPresentedShowModal: Bool
     @State var isPresentedAlert: Bool = false
     @State var outFromTeam: Bool = false
@@ -27,6 +28,8 @@ struct ProfileShowModalMainScreenView: View {
                                           photoPlayer: "\(viewModel.avatarStringURL)",
                                           ratingPlayer: "\(viewModel.rating)",
                                           positionPlayer: "\(viewModel.position)",
+                                          locationCountryImage: "",
+                                          logoTeamImage: currentTeam.team.avatarStringURL ?? "",
                                           game: "\(viewModel.numberOfGames)",
                                           goal: "\(viewModel.numberOfGoals)",
                                           win: "\(viewModel.winGame)",

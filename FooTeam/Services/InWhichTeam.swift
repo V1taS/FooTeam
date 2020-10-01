@@ -20,6 +20,7 @@ class InWhichTeam {
         for player in sortedPlayers {
             var player = player
             player.teamNumber = team
+            print("\(team)")
             
             EditPlayer.shared.editPlayerInTeam(player: player, players: players, name: nil, avatarImage: nil, email: nil, whoAreYou: nil, teamNumber: team, payment: nil, iGo: nil, subscription: nil, rating: nil, position: nil, numberOfGames: nil, numberOfGoals: nil, winGame: nil, losGame: nil, captain: nil)
             

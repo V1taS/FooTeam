@@ -11,6 +11,7 @@ import SwiftUI
 struct PlayersProfileEditor: View {
     
     @StateObject private var viewModel = PlayersProfileEditorViewModel()
+    @ObservedObject var currentTeam = CurrentTeam()
     @Binding var closeIsPresentedShowModal: Bool
     var player: Player
     @State var deletPlayer = false
@@ -26,6 +27,8 @@ struct PlayersProfileEditor: View {
                                           photoPlayer: "\(viewModel.avatarStringURL)",
                                           ratingPlayer: "\(viewModel.rating)",
                                           positionPlayer: "\(viewModel.position)",
+                                          locationCountryImage: "",
+                                          logoTeamImage: currentTeam.team.avatarStringURL ?? "",
                                           game: "\(viewModel.numberOfGames)",
                                           goal: "\(viewModel.numberOfGoals)",
                                           win: "\(viewModel.winGame)",

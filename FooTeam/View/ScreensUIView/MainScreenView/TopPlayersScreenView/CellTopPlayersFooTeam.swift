@@ -18,6 +18,9 @@ struct CellTopPlayersFooTeam: View {
     let ratingPlayer: String
     let positionPlayer: String
     
+    let locationCountryImage: String
+    let logoTeamImage: String
+    
     let game: String
     let goal: String
     let win: String
@@ -122,18 +125,25 @@ struct CellTopPlayersFooTeam: View {
                     Color(.black)
                         .frame(width: 20, height: 1)
                     
-                    Image("russia")
+                    WebImage(url: URL(string: locationCountryImage))
                         .resizable()
-                        .frame(width: 25, height: 15)
+                        .onSuccess { image, data, cacheType in }
+                        .placeholder(Image("russia"))
+                        .indicator(.activity)
+                        .transition(.fade(duration: 0.5))
+                        .frame(width: 25, height: 16)
+                        
                     
                     Color(.black)
                         .frame(width: 20, height: 1)
                     
-                    Image("khimki")
+                    WebImage(url: URL(string: logoTeamImage))
                         .resizable()
+                        .onSuccess { image, data, cacheType in }
+                        .placeholder(Image("khimki"))
+                        .indicator(.activity)
+                        .transition(.fade(duration: 0.5))
                         .frame(width: 25, height: 30)
-                    
-                    
                 } .offset(x: -70, y: -60)
             }
             
@@ -151,8 +161,8 @@ struct CellTopPlayersFooTeam: View {
     }
 }
 
-struct CellTopPlayersFooTeam_Previews: PreviewProvider {
-    static var previews: some View {
-        CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)), namePlayer: "Сосин Виталий", photoPlayer: "Сосин Виталий", ratingPlayer: "0", positionPlayer: "ФРВ", game: "2", goal: "2", win: "2", los: "2")
-    }
-}
+//struct CellTopPlayersFooTeam_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)), namePlayer: "Сосин Виталий", photoPlayer: "Сосин Виталий", ratingPlayer: "0", positionPlayer: "ФРВ", game: "2", goal: "2", win: "2", los: "2")
+//    }
+//}

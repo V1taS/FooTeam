@@ -13,7 +13,6 @@
 		1B18C2E125116D4C00551C6D /* ProfileMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B18C2E025116D4C00551C6D /* ProfileMainScreenViewModel.swift */; };
 		1B28E3FE2511A031007B53A8 /* ListPlayersSecondScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */; };
 		1B33582E250A8B46007EA9A7 /* JoinTheTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */; };
-		1B349859251192F100110DDF /* CardsWithPlayersMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B349858251192F100110DDF /* CardsWithPlayersMainScreenViewModel.swift */; };
 		1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446824F85B060008FC40 /* TabViewFooTeam.swift */; };
 		1B39446B24F85D250008FC40 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446A24F85D250008FC40 /* MainScreenView.swift */; };
 		1B39446E24F9A3470008FC40 /* HeaderMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446D24F9A3470008FC40 /* HeaderMainScreenView.swift */; };
@@ -29,7 +28,6 @@
 		1B453AB02501AA1800DA2DDA /* TeamsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */; };
 		1B4A3DC72502EAEA000EABD1 /* ListTeamsMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DC62502EAEA000EABD1 /* ListTeamsMainScreenView.swift */; };
 		1B4A3DCE2502EF6F000EABD1 /* CellCardsWithPlayersMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCD2502EF6F000EABD1 /* CellCardsWithPlayersMainScreenView.swift */; };
-		1B4A3DD02502F5D6000EABD1 /* CardsWithPlayersMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCF2502F5D6000EABD1 /* CardsWithPlayersMainScreenView.swift */; };
 		1B4B0EE7250AAE8C00EF701B /* ActionsPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */; };
 		1B4B0EE9250AB77F00EF701B /* PlayersID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B0EE8250AB77F00EF701B /* PlayersID.swift */; };
 		1B4BECAC251D3E5A00581FB2 /* WaitingForConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4BECAB251D3E5A00581FB2 /* WaitingForConfirmationView.swift */; };
@@ -137,7 +135,6 @@
 		1B18C2E025116D4C00551C6D /* ProfileMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlayersSecondScreenViewModel.swift; sourceTree = "<group>"; };
 		1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTheTeam.swift; sourceTree = "<group>"; };
-		1B349858251192F100110DDF /* CardsWithPlayersMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsWithPlayersMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1B39446824F85B060008FC40 /* TabViewFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewFooTeam.swift; sourceTree = "<group>"; };
 		1B39446A24F85D250008FC40 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		1B39446D24F9A3470008FC40 /* HeaderMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMainScreenView.swift; sourceTree = "<group>"; };
@@ -153,7 +150,6 @@
 		1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsListener.swift; sourceTree = "<group>"; };
 		1B4A3DC62502EAEA000EABD1 /* ListTeamsMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTeamsMainScreenView.swift; sourceTree = "<group>"; };
 		1B4A3DCD2502EF6F000EABD1 /* CellCardsWithPlayersMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCardsWithPlayersMainScreenView.swift; sourceTree = "<group>"; };
-		1B4A3DCF2502F5D6000EABD1 /* CardsWithPlayersMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsWithPlayersMainScreenView.swift; sourceTree = "<group>"; };
 		1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsPlayers.swift; sourceTree = "<group>"; };
 		1B4B0EE8250AB77F00EF701B /* PlayersID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersID.swift; sourceTree = "<group>"; };
 		1B4BECAB251D3E5A00581FB2 /* WaitingForConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingForConfirmationView.swift; sourceTree = "<group>"; };
@@ -384,19 +380,9 @@
 			children = (
 				1BC99DF92511893E007EE289 /* TeamMainScreenView */,
 				1B6964B725118D1E00CBAC9E /* ListTeamsMainScreenView */,
-				1B4A3DC82502EAF6000EABD1 /* CardsWithPlayersMainScreenView */,
-			);
-			path = TeamMainScreenView;
-			sourceTree = "<group>";
-		};
-		1B4A3DC82502EAF6000EABD1 /* CardsWithPlayersMainScreenView */ = {
-			isa = PBXGroup;
-			children = (
-				1B4A3DCF2502F5D6000EABD1 /* CardsWithPlayersMainScreenView.swift */,
-				1B349858251192F100110DDF /* CardsWithPlayersMainScreenViewModel.swift */,
 				1BBDD878251D609C00517BB3 /* CellCardsWithPlayersMain */,
 			);
-			path = CardsWithPlayersMainScreenView;
+			path = TeamMainScreenView;
 			sourceTree = "<group>";
 		};
 		1B4BECB3251D4A0B00581FB2 /* WaitingForConfirmationView */ = {
@@ -943,7 +929,6 @@
 				1B6C49582518372B00B384B7 /* PlayersProfileEditor.swift in Sources */,
 				1B28E3FE2511A031007B53A8 /* ListPlayersSecondScreenViewModel.swift in Sources */,
 				1B18C2DE25116AFD00551C6D /* HeaderMainScreenViewModel.swift in Sources */,
-				1B4A3DD02502F5D6000EABD1 /* CardsWithPlayersMainScreenView.swift in Sources */,
 				1B596F7524EC73530092770B /* CellTopPlayersFooTeam.swift in Sources */,
 				1B596FB624EC73A90092770B /* StackViewExtension.swift in Sources */,
 				1BF32C96251574E100941F44 /* ImagePlayer.swift in Sources */,
@@ -985,7 +970,6 @@
 				1BB14D9E252138B200B8CFCF /* UIResponder.swift in Sources */,
 				1B596FBA24EC73A90092770B /* ScrollViewExtension.swift in Sources */,
 				1B596FB824EC73A90092770B /* SegmentedControlExtension.swift in Sources */,
-				1B349859251192F100110DDF /* CardsWithPlayersMainScreenViewModel.swift in Sources */,
 				1B596F7724EC73530092770B /* BackgroundFooTeam.swift in Sources */,
 				1B596F9024EC73820092770B /* StorageService.swift in Sources */,
 				1B53957B250ADF1500C8DFD9 /* CurrentUser.swift in Sources */,
@@ -1174,7 +1158,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1182,7 +1166,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1196,7 +1180,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1204,7 +1188,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

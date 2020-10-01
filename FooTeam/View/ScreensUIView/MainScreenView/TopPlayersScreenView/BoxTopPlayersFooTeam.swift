@@ -11,6 +11,7 @@ import SwiftUI
 struct BoxTopPlayersFooTeam: View {
     
     @ObservedObject var playersListener = PlayersListener()
+    @ObservedObject var currentTeam = CurrentTeam()
     
     var topPlayers: [Player] {
         playersListener.players.filter { $0.rating >= 50 }
@@ -25,6 +26,8 @@ struct BoxTopPlayersFooTeam: View {
                                           photoPlayer: player.avatarStringURL,
                                           ratingPlayer: "\(player.rating)",
                                           positionPlayer: player.position,
+                                          locationCountryImage: "",
+                                          logoTeamImage: currentTeam.team.avatarStringURL ?? "",
                                           game: "\(player.numberOfGames)",
                                           goal: "\(player.numberOfGoals)",
                                           win: "\(player.winGame)",

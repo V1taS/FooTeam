@@ -26,7 +26,7 @@ struct ListTeamsMainScreenView: View {
                         } .pickerStyle(SegmentedPickerStyle())
                     }
                     
-                    CellCardsWithPlayersMainScreenView()
+                    CellCardsWithPlayersMainScreenView(indexTeam: $viewModel.selectionTeams)
                 }
                 Section(header: Text("Информация")) {
                     HStack {

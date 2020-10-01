@@ -11,6 +11,7 @@ import SwiftUI
 struct ListPlayersProfileShow: View {
     
     @StateObject private var viewModel = ListPlayersProfileShowViewModel()
+    @ObservedObject var currentTeam = CurrentTeam()
     var player: Player
     @State var isPresentedShowModal = false
     
@@ -18,11 +19,13 @@ struct ListPlayersProfileShow: View {
         Form {
             HStack {
                 Spacer()
-                CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.3457017243, green: 0.02197306044, blue: 0.1431319714, alpha: 1)),
-                                      namePlayer: "\(player.name)",
-                                      photoPlayer: "\(player.avatarStringURL)",
+                CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)),
+                                      namePlayer: player.name,
+                                      photoPlayer: player.avatarStringURL,
                                       ratingPlayer: "\(player.rating)",
-                                      positionPlayer: "\(player.position)",
+                                      positionPlayer: player.position,
+                                      locationCountryImage: "",
+                                      logoTeamImage: currentTeam.team.avatarStringURL ?? "",
                                       game: "\(player.numberOfGames)",
                                       goal: "\(player.numberOfGoals)",
                                       win: "\(player.winGame)",

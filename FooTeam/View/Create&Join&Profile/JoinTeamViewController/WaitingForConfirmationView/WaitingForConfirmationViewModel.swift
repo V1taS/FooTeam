@@ -44,11 +44,12 @@ class WaitingForConfirmationViewModel: WaitingForConfirmationViewModelProtocol, 
                         }
                     }
                 }
-            } else {
-                let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
-                mainContentFooTeam.modalPresentationStyle = .fullScreen
-                UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
             }
+//            else {
+//                let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
+//                mainContentFooTeam.modalPresentationStyle = .fullScreen
+//                UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
+//            }
         } .store(in: &cancellables)
     }
 }
