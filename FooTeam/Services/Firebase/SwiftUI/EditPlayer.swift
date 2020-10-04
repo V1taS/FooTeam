@@ -29,7 +29,6 @@ class EditPlayer {
         subscription: Bool?,
         rating: Int?,
         position: String?,
-        numberOfGames: Int?,
         numberOfGoals: Int?,
         winGame: Int?,
         losGame: Int?,
@@ -48,7 +47,6 @@ class EditPlayer {
         if let subscription = subscription { player.subscription = subscription }
         if let rating = rating { player.rating = rating }
         if let position = position { player.position = position }
-        if let numberOfGames = numberOfGames { player.numberOfGames = numberOfGames }
         if let numberOfGoals = numberOfGoals { player.numberOfGoals = numberOfGoals }
         if let winGame = winGame { player.winGame = winGame }
         if let losGame = losGame { player.losGame = losGame }

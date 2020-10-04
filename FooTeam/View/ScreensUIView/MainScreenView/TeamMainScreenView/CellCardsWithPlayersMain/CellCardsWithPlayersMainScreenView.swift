@@ -31,7 +31,7 @@ struct CellCardsWithPlayersMainScreenView: View {
                                               positionPlayer: player.position,
                                               locationCountryImage: "",
                                               logoTeamImage: currentTeam.team.avatarStringURL ?? "",
-                                              game: "\(player.numberOfGames)",
+                                              game: "\(player.winGame + player.losGame)",
                                               goal: "\(player.numberOfGoals)",
                                               win: "\(player.winGame)",
                                               los: "\(player.losGame)")

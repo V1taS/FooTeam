@@ -10,17 +10,21 @@ import Foundation
 import Combine
 
 protocol HeaderMainScreenViewModelProtocol {
+    var currentUser: CurrentUser { get }
+    var cancellables: Set<AnyCancellable> { get }
+    
     var balance: String { get }
+    init()
 }
 
 class HeaderMainScreenViewModel: HeaderMainScreenViewModelProtocol, ObservableObject {
     
     @Published var currentUser = CurrentUser()
-    private var cancellables = Set<AnyCancellable>()
+    internal var cancellables = Set<AnyCancellable>()
     
     @Published var balance: String = ""
     
-    init() {
+    required init() {
         self.currentUser.$player.sink { player in
             self.balance = player.payment
             }

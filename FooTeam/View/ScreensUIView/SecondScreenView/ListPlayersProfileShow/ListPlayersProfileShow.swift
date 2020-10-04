@@ -12,8 +12,8 @@ struct ListPlayersProfileShow: View {
     
     @StateObject private var viewModel = ListPlayersProfileShowViewModel()
     @ObservedObject var currentTeam = CurrentTeam()
-    var player: Player
     @State var isPresentedShowModal = false
+    let player: Player
     
     var body: some View {
         Form {
@@ -26,7 +26,7 @@ struct ListPlayersProfileShow: View {
                                       positionPlayer: player.position,
                                       locationCountryImage: "",
                                       logoTeamImage: currentTeam.team.avatarStringURL ?? "",
-                                      game: "\(player.numberOfGames)",
+                                      game: "\(player.winGame + player.losGame)",
                                       goal: "\(player.numberOfGoals)",
                                       win: "\(player.winGame)",
                                       los: "\(player.losGame)")
@@ -88,6 +88,6 @@ struct ListPlayersProfileShow: View {
 
 struct ListPlayersProfileShow_Previews: PreviewProvider {
     static var previews: some View {
-        ListPlayersProfileShow(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
+        ListPlayersProfileShow(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
     }
 }

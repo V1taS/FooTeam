@@ -30,7 +30,7 @@ struct ProfileShowModalMainScreenView: View {
                                           positionPlayer: "\(viewModel.position)",
                                           locationCountryImage: "",
                                           logoTeamImage: currentTeam.team.avatarStringURL ?? "",
-                                          game: "\(viewModel.numberOfGames)",
+                                          game: "\(viewModel.winGame + viewModel.losGame)",
                                           goal: "\(viewModel.numberOfGoals)",
                                           win: "\(viewModel.winGame)",
                                           los: "\(viewModel.losGame)")

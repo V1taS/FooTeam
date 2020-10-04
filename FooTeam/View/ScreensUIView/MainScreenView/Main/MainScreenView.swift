@@ -7,12 +7,10 @@
 //
 
 import SwiftUI
-import FirebaseAuth
-import Firebase
 
 struct MainScreenView: View {
     
-    @State var isPresentedAlertSignOut = false
+    @StateObject private var viewModel = MainScreenViewModel()
     
     var body: some View {
         NavigationView {
@@ -51,11 +49,11 @@ struct MainScreenView: View {
                     TopPlayersScreenView()
                     Spacer()
                 }
-                    
+                
                 .navigationBarItems(trailing:
-                    OutButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut))
-                    
-                    .navigationBarTitle("Главная", displayMode: .inline)
+                                        OutButtonFooTeamMenu(isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut))
+                
+                .navigationBarTitle("Главная", displayMode: .inline)
             }
         }
     }

@@ -87,7 +87,6 @@ class FirestoreService {
                              subscription: false,
                              rating: 0,
                              position: positionPlayer,
-                             numberOfGames: 0,
                              numberOfGoals: 0,
                              winGame: 0,
                              losGame: 0,

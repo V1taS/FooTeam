@@ -10,22 +10,24 @@ import SwiftUI
 import Combine
 
 protocol TabViewFooTeamModelProtocol {
+    var waitingPlayers: WaitingPlayers { get }
+    var cancellables: Set<AnyCancellable> { get }
     
+    var showAcceptPlayers: Bool { get }
+    var players: [Player] { get }
     
+    init()
 }
 
 class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
     
     @Published var waitingPlayers = WaitingPlayers()
+    internal var cancellables = Set<AnyCancellable>()
     
-    private var cancellables = Set<AnyCancellable>()
-    
-    
-    @Published var viewState: CGSize = CGSize.zero
     @Published var showAcceptPlayers: Bool = false
     @Published var players: [Player] = []
     
-    init() {
+    required init() {
         self.waitingPlayers.$players.sink { players in
             self.players = players
             

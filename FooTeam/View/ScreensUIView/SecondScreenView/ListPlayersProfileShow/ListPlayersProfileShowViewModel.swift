@@ -14,18 +14,16 @@ protocol ListPlayersProfileShowViewModelProtocol {
 }
 
 class ListPlayersProfileShowViewModel: ListPlayersProfileShowViewModelProtocol, ObservableObject {
-    
-    @Published var playerListener: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
-    
+
     @Published var currentTeam = CurrentTeam()
     private var cancellables = Set<AnyCancellable>()
-
+    
+    @Published var playerListener: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
     @Published var nameTeam: String = ""
     
     init() {
         self.currentTeam.$team.sink { team in
             self.nameTeam = team.teamName ?? ""
             } .store(in: &cancellables)
-
     }
 }

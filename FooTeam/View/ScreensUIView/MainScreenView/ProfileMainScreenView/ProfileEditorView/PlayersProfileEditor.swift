@@ -29,7 +29,7 @@ struct PlayersProfileEditor: View {
                                           positionPlayer: "\(viewModel.position)",
                                           locationCountryImage: "",
                                           logoTeamImage: currentTeam.team.avatarStringURL ?? "",
-                                          game: "\(viewModel.numberOfGames)",
+                                          game: "\(viewModel.winGame + viewModel.losGame)",
                                           goal: "\(viewModel.numberOfGoals)",
                                           win: "\(viewModel.winGame)",
                                           los: "\(viewModel.losGame)")
@@ -107,10 +107,6 @@ struct PlayersProfileEditor: View {
                         }
                         
                         if FirestoreService.shared.currentUser.captain {
-                            HStack {
-                                Text("Игр сыграл:")
-                                Stepper("\(viewModel.numberOfGames)", value: $viewModel.numberOfGames)
-                            }
                             
                             HStack {
                                 Text("Игр выиграл:")
@@ -118,15 +114,15 @@ struct PlayersProfileEditor: View {
                             }
                             
                             HStack {
-                                Text("Мячей забил:")
-                                Stepper("\(viewModel.numberOfGoals)", value: $viewModel.numberOfGoals)
-                            }
-                            
-                            HStack {
                                 Text("Игр проиграл:")
                                 Stepper("\(viewModel.losGame)", value: $viewModel.losGame)
                             }
                             
+                            HStack {
+                                Text("Мячей забил:")
+                                Stepper("\(viewModel.numberOfGoals)", value: $viewModel.numberOfGoals)
+                            }
+
                             HStack {
                                 Text("Удалить игрока из команды?")
                                 Toggle(isOn: $deletPlayer) {
@@ -159,7 +155,6 @@ struct PlayersProfileEditor: View {
                                 subscription: self.viewModel.subscription,
                                 rating: RatingOfPlayers.shared.setRating(position: viewModel.position, winGame: viewModel.winGame, losGame: viewModel.losGame, numberOfGoals: viewModel.numberOfGoals),
                                 position: self.viewModel.positions[self.viewModel.selectionPositions],
-                                numberOfGames: self.viewModel.numberOfGames,
                                 numberOfGoals: self.viewModel.numberOfGoals,
                                 winGame: self.viewModel.winGame,
                                 losGame: self.viewModel.losGame,
@@ -197,6 +192,6 @@ struct PlayersProfileEditor: View {
 
 struct ListPlayersProfileEditor_Previews: PreviewProvider {
     static var previews: some View {
-        PlayersProfileEditor(closeIsPresentedShowModal: .constant(false), player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
+        PlayersProfileEditor(closeIsPresentedShowModal: .constant(false), player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
     }
 }

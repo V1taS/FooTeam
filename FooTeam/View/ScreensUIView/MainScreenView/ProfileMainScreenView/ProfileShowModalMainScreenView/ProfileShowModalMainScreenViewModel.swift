@@ -14,7 +14,6 @@ protocol ProfileShowModalMainScreenViewModelProtocol {
     var avatarStringURL: String { get }
     var rating: Int { get }
     var position: String { get }
-    var numberOfGames: Int { get }
     var numberOfGoals: Int { get }
     var winGame: Int { get }
     var losGame: Int { get }
@@ -36,7 +35,6 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
     @Published var avatarStringURL: String = ""
     @Published var rating: Int = 0
     @Published var position: String = ""
-    @Published var numberOfGames: Int = 0
     @Published var numberOfGoals: Int = 0
     @Published var winGame: Int = 0
     @Published var losGame: Int = 0
@@ -47,7 +45,7 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
     
     @Published var nameTeam: String = ""
     
-    @Published var currentPlayer: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+    @Published var currentPlayer: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
     
     @Published var isPresentedShowModal: Bool = false
 
@@ -57,7 +55,6 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
             self.avatarStringURL = player.avatarStringURL
             self.rating = player.rating
             self.position = player.position
-            self.numberOfGames = player.numberOfGames
             self.numberOfGoals = player.numberOfGoals
             self.winGame = player.winGame
             self.losGame = player.losGame

@@ -28,7 +28,6 @@ class AddPlayer {
         subscription: Bool?,
         rating: Int?,
         position: String?,
-        numberOfGames: Int?,
         numberOfGoals: Int?,
         winGame: Int?,
         losGame: Int?,
@@ -37,7 +36,7 @@ class AddPlayer {
         let usersRef = db.collection("players")
         let refActionsPlayer = db.collection(["teams", capitanPlayer.idTeam, "actionsPlayers"].joined(separator: "/"))
         
-        var player = Player(name: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGames: 0, numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
+        var player = Player(name: "", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 0, captain: false)
         
         if let name = name { player.name = name }
         if let email = email { player.email = email }
@@ -48,7 +47,6 @@ class AddPlayer {
         if let subscription = subscription { player.subscription = subscription }
         if let rating = rating { player.rating = rating }
         if let position = position { player.position = position }
-        if let numberOfGames = numberOfGames { player.numberOfGames = numberOfGames }
         if let numberOfGoals = numberOfGoals { player.numberOfGoals = numberOfGoals }
         if let winGame = winGame { player.winGame = winGame }
         if let losGame = losGame { player.losGame = losGame }

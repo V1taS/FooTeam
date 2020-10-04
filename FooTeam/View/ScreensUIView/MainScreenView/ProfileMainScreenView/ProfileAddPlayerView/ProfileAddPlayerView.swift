@@ -103,7 +103,6 @@ struct ProfileAddPlayerView: View {
                             subscription: false,
                             rating: 50,
                             position: self.positions[self.selectionPositions],
-                            numberOfGames: 0,
                             numberOfGoals: 0,
                             winGame: 0,
                             losGame: 0,

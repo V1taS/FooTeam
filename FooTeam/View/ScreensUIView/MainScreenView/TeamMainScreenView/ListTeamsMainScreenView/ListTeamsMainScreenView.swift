@@ -38,7 +38,7 @@ struct ListTeamsMainScreenView: View {
                                 InWhichTeam.shared.setNumberInWhichTeam(players: viewModel.iGoPlayers, countNumbers: viewModel.countTeams)
                             }
                         } ) {
-                            Text("Сохранить")
+                            Text("Создать составы")
                                 .font(.system(.headline, design: .serif))
                                 .foregroundColor(Color.black)
                                 .padding(.horizontal)

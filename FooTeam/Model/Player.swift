@@ -29,7 +29,6 @@ struct Player: Hashable, Decodable {
     var rating: Int
     var position: String
     
-    var numberOfGames: Int
     var numberOfGoals: Int
     
     var winGame: Int
@@ -37,7 +36,7 @@ struct Player: Hashable, Decodable {
     
     var captain: Bool
     
-    init(name: String, email: String, avatarStringURL: String, whoAreYou: String, id: String, idTeam: String, teamNumber: Int, payment: String, iGo: Bool, subscription: Bool, rating: Int, position: String, numberOfGames: Int, numberOfGoals: Int, winGame: Int, losGame: Int, captain: Bool) {
+    init(name: String, email: String, avatarStringURL: String, whoAreYou: String, id: String, idTeam: String, teamNumber: Int, payment: String, iGo: Bool, subscription: Bool, rating: Int, position: String, numberOfGoals: Int, winGame: Int, losGame: Int, captain: Bool) {
         self.name = name
         self.email = email
         self.avatarStringURL = avatarStringURL
@@ -51,7 +50,6 @@ struct Player: Hashable, Decodable {
         self.subscription = subscription
         self.rating = rating
         self.position = position
-        self.numberOfGames = numberOfGames
         self.numberOfGoals = numberOfGoals
         self.winGame = winGame
         self.losGame = losGame
@@ -73,7 +71,6 @@ struct Player: Hashable, Decodable {
             let subscription = data["subscription"] as? Bool,
             let rating = data["rating"] as? Int,
             let position = data["position"] as? String,
-            let numberOfGames = data["numberOfGames"] as? Int,
             let numberOfGoals = data["numberOfGoals"] as? Int,
             let winGame = data["winGame"] as? Int,
             let losGame = data["losGame"] as? Int,
@@ -92,7 +89,6 @@ struct Player: Hashable, Decodable {
         self.subscription = subscription
         self.rating = rating
         self.position = position
-        self.numberOfGames = numberOfGames
         self.numberOfGoals = numberOfGoals
         self.winGame = winGame
         self.losGame = losGame
@@ -115,7 +111,6 @@ struct Player: Hashable, Decodable {
             let subscription = data["subscription"] as? Bool,
             let rating = data["rating"] as? Int,
             let position = data["position"] as? String,
-            let numberOfGames = data["numberOfGames"] as? Int,
             let numberOfGoals = data["numberOfGoals"] as? Int,
             let winGame = data["winGame"] as? Int,
             let losGame = data["losGame"] as? Int,
@@ -134,7 +129,6 @@ struct Player: Hashable, Decodable {
         self.subscription = subscription
         self.rating = rating
         self.position = position
-        self.numberOfGames = numberOfGames
         self.numberOfGoals = numberOfGoals
         self.winGame = winGame
         self.losGame = losGame
@@ -157,7 +151,6 @@ struct Player: Hashable, Decodable {
         rep["subscription"] = subscription
         rep["rating"] = rating
         rep["position"] = position
-        rep["numberOfGames"] = numberOfGames
         rep["numberOfGoals"] = numberOfGoals
         rep["winGame"] = winGame
         rep["losGame"] = losGame
