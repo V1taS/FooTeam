@@ -146,7 +146,6 @@ struct PlayersProfileEditor: View {
                             DeletPlayer.shared.deletPlayerInTeam(playerID: player.id)
                             self.closeIsPresentedShowModal = false
                         } else {
-                            
                             EditPlayer.shared.editPlayerInTeam(
                                 player: self.viewModel.currentPlayer,
                                 players: self.viewModel.currentPlayers,
@@ -158,14 +157,14 @@ struct PlayersProfileEditor: View {
                                 payment: self.viewModel.payment,
                                 iGo: self.viewModel.iGo,
                                 subscription: self.viewModel.subscription,
-                                rating: self.viewModel.rating,
+                                rating: RatingOfPlayers.shared.setRating(position: viewModel.position, winGame: viewModel.winGame, losGame: viewModel.losGame, numberOfGoals: viewModel.numberOfGoals),
                                 position: self.viewModel.positions[self.viewModel.selectionPositions],
                                 numberOfGames: self.viewModel.numberOfGames,
                                 numberOfGoals: self.viewModel.numberOfGoals,
                                 winGame: self.viewModel.winGame,
                                 losGame: self.viewModel.losGame,
                                 captain: self.viewModel.captain)
-                            
+
                             self.closeIsPresentedShowModal = false
                         }
                         

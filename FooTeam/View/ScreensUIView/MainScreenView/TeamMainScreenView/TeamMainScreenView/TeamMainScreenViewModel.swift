@@ -17,7 +17,6 @@ protocol TeamMainScreenViewModelProtocol {
 class TeamMainScreenViewModel: TeamMainScreenViewModelProtocol, ObservableObject {
     
     @Published var actionsPlayers = ActionsPlayers()
-    @Published var ratingOfPlayers = RatingOfPlayers()
     private var cancellables = Set<AnyCancellable>()
     
     @Published var iGoCount: Int = 0
@@ -25,6 +24,7 @@ class TeamMainScreenViewModel: TeamMainScreenViewModelProtocol, ObservableObject
     
     init() {
         self.actionsPlayers.$players.sink { players in
+            
             let iGoCount = players.filter { $0.iGo }
             
             self.iGoCount = iGoCount.count

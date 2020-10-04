@@ -21,7 +21,6 @@ class ActionsPlayers: ObservableObject {
     
     // MARK: Получаем всех активных игроков текущей команды
     func downloadPlayers() {
-        
         if let currentPlayer = FirestoreService.shared.currentUser {
             
             let refActionsPlayer = db.collection(["teams", currentPlayer.idTeam, "actionsPlayers"].joined(separator: "/"))

@@ -13,6 +13,8 @@ struct ListTeamsMainScreenView: View {
     @StateObject private var viewModel = ListTeamsMainScreenViewModel()
     @Binding var closeIsPresentedShowModal: Bool
     
+    @State var selectTeams = 0
+    
     var body: some View {
         NavigationView {
             Form {
@@ -26,7 +28,26 @@ struct ListTeamsMainScreenView: View {
                         } .pickerStyle(SegmentedPickerStyle())
                     }
                     
-                    CellCardsWithPlayersMainScreenView(indexTeam: $viewModel.selectionTeams)
+                    CellCardsWithPlayersMainScreenView(selectTeams: $viewModel.selectionTeams)
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            if viewModel.iGoCount >= 10 {
+                                let countT = NumberOfTeams.shared.numberOfTeams(countPlauers: viewModel.iGoCount)
+                                viewModel.countTeams = countT
+                                InWhichTeam.shared.setNumberInWhichTeam(players: viewModel.iGoPlayers, countNumbers: viewModel.countTeams)
+                            }
+                        } ) {
+                            Text("Сохранить")
+                                .font(.system(.headline, design: .serif))
+                                .foregroundColor(Color.black)
+                                .padding(.horizontal)
+                                .padding(.vertical, 5)
+                                .background(Color.green)
+                                .cornerRadius(5)
+                        }
+                        Spacer()
+                    }
                 }
                 Section(header: Text("Информация")) {
                     HStack {
