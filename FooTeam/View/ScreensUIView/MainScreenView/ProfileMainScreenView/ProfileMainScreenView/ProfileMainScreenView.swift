@@ -12,7 +12,6 @@ import SDWebImageSwiftUI
 struct ProfileMainScreenView: View {
     
     @StateObject private var viewModel = ProfileMainScreenViewModel()
-    @State var isPresentedShowModal: Bool = false
     
     var body: some View {
         ZStack {
@@ -23,7 +22,7 @@ struct ProfileMainScreenView: View {
                             .stroke()
                 )
             
-            Button(action: { isPresentedShowModal.toggle() }) {
+            Button(action: { viewModel.isPresentedShowModal.toggle() }) {
                 
                 VStack {
                     Text("ПРОФИЛЬ")
@@ -36,8 +35,8 @@ struct ProfileMainScreenView: View {
                     
                     ImagePlayer(avatarStringURL: viewModel.avatarStringURL, avatarSize: 125)
                 }
-            }.sheet(isPresented: $isPresentedShowModal) {
-                ProfileShowModalMainScreenView(closeIsPresentedShowModal: $isPresentedShowModal) }
+            }.sheet(isPresented: $viewModel.isPresentedShowModal) {
+                ProfileShowModalMainScreenView() }
         }
     }
 }

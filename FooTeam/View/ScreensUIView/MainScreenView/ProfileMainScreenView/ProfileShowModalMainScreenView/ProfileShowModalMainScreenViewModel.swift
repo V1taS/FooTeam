@@ -23,6 +23,9 @@ protocol ProfileShowModalMainScreenViewModelProtocol {
     var captain: Bool { get }
     
     var isPresentedShowModal: Bool { get }
+    var isPresentedAlert: Bool { get }
+    var closeIsPresentedShowModal: Bool { get }
+    var outFromTeam: Bool { get }
 }
 
 class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelProtocol, ObservableObject {
@@ -45,10 +48,15 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
     
     @Published var nameTeam: String = ""
     
-    @Published var currentPlayer: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+    @Published var player: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+    
+    @Published var team: Team = Team(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0)
     
     @Published var isPresentedShowModal: Bool = false
-
+    @Published var isPresentedAlert: Bool = false
+    @Published var closeIsPresentedShowModal: Bool = false
+    @Published var outFromTeam: Bool = false
+    
     init() {
         self.currentUser.$player.sink { player in
             self.name = player.name
@@ -63,12 +71,12 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
             self.iGo = player.iGo
             self.captain = player.captain
             
-            self.currentPlayer = player
+            self.player = player
         }
         .store(in: &cancellables)
         
         self.currentTeam.$team.sink { team in
-            self.nameTeam = team.teamName ?? ""
-            } .store(in: &cancellables)
+            self.team = team
+        } .store(in: &cancellables)
     }
 }

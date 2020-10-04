@@ -12,10 +12,6 @@ import SDWebImageSwiftUI
 struct ProfileShowModalMainScreenView: View {
     
     @StateObject private var viewModel = ProfileShowModalMainScreenViewModel()
-    @ObservedObject var currentTeam = CurrentTeam()
-    @Binding var closeIsPresentedShowModal: Bool
-    @State var isPresentedAlert: Bool = false
-    @State var outFromTeam: Bool = false
     
     var body: some View {
         NavigationView {
@@ -29,7 +25,7 @@ struct ProfileShowModalMainScreenView: View {
                                           ratingPlayer: "\(viewModel.rating)",
                                           positionPlayer: "\(viewModel.position)",
                                           locationCountryImage: "",
-                                          logoTeamImage: currentTeam.team.avatarStringURL ?? "",
+                                          logoTeamImage: viewModel.team.avatarStringURL ?? "",
                                           game: "\(viewModel.winGame + viewModel.losGame)",
                                           goal: "\(viewModel.numberOfGoals)",
                                           win: "\(viewModel.winGame)",
@@ -38,38 +34,38 @@ struct ProfileShowModalMainScreenView: View {
                     Spacer()
                 }
                 
-                    HStack {
-                        Text("Играю в команде:")
-                        Spacer()
-                        Text("\(viewModel.nameTeam)")
-                            .font(.headline)
-                    }
-                    
-                    HStack {
-                        Text("Личный баланс:")
-                        Spacer()
-                            .foregroundColor(Color.green)
-                        Text("\(viewModel.payment) FCoin")
-                            .font(.headline)
-                    }
-                    
-                    HStack {
-                        Text("Месячнвя подписка:")
-                        Spacer()
-                        Text("\(viewModel.subscription ? "активна" : "не активна")")
-                            .font(.headline)
-                    }
-                    
-                    HStack {
-                        Text("Иду на след. игру:")
-                        Spacer()
-                        Text("\(viewModel.iGo ? "да" : "нет")")
-                            .font(.headline)
-                    }
+                HStack {
+                    Text("Играю в команде:")
+                    Spacer()
+                    Text("\(viewModel.team.teamName ?? "")")
+                        .font(.headline)
+                }
+                
+                HStack {
+                    Text("Личный баланс:")
+                    Spacer()
+                        .foregroundColor(Color.green)
+                    Text("\(viewModel.payment) FCoin")
+                        .font(.headline)
+                }
+                
+                HStack {
+                    Text("Месячнвя подписка:")
+                    Spacer()
+                    Text("\(viewModel.subscription ? "активна" : "не активна")")
+                        .font(.headline)
+                }
+                
+                HStack {
+                    Text("Иду на след. игру:")
+                    Spacer()
+                    Text("\(viewModel.iGo ? "да" : "нет")")
+                        .font(.headline)
+                }
                 
                 HStack {
                     Spacer()
-                    Button(action: { self.isPresentedAlert.toggle()} ) {
+                    Button(action: { viewModel.isPresentedAlert.toggle()} ) {
                         Text("Выйти")
                             .font(.system(.headline, design: .serif))
                             .foregroundColor(Color.red)
@@ -77,19 +73,19 @@ struct ProfileShowModalMainScreenView: View {
                             .padding(.vertical, 5)
                             .cornerRadius(5)
                     }
-                    .fullScreenCover(isPresented: $outFromTeam, content: {
+                    .fullScreenCover(isPresented: $viewModel.outFromTeam, content: {
                         JoinToTeamView()
                     })
                     Spacer()
                 }
-            } .alert(isPresented: self.$isPresentedAlert) {
+            } .alert(isPresented: self.$viewModel.isPresentedAlert) {
                 Alert(title: Text("Внимание"),
                       message: Text("Вы хотите выйти из команды?"),
                       primaryButton: Alert.Button.default(Text("Отмена")),
                       secondaryButton: Alert.Button.destructive(
                         Text("Выйти"), action: {
                             DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: FirestoreService.shared.currentUser)
-                            outFromTeam.toggle()
+                            viewModel.outFromTeam.toggle()
                         }
                       )
                 )
@@ -100,7 +96,7 @@ struct ProfileShowModalMainScreenView: View {
             
             .navigationBarItems(
                 leading: Button(action: {
-                    BufferIDplayer.shared.saveUserID(id: viewModel.currentPlayer.id)
+                    BufferIDplayer.shared.saveUserID(id: viewModel.player.id)
                     self.viewModel.isPresentedShowModal.toggle()
                     
                 }) {
@@ -109,9 +105,9 @@ struct ProfileShowModalMainScreenView: View {
                         .font(.title)
                 }.sheet(
                     isPresented: $viewModel.isPresentedShowModal,
-                    content: { PlayersProfileEditor(closeIsPresentedShowModal: $viewModel.isPresentedShowModal, player: viewModel.currentPlayer) }
+                    content: { PlayersProfileEditor(closeIsPresentedShowModal: $viewModel.isPresentedShowModal, player: viewModel.player) }
                 ),
-                trailing: Button(action: { closeIsPresentedShowModal = false }) {
+                trailing: Button(action: { viewModel.closeIsPresentedShowModal = false }) {
                     Image(systemName: "multiply")
                         .renderingMode(.original)
                         .font(.title)
@@ -122,6 +118,6 @@ struct ProfileShowModalMainScreenView: View {
 
 struct MyProfileMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileShowModalMainScreenView(closeIsPresentedShowModal: .constant(false))
+        ProfileShowModalMainScreenView()
     }
 }

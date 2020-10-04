@@ -10,19 +10,25 @@ import Combine
 import SwiftUI
 
 protocol ProfileMainScreenViewModelProtocol {
+    var currentUser: CurrentUser { get }
+    var cancellables: Set<AnyCancellable> { get }
+    
     var name: String { get }
     var avatarStringURL: String { get }
+    var isPresentedShowModal: Bool { get }
+    init()
 }
 
 class ProfileMainScreenViewModel: ProfileMainScreenViewModelProtocol, ObservableObject {
     
     @Published var currentUser = CurrentUser()
-    private var cancellables = Set<AnyCancellable>()
+    internal var cancellables = Set<AnyCancellable>()
     
+    @Published var isPresentedShowModal: Bool = false
     @Published var name: String = ""
     @Published var avatarStringURL: String = ""
 
-    init() {
+    required init() {
         self.currentUser.$player.sink { player in
                 self.name = player.name
                 self.avatarStringURL = player.avatarStringURL

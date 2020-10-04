@@ -186,7 +186,7 @@ struct PlayersProfileEditor: View {
                     .font(.title)
             })
         } .sheet(isPresented: $isPresentedShowModal) {
-            EditPhoto(player: viewModel.currentPlayer) }
+            EditPhotoView(player: viewModel.currentPlayer) }
     }
 }
 

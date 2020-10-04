@@ -9,11 +9,10 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct EditPhoto: View {
+struct EditPhotoView: View {
 
+    @StateObject private var viewModel = EditPhotoViewModel()
     var player: Player
-    @State private var isShowPhotoLibrary = false
-    @State private var image = UIImage()
 
     var body: some View {
         VStack {
@@ -22,7 +21,7 @@ struct EditPhoto: View {
                 .resizable()
                 .renderingMode(.original)
                 .onSuccess { image, data, cacheType in }
-                .placeholder(Image(uiImage: image))
+                .placeholder(Image(uiImage: viewModel.image))
                 .indicator(.activity)
                 .transition(.fade(duration: 0.5))
                 .scaledToFill()
@@ -32,7 +31,7 @@ struct EditPhoto: View {
 
             VStack {
                 Button(action: {
-                    self.isShowPhotoLibrary = true
+                    viewModel.isShowPhotoLibrary = true
                 }) {
                     HStack {
                         Image(systemName: "photo")
@@ -49,7 +48,7 @@ struct EditPhoto: View {
                 } .padding(.bottom)
                 
                 Button(action: {
-                    EditPlayerThree.shared.editPlayerInTeam(player: player, avatarUIImage: image)
+                    EditPlayerThree.shared.editPlayerInTeam(player: player, avatarUIImage: viewModel.image)
                 }) {
                     HStack {
                         Text("Сохранить")
@@ -64,8 +63,8 @@ struct EditPhoto: View {
                 }
             }
         }
-        .sheet(isPresented: $isShowPhotoLibrary) {
-            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+        .sheet(isPresented: $viewModel.isShowPhotoLibrary) {
+            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$viewModel.image)
         }
 
     }
@@ -73,6 +72,6 @@ struct EditPhoto: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EditPhoto(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
+        EditPhotoView(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
     }
 }

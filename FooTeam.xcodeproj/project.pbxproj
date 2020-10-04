@@ -13,6 +13,7 @@
 		1B18C2E125116D4C00551C6D /* ProfileMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B18C2E025116D4C00551C6D /* ProfileMainScreenViewModel.swift */; };
 		1B28E3FE2511A031007B53A8 /* ListPlayersSecondScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */; };
 		1B2A561F252A4BD9005DA4C2 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A561E252A4BD9005DA4C2 /* MainScreenViewModel.swift */; };
+		1B2A5626252A52B2005DA4C2 /* EditPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A5625252A52B2005DA4C2 /* EditPhotoViewModel.swift */; };
 		1B33582E250A8B46007EA9A7 /* JoinTheTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */; };
 		1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446824F85B060008FC40 /* TabViewFooTeam.swift */; };
 		1B39446B24F85D250008FC40 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446A24F85D250008FC40 /* MainScreenView.swift */; };
@@ -20,7 +21,7 @@
 		1B39447024F9A3A00008FC40 /* ProfileMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446F24F9A3A00008FC40 /* ProfileMainScreenView.swift */; };
 		1B39447224F9A3E80008FC40 /* InformationsMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */; };
 		1B3BB6D8251FF5FB004340FD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */; };
-		1B3BB6DB251FF649004340FD /* EditPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6DA251FF649004340FD /* EditPhoto.swift */; };
+		1B3BB6DB251FF649004340FD /* EditPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6DA251FF649004340FD /* EditPhotoView.swift */; };
 		1B3BB6FA252005CC004340FD /* EditPlayerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */; };
 		1B3F0C0324F9A50E00FA4F51 /* TeamMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F0C0224F9A50E00FA4F51 /* TeamMainScreenView.swift */; };
 		1B4467A6252419B0009E485E /* InWhichTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4467A5252419B0009E485E /* InWhichTeam.swift */; };
@@ -136,6 +137,7 @@
 		1B18C2E025116D4C00551C6D /* ProfileMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlayersSecondScreenViewModel.swift; sourceTree = "<group>"; };
 		1B2A561E252A4BD9005DA4C2 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		1B2A5625252A52B2005DA4C2 /* EditPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewModel.swift; sourceTree = "<group>"; };
 		1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTheTeam.swift; sourceTree = "<group>"; };
 		1B39446824F85B060008FC40 /* TabViewFooTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewFooTeam.swift; sourceTree = "<group>"; };
 		1B39446A24F85D250008FC40 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -143,7 +145,7 @@
 		1B39446F24F9A3A00008FC40 /* ProfileMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainScreenView.swift; sourceTree = "<group>"; };
 		1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsMainScreenView.swift; sourceTree = "<group>"; };
 		1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		1B3BB6DA251FF649004340FD /* EditPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhoto.swift; sourceTree = "<group>"; };
+		1B3BB6DA251FF649004340FD /* EditPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoView.swift; sourceTree = "<group>"; };
 		1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerThree.swift; sourceTree = "<group>"; };
 		1B3F0C0224F9A50E00FA4F51 /* TeamMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMainScreenView.swift; sourceTree = "<group>"; };
 		1B4467A5252419B0009E485E /* InWhichTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InWhichTeam.swift; sourceTree = "<group>"; };
@@ -328,10 +330,19 @@
 		1B2A5621252A4EF2005DA4C2 /* EditPhoto */ = {
 			isa = PBXGroup;
 			children = (
-				1B3BB6DA251FF649004340FD /* EditPhoto.swift */,
+				1B2A5628252A52D3005DA4C2 /* EditPhotoView */,
 				1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */,
 			);
 			path = EditPhoto;
+			sourceTree = "<group>";
+		};
+		1B2A5628252A52D3005DA4C2 /* EditPhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				1B3BB6DA251FF649004340FD /* EditPhotoView.swift */,
+				1B2A5625252A52B2005DA4C2 /* EditPhotoViewModel.swift */,
+			);
+			name = EditPhotoView;
 			sourceTree = "<group>";
 		};
 		1B33582B250A897C007EA9A7 /* SwiftUI */ = {
@@ -961,6 +972,7 @@
 				1B39447224F9A3E80008FC40 /* InformationsMainScreenView.swift in Sources */,
 				1B4BECB1251D4A0100581FB2 /* WaitingForConfirmationViewModel.swift in Sources */,
 				1B3BB6D8251FF5FB004340FD /* ImagePicker.swift in Sources */,
+				1B2A5626252A52B2005DA4C2 /* EditPhotoViewModel.swift in Sources */,
 				1B596FCD24EC73D60092770B /* Constants.swift in Sources */,
 				1BBDD87E251D63E700517BB3 /* NumberOfTeams.swift in Sources */,
 				1B3F0C0324F9A50E00FA4F51 /* TeamMainScreenView.swift in Sources */,
@@ -970,7 +982,7 @@
 				1BC8B61C250EE34C00FC8B27 /* CurrentTeam.swift in Sources */,
 				1B596FBE24EC73A90092770B /* ColorExtension.swift in Sources */,
 				1B596F9F24EC73A00092770B /* SelfConfiguringCell.swift in Sources */,
-				1B3BB6DB251FF649004340FD /* EditPhoto.swift in Sources */,
+				1B3BB6DB251FF649004340FD /* EditPhotoView.swift in Sources */,
 				1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */,
 				1BB14DBE252138EF00B8CFCF /* UIViewController.swift in Sources */,
 				1B596F7C24EC73530092770B /* ListPlayersSecondScreenView.swift in Sources */,
