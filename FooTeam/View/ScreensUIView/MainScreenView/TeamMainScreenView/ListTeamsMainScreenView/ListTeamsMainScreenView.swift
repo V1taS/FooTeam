@@ -11,9 +11,7 @@ import SwiftUI
 struct ListTeamsMainScreenView: View {
     
     @StateObject private var viewModel = ListTeamsMainScreenViewModel()
-    @Binding var closeIsPresentedShowModal: Bool
-    
-    @State var selectTeams = 0
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
@@ -81,7 +79,7 @@ struct ListTeamsMainScreenView: View {
             }
             .navigationBarTitle("Составы на игру", displayMode: .automatic)
             .navigationBarItems(trailing: Button(action: {
-                self.closeIsPresentedShowModal = false
+                presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "multiply")
                     .renderingMode(.original)
@@ -93,6 +91,6 @@ struct ListTeamsMainScreenView: View {
 
 struct _ompositionsMyTeamMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        ListTeamsMainScreenView(closeIsPresentedShowModal: .constant(false))
+        ListTeamsMainScreenView()
     }
 }

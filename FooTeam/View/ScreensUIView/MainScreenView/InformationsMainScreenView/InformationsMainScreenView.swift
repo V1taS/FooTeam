@@ -12,18 +12,12 @@ struct InformationsMainScreenView: View {
     
     @StateObject private var viewModel = InformationsMainScreenViewModel()
     
-    @ObservedObject var networkWeather = NetworkWeatherManager()
-    
-    @State var iGo = true
-    
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
                 .frame(width: 180, height: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke()
-                )
+                .overlay(RoundedRectangle(cornerRadius: 10) .stroke())
             
             VStack {
                 Text("ИНФОРМАЦИЯ")
@@ -31,7 +25,6 @@ struct InformationsMainScreenView: View {
                     .foregroundColor(Color(.red))
                 
                 DividerFooTeamMenu()
-                
                 
                 VStack(alignment: .leading, spacing: 1) {
                     

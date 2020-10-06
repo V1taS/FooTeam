@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct ProfileShowModalMainScreenView: View {
     
@@ -104,7 +103,7 @@ struct ProfileShowModalMainScreenView: View {
                         .font(.title)
                 }.sheet(
                     isPresented: $viewModel.isPresentedProfileEditor,
-                    content: { PlayersProfileEditor(closeIsPresentedShowModal: $viewModel.isPresentedProfileEditor, player: viewModel.player) }
+                    content: { PlayersProfileEditor(player: viewModel.player) }
                 ),
                 trailing: Button(action: {
                     presentationMode.wrappedValue.dismiss()

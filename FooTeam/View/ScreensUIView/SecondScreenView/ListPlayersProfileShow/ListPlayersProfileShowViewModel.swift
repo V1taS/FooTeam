@@ -10,20 +10,30 @@ import Foundation
 import Combine
 
 protocol ListPlayersProfileShowViewModelProtocol {
-    var playerListener: Player { get }
+    var currentTeam: CurrentTeam { get }
+    var cancellables: Set<AnyCancellable> { get }
+    
+    var team: Team { get }
+    var isPresentedShowModal: Bool { get }
+    init()
 }
 
 class ListPlayersProfileShowViewModel: ListPlayersProfileShowViewModelProtocol, ObservableObject {
-
     @Published var currentTeam = CurrentTeam()
-    private var cancellables = Set<AnyCancellable>()
+    internal var cancellables = Set<AnyCancellable>()
     
-    @Published var playerListener: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
-    @Published var nameTeam: String = ""
+    @Published var team: Team = Team(
+        avatarStringURL: "",
+        teamName: "",
+        location: "",
+        teamType: "",
+        rating: 0
+    )
+    @Published var isPresentedShowModal = false
     
-    init() {
+    required init() {
         self.currentTeam.$team.sink { team in
-            self.nameTeam = team.teamName ?? ""
-            } .store(in: &cancellables)
+            self.team = team
+        } .store(in: &cancellables)
     }
 }

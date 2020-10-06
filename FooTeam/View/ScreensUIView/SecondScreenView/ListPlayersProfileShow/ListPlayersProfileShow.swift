@@ -11,8 +11,6 @@ import SwiftUI
 struct ListPlayersProfileShow: View {
     
     @StateObject private var viewModel = ListPlayersProfileShowViewModel()
-    @ObservedObject var currentTeam = CurrentTeam()
-    @State var isPresentedShowModal = false
     let player: Player
     
     var body: some View {
@@ -25,7 +23,7 @@ struct ListPlayersProfileShow: View {
                                       ratingPlayer: "\(player.rating)",
                                       positionPlayer: player.position,
                                       locationCountryImage: "",
-                                      logoTeamImage: currentTeam.team.avatarStringURL ?? "",
+                                      logoTeamImage: viewModel.team.avatarStringURL ?? "",
                                       game: "\(player.winGame + player.losGame)",
                                       goal: "\(player.numberOfGoals)",
                                       win: "\(player.winGame)",
@@ -37,7 +35,7 @@ struct ListPlayersProfileShow: View {
                 HStack {
                     Text("Играю в команде:")
                     Spacer()
-                    Text("\(viewModel.nameTeam)")
+                    Text("\(viewModel.team.teamName ?? "")")
                         .font(.headline)
                     
                 }
@@ -71,7 +69,7 @@ struct ListPlayersProfileShow: View {
         .navigationBarItems(trailing:
                                 VStack {
                                     if FirestoreService.shared.currentUser.captain {
-                                        Button(action: { isPresentedShowModal.toggle() }) {
+                                        Button(action: { viewModel.isPresentedShowModal.toggle() }) {
                                             Image(systemName: "pencil")
                                                 .renderingMode(.original)
                                                 .font(.title)
@@ -80,8 +78,8 @@ struct ListPlayersProfileShow: View {
                                 }
         )
         .sheet(
-            isPresented: $isPresentedShowModal,
-            content: { PlayersProfileEditor(closeIsPresentedShowModal: $isPresentedShowModal, player: player) }
+            isPresented: $viewModel.isPresentedShowModal,
+            content: { PlayersProfileEditor(player: player) }
         )
     }
 }

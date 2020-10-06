@@ -13,8 +13,6 @@ struct JoinToTeamView: View {
     
     @StateObject private var viewModel = JoinToTeamViewModel()
     
-    @State var isPresentedAlertSignOut = false
-    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -29,7 +27,7 @@ struct JoinToTeamView: View {
             .frame(maxWidth: .infinity, alignment: .center)
             .navigationBarTitle(Text("Присоединиться"))
             .navigationBarItems(trailing:
-                                    OutButtonFooTeamMenu(isPresentedAlertSignOut: $isPresentedAlertSignOut))
+                                    OutButtonFooTeamMenu(isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut))
         }
     }
 }

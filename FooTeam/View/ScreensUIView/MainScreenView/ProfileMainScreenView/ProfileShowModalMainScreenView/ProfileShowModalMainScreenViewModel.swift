@@ -6,21 +6,28 @@
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 import Combine
 
 protocol ProfileShowModalMainScreenViewModelProtocol {
+    var currentUser: CurrentUser { get }
+    var currentTeam: CurrentTeam { get }
+    var cancellables: Set<AnyCancellable> { get }
+    
     var player: Player { get }
+    var team: Team { get }
+    
     var isPresentedProfileEditor: Bool { get }
     var isPresentedAlert: Bool { get }
     var outFromTeam: Bool { get }
+    
+    init()
 }
 
 class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelProtocol, ObservableObject {
-    
     @Published var currentUser = CurrentUser()
     @Published var currentTeam = CurrentTeam()
-    private var cancellables = Set<AnyCancellable>()
+    internal var cancellables = Set<AnyCancellable>()
     
     @Published var player: Player = Player(
         name: "Default player",
@@ -52,7 +59,7 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
     @Published var isPresentedAlert: Bool = false
     @Published var outFromTeam: Bool = false
     
-    init() {
+    required init() {
         self.currentUser.$player
             .assign(to: \.player, on: self)
             .store(in: &self.cancellables)

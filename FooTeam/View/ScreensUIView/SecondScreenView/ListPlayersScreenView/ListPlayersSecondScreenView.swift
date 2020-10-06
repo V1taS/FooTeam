@@ -12,7 +12,6 @@ import SDWebImageSwiftUI
 struct ListPlayersSecondScreenView: View {
     
     @StateObject private var viewModel = ListPlayersSecondScreenViewModel()
-    @State var isPresentedShowModal: Bool = false
     
     var body: some View {
         NavigationView {
@@ -55,7 +54,6 @@ struct ListPlayersSecondScreenView: View {
                                     Text("I-GO")
                                         .foregroundColor(player.iGo ? .green : .red)
                                         .fontWeight(.bold)
-                                    
                                 }
                             }
                         }
@@ -67,7 +65,7 @@ struct ListPlayersSecondScreenView: View {
                                     VStack {
                                         if FirestoreService.shared.currentUser.captain {
                                             Button(action: {
-                                                self.isPresentedShowModal.toggle()
+                                                viewModel.isPresentedShowModal.toggle()
                                             }) {
                                                 Image(systemName: "square.and.pencil")
                                                     .renderingMode(.original)
@@ -76,16 +74,13 @@ struct ListPlayersSecondScreenView: View {
                                             }
                                         }
                                     }
-            )
-            .navigationBarTitle(Text("Моя команда"))
-            
+            ) .navigationBarTitle(Text("Моя команда"))
         } .sheet(
-            isPresented: $isPresentedShowModal,
-            content: { ProfileAddPlayerView(showModal: self.$isPresentedShowModal) }
+            isPresented: $viewModel.isPresentedShowModal,
+            content: { ProfileAddPlayerView() }
         )
     }
 }
-
 
 struct ListPlayersFooTeam_Previews: PreviewProvider {
     static var previews: some View {

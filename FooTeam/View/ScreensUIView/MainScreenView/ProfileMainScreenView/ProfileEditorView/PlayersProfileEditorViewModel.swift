@@ -10,48 +10,61 @@ import Foundation
 import Combine
 
 protocol ListPlayersProfileEditorViewModelProtocol {
-    var name: String { get }
-    var avatarStringURL: String { get }
-    var rating: Int { get }
-    var position: String { get }
-    var numberOfGoals: Int { get }
-    var winGame: Int { get }
-    var losGame: Int { get }
-    var payment: String { get }
-    var subscription: Bool { get }
-    var iGo: Bool { get }
-    var captain: Bool { get }
-    var email: String { get }
+    var actionsPlayers: ActionsPlayers { get }
+    var currentTeam: CurrentTeam { get }
+    var cancellables: Set<AnyCancellable> { get }
+    
+    var bufferID: String { get }
+    var deletPlayer: Bool { get }
+    var isPresentedChangeAvatar: Bool { get }
+    
+    var players: [Player] { get }
+    var player: Player { get }
+    var team: Team { get }
     
     var whoAreYou: [String] { get }
     var selectionWhoAreYou: Int { get }
     
     var positions: [String] { get }
     var selectionPositions: Int { get }
+    init()
 }
 
 class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, ObservableObject {
-
-    @Published var playersListener = ActionsPlayers()
-    @Published var currentPlayer = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
-    @Published var currentPlayers: [Player] = []
-    
-    private var cancellables = Set<AnyCancellable>()
+    @Published var actionsPlayers = ActionsPlayers()
+    @Published var currentTeam = CurrentTeam()
+    internal var cancellables = Set<AnyCancellable>()
     
     @Published var bufferID: String = ""
+    @Published var deletPlayer = false
+    @Published var isPresentedChangeAvatar: Bool = false
     
-    @Published var name: String = ""
-    @Published var avatarStringURL: String = ""
-    @Published var rating: Int = 0
-    @Published var position: String = ""
-    @Published var numberOfGoals: Int = 0
-    @Published var winGame: Int = 0
-    @Published var losGame: Int = 0
-    @Published var payment: String = ""
-    @Published var subscription: Bool = false
-    @Published var iGo: Bool = false
-    @Published var captain: Bool = false
-    @Published var email: String = ""
+    @Published var players: [Player] = []
+    @Published var player: Player = Player(
+        name: "Default player",
+        email: "",
+        avatarStringURL: "",
+        whoAreYou: "",
+        id: "",
+        idTeam: "",
+        teamNumber: 0,
+        payment: "",
+        iGo: false,
+        subscription: false,
+        rating: 0,
+        position: "",
+        numberOfGoals: 0,
+        winGame: 0,
+        losGame: 9,
+        captain: false
+    )
+    @Published var team: Team = Team(
+        avatarStringURL: "",
+        teamName: "",
+        location: "",
+        teamType: "",
+        rating: 0
+    )
     
     var whoAreYou: [String] = ["Игрок", "Зритель"] // Настроить логику
     @Published var selectionWhoAreYou: Int = 0 // Настроить логику
@@ -59,31 +72,17 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
     var positions: [String] = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"] // Настроить логику
     @Published var selectionPositions: Int = 0 // Настроить логику
     
-    init() {
+    required init() {
+        self.actionsPlayers.$players.sink { players in
+            let bufferIDplayer = players.filter { $0.id == BufferIDplayer.shared.playerID }
+            let bufferIDplayerCheck = bufferIDplayer.first ?? Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+            
+            self.player = bufferIDplayerCheck
+            self.players = players
+        } .store(in: &cancellables)
         
-        self.playersListener.$players.sink { [self] player in
-            let currentPL = player.filter { $0.id == BufferIDplayer.shared.playerID }
-            let currentNewPL = currentPL.first ?? Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
-            
-            self.name = currentNewPL.name
-            self.avatarStringURL = currentNewPL.avatarStringURL
-            self.rating = currentNewPL.rating
-            self.position = currentNewPL.position
-            self.numberOfGoals = currentNewPL.numberOfGoals
-            self.winGame = currentNewPL.winGame
-            self.losGame = currentNewPL.losGame
-            self.payment = currentNewPL.payment
-            self.subscription = currentNewPL.subscription
-            self.iGo = currentNewPL.iGo
-            self.captain = currentNewPL.captain
-            self.email = currentNewPL.email
-            self.currentPlayer = currentNewPL
-            
-            
-            self.currentPlayers = player
-        }
-        .store(in: &cancellables)
+        self.currentTeam.$team.sink { team in
+            self.team = team
+        } .store(in: &cancellables)
     }
-    
-    
 }

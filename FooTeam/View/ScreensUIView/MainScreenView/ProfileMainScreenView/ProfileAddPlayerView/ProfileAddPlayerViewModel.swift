@@ -7,62 +7,51 @@
 //
 
 import Foundation
+import Combine
 
 protocol ProfileAddPlayerViewModelProtocol {
+    var currentTeam: CurrentTeam { get }
+    var cancellables: Set<AnyCancellable> { get }
+    
     var name: String { get }
-    var avatarStringURL: String { get }
-    var position: String { get }
+    var email: String { get }
     var payment: String { get }
-    var subscription: Bool { get }
-    var iGo: Bool { get }
     
-    var whoAreYou: [String] { get }
     var selectionWhoAreYou: Int { get }
+    var whoAreYou: [String] { get }
     
-    var positions: [String] { get }
     var selectionPositions: Int { get }
+    var positions: [String] { get }
     
-    var closeShowModal: Bool { get }
-    
-    init(player: CurrentUser)
+    var team: Team { get }
+    init()
 }
 
-
 class ProfileAddPlayerViewModel: ProfileAddPlayerViewModelProtocol, ObservableObject {
+    @Published var currentTeam = CurrentTeam()
+    internal var cancellables = Set<AnyCancellable>()
     
-    @Published var name: String = ""
+    @Published var name = ""
+    @Published var email = ""
+    @Published var payment = "0"
     
-    @Published var avatarStringURL: String = ""
+    @Published var selectionWhoAreYou = 0
+    let whoAreYou = ["Игрок", "Зритель"]
     
-    @Published var position: String = ""
+    @Published var selectionPositions = 0
+    let positions = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
     
-    @Published var payment: String = ""
+    @Published var team: Team = Team(
+        avatarStringURL: "",
+        teamName: "",
+        location: "",
+        teamType: "",
+        rating: 0
+    )
     
-    @Published var subscription: Bool = false
-    
-    @Published var iGo: Bool = false
-    
-    var whoAreYou: [String] = ["Игрок", "Зритель"] // Настроить логику
-    
-    @Published var selectionWhoAreYou: Int = 0 // Настроить логику
-    
-    var positions: [String] = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"] // Настроить логику
-    
-    @Published var selectionPositions: Int = 0 // Настроить логику
-    
-    @Published var closeShowModal: Bool = false // Настроить логику
-    
-    var currentPlayer: Player?
-    
-    required init(player: CurrentUser) {
-        player.downloadPlayers()
-        self.currentPlayer = player.player
-        
-        self.name = player.player.name
-        self.avatarStringURL = player.player.avatarStringURL
-        self.position = player.player.position
-        self.payment = player.player.payment
-        self.subscription = player.player.subscription
-        self.iGo = player.player.iGo
+    required init() {
+        self.currentTeam.$team.sink { team in
+            self.team = team
+        } .store(in: &cancellables)
     }
 }

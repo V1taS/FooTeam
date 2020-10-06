@@ -11,26 +11,20 @@ import SwiftUI
 struct CellCardsWithPlayersMainScreenView: View {
     
     @StateObject private var viewModel = CellCardsWithPlayersMainScreenViewModel()
-    @ObservedObject var currentTeam = CurrentTeam()
-    
     @Binding var selectTeams: Int
     
-    @State var viewState = CGSize.zero
-    @State var show = false
-    
     var body: some View {
-        
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 190))], spacing: 0) {
-                    ForEach(viewModel.teamsNumber.filter { $0.teamNumber == selectTeams }, id: \.self) { player in
+                    ForEach(viewModel.iGoPlayers.filter { $0.teamNumber == selectTeams }, id: \.self) { player in
                         CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)),
                                               namePlayer: player.name,
                                               photoPlayer: player.avatarStringURL,
                                               ratingPlayer: "\(player.rating)",
                                               positionPlayer: player.position,
                                               locationCountryImage: "",
-                                              logoTeamImage: currentTeam.team.avatarStringURL ?? "",
+                                              logoTeamImage: viewModel.currentTeam.team.avatarStringURL ?? "",
                                               game: "\(player.winGame + player.losGame)",
                                               goal: "\(player.numberOfGoals)",
                                               win: "\(player.winGame)",

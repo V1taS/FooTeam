@@ -10,17 +10,23 @@ import Foundation
 import Combine
 
 protocol JoinToTeamViewModelProtocol {
+    var teamsListener: TeamsListener { get }
+    var cancellables: Set<AnyCancellable> { get }
+    
     var teams: [Team] { get }
+    var isPresentedAlertSignOut: Bool { get }
+    init()
 }
 
 class JoinToTeamViewModel: JoinToTeamViewModelProtocol, ObservableObject {
-
+    
     @Published var teamsListener = TeamsListener()
-    private var cancellables = Set<AnyCancellable>()
+    internal var cancellables = Set<AnyCancellable>()
     
     @Published var teams: [Team] = []
+    @Published var isPresentedAlertSignOut = false
     
-    init() {
+    required init() {
         self.teamsListener.$teams.sink { team in
             self.teams = team
         }

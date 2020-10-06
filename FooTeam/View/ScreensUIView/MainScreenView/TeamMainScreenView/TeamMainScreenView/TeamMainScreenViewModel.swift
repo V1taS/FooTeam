@@ -10,19 +10,26 @@ import Foundation
 import Combine
 
 protocol TeamMainScreenViewModelProtocol {
+    var actionsPlayers: ActionsPlayers { get }
+    var cancellables: Set<AnyCancellable> { get }
+    
     var iGoCount: Int { get }
     var playersCount: Int { get }
+    var isPresentedShowModal: Bool { get }
+    init()
 }
 
 class TeamMainScreenViewModel: TeamMainScreenViewModelProtocol, ObservableObject {
     
     @Published var actionsPlayers = ActionsPlayers()
-    private var cancellables = Set<AnyCancellable>()
+    internal var cancellables = Set<AnyCancellable>()
     
     @Published var iGoCount: Int = 0
     @Published var  playersCount: Int = 0
     
-    init() {
+    @Published var isPresentedShowModal: Bool = false
+    
+    required init() {
         self.actionsPlayers.$players.sink { players in
             
             let iGoCount = players.filter { $0.iGo }
@@ -31,6 +38,4 @@ class TeamMainScreenViewModel: TeamMainScreenViewModelProtocol, ObservableObject
             self.playersCount = players.count
         } .store(in: &cancellables)
     }
-    
-    
 }

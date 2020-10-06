@@ -7,109 +7,97 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct ProfileAddPlayerView: View {
     
-    //    @StateObject private var viewModel = ProfileAddPlayerViewModel()
+    @StateObject private var viewModel = ProfileAddPlayerViewModel()
+    @Environment(\.presentationMode) var presentationMode
     
-    let player = FirestoreService.shared.currentUser
-    
-    @Binding var showModal: Bool
-    
-    @State var name = ""
-    @State var email = ""
-    @State var payment = "0"
-    
-    @State var selectionWhoAreYou = 0
-    let whoAreYou = ["Игрок", "Зритель"]
-    
-    @State var selectionPositions = 0
-    let positions = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
-    
-        
-        var body: some View {
-            NavigationView {
-                VStack {
+    var body: some View {
+        NavigationView {
+            Form {
+                HStack {
+                    Spacer()
                     VStack {
                         ImagePlayer(avatarStringURL: "", avatarSize: 125)
-     
-                        Text("Загрузить")
-                        .padding(.horizontal)
-                        .background(Color.green)
-                    } .padding(.top)
-                    
-                    Form {
                         
+                        Text("Загрузить")
+                            .padding(.horizontal)
+                            .background(Color.green)
+                    } .padding(.vertical)
+                    Spacer()
+                }
+                
+                VStack {
+                    
+                    HStack {
+                        Text("Кто ты?")
+                        Picker("dvdvd", selection: $viewModel.selectionWhoAreYou) {
+                            ForEach(0..<viewModel.whoAreYou.count) {
+                                Text(viewModel.whoAreYou[$0])
+                            }
+                        } .pickerStyle(SegmentedPickerStyle())
+                    }
+                    
+                    HStack {
+                        Text("Имя:")
+                        TextField("Иванов Иван", text: $viewModel.name)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    
+                    HStack {
+                        Text("Электронная почта:")
+                        TextField("e-mail", text: $viewModel.email)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    
+                    if viewModel.selectionWhoAreYou == 0 {
+                        HStack {
+                            Text("Баланс:")
+                            TextField("Баланс", text: $viewModel.payment)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
                         
                         HStack {
-                            Text("Кто ты?")
-                            Picker("dvdvd", selection: $selectionWhoAreYou) {
-                                ForEach(0..<whoAreYou.count) {
-                                    Text(self.whoAreYou[$0])
+                            Text("Позиция:")
+                            Picker("dvdvd", selection: $viewModel.selectionPositions) {
+                                ForEach(0..<viewModel.positions.count) {
+                                    Text(viewModel.positions[$0])
                                 }
                             } .pickerStyle(SegmentedPickerStyle())
                         }
                         
                         HStack {
-                            Text("Имя:")
-                            TextField("Иванов Иван", text: $name)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            Text("Играет в команде:")
+                            Spacer()
+                            Text("\(viewModel.team.teamName ?? "")")
+                                .font(.headline)
                         }
-                        
-                        HStack {
-                            Text("Электронная почта:")
-                            TextField("e-mail", text: $email)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
-                        
-                        if selectionWhoAreYou == 0 {
-                            HStack {
-                                Text("Баланс:")
-                                TextField("Баланс", text: $payment)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                            }
-                  
-                        
-                            HStack {
-                                Text("Позиция:")
-                                Picker("dvdvd", selection: $selectionPositions) {
-                                    ForEach(0..<positions.count) {
-                                        Text(self.positions[$0])
-                                    }
-                                } .pickerStyle(SegmentedPickerStyle())
-                            }
-                            
-                            HStack {
-                                Text("Играет в команде:")
-                                Spacer()
-                                Text("\( "fdfgfg")")
-                                    .font(.headline)
-                            }
-                        }
-                        
-                        
                     }
+                    
+                }
+                
+                HStack {
+                    Spacer()
                     Button(action: {
                         AddPlayer.shared.addPlayerWith(
-                            capitanPlayer: self.player!,
+                            capitanPlayer: FirestoreService.shared.currentUser,
                             avatarImage: nil,
-                            name: self.name,
-                            email: self.email,
-                            whoAreYou: self.whoAreYou[self.selectionWhoAreYou],
+                            name: viewModel.name,
+                            email: viewModel.email,
+                            whoAreYou: viewModel.whoAreYou[viewModel.selectionWhoAreYou],
                             teamNumber: 0,
-                            payment: self.payment,
+                            payment: viewModel.payment,
                             iGo: false,
                             subscription: false,
                             rating: 50,
-                            position: self.positions[self.selectionPositions],
+                            position: viewModel.positions[viewModel.selectionPositions],
                             numberOfGoals: 0,
                             winGame: 0,
                             losGame: 0,
                             captain: false)
                         
-                        self.showModal = false
-                        
+                        presentationMode.wrappedValue.dismiss()
                         
                     } ) {
                         Text("Сохранить")
@@ -120,23 +108,25 @@ struct ProfileAddPlayerView: View {
                             .background(Color.green)
                             .cornerRadius(5)
                     }
+                    Spacer()
                 }
-                    
-                .navigationBarTitle(Text("Добавить игрока"), displayMode: .automatic)
-                .navigationBarItems(trailing: Button(action: {
-                    self.showModal = false
-                }) {
-                    Image(systemName: "multiply")
-                        .renderingMode(.original)
-                        .font(.title)
-            })
             }
+            
+            .navigationBarTitle(Text("Добавить игрока"), displayMode: .automatic)
+            .navigationBarItems(trailing: Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "multiply")
+                    .renderingMode(.original)
+                    .font(.title)
+            })
         }
     }
+}
 
 
 struct AddListPlayersFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileAddPlayerView(showModal: .constant(false))
+        ProfileAddPlayerView()
     }
 }

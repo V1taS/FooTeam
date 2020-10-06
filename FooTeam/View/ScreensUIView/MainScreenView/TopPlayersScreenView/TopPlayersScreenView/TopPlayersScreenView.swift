@@ -11,12 +11,11 @@ import SwiftUI
 struct TopPlayersScreenView: View {
     
     @StateObject private var viewModel = TopPlayersScreenViewModel()
-    @ObservedObject var currentTeam = CurrentTeam()
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16) {
-                ForEach(viewModel.playersMain, id: \.self) { player in
+                ForEach(viewModel.players, id: \.self) { player in
                     
                     CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
                                           namePlayer: player.name,
@@ -24,7 +23,7 @@ struct TopPlayersScreenView: View {
                                           ratingPlayer: "\(player.rating)",
                                           positionPlayer: "\(player.position)",
                                           locationCountryImage: "",
-                                          logoTeamImage: currentTeam.team.avatarStringURL ?? "",
+                                          logoTeamImage: viewModel.currentTeam.team.avatarStringURL ?? "",
                                           game: "\(player.winGame + player.losGame)",
                                           goal: "\(player.numberOfGoals)",
                                           win: "\(player.winGame)",

@@ -7,7 +7,7 @@
 //
 
 import Combine
-import SwiftUI
+import Foundation
 
 protocol ProfileMainScreenViewModelProtocol {
     var currentUser: CurrentUser { get }
@@ -20,7 +20,6 @@ protocol ProfileMainScreenViewModelProtocol {
 }
 
 class ProfileMainScreenViewModel: ProfileMainScreenViewModelProtocol, ObservableObject {
-    
     @Published var currentUser = CurrentUser()
     internal var cancellables = Set<AnyCancellable>()
     

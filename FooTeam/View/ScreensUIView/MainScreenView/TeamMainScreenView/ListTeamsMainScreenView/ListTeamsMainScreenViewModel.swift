@@ -10,20 +10,26 @@ import Foundation
 import Combine
 
 protocol ListTeamsMainScreenViewModelProtocol {
+    var actionsPlayers: ActionsPlayers { get }
+    var networkWeather: NetworkWeatherManager { get }
+    var calendarFooTeam: CalendarFooTeam { get }
+    var cancellables: Set<AnyCancellable> { get }
+    
     var iGoCount: Int { get }
     var countTeams: Int { get }
+    var selectionTeams: Int { get }
+    var iGoPlayers: [Player] { get }
     
     var temperatureString: String { get }
-    var temperatureIcon: String { get }
     var datePlay: String { get }
+    init()
 }
 
 class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, ObservableObject {
-
     @Published var actionsPlayers = ActionsPlayers()
     @Published var networkWeather = NetworkWeatherManager()
     @Published var calendarFooTeam = CalendarFooTeam()
-    private var cancellables = Set<AnyCancellable>()
+    internal var cancellables = Set<AnyCancellable>()
     
     @Published var iGoCount: Int = 0 
     @Published var countTeams: Int = 0
@@ -31,18 +37,13 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
     @Published var iGoPlayers: [Player] = []
     
     @Published var temperatureString: String = ""
-    @Published var temperatureIcon: String = ""
-    
     @Published var datePlay: String = ""
 
-    
-    init() {
+    required init() {
         self.actionsPlayers.$players.sink { players in
-            
-            let iGoCount = players.filter { $0.iGo }
-            self.iGoPlayers = iGoCount
-            self.iGoCount = iGoCount.count
-            
+            let iGoPlayers = players.filter { $0.iGo }
+            self.iGoPlayers = iGoPlayers
+            self.iGoCount = iGoPlayers.count
         } .store(in: &cancellables)
         
         self.networkWeather.$weather.sink { weather in
@@ -50,7 +51,5 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
         } .store(in: &cancellables)
 
         self.datePlay = calendarFooTeam.datePlay
-        
-        
     }
 }

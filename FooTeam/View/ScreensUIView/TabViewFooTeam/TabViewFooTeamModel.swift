@@ -15,12 +15,10 @@ protocol TabViewFooTeamModelProtocol {
     
     var showAcceptPlayers: Bool { get }
     var players: [Player] { get }
-    
     init()
 }
 
 class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
-    
     @Published var waitingPlayers = WaitingPlayers()
     internal var cancellables = Set<AnyCancellable>()
     

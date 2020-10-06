@@ -10,13 +10,13 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct EditPhotoView: View {
-
+    
     @StateObject private var viewModel = EditPhotoViewModel()
     var player: Player
-
+    
     var body: some View {
         VStack {
-
+            
             WebImage(url: URL(string: player.avatarStringURL))
                 .resizable()
                 .renderingMode(.original)
@@ -28,7 +28,7 @@ struct EditPhotoView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 125, height: 125, alignment: .center)
                 .cornerRadius(20)
-
+            
             VStack {
                 Button(action: {
                     viewModel.isShowPhotoLibrary = true
@@ -36,7 +36,7 @@ struct EditPhotoView: View {
                     HStack {
                         Image(systemName: "photo")
                             .font(.system(size: 20))
-
+                        
                         Text("Галерея")
                             .font(.headline)
                     }
@@ -66,7 +66,6 @@ struct EditPhotoView: View {
         .sheet(isPresented: $viewModel.isShowPhotoLibrary) {
             ImagePicker(sourceType: .photoLibrary, selectedImage: self.$viewModel.image)
         }
-
     }
 }
 

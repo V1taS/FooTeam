@@ -11,19 +11,22 @@ import FirebaseAuth
 import SwiftUI
 
 protocol WaitingForConfirmationViewModelProtocol {
+    var currentUser: CurrentUser { get }
+    var cancellables: Set<AnyCancellable> { get }
     
+    var downloadAmount: Double { get }
+    var isPresented: Bool { get }
+    init()
 }
 
 class WaitingForConfirmationViewModel: WaitingForConfirmationViewModelProtocol, ObservableObject {
-    
     @Published var currentUser = CurrentUser()
-    
-    private var cancellables = Set<AnyCancellable>()
+    internal var cancellables = Set<AnyCancellable>()
     
     @Published var downloadAmount: Double = 0.0
     @Published var isPresented: Bool = false
     
-    init() {
+    required init() {
         self.currentUser.$player.sink { player in
             if let user = Auth.auth().currentUser {
                 FirestoreService.shared.getUserData(user: user) { (result) in

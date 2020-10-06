@@ -14,7 +14,6 @@ struct WaitingForConfirmationView: View {
     
     var body: some View {
         VStack {
-
             Text("Ожидание подтверждения")
                 .font(.title)
                 .fontWeight(.bold)
@@ -29,8 +28,6 @@ struct WaitingForConfirmationView: View {
                 Text("Отмена")
                     .foregroundColor(Color.red)
             }
-
-            
         }
         .onAppear {
             setTimer()

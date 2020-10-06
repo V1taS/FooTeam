@@ -11,18 +11,15 @@ import SwiftUI
 struct TeamMainScreenView: View {
     
     @StateObject private var viewModel = TeamMainScreenViewModel()
-    @State var isPresentedShowModal: Bool = false
     
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
                 .frame(width: 380, height: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke()
-                )
+                .overlay(RoundedRectangle(cornerRadius: 10) .stroke())
             
-            Button(action: { self.isPresentedShowModal.toggle() }) {
+            Button(action: { viewModel.isPresentedShowModal.toggle() }) {
                 
                 HStack {
                     Image("teamCount")
@@ -45,8 +42,8 @@ struct TeamMainScreenView: View {
                     }
                 }.padding(.horizontal, 36)
             } .sheet(
-                isPresented: $isPresentedShowModal,
-                content: { ListTeamsMainScreenView(closeIsPresentedShowModal: self.$isPresentedShowModal) }
+                isPresented: $viewModel.isPresentedShowModal,
+                content: { ListTeamsMainScreenView() }
             )
         }
     }
