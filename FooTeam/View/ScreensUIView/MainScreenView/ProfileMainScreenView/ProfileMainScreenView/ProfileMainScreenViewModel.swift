@@ -27,12 +27,12 @@ class ProfileMainScreenViewModel: ProfileMainScreenViewModelProtocol, Observable
     @Published var isPresentedShowModal: Bool = false
     @Published var name: String = ""
     @Published var avatarStringURL: String = ""
-
+    
     required init() {
         self.currentUser.$player.sink { player in
-                self.name = player.name
-                self.avatarStringURL = player.avatarStringURL
-            }
-            .store(in: &cancellables)
+            self.name = player.name
+            self.avatarStringURL = player.avatarStringURL
+        }
+        .store(in: &cancellables)
     }
 }

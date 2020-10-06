@@ -18,12 +18,11 @@ struct ProfileMainScreenView: View {
             Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
                 .frame(width: 180, height: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke()
-                )
+                .overlay(RoundedRectangle(cornerRadius: 10) .stroke())
             
-            Button(action: { viewModel.isPresentedShowModal.toggle() }) {
-                
+            Button(action: {
+                viewModel.isPresentedShowModal.toggle()
+            }) {
                 VStack {
                     Text("ПРОФИЛЬ")
                         .font(.headline)

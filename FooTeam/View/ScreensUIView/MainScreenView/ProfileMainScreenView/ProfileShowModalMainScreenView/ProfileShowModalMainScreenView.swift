@@ -12,24 +12,24 @@ import SDWebImageSwiftUI
 struct ProfileShowModalMainScreenView: View {
     
     @StateObject private var viewModel = ProfileShowModalMainScreenViewModel()
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
             Form {
-                
                 HStack {
                     Spacer()
                     CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
-                                          namePlayer: "\(viewModel.name)",
-                                          photoPlayer: "\(viewModel.avatarStringURL)",
-                                          ratingPlayer: "\(viewModel.rating)",
-                                          positionPlayer: "\(viewModel.position)",
+                                          namePlayer: "\(viewModel.player.name)",
+                                          photoPlayer: "\(viewModel.player.avatarStringURL)",
+                                          ratingPlayer: "\(viewModel.player.rating)",
+                                          positionPlayer: "\(viewModel.player.position)",
                                           locationCountryImage: "",
                                           logoTeamImage: viewModel.team.avatarStringURL ?? "",
-                                          game: "\(viewModel.winGame + viewModel.losGame)",
-                                          goal: "\(viewModel.numberOfGoals)",
-                                          win: "\(viewModel.winGame)",
-                                          los: "\(viewModel.losGame)")
+                                          game: "\(viewModel.player.winGame + viewModel.player.losGame)",
+                                          goal: "\(viewModel.player.numberOfGoals)",
+                                          win: "\(viewModel.player.winGame)",
+                                          los: "\(viewModel.player.losGame)")
                         .padding(.vertical, 8)
                     Spacer()
                 }
@@ -45,21 +45,21 @@ struct ProfileShowModalMainScreenView: View {
                     Text("Личный баланс:")
                     Spacer()
                         .foregroundColor(Color.green)
-                    Text("\(viewModel.payment) FCoin")
+                    Text("\(viewModel.player.payment) FCoin")
                         .font(.headline)
                 }
                 
                 HStack {
                     Text("Месячнвя подписка:")
                     Spacer()
-                    Text("\(viewModel.subscription ? "активна" : "не активна")")
+                    Text("\(viewModel.player.subscription ? "активна" : "не активна")")
                         .font(.headline)
                 }
                 
                 HStack {
                     Text("Иду на след. игру:")
                     Spacer()
-                    Text("\(viewModel.iGo ? "да" : "нет")")
+                    Text("\(viewModel.player.iGo ? "да" : "нет")")
                         .font(.headline)
                 }
                 
@@ -91,23 +91,25 @@ struct ProfileShowModalMainScreenView: View {
                 )
             }
             
-            
             .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
             
             .navigationBarItems(
                 leading: Button(action: {
                     BufferIDplayer.shared.saveUserID(id: viewModel.player.id)
-                    self.viewModel.isPresentedShowModal.toggle()
+                    self.viewModel.isPresentedProfileEditor.toggle()
                     
                 }) {
                     Image(systemName: "pencil")
                         .renderingMode(.original)
                         .font(.title)
                 }.sheet(
-                    isPresented: $viewModel.isPresentedShowModal,
-                    content: { PlayersProfileEditor(closeIsPresentedShowModal: $viewModel.isPresentedShowModal, player: viewModel.player) }
+                    isPresented: $viewModel.isPresentedProfileEditor,
+                    content: { PlayersProfileEditor(closeIsPresentedShowModal: $viewModel.isPresentedProfileEditor, player: viewModel.player) }
                 ),
-                trailing: Button(action: { viewModel.closeIsPresentedShowModal = false }) {
+                trailing: Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                    
+                }) {
                     Image(systemName: "multiply")
                         .renderingMode(.original)
                         .font(.title)
