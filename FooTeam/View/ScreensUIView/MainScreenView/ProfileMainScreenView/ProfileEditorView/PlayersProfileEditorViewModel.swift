@@ -41,8 +41,8 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
     
     @Published var players: [Player] = []
     @Published var player: Player = Player(
-        name: "Default player",
-        email: "",
+        name: "Имя",
+        email: "почта@mail.ru",
         avatarStringURL: "",
         whoAreYou: "",
         id: "",

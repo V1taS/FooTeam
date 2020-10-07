@@ -20,7 +20,7 @@ struct TabViewFooTeam: View {
             TabView {
                 MainScreenView(showAcceptPlayers: $viewModel.showAcceptPlayers)
                     .tabItem {
-                        Image(systemName: "shield")
+                        Image(systemName: "rectangle.3.offgrid.bubble.left")
                         Text("Главная")
                     }
                 

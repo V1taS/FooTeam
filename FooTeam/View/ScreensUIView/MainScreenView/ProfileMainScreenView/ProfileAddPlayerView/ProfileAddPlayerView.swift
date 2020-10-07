@@ -20,10 +20,6 @@ struct ProfileAddPlayerView: View {
                     Spacer()
                     VStack {
                         ImagePlayer(avatarStringURL: "", avatarSize: 125)
-                        
-                        Text("Загрузить")
-                            .padding(.horizontal)
-                            .background(Color.green)
                     } .padding(.vertical)
                     Spacer()
                 }

@@ -13,23 +13,36 @@ struct EditPhotoView: View {
     
     @StateObject private var viewModel = EditPhotoViewModel()
     var player: Player
+    @Binding var isPresentedChangeAvatar: Bool
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 8) {
             
-            WebImage(url: URL(string: player.avatarStringURL))
-                .resizable()
-                .renderingMode(.original)
-                .onSuccess { image, data, cacheType in }
-                .placeholder(Image(uiImage: viewModel.image))
-                .indicator(.activity)
-                .transition(.fade(duration: 0.5))
-                .scaledToFill()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 125, height: 125, alignment: .center)
-                .cornerRadius(20)
+            HStack {
+                Spacer()
+                Button(action: { isPresentedChangeAvatar.toggle() } ) {
+                    Text("Закрыть")
+                        .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
+                }
+            } .padding(.horizontal)
             
-            VStack {
+            HStack {
+                WebImage(url: URL(string: player.avatarStringURL))
+                    .resizable()
+                    .renderingMode(.original)
+                    .onSuccess { image, data, cacheType in }
+                    .placeholder(Image(uiImage: viewModel.image))
+                    .indicator(.activity)
+                    .transition(.fade(duration: 0.5))
+                    .scaledToFill()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 125, height: 125, alignment: .center)
+                    .cornerRadius(20)
+            }
+            
+            DividerFooTeamMenu()
+            
+            HStack {
                 Button(action: {
                     viewModel.isShowPhotoLibrary = true
                 }) {
@@ -40,37 +53,48 @@ struct EditPhotoView: View {
                         Text("Галерея")
                             .font(.headline)
                     }
-                    .frame(minWidth: 0, maxWidth: 250, minHeight: 0, maxHeight: 50)
+                    .frame(minWidth: 200, maxWidth: 250, minHeight: 30, maxHeight: 50)
                     .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-                    .padding(.horizontal)
-                } .padding(.bottom)
-                
-                Button(action: {
-                    EditPlayerThree.shared.editPlayerInTeam(player: player, avatarUIImage: viewModel.image)
-                }) {
-                    HStack {
-                        Text("Сохранить")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                    }
-                    .frame(minWidth: 0, maxWidth: 250, minHeight: 0, maxHeight: 50)
-                    .background(Color.green)
                     .foregroundColor(.white)
                     .cornerRadius(20)
                     .padding(.horizontal)
                 }
             }
-        }
-        .sheet(isPresented: $viewModel.isShowPhotoLibrary) {
-            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$viewModel.image)
+            
+            DividerFooTeamMenu()
+            
+            HStack {
+                Spacer()
+                Button(action: {
+                    EditPlayerThree.shared.editPlayerInTeam(player: player, avatarUIImage: viewModel.image)
+                }) {
+                    HStack {
+                        Image(systemName: "opticaldiscdrive")
+                            .font(.system(size: 20))
+                        
+                        Text("Сохранить")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                    }
+                    .frame(minWidth: 200, maxWidth: 250, minHeight: 30, maxHeight: 50)
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(20)
+                    .padding(.horizontal)
+                }
+                Spacer()
+            }
+            
+            .sheet(isPresented: $viewModel.isShowPhotoLibrary) {
+                ImagePicker(sourceType: .photoLibrary, selectedImage: self.$viewModel.image)
+            }
+            
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EditPhotoView(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
+        EditPhotoView(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false), isPresentedChangeAvatar: .constant(false))
     }
 }

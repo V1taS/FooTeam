@@ -146,6 +146,7 @@
 		1B39446D24F9A3470008FC40 /* HeaderMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMainScreenView.swift; sourceTree = "<group>"; };
 		1B39446F24F9A3A00008FC40 /* ProfileMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainScreenView.swift; sourceTree = "<group>"; };
 		1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsMainScreenView.swift; sourceTree = "<group>"; };
+		1B3957A8252E5F120036DDEC /* FooTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FooTeam.entitlements; sourceTree = "<group>"; };
 		1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1B3BB6DA251FF649004340FD /* EditPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoView.swift; sourceTree = "<group>"; };
 		1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerThree.swift; sourceTree = "<group>"; };
@@ -461,6 +462,7 @@
 		1B596F2F24EC714C0092770B /* FooTeam */ = {
 			isa = PBXGroup;
 			children = (
+				1B3957A8252E5F120036DDEC /* FooTeam.entitlements */,
 				1B596F4C24EC73530092770B /* View */,
 				1B596F7D24EC73650092770B /* Model */,
 				1B596F8224EC73820092770B /* Services */,
@@ -1185,8 +1187,9 @@
 			baseConfigurationReference = 31547FB1B37B719FC927882A /* Pods-FooTeam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FooTeam/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1194,7 +1197,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1207,8 +1210,9 @@
 			baseConfigurationReference = 6A1085B3817BBDFDF757C0A8 /* Pods-FooTeam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FooTeam/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1216,7 +1220,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

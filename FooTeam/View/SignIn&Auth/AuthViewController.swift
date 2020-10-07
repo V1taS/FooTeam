@@ -8,6 +8,8 @@
 
 import UIKit
 import GoogleSignIn
+import CryptoKit
+import AuthenticationServices
 
 class AuthViewController: UIViewController {
 
@@ -17,6 +19,7 @@ class AuthViewController: UIViewController {
     let descriptionFTLabel = UILabel(text: "Создайте профиль, чтобы создать свою собственную команду, управлять составами и получить другие возможности.", font: .avenir14(), color: .systemGray, textAlignment: .center)
     let alreadyOnboardLabel = UILabel(text: "Уже есть аккаунт?", font: .avenir14())
     
+    let appleButton = UIButton(title: "Продолжить c Apple", titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "appleIcon"))
     let googleButton = UIButton(title: "Продолжить в Google", titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "googleLogo"))
     let emailButton = UIButton(title: "Ввести эл. почту", titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "messagingIcon"))
     
@@ -39,6 +42,7 @@ class AuthViewController: UIViewController {
         
         emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        appleButton.addTarget(self, action: #selector(appleButtonTapped), for: .touchUpInside)
         googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
         
         signUpVC.delegate = self
@@ -61,11 +65,18 @@ extension AuthViewController {
            present(loginVC, animated: true, completion: nil)
        }
        
+    @objc private func appleButtonTapped() {
+
+    }
+    
        @objc private func googleButtonTapped() {
            GIDSignIn.sharedInstance()?.presentingViewController = self
            GIDSignIn.sharedInstance().signIn()
        }
 }
+
+// MARK: - Войти через Apple»
+
 
 // MARK: - Setup constraints
 extension AuthViewController {
@@ -73,7 +84,7 @@ extension AuthViewController {
         
         let topStackView = UIStackView(arrangedSubviews: [registerInFTLabel, descriptionFTLabel], axis: .vertical, spacing: 20)
         
-        let stackView = UIStackView(arrangedSubviews: [emailButton, googleButton], axis: .vertical, spacing: 10)
+        let stackView = UIStackView(arrangedSubviews: [emailButton, appleButton, googleButton], axis: .vertical, spacing: 10)
         
         loginButton.contentHorizontalAlignment = .fill
         let bottomStackView = UIStackView(arrangedSubviews: [alreadyOnboardLabel, loginButton],
