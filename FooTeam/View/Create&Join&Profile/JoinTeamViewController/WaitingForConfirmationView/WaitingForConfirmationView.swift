@@ -32,6 +32,9 @@ struct WaitingForConfirmationView: View {
         .onAppear {
             setTimer()
         }
+        .alert(isPresented: $viewModel.playerNoAccept) {
+            Alert(title: Text("Команда не готова Вас принять"), dismissButton: .cancel(Text("ok")))
+        }
     }
     
     private func setTimer() {

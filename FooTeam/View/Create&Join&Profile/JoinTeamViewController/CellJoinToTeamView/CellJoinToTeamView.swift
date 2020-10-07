@@ -60,7 +60,8 @@ struct CellJoinToTeamView: View {
                           secondaryButton: .destructive(Text("Отмена")))
                 }
             }
-        } .fullScreenCover(isPresented: $viewModel.isPresented) { WaitingForConfirmationView() }
+        }
+        .fullScreenCover(isPresented: $viewModel.isPresented) { WaitingForConfirmationView() }
     }
     
     struct CellJoinTeamViewController_Previews: PreviewProvider {

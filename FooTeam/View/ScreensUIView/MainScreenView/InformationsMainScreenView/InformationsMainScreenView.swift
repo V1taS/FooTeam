@@ -11,6 +11,7 @@ import SwiftUI
 struct InformationsMainScreenView: View {
     
     @StateObject private var viewModel = InformationsMainScreenViewModel()
+    @Binding var showAcceptPlayers: Bool
     
     var body: some View {
         ZStack {
@@ -60,7 +61,19 @@ struct InformationsMainScreenView: View {
                             .font(.headline)
                             .minimumScaleFactor(0.7)
                     }
-                } .frame(width: 160, alignment: .leading)
+                } .frame(width: 160)
+                
+                if viewModel.capitan {
+                    VStack(alignment: .center, spacing: 1) {
+                        Button(action: { showAcceptPlayers.toggle() }) {
+                            Image(systemName: "mail")
+                                .font(.title)
+                                .foregroundColor(viewModel.playersWaitingAccept.isEmpty ? .gray : .green)
+                        }
+                    } .frame(width: 160) .padding(.top, 2)
+                }
+                
+                
             }
         }
     }
@@ -68,6 +81,6 @@ struct InformationsMainScreenView: View {
 
 struct InformationMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        InformationsMainScreenView()
+        InformationsMainScreenView(showAcceptPlayers: .constant(false))
     }
 }

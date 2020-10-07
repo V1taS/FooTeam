@@ -48,8 +48,8 @@ class WaitingPlayers: ObservableObject {
                                     guard let index = players.firstIndex(of: player) else { return }
                                     players.remove(at: index)
                                 case .removed:
-                                    let index = players.firstIndex(of: player)
-                                    players.remove(at: index!)
+                                    guard let index = players.firstIndex(of: player) else { return }
+                                    players.remove(at: index)
                                 }
                             }
                         }

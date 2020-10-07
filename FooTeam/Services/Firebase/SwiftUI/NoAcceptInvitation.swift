@@ -23,7 +23,8 @@ class NoAcceptInvitation {
         
         var player = player
         
-        player.teamNumber = 0
+        player.iGo.toggle()
+        player.teamNumber = 13
         
         db.collection("players").document(player.id).updateData(player.representation) { (error) in }
         

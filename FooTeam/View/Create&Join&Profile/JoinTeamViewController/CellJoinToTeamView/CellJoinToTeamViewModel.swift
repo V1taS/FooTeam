@@ -8,6 +8,7 @@
 
 import Combine
 import FirebaseAuth
+import SwiftUI
 
 protocol CellJoinToTeamViewModelProtocol {
     var currentUser: CurrentUser { get }
@@ -29,11 +30,8 @@ class CellJoinToTeamViewModel: CellJoinToTeamViewModelProtocol, ObservableObject
     
     required init() {
         self.currentUser.$player.sink { player in
-            if !player.idTeam.isEmpty {
-                self.isPresented = true
-            }
+            
         } .store(in: &cancellables)
-
     }
     
 }

@@ -11,6 +11,7 @@ import SwiftUI
 struct MainScreenView: View {
     
     @StateObject private var viewModel = MainScreenViewModel()
+    @Binding var showAcceptPlayers: Bool
     
     var body: some View {
         NavigationView {
@@ -27,7 +28,7 @@ struct MainScreenView: View {
                     HStack {
                         ProfileMainScreenView()
                         Spacer()
-                        InformationsMainScreenView()
+                        InformationsMainScreenView(showAcceptPlayers: $showAcceptPlayers)
                     } . padding(.horizontal)
                     
                     HStack {
@@ -61,6 +62,6 @@ struct MainScreenView: View {
 
 struct MainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        MainScreenView()
+        MainScreenView(showAcceptPlayers: .constant(false))
     }
 }

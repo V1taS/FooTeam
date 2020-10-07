@@ -16,6 +16,7 @@ protocol WaitingForConfirmationViewModelProtocol {
     
     var downloadAmount: Double { get }
     var isPresented: Bool { get }
+    var playerNoAccept: Bool { get }
     init()
 }
 
@@ -25,18 +26,19 @@ class WaitingForConfirmationViewModel: WaitingForConfirmationViewModelProtocol, 
     
     @Published var downloadAmount: Double = 0.0
     @Published var isPresented: Bool = false
+    @Published var playerNoAccept: Bool = false
     
     required init() {
         self.currentUser.$player.sink { player in
+            if player.teamNumber == 13 {
+                self.playerNoAccept = true
+                EditPlayerSimple.shared.editPlayerInTeam(player: player)
+            }
             if let user = Auth.auth().currentUser {
                 FirestoreService.shared.getUserData(user: user) { (result) in
                     switch result {
                     case .success(let player):
-                        if player.idTeam.isEmpty {
-                            let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
-                            mainContentFooTeam.modalPresentationStyle = .fullScreen
-                            UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
-                        } else {
+                        if !player.idTeam.isEmpty {
                             let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
@@ -46,11 +48,6 @@ class WaitingForConfirmationViewModel: WaitingForConfirmationViewModelProtocol, 
                     }
                 }
             }
-            //            else {
-            //                let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
-            //                mainContentFooTeam.modalPresentationStyle = .fullScreen
-            //                UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
-            //            }
         } .store(in: &cancellables)
     }
 }

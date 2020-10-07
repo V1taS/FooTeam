@@ -19,14 +19,25 @@ struct ListTeamsMainScreenView: View {
                 Section(header: Text("Выбери команду")) {
                     
                     HStack {
-                        Picker("", selection: $viewModel.selectionTeams) {
-                            ForEach(0..<viewModel.countTeams, id: \.self) { index in
-                                Text("Команда - \(index + 1)")
+                        if viewModel.iGoCount < 10 {
+                            HStack() {
+                                Spacer()
+                                Text("Количество игроков не хватает для распределения на команды")
+                                    .font(.headline)
+                                    .foregroundColor(.red)
+                                Spacer()
                             }
-                        } .pickerStyle(SegmentedPickerStyle())
+                        } else {
+                            Picker("", selection: $viewModel.selectionTeams) {
+                                ForEach(0..<viewModel.countTeams, id: \.self) { index in
+                                    Text("Команда - \(index + 1)")
+                                }
+                            } .pickerStyle(SegmentedPickerStyle())
+                        }
                     }
                     
                     CellCardsWithPlayersMainScreenView(selectTeams: $viewModel.selectionTeams)
+                    
                     HStack {
                         Spacer()
                         Button(action: {

@@ -15,16 +15,17 @@ protocol JoinToTeamViewModelProtocol {
     
     var teams: [Team] { get }
     var isPresentedAlertSignOut: Bool { get }
+    var isPresentedCreateTeam: Bool { get }
     init()
 }
 
 class JoinToTeamViewModel: JoinToTeamViewModelProtocol, ObservableObject {
-    
     @Published var teamsListener = TeamsListener()
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var teams: [Team] = []
     @Published var isPresentedAlertSignOut = false
+    @Published var isPresentedCreateTeam = false
     
     required init() {
         self.teamsListener.$teams.sink { team in
