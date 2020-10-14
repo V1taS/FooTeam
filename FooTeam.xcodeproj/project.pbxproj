@@ -130,6 +130,7 @@
 		1BC99DF8251181FE007EE289 /* InformationsMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC99DF7251181FE007EE289 /* InformationsMainScreenViewModel.swift */; };
 		1BC99DFB25118971007EE289 /* TeamMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC99DFA25118971007EE289 /* TeamMainScreenViewModel.swift */; };
 		1BCEFFA0251031C300552AB3 /* NoAcceptInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */; };
+		1BF0F1B52537BA0100D1B77C /* DeleteCurrentPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0F1B42537BA0100D1B77C /* DeleteCurrentPlayer.swift */; };
 		1BF32C96251574E100941F44 /* ImagePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF32C95251574E100941F44 /* ImagePlayer.swift */; };
 		1BF833E2252FB1480077053E /* TeamShowModalMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF833E1252FB1480077053E /* TeamShowModalMainScreenView.swift */; };
 		1BF833E5252FB1610077053E /* TeamShowModalMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF833E4252FB1610077053E /* TeamShowModalMainScreenViewModel.swift */; };
@@ -263,6 +264,7 @@
 		1BC99DF7251181FE007EE289 /* InformationsMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1BC99DFA25118971007EE289 /* TeamMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAcceptInvitation.swift; sourceTree = "<group>"; };
+		1BF0F1B42537BA0100D1B77C /* DeleteCurrentPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCurrentPlayer.swift; sourceTree = "<group>"; };
 		1BF32C95251574E100941F44 /* ImagePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlayer.swift; sourceTree = "<group>"; };
 		1BF833E1252FB1480077053E /* TeamShowModalMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamShowModalMainScreenView.swift; sourceTree = "<group>"; };
 		1BF833E4252FB1610077053E /* TeamShowModalMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamShowModalMainScreenViewModel.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				1B9B2CF0251020FB00DAF164 /* EditPlayerSimple.swift */,
 				1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */,
 				1B53957E250AE91C00C8DFD9 /* DeletPlayer.swift */,
+				1BF0F1B42537BA0100D1B77C /* DeleteCurrentPlayer.swift */,
 				1B66458C25190E5C00962B4D /* DeletePlayerFromTeam.swift */,
 				1B539586250AEF9900C8DFD9 /* AddTeam.swift */,
 				1B539582250AEB2400C8DFD9 /* EditTeam.swift */,
@@ -1057,6 +1060,7 @@
 				1B858D22252FBAC40028E7C6 /* TeamEditModalMainScreenView.swift in Sources */,
 				1B6079AB2518DD74006E6970 /* ListPlayersProfileShowViewModel.swift in Sources */,
 				1B596F6F24EC73530092770B /* CreateTeamViewController.swift in Sources */,
+				1BF0F1B52537BA0100D1B77C /* DeleteCurrentPlayer.swift in Sources */,
 				1B539585250AECE300C8DFD9 /* AddPlayer.swift in Sources */,
 				1B596F9324EC73820092770B /* FirestoreService.swift in Sources */,
 				1B33582E250A8B46007EA9A7 /* JoinTheTeam.swift in Sources */,

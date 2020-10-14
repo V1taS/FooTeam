@@ -58,6 +58,13 @@ struct PlayersProfileEditor: View {
                                       text: $viewModel.player.email)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
+                        
+//                        HStack {
+//                            Text("Пароль:")
+//                            TextField("\(viewModel.passwordPlayer)",
+//                                      text: $viewModel.passwordPlayer)
+//                                .textFieldStyle(RoundedBorderTextFieldStyle())
+//                        }
                     }
                     
                     if viewModel.selectionWhoAreYou == 0 {
@@ -133,7 +140,6 @@ struct PlayersProfileEditor: View {
                                 }
                             }
                         }
-                        
                     }
                     
                     HStack {
@@ -166,6 +172,13 @@ struct PlayersProfileEditor: View {
                                     losGame: self.viewModel.player.losGame,
                                     captain: self.viewModel.player.captain)
                                 
+                                if player.email != viewModel.player.email {
+                                    AuthService.shared.updatingUserEmail(getEmailAddres: viewModel.player.email)
+                                }
+                                
+//                                if !viewModel.passwordPlayer.isEmpty {
+//                                    AuthService.shared.updatingUserPassword(getPassword: viewModel.passwordPlayer)
+//                                }
                                 presentationMode.wrappedValue.dismiss()
                             }
                             
