@@ -80,10 +80,16 @@ extension LoginViewController {
                     self.showAlert(with: "Успешно!", and: "Вы авторизованы!") {
                         FirestoreService.shared.getUserData(user: user) { (result) in
                             switch result {
-                            case .success( _):
-                                let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
-                                mainContentFooTeam.modalPresentationStyle = .fullScreen
-                                self.present(mainContentFooTeam, animated: true, completion: nil)
+                            case .success(let player):
+                                if !player.idTeam.isEmpty {
+                                    let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
+                                    mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                    self.present(mainContentFooTeam, animated: true, completion: nil)
+                                } else {
+                                    let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
+                                    mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                    UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
+                                }
                             case .failure(_):
                                 self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
                             }
@@ -128,7 +134,6 @@ extension LoginViewController {
                 self.showAlert(with: "Успешно", and: "Письмо с инструкцией по восстановлению пароля отправлено на почту \(self.emailTextField.text ?? "")")
             }
         }
-        
     }
 }
 

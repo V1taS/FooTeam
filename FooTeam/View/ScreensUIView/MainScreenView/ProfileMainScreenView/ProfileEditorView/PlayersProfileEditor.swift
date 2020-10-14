@@ -141,7 +141,7 @@ struct PlayersProfileEditor: View {
                         Button(action: {
                             
                             if viewModel.deletPlayer {
-                                DeletPlayer.shared.deletPlayerInTeam(playerID: player.id)
+                                DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: player)
                                 presentationMode.wrappedValue.dismiss()
                             } else {
                                 EditPlayer.shared.editPlayerInTeam(
