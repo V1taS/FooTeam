@@ -18,16 +18,16 @@ struct ListPlayersProfileShow: View {
             HStack {
                 Spacer()
                 CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)),
-                                      namePlayer: player.name,
-                                      photoPlayer: player.avatarStringURL,
-                                      ratingPlayer: "\(player.rating)",
-                                      positionPlayer: player.position,
+                                      namePlayer: viewModel.player.name,
+                                      photoPlayer: viewModel.player.avatarStringURL,
+                                      ratingPlayer: "\(viewModel.player.rating)",
+                                      positionPlayer: viewModel.player.position,
                                       locationCountryImage: "",
-                                      logoTeamImage: viewModel.team.avatarStringURL ?? "",
-                                      game: "\(player.winGame + player.losGame)",
-                                      goal: "\(player.numberOfGoals)",
-                                      win: "\(player.winGame)",
-                                      los: "\(player.losGame)")
+                                      logoTeamImage: viewModel.team.avatarStringURL,
+                                      game: "\(viewModel.player.winGame + viewModel.player.losGame)",
+                                      goal: "\(viewModel.player.numberOfGoals)",
+                                      win: "\(viewModel.player.winGame)",
+                                      los: "\(viewModel.player.losGame)")
                     .padding(.vertical, 8)
                 Spacer()
             }
@@ -35,7 +35,7 @@ struct ListPlayersProfileShow: View {
                 HStack {
                     Text("Играю в команде:")
                     Spacer()
-                    Text("\(viewModel.team.teamName ?? "")")
+                    Text("\(viewModel.team.teamName)")
                         .font(.headline)
                     
                 }
@@ -44,25 +44,24 @@ struct ListPlayersProfileShow: View {
                     Text("Личный баланс:")
                     Spacer()
                         .foregroundColor(Color.green)
-                    Text("\(player.payment) FCoin")
+                    Text("\(viewModel.player.payment) FCoin")
                         .font(.headline)
                 }
                 
                 HStack {
-                    Text("Месячнвя подписка:")
+                    Text("Месячная подписка:")
                     Spacer()
-                    Text("\(player.subscription ? "активна" : "не активна")")
+                    Text("\(viewModel.player.subscription ? "активна" : "не активна")")
                         .font(.headline)
                 }
                 
                 HStack {
                     Text("Иду на след. игру:")
                     Spacer()
-                    Text("\(player.iGo ? "да" : "нет")")
+                    Text("\(viewModel.player.iGo ? "да" : "нет")")
                         .font(.headline)
                 }
-                
-        } .onAppear { BufferIDplayer.shared.saveUserID(id: player.id) }
+        } .onAppear { viewModel.playerID = player.id }
         
         .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
         

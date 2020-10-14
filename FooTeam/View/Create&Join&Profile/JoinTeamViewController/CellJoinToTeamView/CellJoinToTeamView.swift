@@ -25,21 +25,21 @@ struct CellJoinToTeamView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                     
                     VStack(alignment: .center) {
-                        ImagePlayer(avatarStringURL: team.avatarStringURL ?? "", avatarSize: 100, placeholder: "team")
+                        ImagePlayer(avatarStringURL: team.avatarStringURL, avatarSize: 100, placeholder: "team")
                         
-                        Text("\(team.teamName ?? "")")
+                        Text("\(team.teamName)")
                             .foregroundColor(Color(viewModel.colorText))
                             .font(.headline)
                             .lineLimit(2)
                             .minimumScaleFactor(0.7)
                         
-                        Text("\(team.teamType ?? "")")
+                        Text("\(team.teamType)")
                             .font(.system(size: 15))
                             .foregroundColor(.green)
                             .fontWeight(.bold)
                             .padding(.top, 1)
                         
-                        Text("\(team.location ?? "")")
+                        Text("\(team.location)")
                             .foregroundColor(Color(viewModel.colorText))
                             .font(.system(size: 15))
                             .padding(.top, 1)

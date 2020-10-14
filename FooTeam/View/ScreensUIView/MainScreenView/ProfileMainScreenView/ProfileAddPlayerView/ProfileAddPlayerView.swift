@@ -66,7 +66,7 @@ struct ProfileAddPlayerView: View {
                         HStack {
                             Text("Играет в команде:")
                             Spacer()
-                            Text("\(viewModel.team.teamName ?? "")")
+                            Text("\(viewModel.team.teamName)")
                                 .font(.headline)
                         }
                     }

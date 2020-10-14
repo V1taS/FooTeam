@@ -27,7 +27,7 @@ struct BoxTopPlayersFooTeam: View {
                                           ratingPlayer: "\(player.rating)",
                                           positionPlayer: player.position,
                                           locationCountryImage: "",
-                                          logoTeamImage: currentTeam.team.avatarStringURL ?? "",
+                                          logoTeamImage: currentTeam.team.avatarStringURL ,
                                           game: "\(player.winGame + player.losGame)",
                                           goal: "\(player.numberOfGoals)",
                                           win: "\(player.winGame)",

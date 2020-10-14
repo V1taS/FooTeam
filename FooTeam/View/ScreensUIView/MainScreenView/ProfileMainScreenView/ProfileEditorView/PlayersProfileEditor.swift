@@ -18,37 +18,22 @@ struct PlayersProfileEditor: View {
         NavigationView {
             ZStack {
                 Form {
-                    HStack {
-                        Spacer()
-                        CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
-                                              namePlayer: "\(viewModel.player.name)",
-                                              photoPlayer: "\(viewModel.player.avatarStringURL)",
-                                              ratingPlayer: "\(viewModel.player.rating)",
-                                              positionPlayer: "\(viewModel.player.position)",
-                                              locationCountryImage: "",
-                                              logoTeamImage: viewModel.team.avatarStringURL ?? "",
-                                              game: "\(viewModel.player.winGame + viewModel.player.losGame)",
-                                              goal: "\(viewModel.player.numberOfGoals)",
-                                              win: "\(viewModel.player.winGame)",
-                                              los: "\(viewModel.player.losGame)")
-                            .padding(.vertical, 8)
-                        Spacer()
-                    }
-                    
-                    HStack {
-                        Spacer()
-                        Button(action: { viewModel.isPresentedChangeAvatar.toggle() } ) {
-                            Text("Изменить аватар")
-                                .font(.system(.headline, design: .serif))
-                                .foregroundColor(Color.black)
-                                .padding(.horizontal)
-                                .padding(.vertical, 5)
-                                .background(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
-                                .clipShape(RoundedRectangle(cornerRadius: 5))
-                                .overlay(RoundedRectangle(cornerRadius: 5) .stroke())
-                        }
-                        Spacer()
-                    }
+                        HStack {
+                            Spacer()
+                            CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
+                                                  namePlayer: "\(viewModel.player.name)",
+                                                  photoPlayer: "\(viewModel.player.avatarStringURL)",
+                                                  ratingPlayer: "\(viewModel.player.rating)",
+                                                  positionPlayer: "\(viewModel.player.position)",
+                                                  locationCountryImage: "",
+                                                  logoTeamImage: viewModel.team.avatarStringURL,
+                                                  game: "\(viewModel.player.winGame + viewModel.player.losGame)",
+                                                  goal: "\(viewModel.player.numberOfGoals)",
+                                                  win: "\(viewModel.player.winGame)",
+                                                  los: "\(viewModel.player.losGame)")
+                                .padding(.vertical, 8)
+                            Spacer()
+                        } .onTapGesture { viewModel.isPresentedChangeAvatar.toggle() }
                     
                     VStack {
                         HStack {
@@ -133,6 +118,14 @@ struct PlayersProfileEditor: View {
                             }
                             
                             HStack {
+                                Text("Сделать капитаном команды?")
+                                Toggle(isOn: $viewModel.player.captain) {
+                                    Text("\(viewModel.player.captain ? "да" : "нет")")
+                                        .font(.headline)
+                                }
+                            }
+                            
+                            HStack {
                                 Text("Удалить игрока из команды?")
                                 Toggle(isOn: $viewModel.deletPlayer) {
                                     Text("\(viewModel.deletPlayer ? "да" : "нет")")
@@ -155,7 +148,7 @@ struct PlayersProfileEditor: View {
                                     player: self.viewModel.player,
                                     players: self.viewModel.players,
                                     name: self.viewModel.player.name,
-                                    avatarImage: nil,
+                                    avatarImage: self.viewModel.image,
                                     email: self.viewModel.player.email,
                                     whoAreYou: self.viewModel.whoAreYou[self.viewModel.selectionWhoAreYou],
                                     teamNumber: nil,
@@ -200,21 +193,24 @@ struct PlayersProfileEditor: View {
                 
                 if viewModel.isPresentedChangeAvatar {
                     ZStack {
-                        Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)).opacity(0.9)
-                        EditPhotoView(player: viewModel.player, isPresentedChangeAvatar: $viewModel.isPresentedChangeAvatar)
-                    }
-                    .frame(width: 330, height: 330)
-                    .cornerRadius(20)
-                    .offset(x: 0, y: 220)
+                        Color.black.opacity(0.8)
+                        ZStack {
+                            Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
+                            EditPhotoView(player: viewModel.player, isPresentedChangeAvatar: $viewModel.isPresentedChangeAvatar, image: $viewModel.image)
+                        }
+                        .frame(width: 330, height: 330)
+                        .cornerRadius(20)
+                        .offset(x: 0, y: 220)
+                    } .edgesIgnoringSafeArea(.all)
+                    
                 }
-                
             }
         }
     }
 }
-
-struct ListPlayersProfileEditor_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayersProfileEditor(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
+    
+    struct ListPlayersProfileEditor_Previews: PreviewProvider {
+        static var previews: some View {
+            PlayersProfileEditor(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
+        }
     }
-}

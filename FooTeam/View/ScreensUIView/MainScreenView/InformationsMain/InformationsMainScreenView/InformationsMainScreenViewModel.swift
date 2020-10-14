@@ -55,7 +55,7 @@ class InformationsMainScreenViewModel: InformationsMainScreenViewModelProtocol, 
         } .store(in: &cancellables)
         
         self.currentTeam.$team.sink { team in
-            self.nameTeam = team.teamName ?? ""
+            self.nameTeam = team.teamName 
         } .store(in: &cancellables)
         
         self.datePlay = calendarFooTeam.datePlay

@@ -24,7 +24,7 @@ class EditPlayerThree {
         var player = player
         
         if let avatarImage = avatarUIImage {
-            StorageService.shared.uploadAvaPlayer(photo: avatarImage) { (result) in
+            StorageService.shared.uploadAvaPlayer(photo: avatarImage, idPlayer: player.id) { (result) in
                 switch result {
                 case .success(let url):
                     player.avatarStringURL = url.absoluteString

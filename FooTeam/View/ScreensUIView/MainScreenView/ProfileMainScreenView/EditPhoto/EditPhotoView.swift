@@ -14,15 +14,16 @@ struct EditPhotoView: View {
     @StateObject private var viewModel = EditPhotoViewModel()
     var player: Player
     @Binding var isPresentedChangeAvatar: Bool
+    @Binding var image: UIImage
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            
             HStack {
                 Spacer()
                 Button(action: { isPresentedChangeAvatar.toggle() } ) {
-                    Text("Закрыть")
-                        .foregroundColor(Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)))
+                    Image(systemName: "multiply")
+                        .renderingMode(.original)
+                        .font(.title)
                 }
             } .padding(.horizontal)
             
@@ -31,7 +32,7 @@ struct EditPhotoView: View {
                     .resizable()
                     .renderingMode(.original)
                     .onSuccess { image, data, cacheType in }
-                    .placeholder(Image(uiImage: viewModel.image))
+                    .placeholder(Image(uiImage: image))
                     .indicator(.activity)
                     .transition(.fade(duration: 0.5))
                     .scaledToFill()
@@ -95,6 +96,6 @@ struct EditPhotoView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EditPhotoView(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false), isPresentedChangeAvatar: .constant(false))
+        EditPhotoView(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false), isPresentedChangeAvatar: .constant(false), image: .constant(UIImage(systemName: "opticaldiscdrive")!))
     }
 }

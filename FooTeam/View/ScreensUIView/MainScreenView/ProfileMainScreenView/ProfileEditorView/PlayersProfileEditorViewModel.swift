@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 
 protocol ListPlayersProfileEditorViewModelProtocol {
@@ -27,6 +27,7 @@ protocol ListPlayersProfileEditorViewModelProtocol {
     
     var positions: [String] { get }
     var selectionPositions: Int { get }
+    var image: UIImage { get }
     init()
 }
 
@@ -71,6 +72,8 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
     
     var positions: [String] = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"] // Настроить логику
     @Published var selectionPositions: Int = 0 // Настроить логику
+    
+    @Published var image = UIImage()
     
     required init() {
         self.actionsPlayers.$players.sink { players in

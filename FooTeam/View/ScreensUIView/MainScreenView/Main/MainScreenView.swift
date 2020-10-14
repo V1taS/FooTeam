@@ -12,6 +12,7 @@ struct MainScreenView: View {
     
     @StateObject private var viewModel = MainScreenViewModel()
     @Binding var showAcceptPlayers: Bool
+    @Binding var showTeamModal: Bool
     
     var body: some View {
         NavigationView {
@@ -28,7 +29,7 @@ struct MainScreenView: View {
                     HStack {
                         ProfileMainScreenView()
                         Spacer()
-                        InformationsMainScreenView(showAcceptPlayers: $showAcceptPlayers)
+                        InformationsMainScreenView(showAcceptPlayers: $showAcceptPlayers, showTeamModal: $showTeamModal)
                     } . padding(.horizontal)
                     
                     HStack {
@@ -62,6 +63,6 @@ struct MainScreenView: View {
 
 struct MainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        MainScreenView(showAcceptPlayers: .constant(false))
+        MainScreenView(showAcceptPlayers: .constant(false), showTeamModal: .constant(false))
     }
 }

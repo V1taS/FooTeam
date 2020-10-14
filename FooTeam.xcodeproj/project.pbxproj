@@ -109,6 +109,9 @@
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
 		1B7F262C25098A5B0053E124 /* JoinToTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F262B25098A5B0053E124 /* JoinToTeamView.swift */; };
+		1B858D22252FBAC40028E7C6 /* TeamEditModalMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B858D21252FBAC40028E7C6 /* TeamEditModalMainScreenView.swift */; };
+		1B858D26252FBADA0028E7C6 /* TeamEditModalMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B858D25252FBADA0028E7C6 /* TeamEditModalMainScreenViewModel.swift */; };
+		1B858D2A252FC2A90028E7C6 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B858D29252FC2A90028E7C6 /* PageView.swift */; };
 		1B85C933250824C1002C3106 /* ProfileAddPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85C932250824C1002C3106 /* ProfileAddPlayerView.swift */; };
 		1B94F1132523F47E0066F091 /* WaitingPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B94F1122523F47E0066F091 /* WaitingPlayers.swift */; };
 		1B9B2CF1251020FB00DAF164 /* EditPlayerSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B2CF0251020FB00DAF164 /* EditPlayerSimple.swift */; };
@@ -128,6 +131,8 @@
 		1BC99DFB25118971007EE289 /* TeamMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC99DFA25118971007EE289 /* TeamMainScreenViewModel.swift */; };
 		1BCEFFA0251031C300552AB3 /* NoAcceptInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */; };
 		1BF32C96251574E100941F44 /* ImagePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF32C95251574E100941F44 /* ImagePlayer.swift */; };
+		1BF833E2252FB1480077053E /* TeamShowModalMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF833E1252FB1480077053E /* TeamShowModalMainScreenView.swift */; };
+		1BF833E5252FB1610077053E /* TeamShowModalMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF833E4252FB1610077053E /* TeamShowModalMainScreenViewModel.swift */; };
 		D02706FBC9D63697342D802C /* Pods_FooTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA697D99BF920C0DACBC30C /* Pods_FooTeam.framework */; };
 /* End PBXBuildFile section */
 
@@ -237,6 +242,9 @@
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7F262B25098A5B0053E124 /* JoinToTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToTeamView.swift; sourceTree = "<group>"; };
+		1B858D21252FBAC40028E7C6 /* TeamEditModalMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEditModalMainScreenView.swift; sourceTree = "<group>"; };
+		1B858D25252FBADA0028E7C6 /* TeamEditModalMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEditModalMainScreenViewModel.swift; sourceTree = "<group>"; };
+		1B858D29252FC2A90028E7C6 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		1B85C932250824C1002C3106 /* ProfileAddPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddPlayerView.swift; sourceTree = "<group>"; };
 		1B94F1122523F47E0066F091 /* WaitingPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingPlayers.swift; sourceTree = "<group>"; };
 		1B9B2CF0251020FB00DAF164 /* EditPlayerSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerSimple.swift; sourceTree = "<group>"; };
@@ -256,6 +264,8 @@
 		1BC99DFA25118971007EE289 /* TeamMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1BCEFF9F251031C300552AB3 /* NoAcceptInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAcceptInvitation.swift; sourceTree = "<group>"; };
 		1BF32C95251574E100941F44 /* ImagePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlayer.swift; sourceTree = "<group>"; };
+		1BF833E1252FB1480077053E /* TeamShowModalMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamShowModalMainScreenView.swift; sourceTree = "<group>"; };
+		1BF833E4252FB1610077053E /* TeamShowModalMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamShowModalMainScreenViewModel.swift; sourceTree = "<group>"; };
 		31547FB1B37B719FC927882A /* Pods-FooTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.debug.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.debug.xcconfig"; sourceTree = "<group>"; };
 		6A1085B3817BBDFDF757C0A8 /* Pods-FooTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FooTeam.release.xcconfig"; path = "Target Support Files/Pods-FooTeam/Pods-FooTeam.release.xcconfig"; sourceTree = "<group>"; };
 		EEA697D99BF920C0DACBC30C /* Pods_FooTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FooTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -394,7 +404,7 @@
 				1BC99DF6251181D8007EE289 /* Main */,
 				1B18C2DC25116ADC00551C6D /* HeaderMainScreenView */,
 				1B50E65625066F58009B10C7 /* ProfileMainScreenView */,
-				1B52069E2511818200AD29BA /* InformationsMainScreenView */,
+				1B52069E2511818200AD29BA /* InformationsMain */,
 				1B4A3DC52502EA98000EABD1 /* TeamMainScreenView */,
 				1B596F5D24EC73530092770B /* TopPlayersScreenView */,
 			);
@@ -432,13 +442,14 @@
 			path = ProfileMainScreenView;
 			sourceTree = "<group>";
 		};
-		1B52069E2511818200AD29BA /* InformationsMainScreenView */ = {
+		1B52069E2511818200AD29BA /* InformationsMain */ = {
 			isa = PBXGroup;
 			children = (
-				1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */,
-				1BC99DF7251181FE007EE289 /* InformationsMainScreenViewModel.swift */,
+				1BF833DE252FB1150077053E /* InformationsMainScreenView */,
+				1BF833E7252FB16F0077053E /* TeamShowModal */,
+				1B858D20252FBA8D0028E7C6 /* TeamEditModal */,
 			);
-			path = InformationsMainScreenView;
+			path = InformationsMain;
 			sourceTree = "<group>";
 		};
 		1B596F2424EC714B0092770B = {
@@ -539,6 +550,7 @@
 		1B596F5824EC73530092770B /* ScreensUIView */ = {
 			isa = PBXGroup;
 			children = (
+				1B858D28252FC2940028E7C6 /* PageView */,
 				1B6B48102511959E00D71729 /* TabViewFooTeam */,
 				1B39446C24F9A3010008FC40 /* MainScreenView */,
 				1B596F6624EC73530092770B /* SecondScreenView */,
@@ -727,6 +739,23 @@
 			path = CellJoinToTeamView;
 			sourceTree = "<group>";
 		};
+		1B858D20252FBA8D0028E7C6 /* TeamEditModal */ = {
+			isa = PBXGroup;
+			children = (
+				1B858D21252FBAC40028E7C6 /* TeamEditModalMainScreenView.swift */,
+				1B858D25252FBADA0028E7C6 /* TeamEditModalMainScreenViewModel.swift */,
+			);
+			name = TeamEditModal;
+			sourceTree = "<group>";
+		};
+		1B858D28252FC2940028E7C6 /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				1B858D29252FC2A90028E7C6 /* PageView.swift */,
+			);
+			name = PageView;
+			sourceTree = "<group>";
+		};
 		1BAD99E025117D1300022700 /* ProfileEditorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,6 +808,24 @@
 				1B6079AA2518DD74006E6970 /* ListPlayersProfileShowViewModel.swift */,
 			);
 			path = ListPlayersProfileShow;
+			sourceTree = "<group>";
+		};
+		1BF833DE252FB1150077053E /* InformationsMainScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */,
+				1BC99DF7251181FE007EE289 /* InformationsMainScreenViewModel.swift */,
+			);
+			path = InformationsMainScreenView;
+			sourceTree = "<group>";
+		};
+		1BF833E7252FB16F0077053E /* TeamShowModal */ = {
+			isa = PBXGroup;
+			children = (
+				1BF833E1252FB1480077053E /* TeamShowModalMainScreenView.swift */,
+				1BF833E4252FB1610077053E /* TeamShowModalMainScreenViewModel.swift */,
+			);
+			path = TeamShowModal;
 			sourceTree = "<group>";
 		};
 		5AD05B77981D44B12A07023D /* Pods */ = {
@@ -961,6 +1008,7 @@
 				1BF32C96251574E100941F44 /* ImagePlayer.swift in Sources */,
 				1B85C933250824C1002C3106 /* ProfileAddPlayerView.swift in Sources */,
 				1B50E65825066F97009B10C7 /* ProfileShowModalMainScreenView.swift in Sources */,
+				1BF833E2252FB1480077053E /* TeamShowModalMainScreenView.swift in Sources */,
 				1BBDD87B251D60B000517BB3 /* CellCardsWithPlayersMainScreenViewModel.swift in Sources */,
 				1B596F9E24EC73A00092770B /* AuthNavigatingDelegate.swift in Sources */,
 				1B02408D251172210074100A /* ProfileShowModalMainScreenViewModel.swift in Sources */,
@@ -970,6 +1018,7 @@
 				1BC080962518F91600FA5908 /* BufferIDplayer.swift in Sources */,
 				1B596FC424EC73A90092770B /* AddAvaPlayersView.swift in Sources */,
 				1B596F7924EC73530092770B /* CellCaruselBodyFooTeam.swift in Sources */,
+				1B858D26252FBADA0028E7C6 /* TeamEditModalMainScreenViewModel.swift in Sources */,
 				1BCEFFA0251031C300552AB3 /* NoAcceptInvitation.swift in Sources */,
 				1B0C6FD6251827B90087169B /* TopPlayersScreenViewModel.swift in Sources */,
 				1B596F6A24EC73530092770B /* AuthViewController.swift in Sources */,
@@ -993,6 +1042,7 @@
 				1B596F7C24EC73530092770B /* ListPlayersSecondScreenView.swift in Sources */,
 				1B596FC224EC73A90092770B /* CustomeTextField.swift in Sources */,
 				1B39447024F9A3A00008FC40 /* ProfileMainScreenView.swift in Sources */,
+				1BF833E5252FB1610077053E /* TeamShowModalMainScreenViewModel.swift in Sources */,
 				1B4A3DC72502EAEA000EABD1 /* ListTeamsMainScreenView.swift in Sources */,
 				1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */,
 				1BB14D9E252138B200B8CFCF /* UIResponder.swift in Sources */,
@@ -1004,11 +1054,13 @@
 				1B53957B250ADF1500C8DFD9 /* CurrentUser.swift in Sources */,
 				1B596F7A24EC73530092770B /* BoxCaruselBodyFooTeam.swift in Sources */,
 				1B596FBC24EC73A90092770B /* ButtonExtension.swift in Sources */,
+				1B858D22252FBAC40028E7C6 /* TeamEditModalMainScreenView.swift in Sources */,
 				1B6079AB2518DD74006E6970 /* ListPlayersProfileShowViewModel.swift in Sources */,
 				1B596F6F24EC73530092770B /* CreateTeamViewController.swift in Sources */,
 				1B539585250AECE300C8DFD9 /* AddPlayer.swift in Sources */,
 				1B596F9324EC73820092770B /* FirestoreService.swift in Sources */,
 				1B33582E250A8B46007EA9A7 /* JoinTheTeam.swift in Sources */,
+				1B858D2A252FC2A90028E7C6 /* PageView.swift in Sources */,
 				1BBDD882251D66A500517BB3 /* RatingOfPlayers.swift in Sources */,
 				1B596F6B24EC73530092770B /* LoginViewController.swift in Sources */,
 				1B453AAC2501A28B00DA2DDA /* FirebaseReference.swift in Sources */,
@@ -1189,7 +1241,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FooTeam/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1197,7 +1249,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1212,7 +1264,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FooTeam/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1220,7 +1272,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

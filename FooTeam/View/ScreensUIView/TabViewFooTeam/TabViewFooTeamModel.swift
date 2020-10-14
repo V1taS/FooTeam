@@ -23,6 +23,8 @@ class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var showAcceptPlayers: Bool = false
+    @Published var showTeamModal: Bool = false
+    
     @Published var players: [Player] = []
     
     required init() {

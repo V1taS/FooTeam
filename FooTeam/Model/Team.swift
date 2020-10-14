@@ -11,12 +11,12 @@ import Firebase
 
 struct Team: Hashable, Decodable {
     
-    var avatarStringURL: String?
-    var teamName: String?
-    var location: String?
-    var teamType: String?
+    var avatarStringURL: String
+    var teamName: String
+    var location: String
+    var teamType: String
     var id: String
-    var rating: Int?
+    var rating: Int
     
     init(avatarStringURL: String, teamName: String, location: String, teamType: String, rating: Int) {
         self.avatarStringURL = avatarStringURL
@@ -64,7 +64,7 @@ struct Team: Hashable, Decodable {
     
     var representation: [String: Any] {
         var rep: [String: Any]
-        rep = ["avatarStringURL": avatarStringURL!]
+        rep = ["avatarStringURL": avatarStringURL]
         rep["teamName"] = teamName
         rep["location"] = location
         rep["teamType"] = teamType
@@ -85,7 +85,7 @@ struct Team: Hashable, Decodable {
         guard let filter = filter else { return true }
         if filter.isEmpty { return true }
         let lowercasedFilter = filter.lowercased()
-        return teamName!.lowercased().contains(lowercasedFilter)
+        return teamName.lowercased().contains(lowercasedFilter)
     }
 }
 

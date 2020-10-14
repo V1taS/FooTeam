@@ -53,7 +53,7 @@ class EditPlayer {
         if let captain = captain { player.captain = captain }
         
         if let avatarImage = avatarImage {
-            StorageService.shared.uploadAvaPlayer(photo: avatarImage) { (result) in
+            StorageService.shared.uploadAvaPlayer(photo: avatarImage, idPlayer: player.id) { (result) in
                 switch result {
                 case .success(let url): player.avatarStringURL = url.absoluteString
                 case .failure(let error): print(error)

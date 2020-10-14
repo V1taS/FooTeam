@@ -92,7 +92,7 @@ class FirestoreService {
                              losGame: 0,
                              captain: false)
         
-        StorageService.shared.uploadAvaPlayer(photo: avatarImage!) { (result) in
+        StorageService.shared.uploadAvaPlayer(photo: avatarImage!, idPlayer: currentUserId) { (result) in
             switch result {
                 
             case .success(let url):
@@ -129,7 +129,7 @@ class FirestoreService {
         var team = Team(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, rating: rating!)
         let refCountPlayers = db.collection(["teams", team.id, "actionsPlayers"].joined(separator: "/"))
         
-        StorageService.shared.uploadAvaTeam(photo: avatarTeam!) { (result) in
+        StorageService.shared.uploadAvaTeam(photo: avatarTeam!, idTeam: team.id) { (result) in
             switch result {
                 
             case .success(let url):

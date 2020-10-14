@@ -24,7 +24,7 @@ struct ProfileShowModalMainScreenView: View {
                                           ratingPlayer: "\(viewModel.player.rating)",
                                           positionPlayer: "\(viewModel.player.position)",
                                           locationCountryImage: "",
-                                          logoTeamImage: viewModel.team.avatarStringURL ?? "",
+                                          logoTeamImage: viewModel.team.avatarStringURL ,
                                           game: "\(viewModel.player.winGame + viewModel.player.losGame)",
                                           goal: "\(viewModel.player.numberOfGoals)",
                                           win: "\(viewModel.player.winGame)",
@@ -36,7 +36,7 @@ struct ProfileShowModalMainScreenView: View {
                 HStack {
                     Text("Играю в команде:")
                     Spacer()
-                    Text("\(viewModel.team.teamName ?? "")")
+                    Text("\(viewModel.team.teamName)")
                         .font(.headline)
                 }
                 
@@ -49,7 +49,7 @@ struct ProfileShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text("Месячнвя подписка:")
+                    Text("Месячная подписка:")
                     Spacer()
                     Text("\(viewModel.player.subscription ? "активна" : "не активна")")
                         .font(.headline)

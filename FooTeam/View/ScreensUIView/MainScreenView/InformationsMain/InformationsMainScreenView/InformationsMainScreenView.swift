@@ -12,6 +12,7 @@ struct InformationsMainScreenView: View {
     
     @StateObject private var viewModel = InformationsMainScreenViewModel()
     @Binding var showAcceptPlayers: Bool
+    @Binding var showTeamModal: Bool
     
     var body: some View {
         ZStack {
@@ -65,10 +66,20 @@ struct InformationsMainScreenView: View {
                 
                 if viewModel.capitan {
                     VStack(alignment: .center, spacing: 1) {
-                        Button(action: { showAcceptPlayers.toggle() }) {
-                            Image(systemName: "mail")
-                                .font(.title)
-                                .foregroundColor(viewModel.playersWaitingAccept.isEmpty ? .gray : .green)
+                        HStack {
+                            Button(action: { showAcceptPlayers.toggle() }) {
+                                Image(systemName: "mail")
+                                    .font(.title)
+                                    .foregroundColor(viewModel.playersWaitingAccept.isEmpty ? .gray : .green)
+                            }
+                            
+                            Button(action: { showTeamModal.toggle() }) {
+                                Image(systemName: "camera.metering.multispot")
+                                    .font(.title)
+                                    .foregroundColor(.gray)
+                            } .sheet(isPresented: $showTeamModal) {
+                                TeamShowModalMainScreenView()
+                            }
                         }
                     } .frame(width: 160) .padding(.top, 2)
                 }
@@ -81,6 +92,6 @@ struct InformationsMainScreenView: View {
 
 struct InformationMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        InformationsMainScreenView(showAcceptPlayers: .constant(false))
+        InformationsMainScreenView(showAcceptPlayers: .constant(false), showTeamModal: .constant(false))
     }
 }

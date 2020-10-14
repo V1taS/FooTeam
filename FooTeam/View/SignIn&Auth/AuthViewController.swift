@@ -8,8 +8,6 @@
 
 import UIKit
 import GoogleSignIn
-import CryptoKit
-import AuthenticationServices
 
 class AuthViewController: UIViewController {
 
@@ -75,16 +73,13 @@ extension AuthViewController {
        }
 }
 
-// MARK: - Войти через Apple»
-
-
 // MARK: - Setup constraints
 extension AuthViewController {
     private func setupConstraints() {
         
         let topStackView = UIStackView(arrangedSubviews: [registerInFTLabel, descriptionFTLabel], axis: .vertical, spacing: 20)
         
-        let stackView = UIStackView(arrangedSubviews: [emailButton, appleButton, googleButton], axis: .vertical, spacing: 10)
+        let stackView = UIStackView(arrangedSubviews: [emailButton, googleButton], axis: .vertical, spacing: 10)
         
         loginButton.contentHorizontalAlignment = .fill
         let bottomStackView = UIStackView(arrangedSubviews: [alreadyOnboardLabel, loginButton],

@@ -24,22 +24,18 @@ class StorageService {
         return storageRef.child("avaTeams")
     }
     
-    private var currentUserId: String {
-        return Auth.auth().currentUser!.uid
-    }
-    
     // MARK: - upload Image Player
-    func uploadAvaPlayer(photo: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
+    func uploadAvaPlayer(photo: UIImage, idPlayer: String, completion: @escaping (Result<URL, Error>) -> Void) {
         guard let scaledImage = photo.scaledToSafeUploadSize, let imageData = scaledImage.jpegData(compressionQuality: 0.4) else { return }
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         
-        avaPlayersRef.child(currentUserId).putData(imageData, metadata: metadata) { (metadata, error) in
+        avaPlayersRef.child(idPlayer).putData(imageData, metadata: metadata) { (metadata, error) in
             guard let _ = metadata else {
                 completion(.failure(error!))
                 return
             }
-            self.avaPlayersRef.child(self.currentUserId).downloadURL { (url, error) in
+            self.avaPlayersRef.child(idPlayer).downloadURL { (url, error) in
                 guard let downloadURL = url else {
                     completion(.failure(error!))
                     return
@@ -50,17 +46,17 @@ class StorageService {
     }
     
     // MARK: - upload Image Team
-    func uploadAvaTeam(photo: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
+    func uploadAvaTeam(photo: UIImage, idTeam: String, completion: @escaping (Result<URL, Error>) -> Void) {
         guard let scaledImage = photo.scaledToSafeUploadSize, let imageData = scaledImage.jpegData(compressionQuality: 0.4) else { return }
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         
-        avaTeamsRef.child(currentUserId).putData(imageData, metadata: metadata) { (metadata, error) in
+        avaTeamsRef.child(idTeam).putData(imageData, metadata: metadata) { (metadata, error) in
             guard let _ = metadata else {
                 completion(.failure(error!))
                 return
             }
-            self.avaTeamsRef.child(self.currentUserId).downloadURL { (url, error) in
+            self.avaTeamsRef.child(idTeam).downloadURL { (url, error) in
                 guard let downloadURL = url else {
                     completion(.failure(error!))
                     return

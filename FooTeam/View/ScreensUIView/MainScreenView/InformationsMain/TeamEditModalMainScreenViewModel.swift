@@ -1,30 +1,42 @@
 //
-//  TopPlayersScreenViewModel.swift
+//  TeamEditModalMainScreenViewModel.swift
 //  FooTeam
 //
-//  Created by Виталий Сосин on 21.09.2020.
+//  Created by Виталий Сосин on 09.10.2020.
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 
-protocol TopPlayersScreenViewModelProtocol {
+protocol TeamEditModalMainScreenViewModelProtocol {
     var actionsPlayers: ActionsPlayers { get }
     var currentTeam: CurrentTeam { get }
     var cancellables: Set<AnyCancellable> { get }
     
+    var isPresentedChangeAvatar: Bool { get }
+    
     var players: [Player] { get }
     var team: Team { get }
+    var deleteTeam: Bool { get }
+    
+    var availabilityTeamType: [String] { get }
+    var selectionAvailabilityTeamType: Int { get }
+
+    var image: UIImage { get }
     init()
 }
 
-class TopPlayersScreenViewModel: TopPlayersScreenViewModelProtocol, ObservableObject {
+class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol, ObservableObject {
     @Published var actionsPlayers = ActionsPlayers()
     @Published var currentTeam = CurrentTeam()
     internal var cancellables = Set<AnyCancellable>()
     
+    @Published var isPresentedChangeAvatar: Bool = false
+    @Published var deleteTeam: Bool = false
+    
     @Published var players: [Player] = []
+
     @Published var team: Team = Team(
         avatarStringURL: "",
         teamName: "",
@@ -33,10 +45,14 @@ class TopPlayersScreenViewModel: TopPlayersScreenViewModelProtocol, ObservableOb
         rating: 0
     )
     
+    var availabilityTeamType: [String] = ["Открытая", "Закрытая"] // Настроить логику
+    @Published var selectionAvailabilityTeamType: Int = 0 // Настроить логику
+
+    @Published var image = UIImage()
+    
     required init() {
         self.actionsPlayers.$players.sink { players in
-            let playersTOP = players.filter { $0.rating > 85 }
-            self.players = playersTOP.sorted(by: { $0.rating > $1.rating })
+            self.players = players
         } .store(in: &cancellables)
         
         self.currentTeam.$team.sink { team in
@@ -44,4 +60,5 @@ class TopPlayersScreenViewModel: TopPlayersScreenViewModelProtocol, ObservableOb
         } .store(in: &cancellables)
     }
 }
+
 

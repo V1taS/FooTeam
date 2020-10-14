@@ -18,7 +18,7 @@ struct TabViewFooTeam: View {
         ZStack {
             
             TabView {
-                MainScreenView(showAcceptPlayers: $viewModel.showAcceptPlayers)
+                MainScreenView(showAcceptPlayers: $viewModel.showAcceptPlayers, showTeamModal: $viewModel.showTeamModal)
                     .tabItem {
                         Image(systemName: "rectangle.3.offgrid.bubble.left")
                         Text("Главная")
@@ -36,6 +36,12 @@ struct TabViewFooTeam: View {
                     AcceptPlayersView(players: $viewModel.players, showAcceptPlayers: $viewModel.showAcceptPlayers)
                 }
             }
+            
+//            ZStack {
+//                Color.black
+//                    .edgesIgnoringSafeArea(.all)
+//                PageView()
+//            }
         }
     }
 }

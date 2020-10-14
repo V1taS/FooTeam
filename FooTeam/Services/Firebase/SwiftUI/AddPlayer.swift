@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 class AddPlayer {
     
@@ -56,7 +57,7 @@ class AddPlayer {
         player.id = UUID().uuidString
         
         if let avatarImage = avatarImage {
-            StorageService.shared.uploadAvaPlayer(photo: avatarImage) { (result) in
+            StorageService.shared.uploadAvaPlayer(photo: avatarImage, idPlayer: player.id) { (result) in
                 switch result {
                 case .success(let url): player.avatarStringURL = url.absoluteString
                 case .failure(let error): print(error)

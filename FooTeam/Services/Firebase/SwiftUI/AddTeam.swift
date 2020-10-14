@@ -33,7 +33,7 @@ class AddTeam {
         if let rating = rating { team.rating = rating }
         
         
-        StorageService.shared.uploadAvaTeam(photo: avatarImage!) { (result) in
+        StorageService.shared.uploadAvaTeam(photo: avatarImage!, idTeam: team.id) { (result) in
             switch result {
             case .success(let url): team.avatarStringURL = url.absoluteString
             case .failure(let error): print(error)

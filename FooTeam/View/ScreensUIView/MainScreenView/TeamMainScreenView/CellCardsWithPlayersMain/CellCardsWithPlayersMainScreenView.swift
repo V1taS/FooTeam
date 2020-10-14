@@ -24,8 +24,7 @@ struct CellCardsWithPlayersMainScreenView: View {
                                               ratingPlayer: "\(player.rating)",
                                               positionPlayer: player.position,
                                               locationCountryImage: "",
-                                              logoTeamImage: viewModel.currentTeam.team.avatarStringURL ?? "",
-                                              game: "\(player.winGame + player.losGame)",
+                                              logoTeamImage: viewModel.currentTeam.team.avatarStringURL,                                          game: "\(player.winGame + player.losGame)",
                                               goal: "\(player.numberOfGoals)",
                                               win: "\(player.winGame)",
                                               los: "\(player.losGame)")
