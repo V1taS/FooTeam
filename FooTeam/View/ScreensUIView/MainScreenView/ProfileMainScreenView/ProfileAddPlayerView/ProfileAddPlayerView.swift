@@ -28,7 +28,7 @@ struct ProfileAddPlayerView: View {
                     
                     HStack {
                         Text("Кто ты?")
-                        Picker("dvdvd", selection: $viewModel.selectionWhoAreYou) {
+                        Picker("", selection: $viewModel.selectionWhoAreYou) {
                             ForEach(0..<viewModel.whoAreYou.count) {
                                 Text(viewModel.whoAreYou[$0])
                             }
@@ -92,9 +92,8 @@ struct ProfileAddPlayerView: View {
                             winGame: 0,
                             losGame: 0,
                             captain: false)
-                        
+
                         presentationMode.wrappedValue.dismiss()
-                        
                     } ) {
                         Text("Сохранить")
                             .font(.system(.headline, design: .serif))

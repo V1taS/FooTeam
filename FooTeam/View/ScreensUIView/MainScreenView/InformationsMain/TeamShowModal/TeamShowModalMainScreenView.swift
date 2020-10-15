@@ -24,11 +24,9 @@ struct TeamShowModalMainScreenView: View {
                 
                 HStack {
                     Text("Тип команды")
-                    Picker("", selection: $viewModel.selectionAvailabilityTeamType) {
-                        ForEach(0..<viewModel.availabilityTeamType.count) {
-                            Text(self.viewModel.availabilityTeamType[$0])
-                        }
-                    } .pickerStyle(SegmentedPickerStyle())
+                    Spacer()
+                    Text("\(viewModel.team.teamType)")
+                        .font(.headline)
                 }
                 
                 HStack {
@@ -62,7 +60,7 @@ struct TeamShowModalMainScreenView: View {
                 HStack {
                     Text("Рейтинг команды")
                     Spacer()
-                    Text("88")
+                    Text("\(viewModel.rating)")
                         .font(.headline)
                 }
             }

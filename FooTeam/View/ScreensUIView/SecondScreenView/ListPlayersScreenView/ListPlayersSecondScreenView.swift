@@ -12,6 +12,7 @@ import SDWebImageSwiftUI
 struct ListPlayersSecondScreenView: View {
     
     @StateObject private var viewModel = ListPlayersSecondScreenViewModel()
+    let notifications = Notifications()
     
     var body: some View {
         NavigationView {

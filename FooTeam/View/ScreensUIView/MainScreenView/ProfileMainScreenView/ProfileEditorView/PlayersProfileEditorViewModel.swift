@@ -14,6 +14,8 @@ protocol ListPlayersProfileEditorViewModelProtocol {
     var currentTeam: CurrentTeam { get }
     var cancellables: Set<AnyCancellable> { get }
     
+    var notifications: Notifications { get }
+    
     var bufferID: String { get }
     var deletPlayer: Bool { get }
     var isPresentedChangeAvatar: Bool { get }
@@ -36,6 +38,8 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
     @Published var actionsPlayers = ActionsPlayers()
     @Published var currentTeam = CurrentTeam()
     internal var cancellables = Set<AnyCancellable>()
+    
+    let notifications = Notifications()
     
     @Published var bufferID: String = ""
     @Published var deletPlayer = false

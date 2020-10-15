@@ -47,26 +47,9 @@ struct TeamEditModalMainScreenView: View {
                     }
                     
                     HStack {
-                        Text("Дни игр:")
-                        Spacer()
-                        Text("Пн, Ср")
-                            .font(.headline)
+                        DatePicker("Дата игр", selection: $viewModel.calendarDetails, displayedComponents: [.hourAndMinute, .date])
                     }
-                    
-                    HStack {
-                        Text("Время игр:")
-                        Spacer()
-                        Text("21:00")
-                            .font(.headline)
-                    }
-                    
-                    HStack {
-                        Text("Рейтинг команды")
-                        Spacer()
-                        Text("88")
-                            .font(.headline)
-                    }
-                    
+
                     HStack {
                         Text("Удалить команду")
                         Toggle(isOn: $viewModel.deleteTeam) {

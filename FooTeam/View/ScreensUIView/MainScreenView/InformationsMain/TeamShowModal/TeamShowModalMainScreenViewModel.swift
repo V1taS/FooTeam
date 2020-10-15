@@ -18,7 +18,7 @@ protocol TeamShowModalMainScreenViewModelProtocol {
     
     var players: [Player] { get }
     var team: Team { get }
-    var deleteTeam: Bool { get }
+    var rating: Int { get }
     
     var availabilityTeamType: [String] { get }
     var selectionAvailabilityTeamType: Int { get }
@@ -33,7 +33,7 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var isPresentedEditTeam: Bool = false
-    @Published var deleteTeam: Bool = false
+    @Published var rating: Int = 0
     
     @Published var players: [Player] = []
 
@@ -52,6 +52,9 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     
     required init() {
         self.actionsPlayers.$players.sink { players in
+            var totalRating = 1
+            players.forEach { player in totalRating += player.rating }
+            if !players.isEmpty { self.rating = totalRating / players.count }
             self.players = players
         } .store(in: &cancellables)
         

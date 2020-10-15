@@ -13,56 +13,43 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     
     let notificationCenter = UNUserNotificationCenter.current()
     
+    // Функция, которая запрашивает разрешение на уведомление и планирует уведомление
     func requestAutorization() {
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-            print("Permission granted: \(granted)")
-            
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge, .providesAppNotificationSettings]) { (granted, error) in
             guard granted else { return }
             self.getNotificationSettings()
         }
     }
     
+    // функция, которая запрашивает разрешение
     func getNotificationSettings() {
         notificationCenter.getNotificationSettings { (settings) in
-            print("Notification settings: \(settings)")
-            
             guard settings.authorizationStatus == .authorized else { return }
-            
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
             }
         }
     }
     
-    func scheduleNotification(notifaicationType: String) {
+    func scheduleNotification(title: String, body: String) {
         
         let content = UNMutableNotificationContent()
-        let userAction = "User Action"
+        let userActions = "User Actions"
         
-        content.title = notifaicationType
-        content.body = "This is example how to create " + notifaicationType
-        content.sound = UNNotificationSound.default
+        content.title = title
+        content.body = body
+        content.sound = .default
         content.badge = 1
-        content.categoryIdentifier = userAction
+        content.categoryIdentifier = userActions
         
-        guard let path = Bundle.main.path(forResource: "favicon", ofType: "png") else { return }
+        content.threadIdentifier = title
         
-        let url = URL(fileURLWithPath: path)
+        content.summaryArgument = title
+        content.summaryArgumentCount = 10
         
-        do {
-            let attachment = try UNNotificationAttachment(
-                identifier: "favicon",
-                url: url,
-                options: nil)
-            
-            content.attachments = [attachment]
-        } catch {
-            print("The attachment cold not be loaded")
-        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        
-        let identifire = "Local Notification"
+        let identifire = UUID().uuidString
         let request = UNNotificationRequest(identifier: identifire,
                                             content: content,
                                             trigger: trigger)
@@ -72,16 +59,6 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
                 print("Error \(error.localizedDescription)")
             }
         }
-        
-        let snoozeAction = UNNotificationAction(identifier: "Snooze", title: "Snooze", options: [])
-        let deleteAction = UNNotificationAction(identifier: "Delete", title: "Delete", options: [.destructive])
-        let category = UNNotificationCategory(
-            identifier: userAction,
-            actions: [snoozeAction, deleteAction],
-            intentIdentifiers: [],
-            options: [])
-        
-        notificationCenter.setNotificationCategories([category])
     }
     
     func userNotificationCenter(
@@ -89,7 +66,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-        completionHandler([.alert, .sound])
+        completionHandler([.list, .sound, .badge, .banner])
     }
     
     func userNotificationCenter(
@@ -108,13 +85,12 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
             print("Default")
         case "Snooze":
             print("Snooze")
-            scheduleNotification(notifaicationType: "Reminder")
+            scheduleNotification(title: "Reminder", body: "Body")
         case "Delete":
             print("Delete")
         default:
             print("Unknown action")
         }
-        
         completionHandler()
     }
 }

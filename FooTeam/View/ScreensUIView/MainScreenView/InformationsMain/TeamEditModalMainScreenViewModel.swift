@@ -19,6 +19,7 @@ protocol TeamEditModalMainScreenViewModelProtocol {
     var players: [Player] { get }
     var team: Team { get }
     var deleteTeam: Bool { get }
+    var calendarDetails: Date { get }
     
     var availabilityTeamType: [String] { get }
     var selectionAvailabilityTeamType: Int { get }
@@ -34,6 +35,7 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
     
     @Published var isPresentedChangeAvatar: Bool = false
     @Published var deleteTeam: Bool = false
+    @Published var calendarDetails = Date()
     
     @Published var players: [Player] = []
 
@@ -45,8 +47,8 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
         rating: 0
     )
     
-    var availabilityTeamType: [String] = ["Открытая", "Закрытая"] // Настроить логику
-    @Published var selectionAvailabilityTeamType: Int = 0 // Настроить логику
+    var availabilityTeamType: [String] = ["Открытая", "Закрытая"]
+    @Published var selectionAvailabilityTeamType: Int = 0
 
     @Published var image = UIImage()
     
@@ -56,6 +58,14 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
         } .store(in: &cancellables)
         
         self.currentTeam.$team.sink { team in
+            switch team.teamType {
+            case "Открытая":
+                self.selectionAvailabilityTeamType = 0
+            case "Закрытая":
+                self.selectionAvailabilityTeamType = 1
+            default:
+                self.selectionAvailabilityTeamType = 0
+            }
             self.team = team
         } .store(in: &cancellables)
     }

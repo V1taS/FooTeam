@@ -176,6 +176,10 @@ struct PlayersProfileEditor: View {
                                     AuthService.shared.updatingUserEmail(getEmailAddres: viewModel.player.email)
                                 }
                                 
+                                if viewModel.player.iGo {
+                                    viewModel.notifications.scheduleNotification(title: "Перекличка", body: "Игрок \(viewModel.player.name) подтвердил что придет на следующую игру")
+                                }
+                                
 //                                if !viewModel.passwordPlayer.isEmpty {
 //                                    AuthService.shared.updatingUserPassword(getPassword: viewModel.passwordPlayer)
 //                                }
