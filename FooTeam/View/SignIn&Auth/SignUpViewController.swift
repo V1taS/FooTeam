@@ -22,11 +22,16 @@ class SignUpViewController: UIViewController {
     let passwordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
     let confirmPasswordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
    
-    let signUpButton = UIButton(title: "Зарегистрироваться", titleColor: .white, backgroundColor: .buttonDark(), font: .bolt14())
+    let signUpButton = UIButton(title: "Зарегистрироваться",
+                                titleColor: .white,
+                                backgroundColor: .buttonDark(),
+                                font: .bolt14(),
+                                borderColor: .textFieldLight())
+    
     let closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("закрыть", for: .normal)
-        button.setTitleColor(.buttonDark(), for: .normal)
+        button.setTitleColor(.blackAndWhite(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
     }()
@@ -49,7 +54,7 @@ class SignUpViewController: UIViewController {
         self.passwordTextField.delegate = self
         self.confirmPasswordTextField.delegate = self
         
-        view.backgroundColor = .white
+        view.backgroundColor = .whiteAndBlack()
         setupConstraints()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)

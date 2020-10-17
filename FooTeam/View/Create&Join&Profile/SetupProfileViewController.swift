@@ -24,7 +24,12 @@ class SetupProfileViewController: UIViewController {
     let positionPlayerSegmentedControl = UISegmentedControl(items: ["ФРВ", "ЦП", "ЦЗ", "ВРТ"])
     let whoAreYouSegmentedControl = UISegmentedControl(first: "Игрок", second: "Зритель")
     
-    let goToButton = UIButton(title: "Начать", titleColor: .white, backgroundColor: .buttonDark(), font: .bolt14(), cornerRadius: 4)
+    let goToButton = UIButton(title: "Начать",
+                              titleColor: .white,
+                              backgroundColor: .buttonDark(),
+                              font: .bolt14(),
+                              cornerRadius: 4,
+                              borderColor: .textFieldLight())
     
     private let currentUser: User
     
@@ -51,7 +56,7 @@ class SetupProfileViewController: UIViewController {
         self.addKeyboardObserver()
         self.nameTextField.delegate = self
         
-        view.backgroundColor = .white
+        view.backgroundColor = .whiteAndBlack()
         setupConstraints()
         goToButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
         fullImageView.plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)

@@ -21,15 +21,25 @@ class LoginViewController: UIViewController {
     let needAnAccountLabel = UILabel(text: "Нет учетной записи?", font: .avenir14())
     
     let googleButton = UIButton(title: "Продолжить в Google", titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "googleLogo"))
-    let forgottenButton = UIButton(title: "Забыли пароль?", titleColor: .black, backgroundColor: .white, font: .bolt14())
     let emailTextField = CustomeTextField(placeholder: "  demo@mail.ru")
     let passwordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
     
-    let loginButton = UIButton(title: "Войти", titleColor: .white, backgroundColor: .buttonDark(), font: .bolt14())
+    let loginButton = UIButton(title: "Войти",
+                               titleColor: .white,
+                               backgroundColor: .buttonDark(),
+                               font: .bolt14(),
+                               borderColor: .textFieldLight())
+    
+    let forgottenButton = UIButton(title: "Забыли пароль?",
+                                   titleColor: .blackAndWhite(),
+                                   backgroundColor: .whiteAndBlack(),
+                                   font: .bolt14(),
+                                   borderColor: .textFieldLight())
+    
     let closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("закрыть", for: .normal)
-        button.setTitleColor(.buttonDark(), for: .normal)
+        button.setTitleColor(.blackAndWhite(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
     }()
@@ -52,7 +62,7 @@ class LoginViewController: UIViewController {
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        view.backgroundColor = .white
+        view.backgroundColor = .whiteAndBlack()
         setupConstraints()
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
@@ -160,8 +170,6 @@ extension LoginViewController {
         
         let footerStackView = UIView()
         footerStackView.backgroundColor = .systemGray6
-        footerStackView.layer.borderColor = UIColor.systemGray5.cgColor
-        footerStackView.layer.borderWidth = 1
         
         bottomStackView.alignment = .firstBaseline
         

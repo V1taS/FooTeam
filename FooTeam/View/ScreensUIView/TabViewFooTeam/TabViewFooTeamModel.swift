@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 
 protocol TabViewFooTeamModelProtocol {
+    var actionsPlayers: ActionsPlayers { get }
     var waitingPlayers: WaitingPlayers { get }
     var cancellables: Set<AnyCancellable> { get }
     
@@ -19,6 +20,7 @@ protocol TabViewFooTeamModelProtocol {
 }
 
 class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
+    @Published var actionsPlayers = ActionsPlayers()
     @Published var waitingPlayers = WaitingPlayers()
     internal var cancellables = Set<AnyCancellable>()
     

@@ -14,10 +14,10 @@ struct ProfileMainScreenView: View {
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
+            Color("WhiteAndBlack")
                 .frame(width: 180, height: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10) .stroke())
+                .overlay(RoundedRectangle(cornerRadius: 10) .stroke(Color("BlackAndWhite")))
             
             Button(action: {
                 viewModel.isPresentedShowModal.toggle()
@@ -29,7 +29,7 @@ struct ProfileMainScreenView: View {
                     Text(viewModel.name)
                         .lineLimit(1)
                         .frame(width: 150)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("BlackAndWhite"))
                     
                     ImagePlayer(avatarStringURL: viewModel.avatarStringURL, avatarSize: 125)
                 }

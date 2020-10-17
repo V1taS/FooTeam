@@ -84,8 +84,8 @@ struct TeamEditModalMainScreenView: View {
                     
                 }) {
                     Image(systemName: "multiply")
-                        .renderingMode(.original)
                         .font(.title)
+                        .foregroundColor(Color("BlackAndWhite"))
                 })
             
             if viewModel.isPresentedChangeAvatar {

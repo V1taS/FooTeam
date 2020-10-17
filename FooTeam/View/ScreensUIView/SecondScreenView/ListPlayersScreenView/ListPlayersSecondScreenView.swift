@@ -69,9 +69,8 @@ struct ListPlayersSecondScreenView: View {
                                                 viewModel.isPresentedShowModal.toggle()
                                             }) {
                                                 Image(systemName: "square.and.pencil")
-                                                    .renderingMode(.original)
                                                     .font(.title)
-                                                    .foregroundColor(Color.black)
+                                                    .foregroundColor(Color("BlackAndWhite"))
                                             }
                                         }
                                     }

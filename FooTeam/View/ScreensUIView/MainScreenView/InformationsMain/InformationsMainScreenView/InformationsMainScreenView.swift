@@ -16,10 +16,10 @@ struct InformationsMainScreenView: View {
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
+            Color("WhiteAndBlack")
                 .frame(width: 180, height: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10) .stroke())
+                .overlay(RoundedRectangle(cornerRadius: 10) .stroke(Color("BlackAndWhite")))
             
             VStack {
                 Text("ИНФОРМАЦИЯ")
@@ -32,16 +32,20 @@ struct InformationsMainScreenView: View {
                     
                     HStack {
                         Text("Клуб:")
+                            .foregroundColor(Color("BlackAndWhite"))
                         Text("\(viewModel.nameTeam)")
                             .font(.headline)
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)
+                            .foregroundColor(Color("BlackAndWhite"))
                     }
                     
                     HStack {
                         Text("Иду на игру:")
+                            .foregroundColor(Color("BlackAndWhite"))
                         Text("\(viewModel.iGo ? "да" : "нет")")
                             .font(.headline)
+                            .foregroundColor(Color("BlackAndWhite"))
                     }
                 } .frame(width: 160, alignment: .leading)
                 
@@ -51,16 +55,20 @@ struct InformationsMainScreenView: View {
                     
                     HStack {
                         Text("Игра")
+                            .foregroundColor(Color("BlackAndWhite"))
                         Text("\(viewModel.datePlay)")
                             .font(.headline)
                             .minimumScaleFactor(0.7)
+                            .foregroundColor(Color("BlackAndWhite"))
                     }
                     
                     HStack {
                         Text("Температура:")
+                            .foregroundColor(Color("BlackAndWhite"))
                         Text("\(viewModel.temperatureString)°С")
                             .font(.headline)
                             .minimumScaleFactor(0.7)
+                            .foregroundColor(Color("BlackAndWhite"))
                     }
                 } .frame(width: 160)
                 

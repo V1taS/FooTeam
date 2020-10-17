@@ -18,8 +18,7 @@ struct ProfileShowModalMainScreenView: View {
             Form {
                 HStack {
                     Spacer()
-                    CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
-                                          namePlayer: "\(viewModel.player.name)",
+                    CellTopPlayersFooTeam(namePlayer: "\(viewModel.player.name)",
                                           photoPlayer: "\(viewModel.player.avatarStringURL)",
                                           ratingPlayer: "\(viewModel.player.rating)",
                                           positionPlayer: "\(viewModel.player.position)",
@@ -99,8 +98,8 @@ struct ProfileShowModalMainScreenView: View {
                     
                 }) {
                     Image(systemName: "pencil")
-                        .renderingMode(.original)
                         .font(.title)
+                        .foregroundColor(Color("BlackAndWhite"))
                 }.sheet(
                     isPresented: $viewModel.isPresentedProfileEditor,
                     content: { PlayersProfileEditor(player: viewModel.player) }
@@ -110,8 +109,8 @@ struct ProfileShowModalMainScreenView: View {
                     
                 }) {
                     Image(systemName: "multiply")
-                        .renderingMode(.original)
                         .font(.title)
+                        .foregroundColor(Color("BlackAndWhite"))
                 })
         }
     }

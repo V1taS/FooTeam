@@ -17,8 +17,7 @@ struct ListPlayersProfileShow: View {
         Form {
             HStack {
                 Spacer()
-                CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)),
-                                      namePlayer: viewModel.player.name,
+                CellTopPlayersFooTeam(namePlayer: viewModel.player.name,
                                       photoPlayer: viewModel.player.avatarStringURL,
                                       ratingPlayer: "\(viewModel.player.rating)",
                                       positionPlayer: viewModel.player.position,
@@ -70,8 +69,8 @@ struct ListPlayersProfileShow: View {
                                     if FirestoreService.shared.currentUser.captain {
                                         Button(action: { viewModel.isPresentedShowModal.toggle() }) {
                                             Image(systemName: "pencil")
-                                                .renderingMode(.original)
                                                 .font(.title)
+                                                .foregroundColor(Color("BlackAndWhite"))
                                         }
                                     }
                                 }

@@ -10,7 +10,7 @@ import UIKit
 
 class CustomeTextField: UITextField {
     
-    convenience init(font: UIFont? = .avenir20(), placeholder: String? = "", textColor: UIColor? = .black, isSecure: Bool = false, backgroundColor: UIColor? = .systemGray6, cornerRadius: CGFloat = 5, autocapitalizationType: UITextAutocapitalizationType = .none) {
+    convenience init(font: UIFont? = .avenir20(), placeholder: String? = "", textColor: UIColor? = .blackAndWhite(), isSecure: Bool = false, backgroundColor: UIColor? = .systemGray6, cornerRadius: CGFloat = 5, autocapitalizationType: UITextAutocapitalizationType = .none) {
         self.init()
         
         self.font = font
@@ -26,7 +26,7 @@ class CustomeTextField: UITextField {
         
         var bottomView = UIView()
         bottomView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-        bottomView.backgroundColor = .textFieldLight()
+        bottomView.backgroundColor = .systemGray2
         bottomView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(bottomView)
         

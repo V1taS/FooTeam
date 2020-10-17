@@ -20,8 +20,7 @@ struct PlayersProfileEditor: View {
                 Form {
                         HStack {
                             Spacer()
-                            CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
-                                                  namePlayer: "\(viewModel.player.name)",
+                            CellTopPlayersFooTeam(namePlayer: "\(viewModel.player.name)",
                                                   photoPlayer: "\(viewModel.player.avatarStringURL)",
                                                   ratingPlayer: "\(viewModel.player.rating)",
                                                   positionPlayer: "\(viewModel.player.position)",
@@ -176,10 +175,6 @@ struct PlayersProfileEditor: View {
                                     AuthService.shared.updatingUserEmail(getEmailAddres: viewModel.player.email)
                                 }
                                 
-                                if viewModel.player.iGo {
-                                    viewModel.notifications.scheduleNotification(title: "Перекличка", body: "Игрок \(viewModel.player.name) подтвердил что придет на следующую игру")
-                                }
-                                
 //                                if !viewModel.passwordPlayer.isEmpty {
 //                                    AuthService.shared.updatingUserPassword(getPassword: viewModel.passwordPlayer)
 //                                }
@@ -204,8 +199,8 @@ struct PlayersProfileEditor: View {
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "multiply")
-                        .renderingMode(.original)
                         .font(.title)
+                        .foregroundColor(Color("BlackAndWhite"))
                 })
                 
                 if viewModel.isPresentedChangeAvatar {

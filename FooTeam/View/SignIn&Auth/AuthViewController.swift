@@ -17,9 +17,21 @@ class AuthViewController: UIViewController {
     let descriptionFTLabel = UILabel(text: "Создайте профиль, чтобы создать свою собственную команду, управлять составами и получить другие возможности.", font: .avenir14(), color: .systemGray, textAlignment: .center)
     let alreadyOnboardLabel = UILabel(text: "Уже есть аккаунт?", font: .avenir14())
     
-    let appleButton = UIButton(title: "Продолжить c Apple", titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "appleIcon"))
-    let googleButton = UIButton(title: "Продолжить в Google", titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "googleLogo"))
-    let emailButton = UIButton(title: "Ввести эл. почту", titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "messagingIcon"))
+    let appleButton = UIButton(title: "Продолжить c Apple",
+                               titleColor: .whiteAndBlack(),
+                               backgroundColor: .blackAndWhite(),
+                               font: .bolt14(),
+                               logo: #imageLiteral(resourceName: "appleIcon"))
+    let googleButton = UIButton(title: "Продолжить в Google",
+                                titleColor: .whiteAndBlack(),
+                                backgroundColor: .blackAndWhite(),
+                                font: .bolt14(),
+                                logo: #imageLiteral(resourceName: "googleLogo"))
+    let emailButton = UIButton(title: "Ввести эл. почту",
+                               titleColor: .buttonDark(),
+                               backgroundColor: .mainWhite(),
+                               font: .bolt14(),
+                               logo: #imageLiteral(resourceName: "messagingIcon"))
     
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
@@ -35,7 +47,7 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .whiteAndBlack()
         setupConstraints()
         
         emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
@@ -88,8 +100,6 @@ extension AuthViewController {
         
         let footerStackView = UIView()
         footerStackView.backgroundColor = .systemGray6
-        footerStackView.layer.borderColor = UIColor.systemGray5.cgColor
-        footerStackView.layer.borderWidth = 1
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         topStackView.translatesAutoresizingMaskIntoConstraints = false

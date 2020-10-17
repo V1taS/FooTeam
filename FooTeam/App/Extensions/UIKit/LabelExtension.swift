@@ -12,7 +12,7 @@ extension UILabel {
     
     convenience init(text: String,
                      font: UIFont? = .avenir20(),
-                     color: UIColor = .black,
+                     color: UIColor = UIColor(named: "BlackAndWhite")!,
                      numberOfLines: Int = 0,
                      textAlignment: NSTextAlignment = .left) {
         self.init()

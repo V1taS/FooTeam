@@ -15,18 +15,21 @@ struct HeaderMainScreenView: View {
     var body: some View {
         HStack {
             ZStack {
-                Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
+                Color("WhiteAndBlack")
                     .frame(height: 30)
-                    .border(Color.black)
+                    .border(Color("BlackAndWhite"))
                 
                 HStack {
                     Text("Баланс:")
                         .padding(.leading)
+                        .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.balance)")
                         .font(.headline)
+                        .foregroundColor(Color("BlackAndWhite"))
                     Text("FCoin")
                         .padding(.trailing)
+                        .foregroundColor(Color("BlackAndWhite"))
                 }
             }
         }

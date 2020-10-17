@@ -18,8 +18,7 @@ struct CellCardsWithPlayersMainScreenView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 190))], spacing: 0) {
                     ForEach(viewModel.iGoPlayers.filter { $0.teamNumber == selectTeams }, id: \.self) { player in
-                        CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)),
-                                              namePlayer: player.name,
+                        CellTopPlayersFooTeam(namePlayer: player.name,
                                               photoPlayer: player.avatarStringURL,
                                               ratingPlayer: "\(player.rating)",
                                               positionPlayer: player.position,

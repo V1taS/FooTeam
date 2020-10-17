@@ -17,8 +17,7 @@ struct TopPlayersScreenView: View {
             HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16) {
                 ForEach(viewModel.players, id: \.self) { player in
                     
-                    CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1)),
-                                          namePlayer: player.name,
+                    CellTopPlayersFooTeam(namePlayer: player.name,
                                           photoPlayer: player.avatarStringURL,
                                           ratingPlayer: "\(player.rating)",
                                           positionPlayer: "\(player.position)",

@@ -73,8 +73,8 @@ struct TeamShowModalMainScreenView: View {
                     
                 }) {
                     Image(systemName: "pencil")
-                        .renderingMode(.original)
                         .font(.title)
+                        .foregroundColor(Color("BlackAndWhite"))
                 }
                 .sheet(
                     isPresented: $viewModel.isPresentedEditTeam,
@@ -85,8 +85,8 @@ struct TeamShowModalMainScreenView: View {
                     
                 }) {
                     Image(systemName: "multiply")
-                        .renderingMode(.original)
                         .font(.title)
+                        .foregroundColor(Color("BlackAndWhite"))
                 })
         }
     }

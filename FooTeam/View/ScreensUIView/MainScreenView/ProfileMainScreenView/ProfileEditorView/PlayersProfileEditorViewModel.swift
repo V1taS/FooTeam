@@ -14,8 +14,6 @@ protocol ListPlayersProfileEditorViewModelProtocol {
     var currentTeam: CurrentTeam { get }
     var cancellables: Set<AnyCancellable> { get }
     
-    var notifications: Notifications { get }
-    
     var bufferID: String { get }
     var deletPlayer: Bool { get }
     var isPresentedChangeAvatar: Bool { get }
@@ -38,9 +36,7 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
     @Published var actionsPlayers = ActionsPlayers()
     @Published var currentTeam = CurrentTeam()
     internal var cancellables = Set<AnyCancellable>()
-    
-    let notifications = Notifications()
-    
+
     @Published var bufferID: String = ""
     @Published var deletPlayer = false
     @Published var isPresentedChangeAvatar: Bool = false
@@ -73,11 +69,11 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
         rating: 0
     )
     
-    var whoAreYou: [String] = ["Игрок", "Зритель"] // Настроить логику
-    @Published var selectionWhoAreYou: Int = 0 // Настроить логику
+    var whoAreYou: [String] = ["Игрок", "Зритель"]
+    @Published var selectionWhoAreYou: Int = 0
     
-    var positions: [String] = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"] // Настроить логику
-    @Published var selectionPositions: Int = 0 // Настроить логику
+    var positions: [String] = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
+    @Published var selectionPositions: Int = 0 
     
     @Published var image = UIImage()
     

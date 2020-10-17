@@ -16,7 +16,7 @@ class AddAvaTeamsView: UIView {
         imageView.image = UIImage(named: "khimki")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderColor = UIColor.blackAndWhite().cgColor
         imageView.layer.borderWidth = 1
         return imageView
     }()
@@ -26,7 +26,7 @@ class AddAvaTeamsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         let myImage = #imageLiteral(resourceName: "plus")
         button.setImage(myImage, for: .normal)
-        button.tintColor = .buttonDark()
+        button.tintColor = .blackAndWhite()
         return button
     }()
     

@@ -19,7 +19,7 @@ struct OutButtonFooTeamMenu: View {
         }) {
             HStack(spacing: 25){
                 Image(systemName: "greetingcard")
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color("BlackAndWhite"))
             }
             .padding(.vertical, 10)
             .padding(.horizontal)

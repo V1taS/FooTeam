@@ -16,7 +16,6 @@ protocol CellJoinToTeamViewModelProtocol {
 
     var isPresented: Bool { get }
     var showAlertAccept: Bool { get }
-    var colorText: UIColor { get }
     init()
 }
 
@@ -26,7 +25,6 @@ class CellJoinToTeamViewModel: CellJoinToTeamViewModelProtocol, ObservableObject
 
     @Published var isPresented: Bool = false
     @Published var showAlertAccept: Bool = false
-    let colorText: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
     required init() {
         self.currentUser.$player.sink { player in

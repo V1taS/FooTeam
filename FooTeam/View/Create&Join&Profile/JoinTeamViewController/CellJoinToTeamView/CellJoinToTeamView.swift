@@ -20,16 +20,17 @@ struct CellJoinToTeamView: View {
         VStack {
             Button(action: { viewModel.showAlertAccept.toggle() } ) {
                 ZStack {
-                    BackgroundFooTeam(centerColor: Color.black)
+                    Color("WhiteAndBlack")
                         .frame(width: 170, height: 200)
                         .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .overlay(RoundedRectangle(cornerRadius: 20) .stroke(Color("BlackAndWhite")))
                     
                     VStack(alignment: .center) {
                         ImagePlayer(avatarStringURL: team.avatarStringURL, avatarSize: 100, placeholder: "team")
                         
                         Text("\(team.teamName)")
-                            .foregroundColor(Color(viewModel.colorText))
-                            .font(.headline)
+                            .foregroundColor(Color("BlackAndWhite"))
+                            .font(.title)
                             .lineLimit(2)
                             .minimumScaleFactor(0.7)
                         
@@ -40,7 +41,7 @@ struct CellJoinToTeamView: View {
                             .padding(.top, 1)
                         
                         Text("\(team.location)")
-                            .foregroundColor(Color(viewModel.colorText))
+                            .foregroundColor(Color("BlackAndWhite"))
                             .font(.system(size: 15))
                             .padding(.top, 1)
                         //                        Text("Игроков: \(countPlayersInTeam.players.count)")

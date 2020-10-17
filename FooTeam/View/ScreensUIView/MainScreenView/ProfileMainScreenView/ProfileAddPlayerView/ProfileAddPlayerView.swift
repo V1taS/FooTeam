@@ -112,8 +112,8 @@ struct ProfileAddPlayerView: View {
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "multiply")
-                    .renderingMode(.original)
                     .font(.title)
+                    .foregroundColor(Color("BlackAndWhite"))
             })
         }
     }

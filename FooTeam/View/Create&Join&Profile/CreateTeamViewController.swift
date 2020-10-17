@@ -25,7 +25,12 @@ class CreateTeamViewController: UIViewController {
     
     let availabilityTeamSegmentedControl = UISegmentedControl(first: "Открытая", second: "Закрытая")
     
-    let goToButton = UIButton(title: "Создать", titleColor: .white, backgroundColor: .buttonDark(), font: .bolt14(), cornerRadius: 4)
+    let goToButton = UIButton(title: "Создать",
+                              titleColor: .white,
+                              backgroundColor: .buttonDark(),
+                              font: .bolt14(),
+                              cornerRadius: 4,
+                              borderColor: .textFieldLight())
     
     private let currentPlayer: Player
     private let currentUser: User
@@ -49,7 +54,7 @@ class CreateTeamViewController: UIViewController {
         self.nameTextField.delegate = self
         self.cityTextField.delegate = self
         
-        view.backgroundColor = .white
+        view.backgroundColor = .whiteAndBlack()
         setupConstraints()
         goToButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
         fullImageView.plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)

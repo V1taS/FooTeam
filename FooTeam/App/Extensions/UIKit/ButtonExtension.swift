@@ -17,7 +17,7 @@ extension UIButton {
                      font: UIFont? = .avenir14(),
                      isShadow: Bool = false,
                      cornerRadius: CGFloat = 5,
-                     borderColor: UIColor = .systemGray4,
+                     borderColor: UIColor = .buttonDark(),
                      borderWidth: Int = 1,
                      widthAnchor: Int = 250,
                      heightAnchor: Int = 40,
