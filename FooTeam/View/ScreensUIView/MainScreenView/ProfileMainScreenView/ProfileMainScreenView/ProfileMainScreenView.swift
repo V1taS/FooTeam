@@ -15,7 +15,7 @@ struct ProfileMainScreenView: View {
     var body: some View {
         ZStack {
             Color("WhiteAndBlack")
-                .frame(width: 180, height: 230)
+                .frame(maxWidth: 180, idealHeight: 210, maxHeight: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10) .stroke(Color("BlackAndWhite")))
             
@@ -26,9 +26,11 @@ struct ProfileMainScreenView: View {
                     Text("ПРОФИЛЬ")
                         .font(.headline)
                         .foregroundColor(Color(.red))
+                        .minimumScaleFactor(0.7)
                     Text(viewModel.name)
                         .lineLimit(1)
-                        .frame(width: 150)
+                        .frame(maxWidth: 150)
+                        .minimumScaleFactor(0.7)
                         .foregroundColor(Color("BlackAndWhite"))
                     
                     ImagePlayer(avatarStringURL: viewModel.avatarStringURL, avatarSize: 125)

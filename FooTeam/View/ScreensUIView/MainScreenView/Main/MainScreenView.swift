@@ -28,9 +28,9 @@ struct MainScreenView: View {
                     
                     HStack {
                         ProfileMainScreenView()
-                        Spacer()
+                        Spacer(minLength: 16)
                         InformationsMainScreenView(showAcceptPlayers: $showAcceptPlayers, showTeamModal: $showTeamModal)
-                    } . padding(.horizontal)
+                    } .padding(.horizontal)
                     
                     HStack {
                         Text("Составы на игру")
@@ -40,6 +40,7 @@ struct MainScreenView: View {
                     } .padding(.horizontal)
                     
                     TeamMainScreenView()
+                        .padding(.horizontal)
                     
                     HStack {
                         Text("TOP - Игроки")

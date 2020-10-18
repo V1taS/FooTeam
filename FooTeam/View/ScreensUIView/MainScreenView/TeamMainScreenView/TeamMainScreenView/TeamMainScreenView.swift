@@ -15,7 +15,7 @@ struct TeamMainScreenView: View {
     var body: some View {
         ZStack {
             Color("WhiteAndBlack")
-                .frame(width: 380, height: 100)
+                .frame(maxWidth: 380, idealHeight: 100, maxHeight: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10) .stroke(Color("BlackAndWhite")))
             
@@ -26,21 +26,29 @@ struct TeamMainScreenView: View {
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 150)
+                        .minimumScaleFactor(0.7)
+                        .frame(maxWidth: 150)
                     
                     Spacer()
                     
                     VStack {
                         Text("Составы")
                             .font(.title)
+                            .minimumScaleFactor(0.7)
                             .foregroundColor(Color(.red))
                         
                         Text("Всего игроков: \(viewModel.playersCount)")
                             .foregroundColor(Color("BlackAndWhite"))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.7)
+                            .frame(maxWidth: 150)
                         Text("Придут на игру: \(viewModel.iGoCount)")
                             .foregroundColor(Color("BlackAndWhite"))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.7)
+                            .frame(maxWidth: 150)
                     }
-                }.padding(.horizontal, 36)
+                }.padding(.horizontal)
             } .sheet(
                 isPresented: $viewModel.isPresentedShowModal,
                 content: { ListTeamsMainScreenView() }

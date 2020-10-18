@@ -17,7 +17,7 @@ struct InformationsMainScreenView: View {
     var body: some View {
         ZStack {
             Color("WhiteAndBlack")
-                .frame(width: 180, height: 230)
+                .frame(maxWidth: 180, idealHeight: 210, maxHeight: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10) .stroke(Color("BlackAndWhite")))
             
@@ -33,6 +33,7 @@ struct InformationsMainScreenView: View {
                     HStack {
                         Text("Клуб:")
                             .foregroundColor(Color("BlackAndWhite"))
+                            .minimumScaleFactor(0.7)
                         Text("\(viewModel.nameTeam)")
                             .font(.headline)
                             .lineLimit(1)
@@ -42,12 +43,16 @@ struct InformationsMainScreenView: View {
                     
                     HStack {
                         Text("Иду на игру:")
+                            .minimumScaleFactor(0.7)
                             .foregroundColor(Color("BlackAndWhite"))
                         Text("\(viewModel.iGo ? "да" : "нет")")
                             .font(.headline)
                             .foregroundColor(Color("BlackAndWhite"))
+                            .minimumScaleFactor(0.7)
                     }
-                } .frame(width: 160, alignment: .leading)
+                }
+                .padding(.leading, 8)
+                .frame(maxWidth: 160, alignment: .leading)
                 
                 DividerFooTeamMenu()
                 
@@ -56,6 +61,7 @@ struct InformationsMainScreenView: View {
                     HStack {
                         Text("Игра")
                             .foregroundColor(Color("BlackAndWhite"))
+                            .minimumScaleFactor(0.7)
                         Text("\(viewModel.datePlay)")
                             .font(.headline)
                             .minimumScaleFactor(0.7)
@@ -65,18 +71,20 @@ struct InformationsMainScreenView: View {
                     HStack {
                         Text("Температура:")
                             .foregroundColor(Color("BlackAndWhite"))
+                            .minimumScaleFactor(0.7)
                         Text("\(viewModel.temperatureString)°С")
                             .font(.headline)
                             .minimumScaleFactor(0.7)
                             .foregroundColor(Color("BlackAndWhite"))
                     }
-                } .frame(width: 160)
+                } .frame(maxWidth: 160)
                 
                 if viewModel.capitan {
                     VStack(alignment: .center, spacing: 1) {
                         HStack {
                             Button(action: { showAcceptPlayers.toggle() }) {
                                 Image(systemName: "mail")
+                                    .minimumScaleFactor(0.7)
                                     .font(.title)
                                     .foregroundColor(viewModel.playersWaitingAccept.isEmpty ? .gray : .green)
                             }
@@ -85,11 +93,12 @@ struct InformationsMainScreenView: View {
                                 Image(systemName: "camera.metering.multispot")
                                     .font(.title)
                                     .foregroundColor(.gray)
+                                    .minimumScaleFactor(0.7)
                             } .sheet(isPresented: $showTeamModal) {
                                 TeamShowModalMainScreenView()
                             }
                         }
-                    } .frame(width: 160) .padding(.top, 2)
+                    } .frame(maxWidth: 160) .padding(.top, 2)
                 }
                 
                 

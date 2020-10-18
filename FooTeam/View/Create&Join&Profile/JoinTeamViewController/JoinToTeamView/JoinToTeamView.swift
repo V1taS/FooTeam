@@ -19,14 +19,13 @@ struct JoinToTeamView: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150, maximum: 190))], spacing: 10) {
                     ForEach(viewModel.teams, id: \.self) { team in
                         CellJoinToTeamView(team: team)
-                            .padding(.top)
-                            .frame(width: 170, height: 200)
                     }
                 }
             }
+            .padding(.horizontal)
             .frame(maxWidth: .infinity, alignment: .center)
-            .navigationBarTitle(Text("Присоединиться"))
             
+            .navigationBarTitle(Text("Присоединиться"))
             .navigationBarItems(trailing:
                                     OutButtonFooTeamMenu(isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut))
             .navigationBarItems(
@@ -36,7 +35,8 @@ struct JoinToTeamView: View {
                         .renderingMode(.original)
                         .font(.title)
                 })
-        } .alert(isPresented: self.$viewModel.isPresentedCreateTeam) {
+        }
+        .alert(isPresented: self.$viewModel.isPresentedCreateTeam) {
             Alert(title: Text("Внимание"),
                   message: Text("Вы хотите создать свою собственную команду?"),
                   primaryButton: Alert.Button.default(Text("Отмена")),
