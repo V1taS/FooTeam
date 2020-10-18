@@ -33,7 +33,7 @@ struct CellCardsWithPlayersMainScreenView: View {
                     }
                 }
             }
-            .frame(height: 330)
+            .frame(maxWidth: 330)
         }
     }
 }
