@@ -46,9 +46,22 @@ struct TeamEditModalMainScreenView: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     
-                    HStack {
-                        DatePicker("Дата игр", selection: $viewModel.calendarDetails, displayedComponents: [.hourAndMinute, .date])
+                    VStack {
+                        Text("Сколько игр в неделю?")
+                        Picker("", selection: $viewModel.selectiongameInWeak) {
+                            ForEach(0..<viewModel.gameInWeak.count) {
+                                Text(self.viewModel.gameInWeak[$0])
+                            }
+                        } .pickerStyle(SegmentedPickerStyle())
                     }
+                    
+                    ForEach(0..<viewModel.selectiongameInWeak+1, id: \.self) { item in
+                            VStack {
+                                DatePicker("Игра - \(item+1)",
+                                           selection: $viewModel.calendarDetails,
+                                           displayedComponents: [.hourAndMinute, .date])
+                            }
+                        }
 
                     HStack {
                         Text("Удалить команду")
@@ -61,6 +74,11 @@ struct TeamEditModalMainScreenView: View {
                     HStack {
                         Spacer()
                         Button(action: {
+                            
+                            for i in 0..<viewModel.selectiongameInWeak+1 {
+                                SaveTeamPlayTime.shared.saveDate(date: viewModel.calendarDetails, idTeam: viewModel.actionsPlayers.players.first!.idTeam, gameNumber: i+1)
+                            }
+                            
                             presentationMode.wrappedValue.dismiss()
                         } ) {
                             Text("Сохранить")

@@ -29,6 +29,7 @@ protocol TeamShowModalMainScreenViewModelProtocol {
 
 class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol, ObservableObject {
     @Published var actionsPlayers = ActionsPlayers()
+    @Published var getTeamPlayTime = GetTeamPlayTime()
     @Published var currentTeam = CurrentTeam()
     internal var cancellables = Set<AnyCancellable>()
     
@@ -51,6 +52,11 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     @Published var image = UIImage()
     
     required init() {
+        self.getTeamPlayTime.$teams.sink { team in
+            print("\(team.count)")
+            print("\(team)")
+        } .store(in: &cancellables)
+        
         self.actionsPlayers.$players.sink { players in
             var totalRating = 1
             players.forEach { player in totalRating += player.rating }

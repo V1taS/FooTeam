@@ -20,7 +20,6 @@ class CalendarFooTeam: ObservableObject {
             let date = Date()
             let calendar = Calendar.current
             let weekday = calendar.component(.weekday, from: date)
-        let notifications = Notifications()
             
             switch weekday {
             case 1:
@@ -32,7 +31,6 @@ class CalendarFooTeam: ObservableObject {
             case 3:
                 //            print("Сегодня Вторник")
                 datePlay = "через 1 день"
-                notifications.scheduleNotification(title: "Завтра игра в 21:30", body: "Не забудь взять вещи и отметить в приложении I-GO")
             case 4:
                 //            print("Сегодня Среда")
                 datePlay = "сегодня"
