@@ -22,14 +22,18 @@ class GetTeamPlayTime: ObservableObject {
     // MARK: Получаем всех активных игроков текущей команды
     func getIfoAboutTeam() {
         if let currentPlayer = FirestoreService.shared.currentUser {
+            print("if let currentPlayer = FirestoreService.shared.currentUser {")
             
             let refActionsPlayer = db.collection(["teams", currentPlayer.idTeam, "dateAndTimeOfTheGame"].joined(separator: "/"))
             
             refActionsPlayer.addSnapshotListener { (snapshot, error) in
                 guard let snapshot = snapshot else { return }
+                print("guard let snapshot = snapshot else { return }")
                 if !snapshot.isEmpty {
+                    print("if !snapshot.isEmpty {")
                     for snapshot in snapshot.documents {
                         if let teamPlayTime = TeamTime(document: snapshot) {
+                            print("if let teamPlayTime = TeamTime(document: snapshot) {")
                             self.teams.append(teamPlayTime)
                         }
                     }

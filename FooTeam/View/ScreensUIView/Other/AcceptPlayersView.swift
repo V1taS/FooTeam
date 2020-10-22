@@ -26,8 +26,8 @@ struct AcceptPlayersView: View {
                             showAcceptPlayers = false
                         }) {
                             Image(systemName: "multiply")
-                                .renderingMode(.original)
                                 .font(.title)
+                                .foregroundColor(Color("BlackAndWhite"))
                         }
                     } ) {
                         ForEach(players, id: \.self) { player in

@@ -48,18 +48,26 @@ struct TeamEditModalMainScreenView: View {
                     
                     VStack {
                         Text("Сколько игр в неделю?")
-                        Picker("", selection: $viewModel.selectiongameInWeak) {
+                        Picker("", selection: $viewModel.selectionGameInWeak) {
                             ForEach(0..<viewModel.gameInWeak.count) {
                                 Text(self.viewModel.gameInWeak[$0])
                             }
                         } .pickerStyle(SegmentedPickerStyle())
                     }
                     
-                    ForEach(0..<viewModel.selectiongameInWeak+1, id: \.self) { item in
+                    ForEach(0..<viewModel.selectionGameInWeak+1, id: \.self) { item in
                             VStack {
-                                DatePicker("Игра - \(item+1)",
-                                           selection: $viewModel.calendarDetails,
-                                           displayedComponents: [.hourAndMinute, .date])
+                                HStack {
+                                    DatePicker("Игра - \(item+1)",
+                                               selection: $viewModel.calendarDetails,
+                                           displayedComponents: [.hourAndMinute])
+                                        
+                                    Picker("", selection: $viewModel.selectionWeekday[item]) {
+                                        ForEach(0..<viewModel.weekday[item].count) {
+                                            Text(self.viewModel.weekday[item][$0])
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -75,8 +83,8 @@ struct TeamEditModalMainScreenView: View {
                         Spacer()
                         Button(action: {
                             
-                            for i in 0..<viewModel.selectiongameInWeak+1 {
-                                SaveTeamPlayTime.shared.saveDate(date: viewModel.calendarDetails, idTeam: viewModel.actionsPlayers.players.first!.idTeam, gameNumber: i+1)
+                            for item in 0..<viewModel.selectionGameInWeak + 1 {
+                                SaveTeamPlayTime.shared.saveDate(date: viewModel.calendarDetails, dayOfWeek: "\(viewModel.selectionWeekday[item])", idTeam: viewModel.actionsPlayers.players.first!.idTeam, gameNumber: item+1)
                             }
                             
                             presentationMode.wrappedValue.dismiss()

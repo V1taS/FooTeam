@@ -46,6 +46,8 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
         rating: 0
     )
     
+    @Published var getPlayTime: [TeamTime] = []
+    
     var availabilityTeamType: [String] = ["Открытая", "Закрытая"] // Настроить логику
     @Published var selectionAvailabilityTeamType: Int = 0 // Настроить логику
 
@@ -54,7 +56,8 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     required init() {
         self.getTeamPlayTime.$teams.sink { team in
             print("\(team.count)")
-            print("\(team)")
+            print("\(self.getPlayTime)")
+            self.getPlayTime = team
         } .store(in: &cancellables)
         
         self.actionsPlayers.$players.sink { players in

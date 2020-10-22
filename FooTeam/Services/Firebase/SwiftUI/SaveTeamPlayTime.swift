@@ -17,9 +17,9 @@ class SaveTeamPlayTime {
     
     
     // MARK: Сохраняем дату
-    func saveDate(date: Date, idTeam: String, gameNumber: Int) {
+    func saveDate(date: Date, dayOfWeek: String, idTeam: String, gameNumber: Int) {
         
-        let teamTime = TeamTime(date: date)
+        let teamTime = TeamTime(date: date, dayOfWeek: dayOfWeek)
 
         let refActionsPlayer = db.collection(["teams", idTeam, "dateAndTimeOfTheGame"].joined(separator: "/"))
 

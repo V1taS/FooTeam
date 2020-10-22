@@ -23,6 +23,12 @@ protocol TeamEditModalMainScreenViewModelProtocol {
     
     var availabilityTeamType: [String] { get }
     var selectionAvailabilityTeamType: Int { get }
+    
+    var gameInWeak: [String] { get }
+    var selectionGameInWeak: Int { get }
+    
+    var weekday: [[String]] { get }
+    var selectionWeekday: [Int] { get }
 
     var image: UIImage { get }
     init()
@@ -51,34 +57,22 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
     @Published var selectionAvailabilityTeamType: Int = 0
     
     var gameInWeak: [String] = ["1", "2", "3", "4", "5", "6", "7"]
-    @Published var selectiongameInWeak: Int = 0
+    @Published var selectionGameInWeak: Int = 0
     
     var weekday: [[String]] = [
-        ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-        ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-        ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-        ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-        ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-        ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-        ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
+        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
+        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
+        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
+        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
+        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
+        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
     ]
-    
-    @Published var selectionWeekday: [Int] = [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-    ]
+    @Published var selectionWeekday: [Int] = [0, 0, 0, 0, 0, 0, 0]
     
     @Published var image = UIImage()
     
     required init() {
-        
-
-        
         self.actionsPlayers.$players.sink { players in
             self.players = players
         } .store(in: &cancellables)
