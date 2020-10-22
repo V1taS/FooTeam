@@ -29,7 +29,9 @@ struct TabViewFooTeam: View {
                         Image(systemName: "sportscourt.fill")
                         Text("Команда")
                     }
-            }
+            } .fullScreenCover(isPresented: $viewModel.outFromTeam, content: {
+                JoinToTeamView()
+            })
             
             if FirestoreService.shared.currentUser.captain {
                 if viewModel.showAcceptPlayers {

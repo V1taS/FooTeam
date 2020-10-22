@@ -46,6 +46,9 @@ class ActionsPlayers: ObservableObject {
                                 case .modified:
                                     guard let index = players.firstIndex(of: player) else { return }
                                     self.players[index] = player
+                                    if player.idTeam.isEmpty {
+                                        players.remove(at: index)
+                                    }
                                 case .removed:
                                     guard let index = players.firstIndex(of: player) else { return }
                                     players.remove(at: index)
