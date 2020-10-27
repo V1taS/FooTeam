@@ -37,6 +37,7 @@ struct ListTeamsMainScreenView: View {
                     }
                     
                     CellCardsWithPlayersMainScreenView(selectTeams: $viewModel.selectionTeams)
+                        .frame(maxHeight: 330)
                     
                     HStack {
                         Spacer()

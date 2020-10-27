@@ -46,14 +46,14 @@ struct TeamShowModalMainScreenView: View {
                 HStack {
                     Text("Дни игр:")
                     Spacer()
-                    Text("Пн, Ср")
+                    Text("\(viewModel.day)")
                         .font(.headline)
                 }
                 
                 HStack {
                     Text("Время игр:")
                     Spacer()
-                    Text("21:00")
+                    Text("\(viewModel.time)")
                         .font(.headline)
                 }
                 

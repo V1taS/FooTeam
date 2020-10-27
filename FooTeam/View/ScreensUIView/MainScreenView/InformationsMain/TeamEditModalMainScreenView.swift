@@ -55,6 +55,7 @@ struct TeamEditModalMainScreenView: View {
                         } .pickerStyle(SegmentedPickerStyle())
                     }
                     
+                    
                     ForEach(0..<viewModel.selectionGameInWeak+1, id: \.self) { item in
                             VStack {
                                 HStack {

@@ -169,9 +169,8 @@ extension AuthViewController: GIDSignInDelegate {
             case .success(let user):
                 FirestoreService.shared.getUserData(user: user) { (result) in
                     switch result {
-                    case .success(let player):
+                    case .success(_):
                         UIApplication.getTopViewController()?.showAlert(with: "Успешно", and: "Вы авторизованы") {
-                            print(player)
                             let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)

@@ -28,9 +28,9 @@ struct TeamTime: Hashable, Decodable {
     
     init?(document: QueryDocumentSnapshot) {
         let data = document.data()
-        guard let date = data["date"] as? Date,
+        guard let stamp = data["date"] as? Timestamp,
               let dayOfWeek = data["dayOfWeek"] as? String else { return nil }
-        self.date = date
+        self.date = stamp.dateValue()
         self.dayOfWeek = dayOfWeek
     }
     

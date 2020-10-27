@@ -22,7 +22,7 @@ protocol TeamShowModalMainScreenViewModelProtocol {
     
     var availabilityTeamType: [String] { get }
     var selectionAvailabilityTeamType: Int { get }
-
+    
     var image: UIImage { get }
     init()
 }
@@ -37,7 +37,7 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     @Published var rating: Int = 0
     
     @Published var players: [Player] = []
-
+    
     @Published var team: Team = Team(
         avatarStringURL: "",
         teamName: "",
@@ -46,19 +46,36 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
         rating: 0
     )
     
-    @Published var getPlayTime: [TeamTime] = []
+    @Published var getPlayTime: [TeamTime] = [] //vvvvvvvvvv
+    
+    @Published var time: String = "" //vvvvvvvvvv
+    @Published var day: String = "" //vvvvvvvvvv
     
     var availabilityTeamType: [String] = ["Открытая", "Закрытая"] // Настроить логику
     @Published var selectionAvailabilityTeamType: Int = 0 // Настроить логику
-
+    
     @Published var image = UIImage()
+    
     
     required init() {
         self.getTeamPlayTime.$teams.sink { team in
-            print("\(team.count)")
-            print("\(self.getPlayTime)")
             self.getPlayTime = team
-        } .store(in: &cancellables)
+            
+            let dateFormatterPrint = DateFormatter() //vvvvvvvvvv
+            dateFormatterPrint.dateFormat = "HH:mm" //vvvvvvvvvv
+            let time = dateFormatterPrint.string(from: team.first?.date ?? Date(timeIntervalSince1970: TimeInterval(10))) //vvvvvvvvvv
+            self.time = time //vvvvvvvvvv
+            
+            switch team.first?.dayOfWeek {
+            case "0":
+                self.day = "Пн"
+            case "1":
+                self.day = "Вт"
+            default:
+                self.day = ""
+            }
+            } .store(in: &cancellables)
+        
         
         self.actionsPlayers.$players.sink { players in
             var totalRating = 1

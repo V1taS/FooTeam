@@ -16,7 +16,7 @@ struct CellCardsWithPlayersMainScreenView: View {
     var body: some View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 97, maximum: 97))], spacing: 4) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 97, maximum: 97))], spacing: 0) {
                     ForEach(viewModel.iGoPlayers.filter { $0.teamNumber == selectTeams }, id: \.self) { player in
                         CellTopPlayersFooTeam(namePlayer: player.name,
                                               photoPlayer: player.avatarStringURL,
@@ -29,11 +29,10 @@ struct CellCardsWithPlayersMainScreenView: View {
                                               los: "\(player.losGame)")
                             .scaleEffect(0.5)
                             .frame(maxWidth: 50, idealHeight: 145, maxHeight: 145)
-                            .padding(.vertical, 8)
+                            .padding(.vertical, 6)
                     }
                 }
             }
-            .frame(maxWidth: 330)
         }
     }
 }
