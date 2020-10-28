@@ -35,7 +35,7 @@ class TopPlayersScreenViewModel: TopPlayersScreenViewModelProtocol, ObservableOb
     
     required init() {
         self.actionsPlayers.$players.sink { players in
-            let playersTOP = players.filter { $0.rating > 85 }
+            let playersTOP = players.filter { $0.rating > 89 }
             self.players = playersTOP.sorted(by: { $0.rating > $1.rating })
         } .store(in: &cancellables)
         
