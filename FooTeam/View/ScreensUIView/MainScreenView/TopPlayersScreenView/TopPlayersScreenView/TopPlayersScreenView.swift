@@ -27,12 +27,13 @@ struct TopPlayersScreenView: View {
                                           goal: "\(player.numberOfGoals)",
                                           win: "\(player.winGame)",
                                           los: "\(player.losGame)")
-                        .padding(.vertical, 1)
+                        .scaleEffect(0.7)
+                        .frame(width: 140, height: 215)
                 }
             }
             .padding(.horizontal)
             .padding(.bottom)
-        }
+        } .offset(x: 0, y: -5)
     }
 }
 

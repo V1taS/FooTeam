@@ -46,10 +46,7 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
         rating: 0
     )
     
-    @Published var getPlayTime: [TeamTime] = [] //vvvvvvvvvv
-    
-    @Published var time: String = "" //vvvvvvvvvv
-    @Published var day: String = "" //vvvvvvvvvv
+    @Published var getPlayTime: [TeamTime] = []
     
     var availabilityTeamType: [String] = ["Открытая", "Закрытая"] // Настроить логику
     @Published var selectionAvailabilityTeamType: Int = 0 // Настроить логику
@@ -60,25 +57,12 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     required init() {
         self.getTeamPlayTime.$teams.sink { team in
             self.getPlayTime = team
-            
-            let dateFormatterPrint = DateFormatter() //vvvvvvvvvv
-            dateFormatterPrint.dateFormat = "HH:mm" //vvvvvvvvvv
-            let time = dateFormatterPrint.string(from: team.first?.date ?? Date(timeIntervalSince1970: TimeInterval(10))) //vvvvvvvvvv
-            self.time = time //vvvvvvvvvv
-            
-            switch team.first?.dayOfWeek {
-            case "0":
-                self.day = "Пн"
-            case "1":
-                self.day = "Вт"
-            default:
-                self.day = ""
-            }
             } .store(in: &cancellables)
         
         
         self.actionsPlayers.$players.sink { players in
             var totalRating = 1
+            let players = players.filter { $0.winGame > 1 }
             players.forEach { player in totalRating += player.rating }
             if !players.isEmpty { self.rating = totalRating / players.count }
             self.players = players

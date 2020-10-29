@@ -27,8 +27,14 @@ struct TabViewFooTeam: View {
                 ListPlayersSecondScreenView()
                     .tabItem {
                         Image(systemName: "sportscourt.fill")
+                        Text("Список игроков")
+                    }
+                TeamShowModalMainScreenView()
+                    .tabItem {
+                        Image(systemName: "dot.arrowtriangles.up.right.down.left.circle")
                         Text("Команда")
                     }
+                
             } .fullScreenCover(isPresented: $viewModel.outFromTeam, content: {
                 JoinToTeamView()
             })

@@ -43,18 +43,18 @@ struct TeamShowModalMainScreenView: View {
                         .font(.headline)
                 }
                 
-                HStack {
-                    Text("Дни игр:")
-                    Spacer()
-                    Text("\(viewModel.day)")
-                        .font(.headline)
-                }
-                
-                HStack {
-                    Text("Время игр:")
-                    Spacer()
-                    Text("\(viewModel.time)")
-                        .font(.headline)
+                VStack {
+                    ForEach(viewModel.getPlayTime, id: \.self) { time in
+                        
+                        HStack {
+                            Text("Игра в")
+                            Text("\(GetDayOfWeekFromNumber.shared.GetDayOfWeek(numberString: time.dayOfWeek))")
+                                .font(.headline)
+                            Text("\(GetDateStringFromDate.shared.GetDateString(date: time.date))")
+                                .font(.headline)
+                            Spacer()
+                        }
+                    }
                 }
                 
                 HStack {
@@ -68,25 +68,21 @@ struct TeamShowModalMainScreenView: View {
             .navigationBarTitle(Text("Карточка команды"), displayMode: .inline)
             
             .navigationBarItems(
-                leading: Button(action: {
-                    self.viewModel.isPresentedEditTeam.toggle()
-                    
-                }) {
-                    Image(systemName: "pencil")
-                        .font(.title)
-                        .foregroundColor(Color("BlackAndWhite"))
-                }
-                .sheet(
-                    isPresented: $viewModel.isPresentedEditTeam,
-                    content: { TeamEditModalMainScreenView() }
-                ),
-                trailing: Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                    
-                }) {
-                    Image(systemName: "multiply")
-                        .font(.title)
-                        .foregroundColor(Color("BlackAndWhite"))
+                trailing: VStack {
+                    if FirestoreService.shared.currentUser.captain {
+                        Button(action: {
+                            self.viewModel.isPresentedEditTeam.toggle()
+                            
+                        }) {
+                            Image(systemName: "pencil")
+                                .font(.title)
+                                .foregroundColor(Color("BlackAndWhite"))
+                        }
+                        .sheet(
+                            isPresented: $viewModel.isPresentedEditTeam,
+                            content: { TeamEditModalMainScreenView() }
+                        )
+                    }
                 })
         }
     }

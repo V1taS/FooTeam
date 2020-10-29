@@ -19,7 +19,6 @@ protocol TeamEditModalMainScreenViewModelProtocol {
     var players: [Player] { get }
     var team: Team { get }
     var deleteTeam: Bool { get }
-    var calendarDetails: Date { get }
     
     var availabilityTeamType: [String] { get }
     var selectionAvailabilityTeamType: Int { get }
@@ -37,11 +36,11 @@ protocol TeamEditModalMainScreenViewModelProtocol {
 class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol, ObservableObject {
     @Published var actionsPlayers = ActionsPlayers()
     @Published var currentTeam = CurrentTeam()
+    @Published var getTeamPlayTime = GetTeamPlayTime()
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var isPresentedChangeAvatar: Bool = false
     @Published var deleteTeam: Bool = false
-    @Published var calendarDetails = Date()
     
     @Published var players: [Player] = []
 
@@ -70,9 +69,27 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
     ]
     @Published var selectionWeekday: [Int] = [0, 0, 0, 0, 0, 0, 0]
     
+    @Published var getPlayTime: [TeamTime] = []
+    
+    @Published var calendarDetails: [Date] = [Date(), Date(), Date(), Date(), Date(), Date(), Date()]
+    
     @Published var image = UIImage()
     
     required init() {
+        self.getTeamPlayTime.$teams.sink { team in
+            self.getPlayTime = team
+            self.selectionGameInWeak = team.count - 1
+            
+            var index = 0
+            for item in team {
+                self.calendarDetails.insert(item.date, at: index)
+                self.selectionWeekday.insert(Int(item.dayOfWeek) ?? 0, at: index)
+                index += 1
+            }
+            index = 0
+            
+            } .store(in: &cancellables)
+        
         self.actionsPlayers.$players.sink { players in
             self.players = players
         } .store(in: &cancellables)

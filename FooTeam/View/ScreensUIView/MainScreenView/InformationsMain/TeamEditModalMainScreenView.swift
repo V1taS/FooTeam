@@ -60,7 +60,7 @@ struct TeamEditModalMainScreenView: View {
                             VStack {
                                 HStack {
                                     DatePicker("Игра - \(item+1)",
-                                               selection: $viewModel.calendarDetails,
+                                               selection: $viewModel.calendarDetails[item],
                                            displayedComponents: [.hourAndMinute])
                                         
                                     Picker("", selection: $viewModel.selectionWeekday[item]) {
@@ -85,7 +85,7 @@ struct TeamEditModalMainScreenView: View {
                         Button(action: {
                             
                             for item in 0..<viewModel.selectionGameInWeak + 1 {
-                                SaveTeamPlayTime.shared.saveDate(date: viewModel.calendarDetails, dayOfWeek: "\(viewModel.selectionWeekday[item])", idTeam: viewModel.actionsPlayers.players.first!.idTeam, gameNumber: item+1)
+                                SaveTeamPlayTime.shared.saveDate(date: viewModel.calendarDetails[item], dayOfWeek: "\(viewModel.selectionWeekday[item])", idTeam: viewModel.actionsPlayers.players.first!.idTeam, gameNumber: item+1, arrayDateGame: viewModel.getPlayTime)
                             }
                             
                             presentationMode.wrappedValue.dismiss()

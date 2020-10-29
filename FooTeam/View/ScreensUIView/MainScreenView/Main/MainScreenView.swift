@@ -50,6 +50,7 @@ struct MainScreenView: View {
                     } .padding(.horizontal)
                     
                     TopPlayersScreenView()
+                        
                     Spacer()
                 }
                 

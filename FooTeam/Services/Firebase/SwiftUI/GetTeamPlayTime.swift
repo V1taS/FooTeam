@@ -27,16 +27,25 @@ class GetTeamPlayTime: ObservableObject {
             
             refActionsPlayer.addSnapshotListener { (snapshot, error) in
                 guard let snapshot = snapshot else { return }
-                if !snapshot.isEmpty {
-                    for snapshot in snapshot.documents {
-                        if let teamPlayTime = TeamTime(document: snapshot) {
-                            self.teams.append(teamPlayTime)
-                        }
+                
+                snapshot.documentChanges.forEach { (diff) in
+                    guard let team = TeamTime(document: diff.document) else { return }
+                    switch diff.type {
+                    case .added:
+                        guard !self.teams.contains(team) else { return }
+                        self.teams.append(team)
+                    case .modified:
+                        guard let index = self.teams.firstIndex(of: team) else { return }
+                        self.teams[index] = team
+                    case .removed:
+                        guard let index = self.teams.firstIndex(of: team) else { return }
+                        self.teams.remove(at: index)
                     }
                 }
+                
             }
         }
-        
     }
 }
+
 

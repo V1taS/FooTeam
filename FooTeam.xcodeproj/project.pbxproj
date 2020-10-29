@@ -109,6 +109,8 @@
 		1B6F5BE22518125C000FACD9 /* JoinToTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6F5BE12518125C000FACD9 /* JoinToTeamViewModel.swift */; };
 		1B6F5BE72518129C000FACD9 /* CellJoinToTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6F5BE62518129C000FACD9 /* CellJoinToTeamViewModel.swift */; };
 		1B77086D250FF327006B1549 /* PopapCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B77086C250FF327006B1549 /* PopapCard.swift */; };
+		1B783969254B6A7A001E8346 /* GetDateStringFromDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B783968254B6A7A001E8346 /* GetDateStringFromDate.swift */; };
+		1B78396C254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78396B254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift */; };
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
 		1B7F262C25098A5B0053E124 /* JoinToTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F262B25098A5B0053E124 /* JoinToTeamView.swift */; };
@@ -246,6 +248,8 @@
 		1B6F5BE12518125C000FACD9 /* JoinToTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToTeamViewModel.swift; sourceTree = "<group>"; };
 		1B6F5BE62518129C000FACD9 /* CellJoinToTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellJoinToTeamViewModel.swift; sourceTree = "<group>"; };
 		1B77086C250FF327006B1549 /* PopapCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopapCard.swift; sourceTree = "<group>"; };
+		1B783968254B6A7A001E8346 /* GetDateStringFromDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateStringFromDate.swift; sourceTree = "<group>"; };
+		1B78396B254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDayOfWeekFromNumber.swift; sourceTree = "<group>"; };
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7F262B25098A5B0053E124 /* JoinToTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToTeamView.swift; sourceTree = "<group>"; };
@@ -381,6 +385,8 @@
 				1B4C2B7B250EC26C0064A029 /* CountPlayersInTeam.swift */,
 				1B53957A250ADF1500C8DFD9 /* CurrentUser.swift */,
 				1BC080952518F91600FA5908 /* BufferIDplayer.swift */,
+				1B783968254B6A7A001E8346 /* GetDateStringFromDate.swift */,
+				1B78396B254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift */,
 				1BC8B61B250EE34C00FC8B27 /* CurrentTeam.swift */,
 				1B539584250AECE300C8DFD9 /* AddPlayer.swift */,
 				1B53957C250AE35800C8DFD9 /* EditPlayer.swift */,
@@ -1019,6 +1025,7 @@
 				1B596FB624EC73A90092770B /* StackViewExtension.swift in Sources */,
 				1BF32C96251574E100941F44 /* ImagePlayer.swift in Sources */,
 				1B85C933250824C1002C3106 /* ProfileAddPlayerView.swift in Sources */,
+				1B783969254B6A7A001E8346 /* GetDateStringFromDate.swift in Sources */,
 				1B50E65825066F97009B10C7 /* ProfileShowModalMainScreenView.swift in Sources */,
 				1BF833E2252FB1480077053E /* TeamShowModalMainScreenView.swift in Sources */,
 				1BBDD87B251D60B000517BB3 /* CellCardsWithPlayersMainScreenViewModel.swift in Sources */,
@@ -1099,6 +1106,7 @@
 				1B6964B925118D5300CBAC9E /* ListTeamsMainScreenViewModel.swift in Sources */,
 				1B539581250AE92A00C8DFD9 /* DeletTeam.swift in Sources */,
 				1B539583250AEB2400C8DFD9 /* EditTeam.swift in Sources */,
+				1B78396C254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift in Sources */,
 				1BC080932518F83100FA5908 /* PlayersProfileEditorViewModel.swift in Sources */,
 				1B596F9824EC739A0092770B /* AuthError.swift in Sources */,
 				1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */,
@@ -1257,7 +1265,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FooTeam/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1265,7 +1273,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.25;
+				MARKETING_VERSION = 1.2.26;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1280,7 +1288,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FooTeam/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1288,7 +1296,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.25;
+				MARKETING_VERSION = 1.2.26;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
