@@ -72,7 +72,7 @@ struct CellJoinToTeamView: View {
     
     struct CellJoinTeamViewController_Previews: PreviewProvider {
         static var previews: some View {
-            CellJoinToTeamView(team: Team(avatarStringURL: "", teamName: "Teadfdfd", location: "Rus", teamType: "Type", rating: 80))
+            CellJoinToTeamView(team: Team(avatarStringURL: "", teamName: "Teadfdfd", location: "Rus", teamType: "Type", rating: 80, countPlayersInTeam: 18))
         }
     }
 }

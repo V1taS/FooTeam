@@ -66,7 +66,8 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
         teamName: "",
         location: "",
         teamType: "",
-        rating: 0
+        rating: 0,
+        countPlayersInTeam: 18
     )
     
     var whoAreYou: [String] = ["Игрок", "Зритель"]

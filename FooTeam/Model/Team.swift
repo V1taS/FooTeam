@@ -17,14 +17,16 @@ struct Team: Hashable, Decodable {
     var teamType: String
     var id: String
     var rating: Int
+    var countPlayersInTeam: Int
     
-    init(avatarStringURL: String, teamName: String, location: String, teamType: String, rating: Int) {
+    init(avatarStringURL: String, teamName: String, location: String, teamType: String, rating: Int, countPlayersInTeam: Int) {
         self.avatarStringURL = avatarStringURL
         self.teamName = teamName
         self.location = location
         self.teamType = teamType
         self.id = UUID().uuidString
         self.rating = rating
+        self.countPlayersInTeam = countPlayersInTeam
     }
     
     init?(document: DocumentSnapshot) {
@@ -34,6 +36,7 @@ struct Team: Hashable, Decodable {
             let location = data["location"] as? String,
             let teamType = data["teamType"] as? String,
             let id = data["id"] as? String,
+            let countPlayersInTeam = data["countPlayersInTeam"] as? Int,
             let rating = data["rating"] as? Int else { return nil }
         
         self.avatarStringURL = avatarStringURL
@@ -41,6 +44,7 @@ struct Team: Hashable, Decodable {
         self.location = location
         self.teamType = teamType
         self.rating = rating
+        self.countPlayersInTeam = countPlayersInTeam
         self.id = id
     }
     
@@ -52,6 +56,7 @@ struct Team: Hashable, Decodable {
             let location = data["location"] as? String,
             let teamType = data["teamType"] as? String,
             let id = data["id"] as? String,
+            let countPlayersInTeam = data["countPlayersInTeam"] as? Int,
             let rating = data["rating"] as? Int else { return nil }
         
         self.avatarStringURL = avatarStringURL
@@ -59,6 +64,7 @@ struct Team: Hashable, Decodable {
         self.location = location
         self.teamType = teamType
         self.rating = rating
+        self.countPlayersInTeam = countPlayersInTeam
         self.id = id
     }
     
@@ -69,6 +75,7 @@ struct Team: Hashable, Decodable {
         rep["location"] = location
         rep["teamType"] = teamType
         rep["rating"] = rating
+        rep["countPlayersInTeam"] = countPlayersInTeam
         rep["id"] = id
         return rep
     }

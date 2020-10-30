@@ -52,7 +52,8 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
         teamName: "",
         location: "",
         teamType: "",
-        rating: 0
+        rating: 0,
+        countPlayersInTeam: 18
     )
     
     @Published var isPresentedProfileEditor: Bool = false

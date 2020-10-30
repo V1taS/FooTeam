@@ -50,7 +50,8 @@ class ListPlayersProfileShowViewModel: ListPlayersProfileShowViewModelProtocol, 
         teamName: "",
         location: "",
         teamType: "",
-        rating: 0
+        rating: 0,
+        countPlayersInTeam: 18
     )
     @Published var isPresentedShowModal = false
     @Published var playerID = ""

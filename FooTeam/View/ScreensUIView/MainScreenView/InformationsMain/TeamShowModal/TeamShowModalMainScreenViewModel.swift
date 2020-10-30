@@ -24,10 +24,12 @@ protocol TeamShowModalMainScreenViewModelProtocol {
     var selectionAvailabilityTeamType: Int { get }
     
     var image: UIImage { get }
+    var countPlayers: Int { get }
     init()
 }
 
 class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol, ObservableObject {
+    
     @Published var actionsPlayers = ActionsPlayers()
     @Published var getTeamPlayTime = GetTeamPlayTime()
     @Published var currentTeam = CurrentTeam()
@@ -43,7 +45,8 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
         teamName: "",
         location: "",
         teamType: "",
-        rating: 0
+        rating: 0,
+        countPlayersInTeam: 18
     )
     
     @Published var getPlayTime: [TeamTime] = []
@@ -51,12 +54,15 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     var availabilityTeamType: [String] = ["Открытая", "Закрытая"] // Настроить логику
     @Published var selectionAvailabilityTeamType: Int = 0 // Настроить логику
     
+    @Published var countPlayers: Int = 0
+    
     @Published var image = UIImage()
     
     
     required init() {
         self.getTeamPlayTime.$teams.sink { team in
             self.getPlayTime = team
+            print("\(team.count)")
             } .store(in: &cancellables)
         
         

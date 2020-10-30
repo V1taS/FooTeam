@@ -32,7 +32,7 @@ struct TopPlayersScreenView: View {
                 }
             }
             .padding(.horizontal)
-            .padding(.bottom)
+//            .padding(.bottom)
         } .offset(x: 0, y: -5)
     }
 }

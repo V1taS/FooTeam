@@ -48,13 +48,20 @@ struct TeamShowModalMainScreenView: View {
                         
                         HStack {
                             Text("Игра в")
+                            Spacer()
                             Text("\(GetDayOfWeekFromNumber.shared.GetDayOfWeek(numberString: time.dayOfWeek))")
                                 .font(.headline)
                             Text("\(GetDateStringFromDate.shared.GetDateString(date: time.date))")
                                 .font(.headline)
-                            Spacer()
                         }
                     }
+                }
+                
+                HStack {
+                    Text("Максимальное кол-во игроков")
+                    Spacer()
+                    Text("25")
+                        .font(.headline)
                 }
                 
                 HStack {

@@ -30,7 +30,8 @@ class TopPlayersScreenViewModel: TopPlayersScreenViewModelProtocol, ObservableOb
         teamName: "",
         location: "",
         teamType: "",
-        rating: 0
+        rating: 0,
+        countPlayersInTeam: 18
     )
     
     required init() {

@@ -21,30 +21,29 @@ class GetTeamPlayTime: ObservableObject {
     
     // MARK: Получаем всех активных игроков текущей команды
     func getIfoAboutTeam() {
-        if let currentPlayer = FirestoreService.shared.currentUser {
-            
-            let refActionsPlayer = db.collection(["teams", currentPlayer.idTeam, "dateAndTimeOfTheGame"].joined(separator: "/"))
+            let refActionsPlayer = db.collection(["teams", FirestoreService.shared.currentUser.idTeam, "dateAndTimeOfTheGame"].joined(separator: "/"))
             
             refActionsPlayer.addSnapshotListener { (snapshot, error) in
                 guard let snapshot = snapshot else { return }
-                
-                snapshot.documentChanges.forEach { (diff) in
-                    guard let team = TeamTime(document: diff.document) else { return }
-                    switch diff.type {
-                    case .added:
-                        guard !self.teams.contains(team) else { return }
-                        self.teams.append(team)
-                    case .modified:
-                        guard let index = self.teams.firstIndex(of: team) else { return }
-                        self.teams[index] = team
-                    case .removed:
-                        guard let index = self.teams.firstIndex(of: team) else { return }
-                        self.teams.remove(at: index)
+                if !snapshot.isEmpty {
+                    snapshot.documentChanges.forEach { (diff) in
+                        guard let team = TeamTime(document: diff.document) else { return }
+                        switch diff.type {
+                        case .added:
+                            self.teams.append(team)
+                            print("get case .added:")
+                        case .modified:
+                            guard let index = self.teams.firstIndex(of: team) else { return }
+                            self.teams.remove(at: index)
+                            print("get case .modified:")
+                        case .removed:
+                            guard let index = self.teams.firstIndex(of: team) else { return }
+                            self.teams.remove(at: index)
+                            print("get case .removed:")
+                        }
                     }
                 }
-                
             }
-        }
     }
 }
 
