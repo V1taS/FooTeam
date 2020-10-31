@@ -85,7 +85,7 @@ struct TeamEditModalMainScreenView: View {
                         Button(action: {
                             
                             for item in 0..<viewModel.selectionGameInWeak + 1 {
-                                SaveTeamPlayTime.shared.saveDate(date: viewModel.calendarDetails[item], dayOfWeek: "\(viewModel.selectionWeekday[item])", idTeam: viewModel.actionsPlayers.players.first!.idTeam, gameNumber: item+1, arrayDateGame: viewModel.getPlayTime)
+                                SaveTeamPlayTime.shared.saveDate(date: viewModel.calendarDetails[item], dayOfWeek: "\(viewModel.selectionWeekday[item])", idTeam: viewModel.actionsPlayers.players.first!.idTeam, gameNumber: item+1, arrayDateGame: viewModel.getPlayTime, gameInWeak: viewModel.selectionGameInWeak)
                             }
                             
                             presentationMode.wrappedValue.dismiss()

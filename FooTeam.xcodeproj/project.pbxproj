@@ -29,6 +29,7 @@
 		1B453AAC2501A28B00DA2DDA /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */; };
 		1B453AAE2501A30400DA2DDA /* PlayersListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAD2501A30400DA2DDA /* PlayersListener.swift */; };
 		1B453AB02501AA1800DA2DDA /* TeamsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */; };
+		1B4978B7254E1E5100E79E1C /* RemoveExcessTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4978B6254E1E5100E79E1C /* RemoveExcessTime.swift */; };
 		1B4A3DC72502EAEA000EABD1 /* ListTeamsMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DC62502EAEA000EABD1 /* ListTeamsMainScreenView.swift */; };
 		1B4A3DCE2502EF6F000EABD1 /* CellCardsWithPlayersMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A3DCD2502EF6F000EABD1 /* CellCardsWithPlayersMainScreenView.swift */; };
 		1B4B0EE7250AAE8C00EF701B /* ActionsPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */; };
@@ -166,6 +167,7 @@
 		1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
 		1B453AAD2501A30400DA2DDA /* PlayersListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListener.swift; sourceTree = "<group>"; };
 		1B453AAF2501AA1800DA2DDA /* TeamsListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsListener.swift; sourceTree = "<group>"; };
+		1B4978B6254E1E5100E79E1C /* RemoveExcessTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveExcessTime.swift; sourceTree = "<group>"; };
 		1B4A3DC62502EAEA000EABD1 /* ListTeamsMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTeamsMainScreenView.swift; sourceTree = "<group>"; };
 		1B4A3DCD2502EF6F000EABD1 /* CellCardsWithPlayersMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCardsWithPlayersMainScreenView.swift; sourceTree = "<group>"; };
 		1B4B0EE6250AAE8C00EF701B /* ActionsPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsPlayers.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				1B539582250AEB2400C8DFD9 /* EditTeam.swift */,
 				1B539580250AE92A00C8DFD9 /* DeletTeam.swift */,
 				1B5E242D253E0CE700940B09 /* SaveTeamPlayTime.swift */,
+				1B4978B6254E1E5100E79E1C /* RemoveExcessTime.swift */,
 				1B5E2442253E423E00940B09 /* GetTeamPlayTime.swift */,
 			);
 			path = SwiftUI;
@@ -1023,6 +1026,7 @@
 				1B18C2DE25116AFD00551C6D /* HeaderMainScreenViewModel.swift in Sources */,
 				1B596F7524EC73530092770B /* CellTopPlayersFooTeam.swift in Sources */,
 				1B596FB624EC73A90092770B /* StackViewExtension.swift in Sources */,
+				1B4978B7254E1E5100E79E1C /* RemoveExcessTime.swift in Sources */,
 				1BF32C96251574E100941F44 /* ImagePlayer.swift in Sources */,
 				1B85C933250824C1002C3106 /* ProfileAddPlayerView.swift in Sources */,
 				1B783969254B6A7A001E8346 /* GetDateStringFromDate.swift in Sources */,
