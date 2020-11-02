@@ -18,13 +18,13 @@ class GetDayOfWeekFromNumber {
         case "1":
             return "Вторник"
         case "2":
-            return "Среду"
+            return "Среда"
         case "3":
             return "Четверг"
         case "4":
-            return "Пятницу"
+            return "Пятница"
         case "5":
-            return "Субботу"
+            return "Суббота"
         case "6":
             return "Воскресенье"
         default:

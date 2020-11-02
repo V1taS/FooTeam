@@ -30,6 +30,7 @@ protocol TeamShowModalMainScreenViewModelProtocol {
 
 class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol, ObservableObject {
     
+    @Published var waitingPlayers = WaitingPlayers()
     @Published var actionsPlayers = ActionsPlayers()
     @Published var getTeamPlayTime = GetTeamPlayTime()
     @Published var currentTeam = CurrentTeam()
@@ -46,10 +47,13 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
         location: "",
         teamType: "",
         rating: 0,
-        countPlayersInTeam: 18
+        maxCountPlayersInTeam: 18,
+        isHidden: true,
+        currentCountPlayersInTeam: 18
     )
     
     @Published var getPlayTime: [TeamTime] = []
+    @Published var playersWaitingAccept: [Player] = []
     
     var availabilityTeamType: [String] = ["Открытая", "Закрытая"] // Настроить логику
     @Published var selectionAvailabilityTeamType: Int = 0 // Настроить логику
@@ -60,17 +64,20 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     
     
     required init() {
-        self.getTeamPlayTime.$teams.sink { team in
-            self.getPlayTime = team
-            print("\(team.count)")
+        self.waitingPlayers.$players.sink { players in
+            self.playersWaitingAccept = players
+        } .store(in: &cancellables)
+        
+        self.getTeamPlayTime.$teams.sink { dates in
+            self.getPlayTime = dates
             } .store(in: &cancellables)
         
         
         self.actionsPlayers.$players.sink { players in
             var totalRating = 1
-            let players = players.filter { $0.winGame > 1 }
-            players.forEach { player in totalRating += player.rating }
-            if !players.isEmpty { self.rating = totalRating / players.count }
+            let playersRating = players.filter { $0.winGame > 1 || $0.losGame > 1 }
+            playersRating.forEach { player in totalRating += player.rating }
+            if !playersRating.isEmpty { self.rating = totalRating / playersRating.count }
             self.players = players
         } .store(in: &cancellables)
         

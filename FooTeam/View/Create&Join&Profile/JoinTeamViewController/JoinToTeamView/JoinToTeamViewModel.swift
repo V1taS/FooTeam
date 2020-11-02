@@ -29,7 +29,8 @@ class JoinToTeamViewModel: JoinToTeamViewModelProtocol, ObservableObject {
     
     required init() {
         self.teamsListener.$teams.sink { team in
-            self.teams = team
+            let isHiddenTeamOff = team.filter { $0.isHidden == false }
+            self.teams = isHiddenTeamOff
         }
         .store(in: &cancellables)
     }

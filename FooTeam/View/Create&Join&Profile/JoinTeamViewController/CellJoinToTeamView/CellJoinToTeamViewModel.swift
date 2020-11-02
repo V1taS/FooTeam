@@ -16,7 +16,6 @@ protocol CellJoinToTeamViewModelProtocol {
 
     var isPresented: Bool { get }
     var showAlertAccept: Bool { get }
-    init()
 }
 
 class CellJoinToTeamViewModel: CellJoinToTeamViewModelProtocol, ObservableObject {
@@ -25,11 +24,9 @@ class CellJoinToTeamViewModel: CellJoinToTeamViewModelProtocol, ObservableObject
 
     @Published var isPresented: Bool = false
     @Published var showAlertAccept: Bool = false
+    @Published var idTeam: String = ""
     
-    required init() {
-        self.currentUser.$player.sink { player in
-            
-        } .store(in: &cancellables)
-    }
+    @Published var players: [Player] = []
+    
     
 }

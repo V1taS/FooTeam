@@ -17,16 +17,28 @@ struct Team: Hashable, Decodable {
     var teamType: String
     var id: String
     var rating: Int
-    var countPlayersInTeam: Int
+    var isHidden: Bool
+    var maxCountPlayersInTeam: Int
+    var currentCountPlayersInTeam: Int
     
-    init(avatarStringURL: String, teamName: String, location: String, teamType: String, rating: Int, countPlayersInTeam: Int) {
+    init(
+        avatarStringURL: String,
+         teamName: String,
+        location: String,
+        teamType: String,
+        rating: Int,
+        maxCountPlayersInTeam: Int,
+        isHidden: Bool,
+        currentCountPlayersInTeam: Int) {
         self.avatarStringURL = avatarStringURL
         self.teamName = teamName
         self.location = location
         self.teamType = teamType
         self.id = UUID().uuidString
         self.rating = rating
-        self.countPlayersInTeam = countPlayersInTeam
+        self.maxCountPlayersInTeam = maxCountPlayersInTeam
+        self.isHidden = isHidden
+        self.currentCountPlayersInTeam = currentCountPlayersInTeam
     }
     
     init?(document: DocumentSnapshot) {
@@ -36,7 +48,9 @@ struct Team: Hashable, Decodable {
             let location = data["location"] as? String,
             let teamType = data["teamType"] as? String,
             let id = data["id"] as? String,
-            let countPlayersInTeam = data["countPlayersInTeam"] as? Int,
+            let maxCountPlayersInTeam = data["maxCountPlayersInTeam"] as? Int,
+            let currentCountPlayersInTeam = data["currentCountPlayersInTeam"] as? Int,
+            let isHidden = data["isHidden"] as? Bool,
             let rating = data["rating"] as? Int else { return nil }
         
         self.avatarStringURL = avatarStringURL
@@ -44,7 +58,9 @@ struct Team: Hashable, Decodable {
         self.location = location
         self.teamType = teamType
         self.rating = rating
-        self.countPlayersInTeam = countPlayersInTeam
+        self.maxCountPlayersInTeam = maxCountPlayersInTeam
+        self.currentCountPlayersInTeam = currentCountPlayersInTeam
+        self.isHidden = isHidden
         self.id = id
     }
     
@@ -56,7 +72,9 @@ struct Team: Hashable, Decodable {
             let location = data["location"] as? String,
             let teamType = data["teamType"] as? String,
             let id = data["id"] as? String,
-            let countPlayersInTeam = data["countPlayersInTeam"] as? Int,
+            let maxCountPlayersInTeam = data["maxCountPlayersInTeam"] as? Int,
+            let currentCountPlayersInTeam = data["currentCountPlayersInTeam"] as? Int,
+            let isHidden = data["isHidden"] as? Bool,
             let rating = data["rating"] as? Int else { return nil }
         
         self.avatarStringURL = avatarStringURL
@@ -64,7 +82,9 @@ struct Team: Hashable, Decodable {
         self.location = location
         self.teamType = teamType
         self.rating = rating
-        self.countPlayersInTeam = countPlayersInTeam
+        self.maxCountPlayersInTeam = maxCountPlayersInTeam
+        self.isHidden = isHidden
+        self.currentCountPlayersInTeam = currentCountPlayersInTeam
         self.id = id
     }
     
@@ -75,7 +95,9 @@ struct Team: Hashable, Decodable {
         rep["location"] = location
         rep["teamType"] = teamType
         rep["rating"] = rating
-        rep["countPlayersInTeam"] = countPlayersInTeam
+        rep["maxCountPlayersInTeam"] = maxCountPlayersInTeam
+        rep["currentCountPlayersInTeam"] = currentCountPlayersInTeam
+        rep["isHidden"] = isHidden
         rep["id"] = id
         return rep
     }

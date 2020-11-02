@@ -18,21 +18,24 @@ class EditTeam {
     // MARK: - Edit Team
     func editTeamInTeam(
         team: Team,
-        teams: [Team],
         teamName: String?,
         avatarImage: UIImage?,
         location: String?,
         teamType: String?,
-        rating: Int?
+        maxCountPlayersInTeam: Int?,
+        isHidden: Bool?,
+        currentCountPlayersInTeam: Int?
     ) {
         let teamRef = db.collection("teams")
         var team = team
-        var teams = teams
+//        var teams = teams
         
         if let teamName = teamName { team.teamName = teamName }
         if let location = location { team.location = location }
         if let teamType = teamType { team.teamType = teamType }
-        if let rating = rating { team.rating = rating }
+        if let maxCountPlayersInTeam = maxCountPlayersInTeam { team.maxCountPlayersInTeam = maxCountPlayersInTeam }
+        if let isHidden = isHidden { team.isHidden = isHidden }
+        if let currentCountPlayersInTeam = currentCountPlayersInTeam { team.currentCountPlayersInTeam = currentCountPlayersInTeam }
         
         if let avatarImage = avatarImage {
             StorageService.shared.uploadAvaTeam(photo: avatarImage, idTeam: team.id) { (result) in
@@ -43,24 +46,24 @@ class EditTeam {
             }
         }
         
-        teamRef.addSnapshotListener { (querySnapshot, error) in
-            guard let snapshot = querySnapshot else { return }
-            
-            snapshot.documentChanges.forEach { (diff) in
-                guard let team = Team(document: diff.document) else { return }
-                switch diff.type {
-                case .added:
-                    guard !teams.contains(team) else { return }
-                    teams.append(team)
-                case .modified:
-                    guard let index = teams.firstIndex(of: team) else { return }
-                    teams[index] = team
-                case .removed:
-                    guard let index = teams.firstIndex(of: team) else { return }
-                    teams.remove(at: index)
-                }
-            }
-        }
+//        teamRef.addSnapshotListener { (querySnapshot, error) in
+//            guard let snapshot = querySnapshot else { return }
+//
+//            snapshot.documentChanges.forEach { (diff) in
+//                guard let team = Team(document: diff.document) else { return }
+//                switch diff.type {
+//                case .added:
+//                    guard !teams.contains(team) else { return }
+//                    teams.append(team)
+//                case .modified:
+//                    guard let index = teams.firstIndex(of: team) else { return }
+//                    teams[index] = team
+//                case .removed:
+//                    guard let index = teams.firstIndex(of: team) else { return }
+//                    teams.remove(at: index)
+//                }
+//            }
+//        }
         
         teamRef.document(team.id).updateData(team.representation) { (error) in }
     }

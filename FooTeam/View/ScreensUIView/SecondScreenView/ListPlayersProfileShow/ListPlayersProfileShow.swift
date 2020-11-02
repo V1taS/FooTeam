@@ -50,14 +50,14 @@ struct ListPlayersProfileShow: View {
                 HStack {
                     Text("Месячная подписка:")
                     Spacer()
-                    Text("\(viewModel.player.subscription ? "активна" : "не активна")")
+                    Text("\(viewModel.player.subscription ? Text("активна").foregroundColor(Color.green) : Text("не активна").foregroundColor(Color.red))")
                         .font(.headline)
                 }
                 
                 HStack {
                     Text("Иду на след. игру:")
                     Spacer()
-                    Text("\(viewModel.player.iGo ? "да" : "нет")")
+                    Text("\(viewModel.player.iGo ? Text("да").foregroundColor(Color.green) : Text("нет").foregroundColor(Color.red))")
                         .font(.headline)
                 }
         } .onAppear { viewModel.playerID = player.id }

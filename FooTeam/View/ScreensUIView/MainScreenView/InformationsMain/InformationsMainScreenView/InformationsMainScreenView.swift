@@ -11,8 +11,6 @@ import SwiftUI
 struct InformationsMainScreenView: View {
     
     @StateObject private var viewModel = InformationsMainScreenViewModel()
-    @Binding var showAcceptPlayers: Bool
-    @Binding var showTeamModal: Bool
     
     var body: some View {
         ZStack {
@@ -45,63 +43,58 @@ struct InformationsMainScreenView: View {
                         Text("Иду на игру:")
                             .minimumScaleFactor(0.7)
                             .foregroundColor(Color("BlackAndWhite"))
-                        Text("\(viewModel.iGo ? "да" : "нет")")
+                        Text("\(viewModel.iGo ? Text("да").foregroundColor(Color("BlackAndWhite")) : Text("нет").foregroundColor(Color.red))")
                             .font(.headline)
                             .foregroundColor(Color("BlackAndWhite"))
                             .minimumScaleFactor(0.7)
                     }
                 }
                 .padding(.leading, 8)
-                .frame(maxWidth: 160, alignment: .leading)
+                .frame(width: 160, alignment: .leading)
                 
                 DividerFooTeamMenu()
                 
                 VStack(alignment: .leading, spacing: 1) {
+                    RowCalendarforInfo()
+//                    VStack {
+//                        Text("Ближайшие игры:")
+//                            .font(.headline)
+//                            .foregroundColor(Color("BlackAndWhite"))
+//                            .minimumScaleFactor(0.7)
+//                            .lineLimit(1)
+//                        ForEach(viewModel.getPlayTime, id: \.self) { time in
+//                            HStack {
+//                                Text("\(GetDayOfWeekFromNumber.shared.GetDayOfWeek(numberString: time.dayOfWeek))")
+//                                    .font(.headline)
+//                                    .foregroundColor(Color("BlackAndWhite"))
+//                                    .minimumScaleFactor(0.7)
+//                                    .lineLimit(1)
+//                                Text("в")
+//                                    .font(.headline)
+//                                    .foregroundColor(Color("BlackAndWhite"))
+//                                    .minimumScaleFactor(0.7)
+//                                    .lineLimit(1)
+//                                Text("\(GetDateStringFromDate.shared.GetDateString(date: time.date))")
+//                                    .font(.headline)
+//                                    .foregroundColor(Color("BlackAndWhite"))
+//                                    .minimumScaleFactor(0.7)
+//                                    .lineLimit(1)
+//                            }
+//                        }
+//                    }
                     
-                    HStack {
-                        Text("Игра")
-                            .foregroundColor(Color("BlackAndWhite"))
-                            .minimumScaleFactor(0.7)
-                        Text("\(viewModel.datePlay)")
-                            .font(.headline)
-                            .minimumScaleFactor(0.7)
-                            .foregroundColor(Color("BlackAndWhite"))
-                    }
-                    
-                    HStack {
-                        Text("Температура:")
-                            .foregroundColor(Color("BlackAndWhite"))
-                            .minimumScaleFactor(0.7)
-                        Text("\(viewModel.temperatureString)°С")
-                            .font(.headline)
-                            .minimumScaleFactor(0.7)
-                            .foregroundColor(Color("BlackAndWhite"))
-                    }
-                } .frame(maxWidth: 160)
-                
-                if viewModel.capitan {
-                    VStack(alignment: .center, spacing: 1) {
-                        HStack {
-                            Button(action: { showAcceptPlayers.toggle() }) {
-                                Image(systemName: "mail")
-                                    .minimumScaleFactor(0.7)
-                                    .font(.title)
-                                    .foregroundColor(viewModel.playersWaitingAccept.isEmpty ? .gray : .green)
-                            }
-                            
-                            Button(action: { showTeamModal.toggle() }) {
-                                Image(systemName: "camera.metering.multispot")
-                                    .font(.title)
-                                    .foregroundColor(.gray)
-                                    .minimumScaleFactor(0.7)
-                            } .sheet(isPresented: $showTeamModal) {
-                                TeamShowModalMainScreenView()
-                            }
-                        }
-                    } .frame(maxWidth: 160) .padding(.top, 2)
-                }
-                
-                
+//                    HStack {
+//                        Text("Температура:")
+//                            .foregroundColor(Color("BlackAndWhite"))
+//                            .minimumScaleFactor(0.7)
+//                            .lineLimit(1)
+//                        Text("\(viewModel.temperatureString)°С")
+//                            .font(.headline)
+//                            .minimumScaleFactor(0.7)
+//                            .foregroundColor(Color("BlackAndWhite"))
+//                            .lineLimit(1)
+//                    }
+                } .frame(width: 150, alignment: .leading)
             }
         }
     }
@@ -109,6 +102,6 @@ struct InformationsMainScreenView: View {
 
 struct InformationMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        InformationsMainScreenView(showAcceptPlayers: .constant(false), showTeamModal: .constant(false))
+        InformationsMainScreenView()
     }
 }

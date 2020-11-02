@@ -50,7 +50,9 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
         location: "",
         teamType: "",
         rating: 0,
-        countPlayersInTeam: 18
+        maxCountPlayersInTeam: 18,
+        isHidden: true,
+        currentCountPlayersInTeam: 18
     )
     
     var availabilityTeamType: [String] = ["Открытая", "Закрытая"]

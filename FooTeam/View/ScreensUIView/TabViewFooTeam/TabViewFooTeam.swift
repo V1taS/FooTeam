@@ -16,9 +16,8 @@ struct TabViewFooTeam: View {
     
     var body: some View {
         ZStack {
-            
             TabView {
-                MainScreenView(showAcceptPlayers: $viewModel.showAcceptPlayers, showTeamModal: $viewModel.showTeamModal)
+                MainScreenView()
                     .tabItem {
                         Image(systemName: "rectangle.3.offgrid.bubble.left")
                         Text("Главная")
@@ -29,7 +28,7 @@ struct TabViewFooTeam: View {
                         Image(systemName: "sportscourt.fill")
                         Text("Список игроков")
                     }
-                TeamShowModalMainScreenView()
+                TeamShowModalMainScreenView(showAcceptPlayers: $viewModel.showAcceptPlayers)
                     .tabItem {
                         Image(systemName: "dot.arrowtriangles.up.right.down.left.circle")
                         Text("Команда")

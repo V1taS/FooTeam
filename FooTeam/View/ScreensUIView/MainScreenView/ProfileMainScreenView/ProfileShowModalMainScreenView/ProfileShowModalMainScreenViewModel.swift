@@ -53,7 +53,9 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
         location: "",
         teamType: "",
         rating: 0,
-        countPlayersInTeam: 18
+        maxCountPlayersInTeam: 18,
+        isHidden: true,
+        currentCountPlayersInTeam: 18
     )
     
     @Published var isPresentedProfileEditor: Bool = false

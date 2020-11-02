@@ -11,8 +11,6 @@ import SwiftUI
 struct MainScreenView: View {
     
     @StateObject private var viewModel = MainScreenViewModel()
-    @Binding var showAcceptPlayers: Bool
-    @Binding var showTeamModal: Bool
     
     var body: some View {
         NavigationView {
@@ -29,7 +27,7 @@ struct MainScreenView: View {
                     HStack {
                         ProfileMainScreenView()
                         Spacer(minLength: 16)
-                        InformationsMainScreenView(showAcceptPlayers: $showAcceptPlayers, showTeamModal: $showTeamModal)
+                        InformationsMainScreenView()
                     } .padding(.horizontal)
                     
                     HStack {
@@ -59,12 +57,13 @@ struct MainScreenView: View {
                 
                 .navigationBarTitle("Главная", displayMode: .inline)
             }
+            
         }
     }
 }
 
 struct MainFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        MainScreenView(showAcceptPlayers: .constant(false), showTeamModal: .constant(false))
+        MainScreenView()
     }
 }

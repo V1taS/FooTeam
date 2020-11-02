@@ -12,6 +12,7 @@ struct TeamShowModalMainScreenView: View {
     
     @StateObject private var viewModel = TeamShowModalMainScreenViewModel()
     @Environment(\.presentationMode) var presentationMode
+    @Binding var showAcceptPlayers: Bool
     
     var body: some View {
         NavigationView {
@@ -26,6 +27,7 @@ struct TeamShowModalMainScreenView: View {
                     Text("Тип команды")
                     Spacer()
                     Text("\(viewModel.team.teamType)")
+                        .foregroundColor(viewModel.team.teamType == "Закрытая" ? .red : .green)
                         .font(.headline)
                 }
                 
@@ -45,22 +47,29 @@ struct TeamShowModalMainScreenView: View {
                 
                 VStack {
                     ForEach(viewModel.getPlayTime, id: \.self) { time in
-                        
                         HStack {
                             Text("Игра в")
                             Spacer()
                             Text("\(GetDayOfWeekFromNumber.shared.GetDayOfWeek(numberString: time.dayOfWeek))")
                                 .font(.headline)
+                                .foregroundColor(Color("BlackAndWhite"))
                             Text("\(GetDateStringFromDate.shared.GetDateString(date: time.date))")
                                 .font(.headline)
+                                .foregroundColor(Color("BlackAndWhite"))
                         }
                     }
                 }
                 
                 HStack {
-                    Text("Максимальное кол-во игроков")
+                    Text("Игроков в команде")
                     Spacer()
-                    Text("25")
+                    Text("\(viewModel.players.count)")
+                        .foregroundColor(viewModel.players.count <= viewModel.team.maxCountPlayersInTeam ? Color("BlackAndWhite") : .red)
+                        .font(.headline)
+                    Text("из")
+                        .font(.headline)
+                    Text("\(viewModel.team.maxCountPlayersInTeam)")
+                        .foregroundColor(viewModel.players.count == viewModel.team.maxCountPlayersInTeam ? .red : Color("BlackAndWhite"))
                         .font(.headline)
                 }
                 
@@ -75,6 +84,18 @@ struct TeamShowModalMainScreenView: View {
             .navigationBarTitle(Text("Карточка команды"), displayMode: .inline)
             
             .navigationBarItems(
+                leading:
+                    HStack {
+                        if FirestoreService.shared.currentUser.captain {
+                            Button(action: { showAcceptPlayers.toggle() }) {
+                                Image(systemName: "mail")
+                                    .minimumScaleFactor(0.7)
+                                    .font(.title)
+                                    .foregroundColor(viewModel.playersWaitingAccept.isEmpty ? .gray : .green)
+                            }
+                        }
+                    }
+                ,
                 trailing: VStack {
                     if FirestoreService.shared.currentUser.captain {
                         Button(action: {
@@ -97,6 +118,6 @@ struct TeamShowModalMainScreenView: View {
 
 struct TeamShowModalMainScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamShowModalMainScreenView()
+        TeamShowModalMainScreenView(showAcceptPlayers: .constant(false))
     }
 }

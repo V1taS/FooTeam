@@ -46,9 +46,13 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
             self.iGoCount = iGoPlayers.count
         } .store(in: &cancellables)
         
-        self.networkWeather.$weather.sink { weather in
-            self.temperatureString = weather.first?.temperatureString ?? ""
-        } .store(in: &cancellables)
+        self.networkWeather.fetchCurrentWeather(city: "Khimki")
+        self.networkWeather.onCompletion = { [weak self] currentWeather in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.temperatureString = currentWeather.temperatureString
+            }
+        }
 
         self.datePlay = calendarFooTeam.datePlay
     }

@@ -83,7 +83,7 @@ struct PlayersProfileEditor: View {
                                 Text("Месячная подписка:")
                                 Spacer()
                                 Toggle(isOn: $viewModel.player.subscription) {
-                                    Text("\(viewModel.player.subscription ? "активна" : "не активна")")
+                                    Text("\(viewModel.player.subscription ? Text("активна").foregroundColor(Color.green) : Text("не активна").foregroundColor(Color.red))")
                                         .font(.headline)
                                 }
                             }
@@ -92,7 +92,7 @@ struct PlayersProfileEditor: View {
                         HStack {
                             Text("Идет на след. игру:")
                             Toggle(isOn: $viewModel.player.iGo) {
-                                Text("\(self.viewModel.player.iGo ? "да" : "нет")")
+                                Text("\(self.viewModel.player.iGo ? Text("да").foregroundColor(Color.green) : Text("нет").foregroundColor(Color.red))")
                                     .font(.headline)
                             }
                         }
@@ -126,7 +126,7 @@ struct PlayersProfileEditor: View {
                             HStack {
                                 Text("Сделать капитаном команды?")
                                 Toggle(isOn: $viewModel.player.captain) {
-                                    Text("\(viewModel.player.captain ? "да" : "нет")")
+                                    Text("\(viewModel.player.captain ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
                                         .font(.headline)
                                 }
                             }
@@ -134,7 +134,7 @@ struct PlayersProfileEditor: View {
                             HStack {
                                 Text("Удалить игрока из команды?")
                                 Toggle(isOn: $viewModel.deletPlayer) {
-                                    Text("\(viewModel.deletPlayer ? "да" : "нет")")
+                                    Text("\(viewModel.deletPlayer ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
                                         .font(.headline)
                                 }
                             }

@@ -10,23 +10,17 @@ import Foundation
 
 class NetworkWeatherManager: ObservableObject {
     
-    @Published var weather: [CurrentWeather] = []
+    var onCompletion: ((CurrentWeather) -> Void)?
     
-    init() {
-        fetchCurrentWeather()
-    }
-    
-    func fetchCurrentWeather() {
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=Khimki&appid=\(apiKeyWeather)&units=metric"
+    func fetchCurrentWeather(city: String) {
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKeyWeather)&units=metric"
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { data, respone, Error
             in
             if let data = data {
                 if let currentWeather = self.parseJSON(withData: data) {
-                    DispatchQueue.main.async {
-                        self.weather.append(currentWeather)
-                    }
+                    self.onCompletion?(currentWeather)
                 }
             }
         }

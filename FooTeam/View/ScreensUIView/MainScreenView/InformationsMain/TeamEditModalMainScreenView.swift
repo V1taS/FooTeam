@@ -57,25 +57,41 @@ struct TeamEditModalMainScreenView: View {
                     
                     
                     ForEach(0..<viewModel.selectionGameInWeak+1, id: \.self) { item in
-                            VStack {
-                                HStack {
-                                    DatePicker("Игра - \(item+1)",
-                                               selection: $viewModel.calendarDetails[item],
+                        VStack {
+                            HStack {
+                                DatePicker("Игра - \(item+1)",
+                                           selection: $viewModel.calendarDetails[item],
                                            displayedComponents: [.hourAndMinute])
-                                        
-                                    Picker("", selection: $viewModel.selectionWeekday[item]) {
-                                        ForEach(0..<viewModel.weekday[item].count) {
-                                            Text(self.viewModel.weekday[item][$0])
-                                        }
+                                
+                                Picker("", selection: $viewModel.selectionWeekday[item]) {
+                                    ForEach(0..<viewModel.weekday[item].count) {
+                                        Text(self.viewModel.weekday[item][$0])
                                     }
                                 }
                             }
                         }
-
+                    }
+                    
+                    HStack {
+                        Text("Максимальное кол-во игроков:")
+                        Stepper("\(viewModel.team.maxCountPlayersInTeam)", value: $viewModel.team.maxCountPlayersInTeam)
+                    }
+                    
+                    HStack {
+                        
+                        Text("Скрыть из глобального поиска?")
+                        
+                        
+                        Toggle(isOn: $viewModel.team.isHidden) {
+                            Text("\(viewModel.team.isHidden ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
+                                .font(.headline)
+                        }
+                    }
+                    
                     HStack {
                         Text("Удалить команду")
                         Toggle(isOn: $viewModel.deleteTeam) {
-                            Text("\(viewModel.deleteTeam ? "да" : "нет")")
+                            Text("\(viewModel.deleteTeam ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
                                 .font(.headline)
                         }
                     }
@@ -84,9 +100,26 @@ struct TeamEditModalMainScreenView: View {
                         Spacer()
                         Button(action: {
                             
-                            for item in 0..<viewModel.selectionGameInWeak + 1 {
-                                SaveTeamPlayTime.shared.saveDate(date: viewModel.calendarDetails[item], dayOfWeek: "\(viewModel.selectionWeekday[item])", idTeam: viewModel.actionsPlayers.players.first!.idTeam, gameNumber: item+1, arrayDateGame: viewModel.getPlayTime, gameInWeak: viewModel.selectionGameInWeak)
+                            for item in 0..<viewModel.selectionGameInWeak+1 {
+                                SaveTeamPlayTime.shared.saveDate(
+                                    date: viewModel.calendarDetails[item],
+                                    dayOfWeek: "\(viewModel.selectionWeekday[item])",
+                                    idTeam: viewModel.actionsPlayers.players.first!.idTeam,
+                                    gameNumber: item+1,
+                                    gameInWeak: viewModel.selectionGameInWeak,
+                                    getPlayTime: viewModel.getPlayTime
+                                )
                             }
+                            
+                            EditTeam.shared.editTeamInTeam(
+                                team: viewModel.team,
+                                teamName: viewModel.team.teamName,
+                                avatarImage: nil,
+                                location: viewModel.team.location,
+                                teamType: self.viewModel.availabilityTeamType[self.viewModel.selectionAvailabilityTeamType],
+                                maxCountPlayersInTeam: viewModel.team.maxCountPlayersInTeam,
+                                isHidden: viewModel.team.isHidden,
+                                currentCountPlayersInTeam: viewModel.players.count)
                             
                             presentationMode.wrappedValue.dismiss()
                         } ) {

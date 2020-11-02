@@ -31,7 +31,9 @@ class TopPlayersScreenViewModel: TopPlayersScreenViewModelProtocol, ObservableOb
         location: "",
         teamType: "",
         rating: 0,
-        countPlayersInTeam: 18
+        maxCountPlayersInTeam: 18,
+        isHidden: true,
+        currentCountPlayersInTeam: 18
     )
     
     required init() {
