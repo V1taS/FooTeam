@@ -32,6 +32,7 @@ struct ProfileMainScreenView: View {
                         .frame(maxWidth: 150)
                         .minimumScaleFactor(0.7)
                         .foregroundColor(Color("BlackAndWhite"))
+                        .offset(x: 0, y: 5)
                     
                     ImagePlayer(avatarStringURL: viewModel.avatarStringURL, avatarSize: 125)
                 }

@@ -13,16 +13,16 @@ struct RowCalendarforInfo: View {
         ZStack {
             VStack {
                 HStack {
-                    CellCalendarforInfo(dayOfweak: "Пн", background: .white)
-                    CellCalendarforInfo(dayOfweak: "Вт", background: .white)
+                    CellCalendarforInfo(dayOfweak: "Пн", background: UIColor(named: "WhiteAndBlack")!)
+                    CellCalendarforInfo(dayOfweak: "Вт", background: UIColor(named: "WhiteAndBlack")!)
                     CellCalendarforInfo(dayOfweak: "Ср", background: .green)
-                    CellCalendarforInfo(dayOfweak: "Чт", background: .white)
+                    CellCalendarforInfo(dayOfweak: "Чт", background: UIColor(named: "WhiteAndBlack")!)
                 }
                 
                 HStack {
-                    CellCalendarforInfo(dayOfweak: "Пт", background: .white)
-                    CellCalendarforInfo(dayOfweak: "Сб", background: .white)
-                    CellCalendarforInfo(dayOfweak: "Вс", background: .white)
+                    CellCalendarforInfo(dayOfweak: "Пт", background: UIColor(named: "WhiteAndBlack")!)
+                    CellCalendarforInfo(dayOfweak: "Сб", background: UIColor(named: "WhiteAndBlack")!)
+                    CellCalendarforInfo(dayOfweak: "Вс", background: UIColor(named: "WhiteAndBlack")!)
                 }
             } .frame(width: 135, height: 75, alignment: .center)
         }

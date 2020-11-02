@@ -317,12 +317,13 @@
 		1B0BB4472506AC9D00B3AA06 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1B70B70C2550C92A002532FD /* CellCalendarforInfo */,
+				1B596F6224EC73530092770B /* CaruselBodyFooTeam */,
 				1B15EB49252E0CD500E36E20 /* AcceptPlayersView.swift */,
 				1BF32C95251574E100941F44 /* ImagePlayer.swift */,
 				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
 				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
 				1B77086C250FF327006B1549 /* PopapCard.swift */,
-				1B596F6224EC73530092770B /* CaruselBodyFooTeam */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -778,6 +779,15 @@
 			path = CellJoinToTeamView;
 			sourceTree = "<group>";
 		};
+		1B70B70C2550C92A002532FD /* CellCalendarforInfo */ = {
+			isa = PBXGroup;
+			children = (
+				1B2041542550B73E000A1E8C /* CellCalendarforInfo.swift */,
+				1B4EBB3F2550BB6600FDB98B /* RowCalendarforInfo.swift */,
+			);
+			path = CellCalendarforInfo;
+			sourceTree = "<group>";
+		};
 		1B858D20252FBA8D0028E7C6 /* TeamEditModal */ = {
 			isa = PBXGroup;
 			children = (
@@ -855,8 +865,6 @@
 			children = (
 				1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */,
 				1BC99DF7251181FE007EE289 /* InformationsMainScreenViewModel.swift */,
-				1B2041542550B73E000A1E8C /* CellCalendarforInfo.swift */,
-				1B4EBB3F2550BB6600FDB98B /* RowCalendarforInfo.swift */,
 			);
 			path = InformationsMainScreenView;
 			sourceTree = "<group>";
