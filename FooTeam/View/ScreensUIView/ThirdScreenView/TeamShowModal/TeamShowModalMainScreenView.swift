@@ -48,7 +48,7 @@ struct TeamShowModalMainScreenView: View {
                 VStack {
                     ForEach(viewModel.getPlayTime, id: \.self) { time in
                         HStack {
-                            Text("Игра в")
+                            Text("Игра")
                             Spacer()
                             Text("\(GetDayOfWeekFromNumber.shared.GetDayOfWeek(numberString: time.dayOfWeek))")
                                 .font(.headline)
