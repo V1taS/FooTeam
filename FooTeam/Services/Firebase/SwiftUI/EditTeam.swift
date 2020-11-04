@@ -28,7 +28,8 @@ class EditTeam {
         fieldType: String?,
         country: String?,
         totalMoney: String?,
-        gameСosts: String?
+        gameСosts: String?,
+        rating: Int?
     ) {
         let teamRef = db.collection("teams")
         var team = team
@@ -44,6 +45,7 @@ class EditTeam {
         if let country = country { team.country = country }
         if let totalMoney = totalMoney { team.totalMoney = totalMoney }
         if let gameСosts = gameСosts { team.gameСosts = gameСosts }
+        if let rating = rating { team.rating = rating }
         
         if let avatarImage = avatarImage {
             StorageService.shared.uploadAvaTeam(photo: avatarImage, idTeam: team.id) { (result) in

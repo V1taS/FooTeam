@@ -16,6 +16,7 @@
 		1B2041552550B73E000A1E8C /* CellCalendarforInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2041542550B73E000A1E8C /* CellCalendarforInfo.swift */; };
 		1B28E3FE2511A031007B53A8 /* ListPlayersSecondScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */; };
 		1B29269D25523F8F009F6A2F /* NumberOfTeamsFullField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B29269C25523F8F009F6A2F /* NumberOfTeamsFullField.swift */; };
+		1B2926A3255247E6009F6A2F /* MiddleRatingForTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2926A2255247E6009F6A2F /* MiddleRatingForTeam.swift */; };
 		1B2A561F252A4BD9005DA4C2 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A561E252A4BD9005DA4C2 /* MainScreenViewModel.swift */; };
 		1B2A5626252A52B2005DA4C2 /* EditPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A5625252A52B2005DA4C2 /* EditPhotoViewModel.swift */; };
 		1B33582E250A8B46007EA9A7 /* JoinTheTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */; };
@@ -158,6 +159,7 @@
 		1B2041542550B73E000A1E8C /* CellCalendarforInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCalendarforInfo.swift; sourceTree = "<group>"; };
 		1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlayersSecondScreenViewModel.swift; sourceTree = "<group>"; };
 		1B29269C25523F8F009F6A2F /* NumberOfTeamsFullField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfTeamsFullField.swift; sourceTree = "<group>"; };
+		1B2926A2255247E6009F6A2F /* MiddleRatingForTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleRatingForTeam.swift; sourceTree = "<group>"; };
 		1B2A561E252A4BD9005DA4C2 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		1B2A5625252A52B2005DA4C2 /* EditPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewModel.swift; sourceTree = "<group>"; };
 		1B33582D250A8B46007EA9A7 /* JoinTheTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTheTeam.swift; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 				1BBDD87D251D63E700517BB3 /* NumberOfTeamsMini.swift */,
 				1B29269C25523F8F009F6A2F /* NumberOfTeamsFullField.swift */,
 				1BBDD881251D66A500517BB3 /* RatingOfPlayers.swift */,
+				1B2926A2255247E6009F6A2F /* MiddleRatingForTeam.swift */,
 				1B4467A5252419B0009E485E /* InWhichTeam.swift */,
 				1B596F8724EC73820092770B /* Firebase */,
 			);
@@ -1077,6 +1080,7 @@
 				1B5E242E253E0CE700940B09 /* SaveTeamPlayTime.swift in Sources */,
 				1BC080962518F91600FA5908 /* BufferIDplayer.swift in Sources */,
 				1B596FC424EC73A90092770B /* AddAvaPlayersView.swift in Sources */,
+				1B2926A3255247E6009F6A2F /* MiddleRatingForTeam.swift in Sources */,
 				1B596F7924EC73530092770B /* CellCaruselBodyFooTeam.swift in Sources */,
 				1B858D26252FBADA0028E7C6 /* TeamEditModalMainScreenViewModel.swift in Sources */,
 				1BCEFFA0251031C300552AB3 /* NoAcceptInvitation.swift in Sources */,
@@ -1306,7 +1310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FooTeam/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1314,7 +1318,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.29;
+				MARKETING_VERSION = 1.2.30;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1329,7 +1333,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FooTeam/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1337,7 +1341,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.29;
+				MARKETING_VERSION = 1.2.30;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

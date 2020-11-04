@@ -82,6 +82,7 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
     @Published var getPlayTime: [TeamTime] = []
     
     @Published var calendarDetails: [Date] = [Date(), Date(), Date(), Date(), Date(), Date(), Date()]
+    @Published var rating: Int = 0
     
     @Published var image = UIImage()
     
@@ -101,6 +102,10 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
             } .store(in: &cancellables)
         
         self.actionsPlayers.$players.sink { players in
+            var totalRating = 1
+            let playersRating = players.filter { $0.winGame > 1 || $0.losGame > 1 }
+            playersRating.forEach { player in totalRating += player.rating }
+            if !playersRating.isEmpty { self.rating = totalRating / playersRating.count }
             self.players = players
         } .store(in: &cancellables)
         

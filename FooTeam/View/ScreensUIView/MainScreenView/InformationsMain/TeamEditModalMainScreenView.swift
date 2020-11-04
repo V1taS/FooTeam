@@ -152,7 +152,8 @@ struct TeamEditModalMainScreenView: View {
                                 fieldType: self.viewModel.availabilityFieldType[self.viewModel.selectionAvailabilityFieldType],
                                 country: viewModel.team.country,
                                 totalMoney: viewModel.team.totalMoney,
-                                gameСosts: viewModel.team.gameСosts
+                                gameСosts: viewModel.team.gameСosts,
+                                rating: viewModel.rating
                             )
                             
                             presentationMode.wrappedValue.dismiss()
