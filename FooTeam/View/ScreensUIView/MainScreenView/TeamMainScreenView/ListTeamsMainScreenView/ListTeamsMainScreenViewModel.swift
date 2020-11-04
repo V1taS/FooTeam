@@ -29,6 +29,7 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
     @Published var actionsPlayers = ActionsPlayers()
     @Published var networkWeather = NetworkWeatherManager()
     @Published var calendarFooTeam = CalendarFooTeam()
+    @Published var currentTeam = CurrentTeam()
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var iGoCount: Int = 0 
@@ -38,8 +39,27 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
     
     @Published var temperatureString: String = ""
     @Published var datePlay: String = ""
+    
+    @Published var team: Team = Team(
+        avatarStringURL: "",
+        teamName: "",
+        location: "",
+        teamType: "",
+        rating: 0,
+        maxCountPlayersInTeam: 18,
+        isHidden: true,
+        currentCountPlayersInTeam: 18,
+        country: "",
+        totalMoney: "",
+        gameСosts: "",
+        fieldType: ""
+    )
 
     required init() {
+        self.currentTeam.$team.sink { team in
+            self.team = team
+        } .store(in: &cancellables)
+        
         self.actionsPlayers.$players.sink { players in
             let iGoPlayers = players.filter { $0.iGo }
             self.iGoPlayers = iGoPlayers

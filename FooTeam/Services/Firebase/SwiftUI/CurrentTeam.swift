@@ -12,7 +12,20 @@ import FirebaseAuth
 
 class CurrentTeam: ObservableObject {
     
-    @Published var team = Team(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0, maxCountPlayersInTeam: 18, isHidden: true, currentCountPlayersInTeam: 18)
+    @Published var team = Team(
+        avatarStringURL: "",
+        teamName: "",
+        location: "",
+        teamType: "",
+        rating: 0,
+        maxCountPlayersInTeam: 18,
+        isHidden: true,
+        currentCountPlayersInTeam: 18,
+        country: "",
+        totalMoney: "",
+        gameСosts: "",
+        fieldType: ""
+    )
     
     private let db = Firestore.firestore()
     

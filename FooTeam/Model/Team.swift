@@ -21,6 +21,11 @@ struct Team: Hashable, Decodable {
     var maxCountPlayersInTeam: Int
     var currentCountPlayersInTeam: Int
     
+    var country: String
+    var totalMoney: String
+    var gameСosts: String
+    var fieldType: String
+    
     init(
         avatarStringURL: String,
          teamName: String,
@@ -29,7 +34,11 @@ struct Team: Hashable, Decodable {
         rating: Int,
         maxCountPlayersInTeam: Int,
         isHidden: Bool,
-        currentCountPlayersInTeam: Int) {
+        currentCountPlayersInTeam: Int,
+        country: String,
+        totalMoney: String,
+        gameСosts: String,
+        fieldType: String) {
         self.avatarStringURL = avatarStringURL
         self.teamName = teamName
         self.location = location
@@ -39,6 +48,10 @@ struct Team: Hashable, Decodable {
         self.maxCountPlayersInTeam = maxCountPlayersInTeam
         self.isHidden = isHidden
         self.currentCountPlayersInTeam = currentCountPlayersInTeam
+        self.country = country
+        self.totalMoney = totalMoney
+        self.gameСosts = gameСosts
+        self.fieldType = fieldType
     }
     
     init?(document: DocumentSnapshot) {
@@ -48,6 +61,10 @@ struct Team: Hashable, Decodable {
             let location = data["location"] as? String,
             let teamType = data["teamType"] as? String,
             let id = data["id"] as? String,
+            let country = data["country"] as? String,
+            let totalMoney = data["totalMoney"] as? String,
+            let gameСosts = data["gameСosts"] as? String,
+            let fieldType = data["fieldType"] as? String,
             let maxCountPlayersInTeam = data["maxCountPlayersInTeam"] as? Int,
             let currentCountPlayersInTeam = data["currentCountPlayersInTeam"] as? Int,
             let isHidden = data["isHidden"] as? Bool,
@@ -62,6 +79,10 @@ struct Team: Hashable, Decodable {
         self.currentCountPlayersInTeam = currentCountPlayersInTeam
         self.isHidden = isHidden
         self.id = id
+        self.country = country
+        self.totalMoney = totalMoney
+        self.gameСosts = gameСosts
+        self.fieldType = fieldType
     }
     
     init?(document: QueryDocumentSnapshot) {
@@ -72,6 +93,10 @@ struct Team: Hashable, Decodable {
             let location = data["location"] as? String,
             let teamType = data["teamType"] as? String,
             let id = data["id"] as? String,
+            let country = data["country"] as? String,
+            let totalMoney = data["totalMoney"] as? String,
+            let gameСosts = data["gameСosts"] as? String,
+            let fieldType = data["fieldType"] as? String,
             let maxCountPlayersInTeam = data["maxCountPlayersInTeam"] as? Int,
             let currentCountPlayersInTeam = data["currentCountPlayersInTeam"] as? Int,
             let isHidden = data["isHidden"] as? Bool,
@@ -86,6 +111,10 @@ struct Team: Hashable, Decodable {
         self.isHidden = isHidden
         self.currentCountPlayersInTeam = currentCountPlayersInTeam
         self.id = id
+        self.country = country
+        self.totalMoney = totalMoney
+        self.gameСosts = gameСosts
+        self.fieldType = fieldType
     }
     
     var representation: [String: Any] {
@@ -99,6 +128,10 @@ struct Team: Hashable, Decodable {
         rep["currentCountPlayersInTeam"] = currentCountPlayersInTeam
         rep["isHidden"] = isHidden
         rep["id"] = id
+        rep["country"] = country
+        rep["totalMoney"] = totalMoney
+        rep["gameСosts"] = gameСosts
+        rep["fieldType"] = fieldType
         return rep
     }
     

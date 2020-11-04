@@ -53,7 +53,11 @@ class ListPlayersProfileShowViewModel: ListPlayersProfileShowViewModelProtocol, 
         rating: 0,
         maxCountPlayersInTeam: 18,
         isHidden: true,
-        currentCountPlayersInTeam: 18
+        currentCountPlayersInTeam: 18,
+        country: "",
+        totalMoney: "",
+        gameСosts: "",
+        fieldType: ""
     )
     @Published var isPresentedShowModal = false
     @Published var playerID = ""

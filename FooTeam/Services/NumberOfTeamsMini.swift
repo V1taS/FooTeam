@@ -8,9 +8,9 @@
 
 import Foundation
 
-class NumberOfTeams: ObservableObject {
+class NumberOfTeamsMini: ObservableObject {
     
-    static let shared = NumberOfTeams()
+    static let shared = NumberOfTeamsMini()
     
     func numberOfTeams(countPlauers: Int) -> Int {
         

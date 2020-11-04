@@ -52,7 +52,11 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
         rating: 0,
         maxCountPlayersInTeam: 18,
         isHidden: true,
-        currentCountPlayersInTeam: 18
+        currentCountPlayersInTeam: 18,
+        country: "",
+        totalMoney: "",
+        gameСosts: "",
+        fieldType: ""
     )
     
     var availabilityTeamType: [String] = ["Открытая", "Закрытая"]
@@ -71,6 +75,9 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
         ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
     ]
     @Published var selectionWeekday: [Int] = [0, 0, 0, 0, 0, 0, 0]
+    
+    var availabilityFieldType: [String] = ["Мини", "Большое"] 
+    @Published var selectionAvailabilityFieldType: Int = 0
     
     @Published var getPlayTime: [TeamTime] = []
     
@@ -105,6 +112,15 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
                 self.selectionAvailabilityTeamType = 1
             default:
                 self.selectionAvailabilityTeamType = 0
+            }
+            
+            switch team.fieldType {
+            case "Мини":
+                self.selectionAvailabilityFieldType = 0
+            case "Большое":
+                self.selectionAvailabilityFieldType = 1
+            default:
+                self.selectionAvailabilityFieldType = 0
             }
             self.team = team
         } .store(in: &cancellables)

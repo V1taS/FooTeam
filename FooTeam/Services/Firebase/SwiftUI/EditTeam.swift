@@ -24,7 +24,11 @@ class EditTeam {
         teamType: String?,
         maxCountPlayersInTeam: Int?,
         isHidden: Bool?,
-        currentCountPlayersInTeam: Int?
+        currentCountPlayersInTeam: Int?,
+        fieldType: String?,
+        country: String?,
+        totalMoney: String?,
+        gameСosts: String?
     ) {
         let teamRef = db.collection("teams")
         var team = team
@@ -36,6 +40,10 @@ class EditTeam {
         if let maxCountPlayersInTeam = maxCountPlayersInTeam { team.maxCountPlayersInTeam = maxCountPlayersInTeam }
         if let isHidden = isHidden { team.isHidden = isHidden }
         if let currentCountPlayersInTeam = currentCountPlayersInTeam { team.currentCountPlayersInTeam = currentCountPlayersInTeam }
+        if let fieldType = fieldType { team.fieldType = fieldType }
+        if let country = country { team.country = country }
+        if let totalMoney = totalMoney { team.totalMoney = totalMoney }
+        if let gameСosts = gameСosts { team.gameСosts = gameСosts }
         
         if let avatarImage = avatarImage {
             StorageService.shared.uploadAvaTeam(photo: avatarImage, idTeam: team.id) { (result) in

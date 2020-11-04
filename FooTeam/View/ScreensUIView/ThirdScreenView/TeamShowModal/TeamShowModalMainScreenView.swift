@@ -17,31 +17,98 @@ struct TeamShowModalMainScreenView: View {
     var body: some View {
         NavigationView {
             Form {
-                HStack {
-                    Spacer()
-                    ImagePlayer(avatarStringURL: "\(viewModel.team.avatarStringURL)", avatarSize: 200)
-                    Spacer()
+                Group {
+                    HStack {
+                        Spacer()
+                        ImagePlayer(avatarStringURL: "\(viewModel.team.avatarStringURL)", avatarSize: 200)
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Text("Тип команды")
+                            .foregroundColor(Color("BlackAndWhite"))
+                        Spacer()
+                        Text("\(viewModel.team.teamType)")
+                            .foregroundColor(viewModel.team.teamType == "Закрытая" ? .red : .green)
+                            .font(.headline)
+                    }
+                    
+                    HStack {
+                        Text("Тип поля")
+                            .foregroundColor(Color("BlackAndWhite"))
+                        Spacer()
+                        Text("\(viewModel.team.fieldType)")
+                            .font(.headline)
+                            .foregroundColor(Color("BlackAndWhite"))
+                    }
+                    
+                    HStack {
+                        Text("Команда")
+                            .foregroundColor(Color("BlackAndWhite"))
+                        Spacer()
+                        Text("\(viewModel.team.teamName)")
+                            .font(.headline)
+                            .foregroundColor(Color("BlackAndWhite"))
+                    }
                 }
                 
                 HStack {
-                    Text("Тип команды")
+                    Text("Страна")
+                        .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
-                    Text("\(viewModel.team.teamType)")
-                        .foregroundColor(viewModel.team.teamType == "Закрытая" ? .red : .green)
+                    Text("\(viewModel.team.country)")
                         .font(.headline)
-                }
-                
-                HStack {
-                    Text("Команда")
-                    Spacer()
-                    Text("\(viewModel.team.teamName)")
-                        .font(.headline)
+                        .foregroundColor(Color("BlackAndWhite"))
                 }
                 
                 HStack {
                     Text("Город")
+                        .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.team.location)")
+                        .font(.headline)
+                        .foregroundColor(Color("BlackAndWhite"))
+                }
+                
+                HStack {
+                    Text("Бюджет команды")
+                        .foregroundColor(Color("BlackAndWhite"))
+                    Spacer()
+                    Text("\(viewModel.team.totalMoney)")
+                        .font(.headline)
+                        .foregroundColor(Color("BlackAndWhite"))
+                    Text("FCoin")
+                        .foregroundColor(Color("BlackAndWhite"))
+                }
+                
+                HStack {
+                    Text("Месячная оплата с игрока")
+                    Spacer()
+                    Text("\(viewModel.team.gameСosts)")
+                        .font(.headline)
+                    Text("FCoin")
+                        .foregroundColor(Color("BlackAndWhite"))
+                }
+
+                HStack {
+                    Text("Рейтинг команды")
+                        .foregroundColor(Color("BlackAndWhite"))
+                    Spacer()
+                    Text("\(viewModel.rating)")
+                        .font(.headline)
+                        .foregroundColor(Color("BlackAndWhite"))
+                }
+                
+                HStack {
+                    Text("Игроков в команде")
+                    Spacer()
+                    Text("\(viewModel.players.count)")
+                        .foregroundColor(viewModel.players.count <= viewModel.team.maxCountPlayersInTeam ? Color("BlackAndWhite") : .red)
+                        .font(.headline)
+                    Text("из")
+                        .font(.headline)
+                    Text("\(viewModel.team.maxCountPlayersInTeam)")
+                        .foregroundColor(viewModel.players.count == viewModel.team.maxCountPlayersInTeam ? .red : Color("BlackAndWhite"))
                         .font(.headline)
                 }
                 
@@ -58,26 +125,6 @@ struct TeamShowModalMainScreenView: View {
                                 .foregroundColor(Color("BlackAndWhite"))
                         }
                     }
-                }
-                
-                HStack {
-                    Text("Игроков в команде")
-                    Spacer()
-                    Text("\(viewModel.players.count)")
-                        .foregroundColor(viewModel.players.count <= viewModel.team.maxCountPlayersInTeam ? Color("BlackAndWhite") : .red)
-                        .font(.headline)
-                    Text("из")
-                        .font(.headline)
-                    Text("\(viewModel.team.maxCountPlayersInTeam)")
-                        .foregroundColor(viewModel.players.count == viewModel.team.maxCountPlayersInTeam ? .red : Color("BlackAndWhite"))
-                        .font(.headline)
-                }
-                
-                HStack {
-                    Text("Рейтинг команды")
-                    Spacer()
-                    Text("\(viewModel.rating)")
-                        .font(.headline)
                 }
             }
             

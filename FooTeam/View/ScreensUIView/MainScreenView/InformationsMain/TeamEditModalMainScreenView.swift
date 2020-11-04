@@ -15,8 +15,8 @@ struct TeamEditModalMainScreenView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Form {
+            Form {
+                Group {
                     HStack {
                         Spacer()
                         ImagePlayer(avatarStringURL: "\(viewModel.team.avatarStringURL)", avatarSize: 200)
@@ -33,9 +33,25 @@ struct TeamEditModalMainScreenView: View {
                     }
                     
                     HStack {
+                        Text("Тип поля")
+                        Picker("", selection: $viewModel.selectionAvailabilityFieldType) {
+                            ForEach(0..<viewModel.availabilityFieldType.count) {
+                                Text(self.viewModel.availabilityFieldType[$0])
+                            }
+                        } .pickerStyle(SegmentedPickerStyle())
+                    }
+                    
+                    HStack {
                         Text("Команда:")
                         TextField("\(viewModel.team.teamName)",
                                   text: $viewModel.team.teamName)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    
+                    HStack {
+                        Text("Страна:")
+                        TextField("\(viewModel.team.country)",
+                                  text: $viewModel.team.country)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     
@@ -55,7 +71,6 @@ struct TeamEditModalMainScreenView: View {
                         } .pickerStyle(SegmentedPickerStyle())
                     }
                     
-                    
                     ForEach(0..<viewModel.selectionGameInWeak+1, id: \.self) { item in
                         VStack {
                             HStack {
@@ -71,21 +86,36 @@ struct TeamEditModalMainScreenView: View {
                             }
                         }
                     }
-                    
+                }
+                
+                Group {
                     HStack {
                         Text("Максимальное кол-во игроков:")
                         Stepper("\(viewModel.team.maxCountPlayersInTeam)", value: $viewModel.team.maxCountPlayersInTeam)
                     }
                     
                     HStack {
-                        
                         Text("Скрыть из глобального поиска?")
-                        
-                        
                         Toggle(isOn: $viewModel.team.isHidden) {
                             Text("\(viewModel.team.isHidden ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
                                 .font(.headline)
                         }
+                    }
+                    
+                    HStack {
+                        Text("Бюджет команды:")
+                        TextField("\(viewModel.team.totalMoney)",
+                                  text: $viewModel.team.totalMoney)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
+                    }
+                    
+                    HStack {
+                        Text("Месячная оплата с игрока:")
+                        TextField("\(viewModel.team.gameСosts)",
+                                  text: $viewModel.team.gameСosts)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
                     }
                     
                     HStack {
@@ -99,7 +129,6 @@ struct TeamEditModalMainScreenView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            
                             for item in 0..<viewModel.selectionGameInWeak+1 {
                                 SaveTeamPlayTime.shared.saveDate(
                                     date: viewModel.calendarDetails[item],
@@ -119,7 +148,12 @@ struct TeamEditModalMainScreenView: View {
                                 teamType: self.viewModel.availabilityTeamType[self.viewModel.selectionAvailabilityTeamType],
                                 maxCountPlayersInTeam: viewModel.team.maxCountPlayersInTeam,
                                 isHidden: viewModel.team.isHidden,
-                                currentCountPlayersInTeam: viewModel.players.count)
+                                currentCountPlayersInTeam: viewModel.players.count,
+                                fieldType: self.viewModel.availabilityFieldType[self.viewModel.selectionAvailabilityFieldType],
+                                country: viewModel.team.country,
+                                totalMoney: viewModel.team.totalMoney,
+                                gameСosts: viewModel.team.gameСosts
+                            )
                             
                             presentationMode.wrappedValue.dismiss()
                         } ) {

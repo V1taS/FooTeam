@@ -43,8 +43,13 @@ struct ListTeamsMainScreenView: View {
                         Spacer()
                         Button(action: {
                             if viewModel.iGoCount >= 10 {
-                                let countT = NumberOfTeams.shared.numberOfTeams(countPlauers: viewModel.iGoCount)
-                                viewModel.countTeams = countT
+                                if viewModel.team.fieldType == "Мини" {
+                                    let countT = NumberOfTeamsMini.shared.numberOfTeams(countPlauers: viewModel.iGoCount)
+                                    viewModel.countTeams = countT
+                                } else {
+                                    let countT = NumberOfTeamsFullField.shared.numberOfTeams(countPlauers: viewModel.iGoCount)
+                                    viewModel.countTeams = countT
+                                }
                                 InWhichTeam.shared.setNumberInWhichTeam(players: viewModel.iGoPlayers, countNumbers: viewModel.countTeams)
                             }
                         } ) {
@@ -60,6 +65,13 @@ struct ListTeamsMainScreenView: View {
                     }
                 }
                 Section(header: Text("Информация")) {
+                    HStack {
+                        Text("Тип футбольного поля:")
+                        Spacer()
+                        Text("\(viewModel.team.fieldType)")
+                            .font(.headline)
+                    }
+                    
                     HStack {
                         Text("Кол-во игроков:")
                         Spacer()

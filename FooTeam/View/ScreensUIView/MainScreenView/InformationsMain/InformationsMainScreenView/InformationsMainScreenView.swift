@@ -24,7 +24,7 @@ struct InformationsMainScreenView: View {
                     .font(.headline)
                     .foregroundColor(Color(.red))
                     .offset(x: 0, y: 11)
-                Divider()
+                DividerFooTeamMenu()
                 
                 VStack(alignment: .leading, spacing: 1) {
                     
@@ -53,7 +53,7 @@ struct InformationsMainScreenView: View {
                     }
                 }
                 
-                Divider()
+                DividerFooTeamMenu()
                 
                 VStack(alignment: .center, spacing: 1) {
                     Text("Календарь игр")
