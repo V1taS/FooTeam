@@ -18,21 +18,21 @@ struct PlayersProfileEditor: View {
         NavigationView {
             ZStack {
                 Form {
-                        HStack {
-                            Spacer()
-                            CellTopPlayersFooTeam(namePlayer: "\(viewModel.player.name)",
-                                                  photoPlayer: "\(viewModel.player.avatarStringURL)",
-                                                  ratingPlayer: "\(viewModel.player.rating)",
-                                                  positionPlayer: "\(viewModel.player.position)",
-                                                  locationCountryImage: "",
-                                                  logoTeamImage: viewModel.team.avatarStringURL,
-                                                  game: "\(viewModel.player.winGame + viewModel.player.losGame)",
-                                                  goal: "\(viewModel.player.numberOfGoals)",
-                                                  win: "\(viewModel.player.winGame)",
-                                                  los: "\(viewModel.player.losGame)")
-                                .padding(.vertical, 8)
-                            Spacer()
-                        } .onTapGesture { viewModel.isPresentedChangeAvatar.toggle() }
+                    HStack {
+                        Spacer()
+                        CellTopPlayersFooTeam(namePlayer: "\(viewModel.player.name)",
+                                              photoPlayer: "\(viewModel.player.avatarStringURL)",
+                                              ratingPlayer: "\(viewModel.player.rating)",
+                                              positionPlayer: "\(viewModel.player.position)",
+                                              locationCountryImage: "",
+                                              logoTeamImage: viewModel.team.avatarStringURL,
+                                              game: "\(viewModel.player.winGame + viewModel.player.losGame)",
+                                              goal: "\(viewModel.player.numberOfGoals)",
+                                              win: "\(viewModel.player.winGame)",
+                                              los: "\(viewModel.player.losGame)")
+                            .padding(.vertical, 8)
+                        Spacer()
+                    } .onTapGesture { viewModel.isPresentedChangeAvatar.toggle() }
                     
                     VStack {
                         HStack {
@@ -58,12 +58,12 @@ struct PlayersProfileEditor: View {
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         
-//                        HStack {
-//                            Text("Пароль:")
-//                            TextField("\(viewModel.passwordPlayer)",
-//                                      text: $viewModel.passwordPlayer)
-//                                .textFieldStyle(RoundedBorderTextFieldStyle())
-//                        }
+                        //                        HStack {
+                        //                            Text("Пароль:")
+                        //                            TextField("\(viewModel.passwordPlayer)",
+                        //                                      text: $viewModel.passwordPlayer)
+                        //                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                        //                        }
                     }
                     
                     if viewModel.selectionWhoAreYou == 0 {
@@ -123,21 +123,25 @@ struct PlayersProfileEditor: View {
                                 Stepper("\(viewModel.player.numberOfGoals)", value: $viewModel.player.numberOfGoals)
                             }
                             
-                            HStack {
-                                Text("Сделать капитаном команды?")
-                                Toggle(isOn: $viewModel.player.captain) {
-                                    Text("\(viewModel.player.captain ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
-                                        .font(.headline)
+                            if FirestoreService.shared.currentUser.captain != viewModel.player.captain {
+                                HStack {
+                                    Text("Сделать капитаном команды?")
+                                    Toggle(isOn: $viewModel.player.captain) {
+                                        Text("\(viewModel.player.captain ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
+                                            .font(.headline)
+                                    }
+                                }
+                                
+                                HStack {
+                                    Text("Удалить игрока из команды?")
+                                    Toggle(isOn: $viewModel.deletPlayer) {
+                                        Text("\(viewModel.deletPlayer ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
+                                            .font(.headline)
+                                    }
                                 }
                             }
                             
-                            HStack {
-                                Text("Удалить игрока из команды?")
-                                Toggle(isOn: $viewModel.deletPlayer) {
-                                    Text("\(viewModel.deletPlayer ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
-                                        .font(.headline)
-                                }
-                            }
+                            
                         }
                     }
                     
@@ -175,9 +179,9 @@ struct PlayersProfileEditor: View {
                                     AuthService.shared.updatingUserEmail(getEmailAddres: viewModel.player.email)
                                 }
                                 
-//                                if !viewModel.passwordPlayer.isEmpty {
-//                                    AuthService.shared.updatingUserPassword(getPassword: viewModel.passwordPlayer)
-//                                }
+                                //                                if !viewModel.passwordPlayer.isEmpty {
+                                //                                    AuthService.shared.updatingUserPassword(getPassword: viewModel.passwordPlayer)
+                                //                                }
                                 presentationMode.wrappedValue.dismiss()
                             }
                             
@@ -208,7 +212,7 @@ struct PlayersProfileEditor: View {
                         Color.black.opacity(0.8)
                         ZStack {
                             Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
-                            EditPhotoView(player: viewModel.player, isPresentedChangeAvatar: $viewModel.isPresentedChangeAvatar, image: $viewModel.image)
+                            EditPhotoViewPlayer(player: viewModel.player, isPresentedChangeAvatar: $viewModel.isPresentedChangeAvatar, image: $viewModel.image)
                         }
                         .frame(width: 330, height: 330)
                         .cornerRadius(20)
@@ -220,9 +224,9 @@ struct PlayersProfileEditor: View {
         }
     }
 }
-    
-    struct ListPlayersProfileEditor_Previews: PreviewProvider {
-        static var previews: some View {
-            PlayersProfileEditor(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
-        }
+
+struct ListPlayersProfileEditor_Previews: PreviewProvider {
+    static var previews: some View {
+        PlayersProfileEditor(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
     }
+}

@@ -63,46 +63,7 @@ struct InformationsMainScreenView: View {
                         .frame(maxWidth: 150)
                         .foregroundColor(Color("BlackAndWhite"))
                     
-                    RowCalendarforInfo()
-                    //                    VStack {
-                    //                        Text("Ближайшие игры:")
-                    //                            .font(.headline)
-                    //                            .foregroundColor(Color("BlackAndWhite"))
-                    //                            .minimumScaleFactor(0.7)
-                    //                            .lineLimit(1)
-                    //                        ForEach(viewModel.getPlayTime, id: \.self) { time in
-                    //                            HStack {
-                    //                                Text("\(GetDayOfWeekFromNumber.shared.GetDayOfWeek(numberString: time.dayOfWeek))")
-                    //                                    .font(.headline)
-                    //                                    .foregroundColor(Color("BlackAndWhite"))
-                    //                                    .minimumScaleFactor(0.7)
-                    //                                    .lineLimit(1)
-                    //                                Text("в")
-                    //                                    .font(.headline)
-                    //                                    .foregroundColor(Color("BlackAndWhite"))
-                    //                                    .minimumScaleFactor(0.7)
-                    //                                    .lineLimit(1)
-                    //                                Text("\(GetDateStringFromDate.shared.GetDateString(date: time.date))")
-                    //                                    .font(.headline)
-                    //                                    .foregroundColor(Color("BlackAndWhite"))
-                    //                                    .minimumScaleFactor(0.7)
-                    //                                    .lineLimit(1)
-                    //                            }
-                    //                        }
-                    //                    }
-                    
-                    //                    HStack {
-                    //                        Text("Температура:")
-                    //                            .foregroundColor(Color("BlackAndWhite"))
-                    //                            .minimumScaleFactor(0.7)
-                    //                            .lineLimit(1)
-                    //                        Text("\(viewModel.temperatureString)°С")
-                    //                            .font(.headline)
-                    //                            .minimumScaleFactor(0.7)
-                    //                            .foregroundColor(Color("BlackAndWhite"))
-                    //                            .lineLimit(1)
-                    //                    }
-                    
+                    RowCalendarforInfo()   
                 } .offset(x: 0, y: -11)
                 
             }

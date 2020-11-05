@@ -19,48 +19,38 @@ protocol InformationsMainScreenViewModelProtocol {
     var nameTeam: String { get }
     var iGo: Bool { get }
     var temperatureString: String { get }
-    var datePlay: String { get }
     init()
 }
 
 class InformationsMainScreenViewModel: InformationsMainScreenViewModelProtocol, ObservableObject {
+    
     @Published var currentUser = CurrentUser()
     @Published var currentTeam = CurrentTeam()
     @Published var networkWeather = NetworkWeatherManager()
     @Published var calendarFooTeam = CalendarFooTeam()
-    @Published var getTeamPlayTime = GetTeamPlayTime()
     internal var cancellables = Set<AnyCancellable>()
-    
-    @Published var getPlayTime: [TeamTime] = []
     
     @Published var nameTeam: String = ""
     @Published var iGo: Bool = false
     @Published var temperatureString: String = ""
-    @Published var datePlay: String = ""
     
     required init() {
-        self.getTeamPlayTime.$teams.sink { dates in
-            self.getPlayTime = dates
-            } .store(in: &cancellables)
-        
         self.currentUser.$player.sink { player in
             self.iGo = player.iGo
         } .store(in: &cancellables)
 
-        let currentCity = "Khimki"
-        let city = currentCity.split(separator: " ").joined(separator: "%20")
-        self.networkWeather.fetchCurrentWeather(city: city)
-        self.networkWeather.onCompletion = { [weak self] currentWeather in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.temperatureString = currentWeather.temperatureString
-            }
-        }
+//        let currentCity = "Khimki"
+//        let city = currentCity.split(separator: " ").joined(separator: "%20")
+//        self.networkWeather.fetchCurrentWeather(city: city)
+//        self.networkWeather.onCompletion = { [weak self] currentWeather in
+//            guard let self = self else { return }
+//            DispatchQueue.main.async {
+//                self.temperatureString = currentWeather.temperatureString
+//            }
+//        }
         
         self.currentTeam.$team.sink { team in
             self.nameTeam = team.teamName 
         } .store(in: &cancellables)
-        
-        self.datePlay = calendarFooTeam.datePlay
     }
 }

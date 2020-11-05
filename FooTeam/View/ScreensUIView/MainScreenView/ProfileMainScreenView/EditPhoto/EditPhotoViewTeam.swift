@@ -1,18 +1,18 @@
 //
-//  EditPhoto.swift
+//  EditPhotoViewTeam.swift
 //  FooTeam
 //
-//  Created by Виталий Сосин on 27.09.2020.
+//  Created by Виталий Сосин on 05.11.2020.
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct EditPhotoView: View {
+struct EditPhotoViewTeam: View {
     
     @StateObject private var viewModel = EditPhotoViewModel()
-    var player: Player
+    var team: Team
     @Binding var isPresentedChangeAvatar: Bool
     @Binding var image: UIImage
     
@@ -28,7 +28,7 @@ struct EditPhotoView: View {
             } .padding(.horizontal)
             
             HStack {
-                WebImage(url: URL(string: player.avatarStringURL))
+                WebImage(url: URL(string: team.avatarStringURL))
                     .resizable()
                     .renderingMode(.original)
                     .onSuccess { image, data, cacheType in }
@@ -67,7 +67,7 @@ struct EditPhotoView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    EditPlayerThree.shared.editPlayerInTeam(player: player, avatarUIImage: viewModel.image)
+                    EditTeamAva.shared.editPlayerInTeam(team: team, avatarUIImage: viewModel.image)
                 }) {
                     HStack {
                         Image(systemName: "opticaldiscdrive")
@@ -94,8 +94,9 @@ struct EditPhotoView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct EditPhotoViewTeam_Previews: PreviewProvider {
     static var previews: some View {
-        EditPhotoView(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false), isPresentedChangeAvatar: .constant(false), image: .constant(UIImage(systemName: "opticaldiscdrive")!))
+        EditPhotoViewTeam(team: Team(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0, maxCountPlayersInTeam: 0, isHidden: false, currentCountPlayersInTeam: 0, country: "", totalMoney: "", gameСosts: "", fieldType: ""), isPresentedChangeAvatar: .constant(false), image: .constant(UIImage(named: "")!))
     }
 }
+

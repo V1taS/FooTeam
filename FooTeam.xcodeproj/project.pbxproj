@@ -26,8 +26,8 @@
 		1B39447024F9A3A00008FC40 /* ProfileMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39446F24F9A3A00008FC40 /* ProfileMainScreenView.swift */; };
 		1B39447224F9A3E80008FC40 /* InformationsMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */; };
 		1B3BB6D8251FF5FB004340FD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */; };
-		1B3BB6DB251FF649004340FD /* EditPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6DA251FF649004340FD /* EditPhotoView.swift */; };
-		1B3BB6FA252005CC004340FD /* EditPlayerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */; };
+		1B3BB6DB251FF649004340FD /* EditPhotoViewPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6DA251FF649004340FD /* EditPhotoViewPlayer.swift */; };
+		1B3BB6FA252005CC004340FD /* EditPlayerAva.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6F9252005CC004340FD /* EditPlayerAva.swift */; };
 		1B3C8522255029C60001149C /* EditTeamPlayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3C8521255029C60001149C /* EditTeamPlayTime.swift */; };
 		1B3F0C0324F9A50E00FA4F51 /* TeamMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F0C0224F9A50E00FA4F51 /* TeamMainScreenView.swift */; };
 		1B41180D25544A020093C9D7 /* RowCalendarforInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41180C25544A020093C9D7 /* RowCalendarforInfoViewModel.swift */; };
@@ -121,6 +121,8 @@
 		1B78396C254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78396B254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift */; };
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
 		1B7BF9B424EDF7C900CDEDB9 /* DividerFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */; };
+		1B7EDE2E25549863008B7D55 /* EditPhotoViewTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7EDE2D25549863008B7D55 /* EditPhotoViewTeam.swift */; };
+		1B7EDE32255498DC008B7D55 /* EditTeamAva.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7EDE31255498DC008B7D55 /* EditTeamAva.swift */; };
 		1B7F262C25098A5B0053E124 /* JoinToTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F262B25098A5B0053E124 /* JoinToTeamView.swift */; };
 		1B858D22252FBAC40028E7C6 /* TeamEditModalMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B858D21252FBAC40028E7C6 /* TeamEditModalMainScreenView.swift */; };
 		1B858D26252FBADA0028E7C6 /* TeamEditModalMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B858D25252FBADA0028E7C6 /* TeamEditModalMainScreenViewModel.swift */; };
@@ -171,8 +173,8 @@
 		1B39447124F9A3E80008FC40 /* InformationsMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsMainScreenView.swift; sourceTree = "<group>"; };
 		1B3957A8252E5F120036DDEC /* FooTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FooTeam.entitlements; sourceTree = "<group>"; };
 		1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		1B3BB6DA251FF649004340FD /* EditPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoView.swift; sourceTree = "<group>"; };
-		1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerThree.swift; sourceTree = "<group>"; };
+		1B3BB6DA251FF649004340FD /* EditPhotoViewPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewPlayer.swift; sourceTree = "<group>"; };
+		1B3BB6F9252005CC004340FD /* EditPlayerAva.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerAva.swift; sourceTree = "<group>"; };
 		1B3C8521255029C60001149C /* EditTeamPlayTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTeamPlayTime.swift; sourceTree = "<group>"; };
 		1B3F0C0224F9A50E00FA4F51 /* TeamMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMainScreenView.swift; sourceTree = "<group>"; };
 		1B41180C25544A020093C9D7 /* RowCalendarforInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCalendarforInfoViewModel.swift; sourceTree = "<group>"; };
@@ -268,6 +270,8 @@
 		1B78396B254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDayOfWeekFromNumber.swift; sourceTree = "<group>"; };
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
 		1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerFooTeamMenu.swift; sourceTree = "<group>"; };
+		1B7EDE2D25549863008B7D55 /* EditPhotoViewTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewTeam.swift; sourceTree = "<group>"; };
+		1B7EDE31255498DC008B7D55 /* EditTeamAva.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTeamAva.swift; sourceTree = "<group>"; };
 		1B7F262B25098A5B0053E124 /* JoinToTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToTeamView.swift; sourceTree = "<group>"; };
 		1B858D21252FBAC40028E7C6 /* TeamEditModalMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEditModalMainScreenView.swift; sourceTree = "<group>"; };
 		1B858D25252FBADA0028E7C6 /* TeamEditModalMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEditModalMainScreenViewModel.swift; sourceTree = "<group>"; };
@@ -375,6 +379,7 @@
 			children = (
 				1B2A5628252A52D3005DA4C2 /* EditPhotoView */,
 				1B3BB6D7251FF5FB004340FD /* ImagePicker.swift */,
+				1B7EDE2D25549863008B7D55 /* EditPhotoViewTeam.swift */,
 			);
 			path = EditPhoto;
 			sourceTree = "<group>";
@@ -382,7 +387,7 @@
 		1B2A5628252A52D3005DA4C2 /* EditPhotoView */ = {
 			isa = PBXGroup;
 			children = (
-				1B3BB6DA251FF649004340FD /* EditPhotoView.swift */,
+				1B3BB6DA251FF649004340FD /* EditPhotoViewPlayer.swift */,
 				1B2A5625252A52B2005DA4C2 /* EditPhotoViewModel.swift */,
 			);
 			name = EditPhotoView;
@@ -409,7 +414,8 @@
 				1B539584250AECE300C8DFD9 /* AddPlayer.swift */,
 				1B53957C250AE35800C8DFD9 /* EditPlayer.swift */,
 				1B9B2CF0251020FB00DAF164 /* EditPlayerSimple.swift */,
-				1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */,
+				1B3BB6F9252005CC004340FD /* EditPlayerAva.swift */,
+				1B7EDE31255498DC008B7D55 /* EditTeamAva.swift */,
 				1B53957E250AE91C00C8DFD9 /* DeletPlayer.swift */,
 				1BF0F1B42537BA0100D1B77C /* DeleteCurrentPlayer.swift */,
 				1B66458C25190E5C00962B4D /* DeletePlayerFromTeam.swift */,
@@ -1052,6 +1058,7 @@
 				1B596F8F24EC73820092770B /* CalendarFooTeam.swift in Sources */,
 				1B596F6C24EC73530092770B /* CellJoinToTeamView.swift in Sources */,
 				1B9B2CF1251020FB00DAF164 /* EditPlayerSimple.swift in Sources */,
+				1B7EDE32255498DC008B7D55 /* EditTeamAva.swift in Sources */,
 				1B4EBB402550BB6600FDB98B /* RowCalendarforInfo.swift in Sources */,
 				1BC99DFB25118971007EE289 /* TeamMainScreenViewModel.swift in Sources */,
 				1B4A3DCE2502EF6F000EABD1 /* CellCardsWithPlayersMainScreenView.swift in Sources */,
@@ -1077,7 +1084,7 @@
 				1B596F9E24EC73A00092770B /* AuthNavigatingDelegate.swift in Sources */,
 				1B02408D251172210074100A /* ProfileShowModalMainScreenViewModel.swift in Sources */,
 				1B596FC024EC73A90092770B /* AplicationExtension.swift in Sources */,
-				1B3BB6FA252005CC004340FD /* EditPlayerThree.swift in Sources */,
+				1B3BB6FA252005CC004340FD /* EditPlayerAva.swift in Sources */,
 				1B20415125509615000A1E8C /* GetCountInTeam.swift in Sources */,
 				1B596F9A24EC739A0092770B /* Validators.swift in Sources */,
 				1B5E242E253E0CE700940B09 /* SaveTeamPlayTime.swift in Sources */,
@@ -1106,7 +1113,7 @@
 				1BC8B61C250EE34C00FC8B27 /* CurrentTeam.swift in Sources */,
 				1B596FBE24EC73A90092770B /* ColorExtension.swift in Sources */,
 				1B596F9F24EC73A00092770B /* SelfConfiguringCell.swift in Sources */,
-				1B3BB6DB251FF649004340FD /* EditPhotoView.swift in Sources */,
+				1B3BB6DB251FF649004340FD /* EditPhotoViewPlayer.swift in Sources */,
 				1B596F3124EC714C0092770B /* AppDelegate.swift in Sources */,
 				1BB14DBE252138EF00B8CFCF /* UIViewController.swift in Sources */,
 				1B596F7C24EC73530092770B /* ListPlayersSecondScreenView.swift in Sources */,
@@ -1165,6 +1172,7 @@
 				1B6F5BE22518125C000FACD9 /* JoinToTeamViewModel.swift in Sources */,
 				1B15EB4A252E0CD500E36E20 /* AcceptPlayersView.swift in Sources */,
 				1B596F3324EC714C0092770B /* SceneDelegate.swift in Sources */,
+				1B7EDE2E25549863008B7D55 /* EditPhotoViewTeam.swift in Sources */,
 				1B4467A6252419B0009E485E /* InWhichTeam.swift in Sources */,
 				1B596FBD24EC73A90092770B /* ViewExtension.swift in Sources */,
 				1B7F262C25098A5B0053E124 /* JoinToTeamView.swift in Sources */,

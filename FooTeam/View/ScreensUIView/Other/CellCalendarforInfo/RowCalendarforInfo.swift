@@ -17,42 +17,42 @@ struct RowCalendarforInfo: View {
             VStack {
                 HStack {
                     CellCalendarforInfo(dayOfweak: "Пн",
-                                        background: viewModel.monday ? UIColor(named: "darkGreen")! : UIColor(named: "lightGreen")!,
-                                        textColor: viewModel.monday ? UIColor(named: "lightGreen")! : UIColor(named: "darkGreen")!,
-                                        cornerColor: viewModel.currentWeekday == 1 ? UIColor(named: "BlackAndWhite")! : UIColor.gray)
+                                        background: viewModel.monday ? UIColor(named: "darkCalendar")! : UIColor(named: "lightCalendar")!,
+                                        textColor: viewModel.monday ? UIColor(named: "textCalendarTrue")! : UIColor(named: "textCalendarFalse")!,
+                                        cornerColor: viewModel.currentWeekday == 2 ? UIColor(named: "currentCalendar")! : UIColor.gray)
                     
                     CellCalendarforInfo(dayOfweak: "Вт",
-                                        background: viewModel.tuesday ? UIColor(named: "darkGreen")! : UIColor(named: "lightGreen")!,
-                                        textColor: viewModel.tuesday ? UIColor(named: "lightGreen")! : UIColor(named: "darkGreen")!,
-                                        cornerColor: viewModel.currentWeekday == 2 ? UIColor(named: "BlackAndWhite")! : UIColor.gray)
+                                        background: viewModel.tuesday ? UIColor(named: "darkCalendar")! : UIColor(named: "lightCalendar")!,
+                                        textColor: viewModel.tuesday ? UIColor(named: "textCalendarTrue")! : UIColor(named: "textCalendarFalse")!,
+                                        cornerColor: viewModel.currentWeekday == 3 ? UIColor(named: "currentCalendar")! : UIColor.gray)
                     
                     CellCalendarforInfo(dayOfweak: "Ср",
-                                        background: viewModel.wednesday ? UIColor(named: "darkGreen")! : UIColor(named: "lightGreen")!,
-                                        textColor: viewModel.wednesday ? UIColor(named: "lightGreen")! : UIColor(named: "darkGreen")!,
-                                        cornerColor: viewModel.currentWeekday == 3 ? UIColor(named: "BlackAndWhite")! : UIColor.gray)
+                                        background: viewModel.wednesday ? UIColor(named: "darkCalendar")! : UIColor(named: "lightCalendar")!,
+                                        textColor: viewModel.wednesday ? UIColor(named: "textCalendarTrue")! : UIColor(named: "textCalendarFalse")!,
+                                        cornerColor: viewModel.currentWeekday == 4 ? UIColor(named: "currentCalendar")! : UIColor.gray)
                     
                     CellCalendarforInfo(dayOfweak: "Чт",
-                                        background: viewModel.thursday ? UIColor(named: "darkGreen")! : UIColor(named: "lightGreen")!,
-                                        textColor: viewModel.thursday ? UIColor(named: "lightGreen")! : UIColor(named: "darkGreen")!,
-                                        cornerColor: viewModel.currentWeekday == 4 ? UIColor(named: "BlackAndWhite")! : UIColor.gray)
+                                        background: viewModel.thursday ? UIColor(named: "darkCalendar")! : UIColor(named: "lightCalendar")!,
+                                        textColor: viewModel.thursday ? UIColor(named: "textCalendarTrue")! : UIColor(named: "textCalendarFalse")!,
+                                        cornerColor: viewModel.currentWeekday == 5 ? UIColor(named: "currentCalendar")! : UIColor.gray)
                 }
                 
                 HStack {
                     
-                    CellCalendarforInfo(dayOfweak: "Пн",
-                                        background: viewModel.friday ? UIColor(named: "darkGreen")! : UIColor(named: "lightGreen")!,
-                                        textColor: viewModel.friday ? UIColor(named: "lightGreen")! : UIColor(named: "darkGreen")!,
-                                        cornerColor: viewModel.currentWeekday == 5 ? UIColor(named: "BlackAndWhite")! : UIColor.gray)
+                    CellCalendarforInfo(dayOfweak: "Пт",
+                                        background: viewModel.friday ? UIColor(named: "darkCalendar")! : UIColor(named: "lightCalendar")!,
+                                        textColor: viewModel.friday ? UIColor(named: "textCalendarTrue")! : UIColor(named: "textCalendarFalse")!,
+                                        cornerColor: viewModel.currentWeekday == 6 ? UIColor(named: "currentCalendar")! : UIColor.gray)
                     
                     CellCalendarforInfo(dayOfweak: "Сб",
-                                        background: viewModel.saturday ? UIColor(named: "darkGreen")! : UIColor(named: "lightGreen")!,
-                                        textColor: viewModel.saturday ? UIColor(named: "lightGreen")! : UIColor(named: "darkGreen")!,
-                                        cornerColor: viewModel.currentWeekday == 6 ? UIColor.red : UIColor.gray)
+                                        background: viewModel.saturday ? UIColor(named: "darkCalendar")! : UIColor(named: "lightCalendar")!,
+                                        textColor: viewModel.saturday ? UIColor(named: "textCalendarTrue")! : UIColor(named: "textCalendarFalse")!,
+                                        cornerColor: viewModel.currentWeekday == 7 ? UIColor(named: "currentCalendar")! : UIColor.gray)
                     
                     CellCalendarforInfo(dayOfweak: "Вс",
-                                        background: viewModel.sunday ? UIColor(named: "darkGreen")! : UIColor(named: "lightGreen")!,
-                                        textColor: viewModel.sunday ? UIColor(named: "lightGreen")! : UIColor(named: "darkGreen")!,
-                                        cornerColor: viewModel.currentWeekday == 7 ? UIColor.red : UIColor.gray)
+                                        background: viewModel.sunday ? UIColor(named: "darkCalendar")! : UIColor(named: "lightCalendar")!,
+                                        textColor: viewModel.sunday ? UIColor(named: "textCalendarTrue")! : UIColor(named: "textCalendarFalse")!,
+                                        cornerColor: viewModel.currentWeekday == 1 ? UIColor(named: "currentCalendar")! : UIColor.gray)
                 }
             } .frame(width: 135, height: 75, alignment: .center)
         }

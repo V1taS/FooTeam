@@ -9,9 +9,9 @@
 import Foundation
 import Firebase
 
-class EditPlayerThree {
+class EditPlayerAva {
     
-    static let shared = EditPlayerThree()
+    static let shared = EditPlayerAva()
     
     private let db = Firestore.firestore()
     

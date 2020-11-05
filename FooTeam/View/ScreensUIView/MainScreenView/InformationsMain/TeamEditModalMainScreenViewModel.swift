@@ -39,7 +39,6 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
     @Published var getTeamPlayTime = GetTeamPlayTime()
     internal var cancellables = Set<AnyCancellable>()
     
-    @Published var isPresentedChangeAvatar: Bool = false
     @Published var deleteTeam: Bool = false
     
     @Published var players: [Player] = []
@@ -83,6 +82,8 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
     
     @Published var calendarDetails: [Date] = [Date(), Date(), Date(), Date(), Date(), Date(), Date()]
     @Published var rating: Int = 0
+    
+    @Published var isPresentedChangeAvatar: Bool = false
     
     @Published var image = UIImage()
     

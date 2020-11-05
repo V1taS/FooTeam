@@ -12,7 +12,6 @@ import Combine
 protocol ListTeamsMainScreenViewModelProtocol {
     var actionsPlayers: ActionsPlayers { get }
     var networkWeather: NetworkWeatherManager { get }
-    var calendarFooTeam: CalendarFooTeam { get }
     var cancellables: Set<AnyCancellable> { get }
     
     var iGoCount: Int { get }
@@ -21,14 +20,12 @@ protocol ListTeamsMainScreenViewModelProtocol {
     var iGoPlayers: [Player] { get }
     
     var temperatureString: String { get }
-    var datePlay: String { get }
     init()
 }
 
 class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, ObservableObject {
     @Published var actionsPlayers = ActionsPlayers()
     @Published var networkWeather = NetworkWeatherManager()
-    @Published var calendarFooTeam = CalendarFooTeam()
     @Published var currentTeam = CurrentTeam()
     internal var cancellables = Set<AnyCancellable>()
     
@@ -38,7 +35,6 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
     @Published var iGoPlayers: [Player] = []
     
     @Published var temperatureString: String = ""
-    @Published var datePlay: String = ""
     
     @Published var team: Team = Team(
         avatarStringURL: "",
@@ -54,7 +50,7 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
         gameСosts: "",
         fieldType: ""
     )
-
+    
     required init() {
         self.currentTeam.$team.sink { team in
             self.team = team
@@ -73,7 +69,5 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
                 self.temperatureString = currentWeather.temperatureString
             }
         }
-
-        self.datePlay = calendarFooTeam.datePlay
     }
 }

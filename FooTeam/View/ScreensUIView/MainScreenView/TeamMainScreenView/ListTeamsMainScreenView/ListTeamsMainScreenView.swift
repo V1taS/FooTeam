@@ -85,19 +85,6 @@ struct ListTeamsMainScreenView: View {
                         Text("\(viewModel.countTeams)")
                             .font(.headline)
                     }
-                    
-                    HStack {
-                        Text("Игра состоится:")
-                        Spacer()
-                        Text("\(viewModel.datePlay) в 21:30")
-                            .font(.headline)
-                    }
-                    HStack {
-                        Text("Погода на игру:")
-                        Spacer()
-                        Text("\(viewModel.temperatureString)°С")
-                            .font(.headline)
-                    }
                 }
                 
             }
