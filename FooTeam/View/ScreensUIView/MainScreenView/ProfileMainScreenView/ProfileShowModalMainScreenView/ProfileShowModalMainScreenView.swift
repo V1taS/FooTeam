@@ -77,12 +77,18 @@ struct ProfileShowModalMainScreenView: View {
                     Spacer()
                 }
             } .alert(isPresented: self.$viewModel.isPresentedAlert) {
-                Alert(title: Text("Внимание"),
-                      message: Text("Вы хотите выйти из команды?"),
+                Alert(title: viewModel.player.captain ? Text("Внимание!!! Команда будет удалена!") : Text("Внимание!"),
+                      message: viewModel.player.captain ? Text("Вы хотите выйти и удалить команду?") : Text("Вы хотите выйти из команды?"),
                       primaryButton: Alert.Button.default(Text("Отмена")),
                       secondaryButton: Alert.Button.destructive(
                         Text("Выйти"), action: {
-                            DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: FirestoreService.shared.currentUser)
+                            
+                            DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: viewModel.player)
+                            
+                            if viewModel.player.captain {
+                                DeletTeam.shared.deletTeamInTeam(teamId: viewModel.player.idTeam)
+                            }
+                            
                             viewModel.outFromTeam.toggle()
                         }
                       )

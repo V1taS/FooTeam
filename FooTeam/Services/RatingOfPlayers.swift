@@ -23,7 +23,7 @@ class RatingOfPlayers {
             if winGame == 0 { winGame = 1 }
             
             if winGame != 0 && game != 0 && numberOfGoals != 0 {
-                // Победы. Находим процент побед от общего количества игр (до 80)
+                // Победы. Находим процент побед от общего количества игр (до 70)
                 switch Int(Double(winGame) / Double(game) *  100) {
                 case 0...50:
 //                    print("Райтинг: 61")
@@ -38,7 +38,7 @@ class RatingOfPlayers {
                     print("Превышение лимита")
                 }
                 
-                // Забитые голы. Находим процент от количества игр и забитых мячей (до 19)
+                // Забитые голы. Находим процент от количества игр и забитых мячей (до 29)
                 switch Int(Double(numberOfGoals) / Double(game) *  100) {
                 case 0...25:
 //                    print("Райтинг: 9")

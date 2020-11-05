@@ -51,7 +51,7 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
         teamType: "",
         rating: 0,
         maxCountPlayersInTeam: 18,
-        isHidden: true,
+        isHidden: false,
         currentCountPlayersInTeam: 18,
         country: "",
         totalMoney: "",

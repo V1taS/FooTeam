@@ -76,25 +76,25 @@ class FirestoreService {
         }
         
         var player = Player(name: name,
-                             email: email,
-                             avatarStringURL: "",
-                             whoAreYou: whoAreYou,
-                             id: id,
-                             idTeam: "",
-                             teamNumber: 0,
-                             payment: "0",
-                             iGo: false,
-                             subscription: false,
-                             rating: 0,
-                             position: positionPlayer,
-                             numberOfGoals: 0,
-                             winGame: 0,
-                             losGame: 0,
-                             captain: false)
+                            email: email,
+                            avatarStringURL: "",
+                            whoAreYou: whoAreYou,
+                            id: id,
+                            idTeam: "",
+                            teamNumber: 0,
+                            payment: "0",
+                            iGo: false,
+                            subscription: false,
+                            rating: 0,
+                            position: positionPlayer,
+                            numberOfGoals: 0,
+                            winGame: 0,
+                            losGame: 0,
+                            captain: false)
         
         StorageService.shared.uploadAvaPlayer(photo: avatarImage!, idPlayer: currentUserId) { (result) in
             switch result {
-                
+            
             case .success(let url):
                 player.avatarStringURL = url.absoluteString
                 self.usersRef.document(player.id).setData(player.representation) { (error) in
@@ -126,12 +126,25 @@ class FirestoreService {
         }
         
         var player = player
-        var team = Team(avatarStringURL: "not exist", teamName: teamName!, location: location!, teamType: teamType!, rating: rating!, maxCountPlayersInTeam: 18, isHidden: true, currentCountPlayersInTeam: 18, country: "", totalMoney: "", gameСosts: "", fieldType: "")
+        var team = Team(
+            avatarStringURL: "not exist",
+            teamName: teamName!,
+            location: location!,
+            teamType: teamType!,
+            rating: rating!,
+            maxCountPlayersInTeam: 18,
+            isHidden: false,
+            currentCountPlayersInTeam: 1,
+            country: "",
+            totalMoney: "",
+            gameСosts: "",
+            fieldType: "Мини"
+        )
         let refCountPlayers = db.collection(["teams", team.id, "actionsPlayers"].joined(separator: "/"))
         
         StorageService.shared.uploadAvaTeam(photo: avatarTeam!, idTeam: team.id) { (result) in
             switch result {
-                
+            
             case .success(let url):
                 team.avatarStringURL = url.absoluteString
                 

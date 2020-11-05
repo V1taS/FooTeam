@@ -29,8 +29,8 @@ struct ListPlayersSecondScreenView: View {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
-                                    Text("\(player.captain ? "Капитан" : "")")
-                                        .font(.headline)
+                                    Text("\(player.captain ? Text("Капитан").font(.headline) : Text(""))")
+                                    Text("\(player.whoAreYou == "Зритель" ? Text("Зритель").font(.headline) : Text(""))")
                                     Text("I-GO")
                                         .foregroundColor(player.iGo ? .green : .red)
                                         .fontWeight(.bold)
@@ -50,8 +50,8 @@ struct ListPlayersSecondScreenView: View {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
-                                    Text("\(player.captain ? "Капитан" : "")")
-                                        .font(.headline)
+                                    Text("\(player.captain ? Text("Капитан").font(.headline) : Text(""))")
+                                    Text("\(player.whoAreYou == "Зритель" ? Text("Зритель").font(.headline) : Text(""))")
                                     Text("I-GO")
                                         .foregroundColor(player.iGo ? .green : .red)
                                         .fontWeight(.bold)

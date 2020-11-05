@@ -80,7 +80,7 @@ struct CellJoinToTeamView: View {
                             .minimumScaleFactor(0.7)
                         
                     }
-                    .frame(maxWidth: 160, idealHeight: 170, maxHeight: 170)
+                    .frame(maxWidth: 140, idealHeight: 170, maxHeight: 170)
                 }
                 
                 .alert(isPresented: $viewModel.showAlertAccept) {
@@ -99,7 +99,7 @@ struct CellJoinToTeamView: View {
     
     struct CellJoinTeamViewController_Previews: PreviewProvider {
         static var previews: some View {
-            CellJoinToTeamView(team: Team(avatarStringURL: "", teamName: "Teadfdfd", location: "Rus", teamType: "Type", rating: 80, maxCountPlayersInTeam: 18, isHidden: true, currentCountPlayersInTeam: 18,country: "", totalMoney: "", gameСosts: "", fieldType: ""))
+            CellJoinToTeamView(team: Team(avatarStringURL: "", teamName: "Teadfdfd", location: "Rus", teamType: "Type", rating: 80, maxCountPlayersInTeam: 18, isHidden: false, currentCountPlayersInTeam: 18,country: "", totalMoney: "", gameСosts: "", fieldType: ""))
         }
     }
 }

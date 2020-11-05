@@ -97,7 +97,7 @@ extension SetupProfileViewController {
                         FirestoreService.shared.getUserDataSimple()
                         
                         if self.whoAreYouSegmentedControl.titleForSegment(at: self.whoAreYouSegmentedControl.selectedSegmentIndex) == "Зритель" {
-                            let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
+                            let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             
                         } else {

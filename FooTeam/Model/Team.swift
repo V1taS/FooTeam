@@ -38,7 +38,8 @@ struct Team: Hashable, Decodable {
         country: String,
         totalMoney: String,
         gameСosts: String,
-        fieldType: String) {
+        fieldType: String
+    ) {
         self.avatarStringURL = avatarStringURL
         self.teamName = teamName
         self.location = location
