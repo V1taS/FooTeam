@@ -30,6 +30,7 @@
 		1B3BB6FA252005CC004340FD /* EditPlayerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */; };
 		1B3C8522255029C60001149C /* EditTeamPlayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3C8521255029C60001149C /* EditTeamPlayTime.swift */; };
 		1B3F0C0324F9A50E00FA4F51 /* TeamMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F0C0224F9A50E00FA4F51 /* TeamMainScreenView.swift */; };
+		1B41180D25544A020093C9D7 /* RowCalendarforInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41180C25544A020093C9D7 /* RowCalendarforInfoViewModel.swift */; };
 		1B4467A6252419B0009E485E /* InWhichTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4467A5252419B0009E485E /* InWhichTeam.swift */; };
 		1B453AAC2501A28B00DA2DDA /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */; };
 		1B453AAE2501A30400DA2DDA /* PlayersListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B453AAD2501A30400DA2DDA /* PlayersListener.swift */; };
@@ -174,6 +175,7 @@
 		1B3BB6F9252005CC004340FD /* EditPlayerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerThree.swift; sourceTree = "<group>"; };
 		1B3C8521255029C60001149C /* EditTeamPlayTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTeamPlayTime.swift; sourceTree = "<group>"; };
 		1B3F0C0224F9A50E00FA4F51 /* TeamMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMainScreenView.swift; sourceTree = "<group>"; };
+		1B41180C25544A020093C9D7 /* RowCalendarforInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCalendarforInfoViewModel.swift; sourceTree = "<group>"; };
 		1B4467A5252419B0009E485E /* InWhichTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InWhichTeam.swift; sourceTree = "<group>"; };
 		1B453AAB2501A28B00DA2DDA /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
 		1B453AAD2501A30400DA2DDA /* PlayersListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListener.swift; sourceTree = "<group>"; };
@@ -790,6 +792,7 @@
 			children = (
 				1B2041542550B73E000A1E8C /* CellCalendarforInfo.swift */,
 				1B4EBB3F2550BB6600FDB98B /* RowCalendarforInfo.swift */,
+				1B41180C25544A020093C9D7 /* RowCalendarforInfoViewModel.swift */,
 			);
 			path = CellCalendarforInfo;
 			sourceTree = "<group>";
@@ -1111,6 +1114,7 @@
 				1B39447024F9A3A00008FC40 /* ProfileMainScreenView.swift in Sources */,
 				1BF833E5252FB1610077053E /* TeamShowModalMainScreenViewModel.swift in Sources */,
 				1B4A3DC72502EAEA000EABD1 /* ListTeamsMainScreenView.swift in Sources */,
+				1B41180D25544A020093C9D7 /* RowCalendarforInfoViewModel.swift in Sources */,
 				1B39446924F85B060008FC40 /* TabViewFooTeam.swift in Sources */,
 				1BB14D9E252138B200B8CFCF /* UIResponder.swift in Sources */,
 				1B596FBA24EC73A90092770B /* ScrollViewExtension.swift in Sources */,

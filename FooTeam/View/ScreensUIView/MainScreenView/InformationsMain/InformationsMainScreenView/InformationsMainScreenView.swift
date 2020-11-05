@@ -54,6 +54,7 @@ struct InformationsMainScreenView: View {
                 }
                 
                 DividerFooTeamMenu()
+                    .offset(x: 0, y: -5)
                 
                 VStack(alignment: .center, spacing: 1) {
                     Text("Календарь игр")
@@ -102,7 +103,8 @@ struct InformationsMainScreenView: View {
                     //                            .lineLimit(1)
                     //                    }
                     
-                }
+                } .offset(x: 0, y: -11)
+                
             }
         }
     }
