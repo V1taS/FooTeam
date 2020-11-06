@@ -17,6 +17,9 @@ struct AcceptPlayersView: View {
         ZStack {
             Color.black.opacity(0.8)
                 .edgesIgnoringSafeArea(.all)
+                .onTapGesture {
+                    showAcceptPlayers = false
+                }
             ZStack {
                 List {
                     Section(header: HStack {

@@ -103,12 +103,12 @@ struct TeamShowModalMainScreenView: View {
                     Text("Игроков в команде")
                     Spacer()
                     Text("\(viewModel.players.count)")
-                        .foregroundColor(viewModel.players.count <= viewModel.team.maxCountPlayersInTeam ? Color("BlackAndWhite") : .red)
+                        .foregroundColor(viewModel.players.count < viewModel.team.maxCountPlayersInTeam ? Color("BlackAndWhite") : .red)
                         .font(.headline)
                     Text("из")
                         .font(.headline)
                     Text("\(viewModel.team.maxCountPlayersInTeam)")
-                        .foregroundColor(viewModel.players.count == viewModel.team.maxCountPlayersInTeam ? .red : Color("BlackAndWhite"))
+                        .foregroundColor(viewModel.players.count >= viewModel.team.maxCountPlayersInTeam ? .red : Color("BlackAndWhite"))
                         .font(.headline)
                 }
                 

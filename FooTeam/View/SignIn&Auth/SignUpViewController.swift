@@ -122,9 +122,6 @@ extension SignUpViewController {
         
         let footerStackView = UIView()
         footerStackView.backgroundColor = .systemGray6
-        footerStackView.layer.borderColor = UIColor.systemGray5.cgColor
-        footerStackView.layer.borderWidth = 1
-        
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         topStackView.translatesAutoresizingMaskIntoConstraints = false

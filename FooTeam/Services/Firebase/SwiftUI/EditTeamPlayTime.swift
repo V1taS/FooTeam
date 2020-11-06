@@ -25,8 +25,8 @@ class EditTeamPlayTime {
             var playTime = playTime
             playTime.date = date
             playTime.dayOfWeek = dayOfWeek
-            playTime.game = "игра-\(gameNumber)"
-            refActionsPlayer.document("игра-\(gameNumber)").updateData(playTime.representation) { (error) in }
+            playTime.game = "game-\(gameNumber)"
+            refActionsPlayer.document("game-\(gameNumber)").updateData(playTime.representation) { (error) in }
         } 
     }
 }

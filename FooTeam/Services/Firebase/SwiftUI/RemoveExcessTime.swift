@@ -20,7 +20,7 @@ class RemoveExcessTime {
         switch gameInWeak {
         case 0:
             for i in 2...7 {
-                ref.whereField("game", isEqualTo: "игра-\(i)").getDocuments() { (querySnapshot, err) in
+                ref.whereField("game", isEqualTo: "game-\(i)").getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {
@@ -32,7 +32,7 @@ class RemoveExcessTime {
             }
         case 1:
             for i in 3...7 {
-                ref.whereField("game", isEqualTo: "игра-\(i)").getDocuments() { (querySnapshot, err) in
+                ref.whereField("game", isEqualTo: "game-\(i)").getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {
@@ -44,7 +44,7 @@ class RemoveExcessTime {
             }
         case 2:
             for i in 4...7 {
-                ref.whereField("game", isEqualTo: "игра-\(i)").getDocuments() { (querySnapshot, err) in
+                ref.whereField("game", isEqualTo: "game-\(i)").getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {
@@ -56,7 +56,7 @@ class RemoveExcessTime {
             }
         case 3:
             for i in 5...7 {
-                ref.whereField("game", isEqualTo: "игра-\(i)").getDocuments() { (querySnapshot, err) in
+                ref.whereField("game", isEqualTo: "game-\(i)").getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {
@@ -68,7 +68,7 @@ class RemoveExcessTime {
             }
         case 4:
             for i in 6...7 {
-                ref.whereField("game", isEqualTo: "игра-\(i)").getDocuments() { (querySnapshot, err) in
+                ref.whereField("game", isEqualTo: "game-\(i)").getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {
@@ -80,7 +80,7 @@ class RemoveExcessTime {
             }
         case 5:
             for i in 7...7 {
-                ref.whereField("game", isEqualTo: "игра-\(i)").getDocuments() { (querySnapshot, err) in
+                ref.whereField("game", isEqualTo: "game-\(i)").getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {

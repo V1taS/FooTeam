@@ -36,7 +36,7 @@ class GetTeamPlayTime: ObservableObject {
                     guard let index = self.teams.firstIndex(of: team) else { return }
                     
                     self.teams[index] = team
-                    print("Обновление данных \(index)")
+                    print("GetTeamPlayTime Обновление данных \(index)")
                     
                 case .removed:
                     guard let index = self.teams.firstIndex(of: team) else { return }
