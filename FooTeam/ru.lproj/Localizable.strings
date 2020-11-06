@@ -1,0 +1,105 @@
+/* 
+  Localizable.strings
+  FooTeam
+
+  Created by Виталий Сосин on 07.11.2020.
+  Copyright © 2020 Vitalii Sosin. All rights reserved.
+*/
+
+// MARK: - AuthError
+AuthErrorFillInAllTheFields = "Заполните все поля";
+AuthErrorMailFormatIsNotValid = "Формат почты не является допустимым";
+AuthErrorPasswordsDoNotMatch = "Пароли не совпадают";
+AuthErrorUnknownError = "Неизвестная ошибка";
+AuthErrorServerError = "Ошибка сервера";
+
+// MARK: - SignIn&Auth
+// MARK: - * AuthViewController
+AuthViewControllerRegisterInFTLabel = "Зарегистрироваться в FooTeam";
+AuthViewControllerDescriptionFTLabel = "Создайте профиль, чтобы создать свою собственную команду, управлять составами и получить другие возможности.";
+AuthViewControllerAlreadyOnboardLabel = "Уже есть аккаунт?";
+AuthViewControllerAppleButton = "Продолжить c Apple";
+AuthViewControllerGoogleButton = "Продолжить в Google";
+AuthViewControllerEmailButton = "Ввести эл. почту";
+AuthViewControllerlogin = "Войти";
+AuthViewControllerSuccessfully = "Успешно";
+AuthViewControllerYouAreLogged = "Вы авторизованы";
+AuthViewControllerYouAreRegistered = "Вы зарегистрированны";
+AuthViewControllerError = "Ошибка";
+
+// MARK: - * SignUpViewController
+SignUpViewControllerWelcomeLabel = "Регистрация";
+SignUpViewControllerDescriptionFTLabel = "Используйте от 6 до 20 символов. Пароль должен включать в себя хотя бы два из следующих видов символов: буквы, цифры.";
+SignUpViewControllerEmailLabell = "Электронная почта";
+SignUpViewControllerPasswordLabel = "Пароль";
+SignUpViewControllerConfirmPasswodLabel = "Подтвердите пароль";
+SignUpViewControllerAlreadyOnboardLabel = "Уже зарегестрированы?";
+SignUpViewControllerSignUpButton = "Зарегистрироваться";
+SignUpViewControllerClose = "закрыть";
+SignUpViewControllerlogin = "Войти";
+SignUpViewControllerSuccessfully = "Успешно";
+SignUpViewControllerYouAreLogged = "Вы авторизованы";
+SignUpViewControllerError = "Ошибка";
+
+// MARK: - * LoginViewController
+LoginViewControllerWelcomeLabel = "Войдите в FooTeam";
+LoginViewControllerDescriptionFTLabel = "Создавайте и управляйте своей командой, следите за статистикой и получай больше возможностей.";
+LoginViewControllerEmailLabell = "Ввести эл. почту";
+LoginViewControllerPasswordLabel = "Ввести пароль";
+LoginViewControllerNeedAnAccountLabel = "Нет учетной записи?";
+LoginViewControllerGoogleButton = "Продолжить в Google";
+LoginViewControllerLoginButton = "Войти";
+LoginViewControllerForgottenButton = "Забыли пароль?";
+LoginViewControllerClose = "закрыть";
+LoginViewControllerSignUpButton = "Зарегистрироваться";
+LoginViewControllerSuccessfully = "Успешно";
+LoginViewControllerYouAreLogged = "Вы авторизованы";
+LoginViewControllerError = "Ошибка";
+LoginViewControllerAttention = "Внимание";
+LoginViewControllerRestorePassword = "Вы хотите востановить пароль?";
+LoginViewControllerUserIsNotFound = "Пользователь не найден";
+LoginViewControllerInvalidEmail = "Неверный адрес электронной почты";
+LoginViewControllerInvalidRecipientEmailAddress = "Неверный адрес электронной почты получателя";
+LoginViewControllerPasswordRecoveryFailed = "Не получилось восстановить пароль";
+LoginViewControllerInvalidMessageData = "Недопустимые данные сообщения";
+LoginViewControllerYouhaveNotEnteredYourEmail = "Вы не указали эл. почту";
+LoginViewControllerPasswordRecovery = "Письмо с инструкцией по восстановлению пароля отправлено на почту";
+LoginViewControllerReestablish = "Восстановить";
+LoginViewControllerCancellation = "Отмена";
+
+// MARK: - Create&Join&Profile
+
+// MARK: - ScreensUIView
+
+// MARK: - * TabViewFooTeam
+
+// MARK: - * MainScreenView
+
+// MARK: - ** HeaderMainScreenView
+
+// MARK: - ** ProfileMainScreenView
+
+// MARK: - ** InformationsMain
+
+// MARK: - ** TeamMainScreenView
+
+// MARK: - ** TopPlayersScreenView
+
+// MARK: - * SecondScreenView
+
+// MARK: - ** ListPlayersScreenView
+
+// MARK: - ** ListPlayersProfileShow
+
+// MARK: - * ThirdScreenView
+
+// MARK: - ** TeamShowModal
+
+// MARK: - ** TeamEditModal
+
+// MARK: - * Other
+
+// MARK: - ** CellCalendarforInfo
+
+// MARK: - ** CaruselBodyFooTeam
+

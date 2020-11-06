@@ -10,19 +10,19 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    let welcomeLabel = UILabel(text: "Регистрация", font: .bolt20(), textAlignment: .center)
-    let descriptionFTLabel = UILabel(text: "Используйте от 6 до 20 символов. Пароль должен включать в себя хотя бы два из следующих видов символов: буквы, цифры.", font: .avenir14(), color: .systemGray, textAlignment: .center)
+    let welcomeLabel = UILabel(text: NSLocalizedString("SignUpViewControllerWelcomeLabel" ,comment:"Sign in"), font: .bolt20(), textAlignment: .center)
+    let descriptionFTLabel = UILabel(text: NSLocalizedString("SignUpViewControllerDescriptionFTLabel" ,comment:"descriptionFTLabel"), font: .avenir14(), color: .systemGray, textAlignment: .center)
     
-    let emailLabel = UILabel(text: "Электронная почта", font: .markerFel14())
-    let passwordLabel = UILabel(text: "Пароль", font: .markerFel14())
-    let confirmPasswodLabel = UILabel(text: "Подтвердите пароль", font: .markerFel14())
-    let alreadyOnboardLabel = UILabel(text: "Уже зарегестрированы?", font: .avenir14())
+    let emailLabel = UILabel(text: NSLocalizedString("SignUpViewControllerEmailLabell" ,comment:"Email"), font: .markerFel14())
+    let passwordLabel = UILabel(text: NSLocalizedString("SignUpViewControllerPasswordLabel" ,comment:"Password"), font: .markerFel14())
+    let confirmPasswodLabel = UILabel(text: NSLocalizedString("SignUpViewControllerConfirmPasswodLabel" ,comment:"Confirm the password"), font: .markerFel14())
+    let alreadyOnboardLabel = UILabel(text: NSLocalizedString("SignUpViewControllerAlreadyOnboardLabel" ,comment:"Already Registered?"), font: .avenir14())
     
     let emailTextField = CustomeTextField(placeholder: "  demo@mail.ru")
     let passwordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
     let confirmPasswordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
    
-    let signUpButton = UIButton(title: "Зарегистрироваться",
+    let signUpButton = UIButton(title: NSLocalizedString("SignUpViewControllerSignUpButton" ,comment:"Register now"),
                                 titleColor: .white,
                                 backgroundColor: .buttonDark(),
                                 font: .bolt14(),
@@ -30,7 +30,7 @@ class SignUpViewController: UIViewController {
     
     let closeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("закрыть", for: .normal)
+        button.setTitle(NSLocalizedString("SignUpViewControllerClose" ,comment:"close"), for: .normal)
         button.setTitleColor(.blackAndWhite(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
@@ -38,7 +38,7 @@ class SignUpViewController: UIViewController {
     
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Войти", for: .normal)
+        button.setTitle(NSLocalizedString("SignUpViewControllerlogin" ,comment:"login"), for: .normal)
         button.setTitleColor(.buttonRed(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
@@ -72,14 +72,14 @@ extension SignUpViewController {
             confirmPassword: confirmPasswordTextField.text) { (result) in
                 switch result {
                 case .success(let user):
-                    self.showAlert(with: "Успешно!", and: "Вы зарегистрированны!") {
+                    self.showAlert(with: NSLocalizedString("SignUpViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("SignUpViewControllerYouAreLogged" ,comment:"You are logged in")) {
                         let setupVC = SetupProfileViewController(currentUser: user)
                         setupVC.modalPresentationStyle = .fullScreen
                         self.present(setupVC, animated: true, completion: nil)
                     }
                     
                 case .failure(let error):
-                    self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+                    self.showAlert(with: NSLocalizedString("SignUpViewControllerError" ,comment:"Error"), and: error.localizedDescription)
                 }
         }
     }

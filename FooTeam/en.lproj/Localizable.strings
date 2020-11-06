@@ -1,0 +1,108 @@
+/* 
+  Localizable.strings
+  FooTeam
+
+  Created by Виталий Сосин on 07.11.2020.
+  Copyright © 2020 Vitalii Sosin. All rights reserved.
+*/
+
+// MARK: - AuthError
+AuthErrorFillInAllTheFields = "Fill in all the fields";
+AuthErrorMailFormatIsNotValid = "Mail format is not valid";
+AuthErrorPasswordsDoNotMatch = "Passwords do not match";
+AuthErrorUnknownError = "Unknown error";
+AuthErrorServerError = "Server error";
+
+// MARK: - SignIn&Auth
+// MARK: - * AuthViewController
+AuthViewControllerRegisterInFTLabel = "Register with FooTeam";
+AuthViewControllerDescriptionFTLabel = "Create a profile to create your own team, manage squads and more.";
+AuthViewControllerAlreadyOnboardLabel = "Already have an account?";
+AuthViewControllerAppleButton = "Continue with Apple";
+AuthViewControllerGoogleButton = "Continue on Google";
+AuthViewControllerEmailButton = "Enter email";
+AuthViewControllerlogin = "login";
+AuthViewControllerSuccessfully = "Successfully";
+AuthViewControllerYouAreLogged = "You are logged in";
+AuthViewControllerYouAreRegistered = "You are registered";
+AuthViewControllerError = "Error";
+
+// MARK: - * SignUpViewController
+SignUpViewControllerWelcomeLabel = "Registration";
+SignUpViewControllerDescriptionFTLabel = "Use 6 to 20 characters. The password must include at least two of the following types of characters: letters, numbers.";
+SignUpViewControllerEmailLabell = "Email";
+SignUpViewControllerPasswordLabel = "Password";
+SignUpViewControllerConfirmPasswodLabel = "Confirm the password";
+SignUpViewControllerAlreadyOnboardLabel = "Already Registered?";
+SignUpViewControllerSignUpButton = "Register now";
+SignUpViewControllerClose = "close";
+SignUpViewControllerlogin = "login";
+SignUpViewControllerSuccessfully = "Successfully";
+SignUpViewControllerYouAreLogged = "You are logged in";
+SignUpViewControllerError = "Error";
+
+// MARK: - * LoginViewController
+LoginViewControllerWelcomeLabel = "Login to FooTeam";
+LoginViewControllerDescriptionFTLabel = "Create and manage your team, monitor statistics and get more opportunities.";
+LoginViewControllerEmailLabell = "Enter mail";
+LoginViewControllerPasswordLabel = "Enter password";
+LoginViewControllerNeedAnAccountLabel = "Don't have an account?";
+LoginViewControllerGoogleButton = "Continue on Google";
+LoginViewControllerLoginButton = "Login";
+LoginViewControllerForgottenButton = "Forgot your password?";
+LoginViewControllerClose = "close";
+LoginViewControllerSignUpButton = "Register now";
+LoginViewControllerSuccessfully = "Successfully";
+LoginViewControllerYouAreLogged = "You are logged in";
+LoginViewControllerError = "Error";
+LoginViewControllerAttention = "Attention";
+LoginViewControllerRestorePassword = "Do you want to recover your password?";
+LoginViewControllerUserIsNotFound = "User is not found";
+LoginViewControllerInvalidEmail = "Invalid email";
+LoginViewControllerInvalidRecipientEmailAddress = "Invalid recipient email address";
+LoginViewControllerPasswordRecoveryFailed = "Password recovery failed";
+LoginViewControllerInvalidMessageData = "Invalid message data";
+LoginViewControllerYouhaveNotEnteredYourEmail = "You have not specified mail";
+LoginViewControllerPasswordRecovery = "A letter with instructions for password recovery has been sent to the mail";
+LoginViewControllerReestablish = "Restore";
+LoginViewControllerCancellation = "Cancellation";
+
+// NSLocalizedString("AuthViewControllerRegisterInFTLabel" ,comment:"FooTeam")
+// MARK: - Create&Join&Profile
+
+// MARK: - ScreensUIView
+
+// MARK: - * TabViewFooTeam
+
+// MARK: - * MainScreenView
+
+// MARK: - ** HeaderMainScreenView
+
+// MARK: - ** ProfileMainScreenView
+
+// MARK: - ** InformationsMain
+
+// MARK: - ** TeamMainScreenView
+
+// MARK: - ** TopPlayersScreenView
+
+// MARK: - * SecondScreenView
+
+// MARK: - ** ListPlayersScreenView
+
+// MARK: - ** ListPlayersProfileShow
+
+// MARK: - * ThirdScreenView
+
+// MARK: - ** TeamShowModal
+
+// MARK: - ** TeamEditModal
+
+// MARK: - * Other
+
+// MARK: - ** CellCalendarforInfo
+
+// MARK: - ** CaruselBodyFooTeam
+
+
+

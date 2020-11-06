@@ -20,7 +20,9 @@ struct TabViewFooTeam: View {
                 MainScreenView()
                     .tabItem {
                         Image(systemName: "rectangle.3.offgrid.bubble.left")
-                        Text("Главная")
+//                        Text("Главная"
+                        Text(NSLocalizedString("GOOD_MORNING",comment: ""))
+
                     }
                 
                 ListPlayersSecondScreenView()

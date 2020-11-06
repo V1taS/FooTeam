@@ -13,21 +13,21 @@ class AuthViewController: UIViewController {
 
     var logoImageView = UIImageView(image: #imageLiteral(resourceName: "logo"), contentMode: .scaleAspectFill)
     
-    let registerInFTLabel = UILabel(text: "Зарегистрироваться в FooTeam", font: .bolt20(), textAlignment: .center)
-    let descriptionFTLabel = UILabel(text: "Создайте профиль, чтобы создать свою собственную команду, управлять составами и получить другие возможности.", font: .avenir14(), color: .systemGray, textAlignment: .center)
-    let alreadyOnboardLabel = UILabel(text: "Уже есть аккаунт?", font: .avenir14())
+    let registerInFTLabel = UILabel(text: NSLocalizedString("AuthViewControllerRegisterInFTLabel" ,comment:"Register with FooTeam"), font: .bolt20(), textAlignment: .center)
+    let descriptionFTLabel = UILabel(text: NSLocalizedString("AuthViewControllerDescriptionFTLabel" ,comment:"DescriptionFTLabel"), font: .avenir14(), color: .systemGray, textAlignment: .center)
+    let alreadyOnboardLabel = UILabel(text: NSLocalizedString("AuthViewControllerAlreadyOnboardLabel" ,comment:"Already have an account?"), font: .avenir14())
     
-    let appleButton = UIButton(title: "Продолжить c Apple",
+    let appleButton = UIButton(title: NSLocalizedString("AuthViewControllerAppleButton" ,comment:"Continue with Apple?"),
                                titleColor: .whiteAndBlack(),
                                backgroundColor: .blackAndWhite(),
                                font: .bolt14(),
                                logo: #imageLiteral(resourceName: "appleIcon"))
-    let googleButton = UIButton(title: "Продолжить в Google",
+    let googleButton = UIButton(title: NSLocalizedString("AuthViewControllerGoogleButton" ,comment:"Continue on Google?"),
                                 titleColor: .whiteAndBlack(),
                                 backgroundColor: .blackAndWhite(),
                                 font: .bolt14(),
                                 logo: #imageLiteral(resourceName: "googleLogo"))
-    let emailButton = UIButton(title: "Ввести эл. почту",
+    let emailButton = UIButton(title: NSLocalizedString("AuthViewControllerEmailButton" ,comment:"Enter email"),
                                titleColor: .buttonDark(),
                                backgroundColor: .mainWhite(),
                                font: .bolt14(),
@@ -35,7 +35,7 @@ class AuthViewController: UIViewController {
     
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Войти", for: .normal)
+        button.setTitle(NSLocalizedString("AuthViewControllerlogin" ,comment:"login"), for: .normal)
         button.setTitleColor(.buttonRed(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
@@ -170,19 +170,19 @@ extension AuthViewController: GIDSignInDelegate {
                 FirestoreService.shared.getUserData(user: user) { (result) in
                     switch result {
                     case .success(_):
-                        UIApplication.getTopViewController()?.showAlert(with: "Успешно", and: "Вы авторизованы") {
+                        UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreLogged" ,comment:"You are logged in")) {
                             let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)
                         }
                     case .failure(_):
-                        UIApplication.getTopViewController()?.showAlert(with: "Успешно", and: "Вы зарегистрированны") {
+                        UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreRegistered" ,comment:"You are registered")) {
                             UIApplication.getTopViewController()?.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
                         }
                     } // result
                 }
             case .failure(let error):
-                self.showAlert(with: "Ошибка", and: error.localizedDescription)
+                self.showAlert(with: NSLocalizedString("AuthViewControllerError" ,comment:"Error"), and: error.localizedDescription)
             }
         }
     }

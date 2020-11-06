@@ -13,24 +13,24 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    let welcomeLabel = UILabel(text: "Войдите в FooTeam", font: .bolt20(), textAlignment: .center)
-    let descriptionFTLabel = UILabel(text: "Создавайте и управляйте своей командой, следите за статистикой и получай больше возможностей.", font: .avenir14(), color: .systemGray, textAlignment: .center)
+    let welcomeLabel = UILabel(text: NSLocalizedString("LoginViewControllerWelcomeLabel" ,comment:"Login to FooTeam"), font: .bolt20(), textAlignment: .center)
+    let descriptionFTLabel = UILabel(text: NSLocalizedString("LoginViewControllerDescriptionFTLabel" ,comment:"descriptionFTLabel"), font: .avenir14(), color: .systemGray, textAlignment: .center)
     
-    let emailLabel = UILabel(text: "Ввести эл. почту", font: .markerFel14())
-    let passwordLabel = UILabel(text: "Ввести пароль", font: .markerFel14())
-    let needAnAccountLabel = UILabel(text: "Нет учетной записи?", font: .avenir14())
+    let emailLabel = UILabel(text: NSLocalizedString("LoginViewControllerEmailLabell" ,comment:"Enter mail"), font: .markerFel14())
+    let passwordLabel = UILabel(text: NSLocalizedString("LoginViewControllerPasswordLabel" ,comment:"Enter password"), font: .markerFel14())
+    let needAnAccountLabel = UILabel(text: NSLocalizedString("LoginViewControllerNeedAnAccountLabel" ,comment:"Don't have an account?"), font: .avenir14())
     
-    let googleButton = UIButton(title: "Продолжить в Google", titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "googleLogo"))
+    let googleButton = UIButton(title: NSLocalizedString("LoginViewControllerGoogleButton" ,comment:"Continue on Google"), titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "googleLogo"))
     let emailTextField = CustomeTextField(placeholder: "  demo@mail.ru")
     let passwordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
     
-    let loginButton = UIButton(title: "Войти",
+    let loginButton = UIButton(title: NSLocalizedString("LoginViewControllerLoginButton" ,comment:"Login"),
                                titleColor: .white,
                                backgroundColor: .buttonDark(),
                                font: .bolt14(),
                                borderColor: .textFieldLight())
     
-    let forgottenButton = UIButton(title: "Забыли пароль?",
+    let forgottenButton = UIButton(title: NSLocalizedString("LoginViewControllerForgottenButton" ,comment:"Forgot your password?"),
                                    titleColor: .blackAndWhite(),
                                    backgroundColor: .whiteAndBlack(),
                                    font: .bolt14(),
@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
     
     let closeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("закрыть", for: .normal)
+        button.setTitle(NSLocalizedString("LoginViewControllerClose" ,comment:"close"), for: .normal)
         button.setTitleColor(.blackAndWhite(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
     
     let signUpButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Зарегистрироваться", for: .normal)
+        button.setTitle(NSLocalizedString("LoginViewControllerSignUpButton" ,comment:"Register now"), for: .normal)
         button.setTitleColor(.buttonRed(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
@@ -87,7 +87,7 @@ extension LoginViewController {
             password: passwordTextField.text!) { (result) in
                 switch result {
                 case .success(let user):
-                    self.showAlert(with: "Успешно!", and: "Вы авторизованы!") {
+                    self.showAlert(with: NSLocalizedString("LoginViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("LoginViewControllerYouAreLogged" ,comment:"You are logged in")) {
                         FirestoreService.shared.getUserData(user: user) { (result) in
                             switch result {
                             case .success(let player):
@@ -106,7 +106,7 @@ extension LoginViewController {
                         }
                     }
                 case .failure(let error):
-                    self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+                    self.showAlert(with: NSLocalizedString("LoginViewControllerError" ,comment:"Error"), and: error.localizedDescription)
                 }
         }
     }
@@ -122,26 +122,26 @@ extension LoginViewController {
     }
     
     @objc private func forgottenButtonTapped() {
-        showAlertForgottenPassword(with: "Внимание",
-                                   and: "Вы хотите востановить пароль?") {
+        showAlertForgottenPassword(with: NSLocalizedString("LoginViewControllerAttention" ,comment:"Attention"),
+                                   and: NSLocalizedString("LoginViewControllerRestorePassword" ,comment:"Do you want to recover your password?")) {
             Auth.auth().sendPasswordReset(withEmail: self.emailTextField.text!) { (error) in
                 if let error = error as NSError? {
                     switch AuthErrorCode(rawValue: error.code) {
                     case .userNotFound:
-                        self.showAlert(with: "Ошибка", and: "Пользователь не найден")
+                        self.showAlert(with: NSLocalizedString("LoginViewControllerError" ,comment:"Error"), and: NSLocalizedString("LoginViewControllerUserIsNotFound" ,comment:"User is not found"))
                     case .invalidEmail:
-                        self.showAlert(with: "Ошибка", and: "Неверный адрес электронной почты")
+                        self.showAlert(with: NSLocalizedString("LoginViewControllerError" ,comment:"Error"), and: NSLocalizedString("LoginViewControllerInvalidEmail" ,comment:"Invalid email"))
                     case .invalidRecipientEmail:
-                        self.showAlert(with: "Ошибка", and: "Неверный адрес электронной почты получателя")
+                        self.showAlert(with: NSLocalizedString("LoginViewControllerError" ,comment:"Error"), and: NSLocalizedString("LoginViewControllerInvalidRecipientEmailAddress" ,comment:"Invalid recipient email address"))
                     case .invalidSender:
-                        self.showAlert(with: "Ошибка", and: "Не получилось восстановить пароль")
+                        self.showAlert(with: NSLocalizedString("LoginViewControllerError" ,comment:"Error"), and: NSLocalizedString("LoginViewControllerPasswordRecoveryFailed" ,comment:"Password recovery failed"))
                     case .invalidMessagePayload:
-                        self.showAlert(with: "Ошибка", and: "Недопустимые данные сообщения")
+                        self.showAlert(with: NSLocalizedString("LoginViewControllerError" ,comment:"Error"), and: NSLocalizedString("LoginViewControllerInvalidMessageData" ,comment:"Invalid message data"))
                     default:
-                        self.showAlert(with: "Ошибка", and: "Вы не указали эл. почту")
+                        self.showAlert(with: NSLocalizedString("LoginViewControllerError" ,comment:"Error"), and: NSLocalizedString("LoginViewControllerYouhaveNotEnteredYourEmail" ,comment:"You have not specified mail"))
                     }
                 }
-                self.showAlert(with: "Успешно", and: "Письмо с инструкцией по восстановлению пароля отправлено на почту \(self.emailTextField.text ?? "")")
+                self.showAlert(with: NSLocalizedString("LoginViewControllerSuccessfully" ,comment:"Successfully"), and: "\(NSLocalizedString("LoginViewControllerPasswordRecovery" ,comment:"A letter with instructions for password recovery has been sent to the mail")) \(self.emailTextField.text ?? "")")
             }
         }
     }
@@ -242,8 +242,8 @@ struct LoginVCProvider: PreviewProvider {
 extension LoginViewController {
     func showAlertForgottenPassword(with title: String, and message: String, completion: @escaping () -> Void = { }) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Восстановить", style: .destructive) { (_) in completion()}
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        let okAction = UIAlertAction(title: NSLocalizedString("LoginViewControllerReestablish" ,comment:"Restore"), style: .destructive) { (_) in completion()}
+        let cancelAction = UIAlertAction(title: NSLocalizedString("LoginViewControllerCancellation" ,comment:"Cancellation"), style: .cancel)
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)

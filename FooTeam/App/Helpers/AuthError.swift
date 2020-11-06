@@ -20,15 +20,15 @@ extension AuthError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .notFilled:
-            return NSLocalizedString("Заполните все поля", comment: "")
+            return NSLocalizedString("AuthErrorFillInAllTheFields" ,comment:"Fill in all the fields")
         case .invalidEmail:
-            return NSLocalizedString("Формат почты не является допустимым", comment: "")
+            return NSLocalizedString("AuthErrorMailFormatIsNotValid" ,comment:"Mail format is not valid")
         case .passwordsNotMatched:
-            return NSLocalizedString("Пароли не совпадают", comment: "")
+            return NSLocalizedString("AuthErrorPasswordsDoNotMatch" ,comment:"Passwords do not match")
         case .unknownError:
-            return NSLocalizedString("Неизвестная ошибка", comment: "")
+            return NSLocalizedString("AuthErrorUnknownError" ,comment:"Unknown error")
         case .serverError:
-            return NSLocalizedString("Ошибка сервера", comment: "")
+            return NSLocalizedString("AuthErrorServerError" ,comment:"Server error")
         }
     }
 }
