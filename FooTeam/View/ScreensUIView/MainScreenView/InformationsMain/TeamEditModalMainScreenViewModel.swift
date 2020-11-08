@@ -112,18 +112,18 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
         
         self.currentTeam.$team.sink { team in
             switch team.teamType {
-            case "Открытая":
+            case "0":
                 self.selectionAvailabilityTeamType = 0
-            case "Закрытая":
+            case "1":
                 self.selectionAvailabilityTeamType = 1
             default:
                 self.selectionAvailabilityTeamType = 0
             }
             
             switch team.fieldType {
-            case "Мини":
+            case "0":
                 self.selectionAvailabilityFieldType = 0
-            case "Большое":
+            case "1":
                 self.selectionAvailabilityFieldType = 1
             default:
                 self.selectionAvailabilityFieldType = 0

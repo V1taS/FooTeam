@@ -14,7 +14,7 @@ class RatingOfPlayers {
     
     func setRating(position: String, winGame: Int, losGame: Int, numberOfGoals: Int) -> Int {
         
-        if position == "ФРВ" {
+        if position == "0" {
             var winGame = winGame
             let game = winGame + losGame
             var totalRating = 50
@@ -60,7 +60,7 @@ class RatingOfPlayers {
             return totalRating
         }
         
-        if position == "ЦП" {
+        if position == "1" {
             var winGame = winGame
             let game = winGame + losGame
             var totalRating = 50
@@ -115,7 +115,7 @@ class RatingOfPlayers {
             return totalRating
         }
         
-        if position == "ЦЗ" {
+        if position == "2" {
             let game = winGame + losGame
             var totalRating = 50
             var numberOfGoals = numberOfGoals
@@ -144,7 +144,7 @@ class RatingOfPlayers {
             return totalRating
         }
         
-        if position == "ВРТ" {
+        if position == "3" {
             
             var winGame = winGame
             let game = winGame + losGame

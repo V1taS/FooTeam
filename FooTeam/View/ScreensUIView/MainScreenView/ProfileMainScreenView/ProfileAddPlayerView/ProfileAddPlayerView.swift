@@ -81,7 +81,7 @@ struct ProfileAddPlayerView: View {
                             avatarImage: nil,
                             name: viewModel.name,
                             email: viewModel.email,
-                            whoAreYou: viewModel.whoAreYou[viewModel.selectionWhoAreYou],
+                            whoAreYou: "\(viewModel.selectionWhoAreYou)",
                             teamNumber: 0,
                             payment: viewModel.payment,
                             iGo: false,

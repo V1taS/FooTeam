@@ -20,7 +20,7 @@ struct TopPlayersScreenView: View {
                     CellTopPlayersFooTeam(namePlayer: player.name,
                                           photoPlayer: player.avatarStringURL,
                                           ratingPlayer: "\(player.rating)",
-                                          positionPlayer: "\(player.position)",
+                                          positionPlayer: PositionFromIntToString.shared.setPosition(position: player.position),
                                           locationCountryImage: "",
                                           logoTeamImage: viewModel.currentTeam.team.avatarStringURL ,
                                           game: "\(player.winGame + player.losGame)",

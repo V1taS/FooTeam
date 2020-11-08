@@ -20,7 +20,6 @@ protocol TeamShowModalMainScreenViewModelProtocol {
     var team: Team { get }
     var rating: Int { get }
     
-    var availabilityTeamType: [String] { get }
     var selectionAvailabilityTeamType: Int { get }
     
     var image: UIImage { get }
@@ -59,7 +58,7 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     @Published var getPlayTime: [TeamTime] = []
     @Published var playersWaitingAccept: [Player] = []
     
-    var availabilityTeamType: [String] = ["Открытая", "Закрытая"] // Настроить логику
+    @Published var teamType = ""
     @Published var selectionAvailabilityTeamType: Int = 0 // Настроить логику
     
     @Published var countPlayers: Int = 0
@@ -85,7 +84,15 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
             self.players = players
         } .store(in: &cancellables)
         
-        self.currentTeam.$team.sink { team in
+        self.currentTeam.$team.sink { [self] team in
+            switch team.teamType {
+            case "0":
+                teamType = "Открытая"
+            case "1":
+                teamType = "Закрытая"
+            default:
+                print("")
+            }
             self.team = team
         } .store(in: &cancellables)
     }

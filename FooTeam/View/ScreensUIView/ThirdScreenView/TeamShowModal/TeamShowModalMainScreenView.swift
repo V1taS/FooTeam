@@ -28,8 +28,8 @@ struct TeamShowModalMainScreenView: View {
                         Text("Тип команды")
                             .foregroundColor(Color("BlackAndWhite"))
                         Spacer()
-                        Text("\(viewModel.team.teamType)")
-                            .foregroundColor(viewModel.team.teamType == "Закрытая" ? .red : .green)
+                        Text("\(viewModel.teamType)")
+                            .foregroundColor(viewModel.teamType == "Закрытая" ? .red : .green)
                             .font(.headline)
                     }
                     
@@ -37,7 +37,7 @@ struct TeamShowModalMainScreenView: View {
                         Text("Тип поля")
                             .foregroundColor(Color("BlackAndWhite"))
                         Spacer()
-                        Text("\(viewModel.team.fieldType)")
+                        Text("\(FieldTypeFromIntToString.shared.setFieldType(from: viewModel.team.fieldType))")
                             .font(.headline)
                             .foregroundColor(Color("BlackAndWhite"))
                     }

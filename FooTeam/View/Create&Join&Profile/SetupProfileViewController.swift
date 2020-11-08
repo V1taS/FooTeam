@@ -89,7 +89,8 @@ extension SetupProfileViewController {
             email: currentUser.email!,
             name: nameTextField.text!,
             avatarImage: fullImageView.circleAvaPlayersImageView.image,
-            whoAreYou: whoAreYouSegmentedControl.titleForSegment(at: whoAreYouSegmentedControl.selectedSegmentIndex)!, positionPlayer: positionPlayerSegmentedControl.titleForSegment(at: positionPlayerSegmentedControl.selectedSegmentIndex)!) { (result) in
+            whoAreYou: whoAreYouSegmentedControl.titleForSegment(at: whoAreYouSegmentedControl.selectedSegmentIndex)!,
+            positionPlayer: "\(positionPlayerSegmentedControl.selectedSegmentIndex)") { (result) in
                 switch result {
                 case .success(let player):
                     self.showAlert(with: "Успешно!", and: "Данные сохранены!", completion: {

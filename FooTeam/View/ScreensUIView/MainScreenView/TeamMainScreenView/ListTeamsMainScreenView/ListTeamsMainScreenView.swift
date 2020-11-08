@@ -68,7 +68,8 @@ struct ListTeamsMainScreenView: View {
                     HStack {
                         Text("Тип футбольного поля:")
                         Spacer()
-                        Text("\(viewModel.team.fieldType)")
+                        
+                        Text("\(FieldTypeFromIntToString.shared.setFieldType(from: viewModel.team.fieldType))")
                             .font(.headline)
                     }
                     

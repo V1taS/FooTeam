@@ -90,22 +90,22 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
             let bufferIDplayerCheck = bufferIDplayer.first ?? Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
             
             switch bufferIDplayerCheck.whoAreYou {
-            case "Игрок":
+            case "0":
                 self.selectionWhoAreYou = 0
-            case "Зритель":
+            case "1":
                 self.selectionWhoAreYou = 1
             default:
                 self.selectionWhoAreYou = 0
             }
             
             switch bufferIDplayerCheck.position {
-            case "ФРВ":
+            case "0":
                 self.selectionPositions = 0
-            case "ЦП":
+            case "1":
                 self.selectionPositions = 1
-            case "ЦЗ":
+            case "2":
                 self.selectionPositions = 2
-            case "ВРТ":
+            case "3":
                 self.selectionPositions = 3
             default:
                 self.selectionPositions = 0

@@ -78,7 +78,7 @@ extension CreateTeamViewController {
         avatarTeam: fullImageView.circleAvaTeamsImageView.image,
         teamName: nameTextField.text,
         location: cityTextField.text,
-        teamType: self.availabilityTeamSegmentedControl.titleForSegment(at: self.availabilityTeamSegmentedControl.selectedSegmentIndex),
+        teamType: "\((self.availabilityTeamSegmentedControl.selectedSegmentIndex))",
         rating: 0,
         player: currentPlayer
         ) { result in
