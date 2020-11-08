@@ -67,9 +67,9 @@ struct CellJoinToTeamView: View {
                                 .minimumScaleFactor(0.7)
                         }
                         
-                        Text("\(team.teamType)")
+                        Text("\(TeamTypeFromIntToString.shared.setTeamType(from: team.teamType))")
                             .font(.system(size: 20))
-                            .foregroundColor(team.teamType == "Закрытая" ? .red : .green)
+                            .foregroundColor(team.teamType == "1" ? .red : .green)
                             .fontWeight(.bold)
                             .minimumScaleFactor(0.7)
                         

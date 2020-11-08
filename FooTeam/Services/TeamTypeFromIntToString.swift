@@ -1,5 +1,5 @@
 //
-//  FieldTypeFromIntToString.swift
+//  TeamTypeFromIntToString.swift
 //  FooTeam
 //
 //  Created by Виталий Сосин on 08.11.2020.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-class FieldTypeFromIntToString {
+class TeamTypeFromIntToString {
     
-    static let shared = FieldTypeFromIntToString()
+    static let shared = TeamTypeFromIntToString()
     
-    func setFieldType(from data: String) -> String {
+    func setTeamType(from data: String) -> String {
         switch data {
         case "0":
-            return "Мини"
+            return "Открытая"
         case "1":
-            return "Большое"
+            return "Закрытая"
         default:
             print("")
         }

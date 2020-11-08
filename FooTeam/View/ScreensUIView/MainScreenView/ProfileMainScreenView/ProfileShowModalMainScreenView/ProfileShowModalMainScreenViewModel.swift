@@ -27,6 +27,7 @@ protocol ProfileShowModalMainScreenViewModelProtocol {
 class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelProtocol, ObservableObject {
     @Published var currentUser = CurrentUser()
     @Published var currentTeam = CurrentTeam()
+    @Published var actionsPlayers = ActionsPlayers()
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var player: Player = Player(
@@ -66,7 +67,13 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
     @Published var isPresentedAlert: Bool = false
     @Published var outFromTeam: Bool = false
     
+    @Published var players: [Player] = []
+    
     required init() {
+        self.actionsPlayers.$players.sink { players in
+            self.players = players
+        } .store(in: &cancellables)
+        
         self.currentUser.$player
             .assign(to: \.player, on: self)
             .store(in: &self.cancellables)

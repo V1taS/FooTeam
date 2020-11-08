@@ -87,6 +87,9 @@ struct ProfileShowModalMainScreenView: View {
                             DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: viewModel.player)
                             
                             if viewModel.player.captain {
+                                viewModel.players.forEach { player in
+                                    DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: player)
+                                }
                                 DeletTeam.shared.deletTeamInTeam(teamId: viewModel.player.idTeam)
                             }
                             

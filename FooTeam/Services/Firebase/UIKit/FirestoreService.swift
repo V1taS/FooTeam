@@ -138,7 +138,7 @@ class FirestoreService {
             country: "",
             totalMoney: "",
             gameСosts: "",
-            fieldType: "Мини"
+            fieldType: "0"
         )
         let refCountPlayers = db.collection(["teams", team.id, "actionsPlayers"].joined(separator: "/"))
         
