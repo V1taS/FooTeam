@@ -26,9 +26,12 @@ class StorageService {
     
     // MARK: - upload Image Player
     func uploadAvaPlayer(photo: UIImage, idPlayer: String, completion: @escaping (Result<URL, Error>) -> Void) {
-        guard let scaledImage = photo.scaledToSafeUploadSize, let imageData = scaledImage.jpegData(compressionQuality: 0.4) else { return }
+        
+        let photo = photo.resizeWith(percentage: 0.3)
+        guard let imageData = photo?.pngData() else { return }
+        
         let metadata = StorageMetadata()
-        metadata.contentType = "image/jpeg"
+        metadata.contentType = "image/png"
         
         avaPlayersRef.child(idPlayer).putData(imageData, metadata: metadata) { (metadata, error) in
             guard let _ = metadata else {
@@ -47,9 +50,12 @@ class StorageService {
     
     // MARK: - upload Image Team
     func uploadAvaTeam(photo: UIImage, idTeam: String, completion: @escaping (Result<URL, Error>) -> Void) {
-        guard let scaledImage = photo.scaledToSafeUploadSize, let imageData = scaledImage.jpegData(compressionQuality: 0.4) else { return }
+
+        let photo = photo.resizeWith(percentage: 0.3)
+        guard let imageData = photo?.pngData() else { return }
+        
         let metadata = StorageMetadata()
-        metadata.contentType = "image/jpeg"
+        metadata.contentType = "image/png"
         
         avaTeamsRef.child(idTeam).putData(imageData, metadata: metadata) { (metadata, error) in
             guard let _ = metadata else {

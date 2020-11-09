@@ -141,7 +141,7 @@ struct CellTopPlayersFooTeam: View {
                         .placeholder(Image("khimki"))
                         .indicator(.activity)
                         .transition(.fade(duration: 0.5))
-                        .frame(width: 25, height: 30)
+                        .frame(width: 30, height: 30)
                 } .offset(x: -70, y: -60)
             }
             
