@@ -27,7 +27,7 @@ class StorageService {
     // MARK: - upload Image Player
     func uploadAvaPlayer(photo: UIImage, idPlayer: String, completion: @escaping (Result<URL, Error>) -> Void) {
         
-        let photo = photo.resizeWith(percentage: 0.3)
+        let photo = photo.resizeWith(percentage: 0.5)
         guard let imageData = photo?.pngData() else { return }
         
         let metadata = StorageMetadata()
@@ -51,7 +51,7 @@ class StorageService {
     // MARK: - upload Image Team
     func uploadAvaTeam(photo: UIImage, idTeam: String, completion: @escaping (Result<URL, Error>) -> Void) {
 
-        let photo = photo.resizeWith(percentage: 0.3)
+        let photo = photo.resizeWith(percentage: 0.5)
         guard let imageData = photo?.pngData() else { return }
         
         let metadata = StorageMetadata()

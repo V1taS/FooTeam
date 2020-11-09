@@ -78,7 +78,6 @@ class FirestoreService {
             if let document = document, document.exists {
                 guard let player = Player(document: document) else { return }
                 self.currentUser = player
-                print("Пользователь получен в getUserDataSimple")
             }
         }
     }
