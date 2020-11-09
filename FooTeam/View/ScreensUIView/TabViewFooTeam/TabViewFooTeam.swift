@@ -20,20 +20,19 @@ struct TabViewFooTeam: View {
                 MainScreenView()
                     .tabItem {
                         Image(systemName: "rectangle.3.offgrid.bubble.left")
-//                        Text("Главная"
-                        Text(NSLocalizedString("GOOD_MORNING",comment: ""))
+                        Text(NSLocalizedString("TabViewFooTeamMain", comment: "Main"))
 
                     }
                 
                 ListPlayersSecondScreenView()
                     .tabItem {
                         Image(systemName: "sportscourt.fill")
-                        Text("Список игроков")
+                        Text(NSLocalizedString("TabViewFooTeamListPlayers", comment: "List of players"))
                     }
                 TeamShowModalMainScreenView(showAcceptPlayers: $viewModel.showAcceptPlayers)
                     .tabItem {
                         Image(systemName: "dot.arrowtriangles.up.right.down.left.circle")
-                        Text("Команда")
+                        Text(NSLocalizedString("TabViewFooTeamTeam", comment: "Team"))
                     }
                 
             } .fullScreenCover(isPresented: $viewModel.outFromTeam, content: {

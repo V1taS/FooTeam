@@ -38,7 +38,7 @@ struct CellJoinToTeamView: View {
                             .minimumScaleFactor(0.7)
                         
                         HStack {
-                            Text("Игроки:")
+                            Text(NSLocalizedString("CellJoinToTeamViewModelPlayers", comment:"Players"))
                                 .foregroundColor(Color("BlackAndWhite"))
                                 .font(.footnote)
                                 .fontWeight(.bold)
@@ -52,7 +52,7 @@ struct CellJoinToTeamView: View {
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.7)
                             
-                            Text("из")
+                            Text(NSLocalizedString("CellJoinToTeamViewModelFrom", comment:"from"))
                                 .foregroundColor(Color("BlackAndWhite"))
                                 .fontWeight(.bold)
                                 .font(.footnote)
@@ -84,12 +84,12 @@ struct CellJoinToTeamView: View {
                 }
                 
                 .alert(isPresented: $viewModel.showAlertAccept) {
-                    Alert(title: Text("Отправить запрос команде?"),
-                          primaryButton: .default(Text("Отправить запрос")) {
+                    Alert(title: Text(NSLocalizedString("CellJoinToTeamViewModelSendRequestToTheTeam", comment:"Send a request to the team?")),
+                          primaryButton: .default(Text(NSLocalizedString("CellJoinToTeamViewModelSendRequest", comment:"Send a request"))) {
                             JoinTheTeam.shared.SaveIDinTeam(player: FirestoreService.shared.currentUser, team: team)
                             viewModel.isPresented = true
                           },
-                          secondaryButton: .destructive(Text("Отмена")))
+                          secondaryButton: .destructive(Text(NSLocalizedString("CellJoinToTeamViewModelCancel", comment:"Cancel"))))
                 }
             }
         } .padding(.top)

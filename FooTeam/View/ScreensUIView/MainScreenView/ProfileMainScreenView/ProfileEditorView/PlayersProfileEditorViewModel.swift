@@ -44,8 +44,8 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
     
     @Published var players: [Player] = []
     @Published var player: Player = Player(
-        name: "Имя",
-        email: "почта@mail.ru",
+        name: "Name",
+        email: "123@mail.ru",
         avatarStringURL: "",
         whoAreYou: "",
         id: "",
@@ -76,10 +76,13 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
         fieldType: ""
     )
     
-    var whoAreYou: [String] = ["Игрок", "Зритель"]
+    var whoAreYou: [String] = [NSLocalizedString("PlayersProfileEditorWhoAreYouPlayer", comment: "Player"), NSLocalizedString("PlayersProfileEditorWhoAreYouViewer", comment: "Viewer")]
     @Published var selectionWhoAreYou: Int = 0
     
-    var positions: [String] = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
+    var positions: [String] = [NSLocalizedString("PlayersProfileEditorPositionSt", comment: "ST"),
+                               NSLocalizedString("PlayersProfileEditorPositionMC", comment: "MC"),
+                               NSLocalizedString("PlayersProfileEditorPositionDC", comment: "DC"),
+                               NSLocalizedString("PlayersProfileEditorPositionGK", comment: "GK")]
     @Published var selectionPositions: Int = 0 
     
     @Published var image = UIImage()

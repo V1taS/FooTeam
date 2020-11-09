@@ -32,17 +32,17 @@ struct TeamMainScreenView: View {
                     Spacer()
                     
                     VStack {
-                        Text("Составы")
+                        Text(NSLocalizedString("TeamMainScreenViewStructures", comment: "Structures"))
                             .font(.title)
                             .minimumScaleFactor(0.7)
                             .foregroundColor(Color(.red))
                         
-                        Text("Всего игроков: \(viewModel.playersCount)")
+                        Text("\(NSLocalizedString("TeamMainScreenViewTotalPlayers", comment: "Total players")) \(viewModel.playersCount)")
                             .foregroundColor(Color("BlackAndWhite"))
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)
                             .frame(maxWidth: 150)
-                        Text("Придут на игру: \(viewModel.iGoCount)")
+                        Text("\(NSLocalizedString("TeamMainScreenViewComeToGame", comment: "They will come to the game")) \(viewModel.iGoCount)")
                             .foregroundColor(Color("BlackAndWhite"))
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)

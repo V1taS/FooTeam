@@ -20,7 +20,7 @@ struct InformationsMainScreenView: View {
                 .overlay(RoundedRectangle(cornerRadius: 10) .stroke(Color("BlackAndWhite")))
             
             VStack {
-                Text("ИНФОРМАЦИЯ")
+                Text(NSLocalizedString("InformationsMainScreenViewModelInfo", comment: "INFORMATION"))
                     .font(.headline)
                     .foregroundColor(Color(.red))
                     .offset(x: 0, y: 11)
@@ -29,7 +29,7 @@ struct InformationsMainScreenView: View {
                 VStack(alignment: .leading, spacing: 1) {
                     
                     HStack {
-                        Text("Клуб:")
+                        Text(NSLocalizedString("InformationsMainScreenViewModelClub", comment: "Club"))
                             .foregroundColor(Color("BlackAndWhite"))
                             .lineLimit(1)
                             .minimumScaleFactor(0.9)
@@ -41,23 +41,23 @@ struct InformationsMainScreenView: View {
                     }
                     
                     HStack {
-                        Text("Иду на игру:")
+                        Text(NSLocalizedString("InformationsMainScreenViewModelGoToGame", comment: "Going to the game"))
                             .minimumScaleFactor(0.9)
                             .lineLimit(1)
                             .foregroundColor(Color("BlackAndWhite"))
-                        Text("\(viewModel.iGo ? Text("да").foregroundColor(Color("BlackAndWhite")) : Text("нет").foregroundColor(Color.red))")
+                        Text("\(viewModel.iGo ? Text(NSLocalizedString("InformationsMainScreenViewModelYes", comment: "yes")).foregroundColor(Color("BlackAndWhite")) : Text(NSLocalizedString("InformationsMainScreenViewModelNo", comment: "no")).foregroundColor(Color.red))")
                             .font(.headline)
                             .foregroundColor(Color("BlackAndWhite"))
                             .lineLimit(1)
                             .minimumScaleFactor(0.9)
                     }
-                }
+                } .frame(maxWidth: 150)
                 
                 DividerFooTeamMenu()
                     .offset(x: 0, y: -5)
                 
                 VStack(alignment: .center, spacing: 1) {
-                    Text("Календарь игр")
+                    Text(NSLocalizedString("InformationsMainScreenViewModelCalendar", comment: "Calendar of games"))
                         .lineLimit(1)
                         .minimumScaleFactor(0.7)
                         .frame(maxWidth: 150)

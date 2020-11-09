@@ -36,8 +36,8 @@ struct PlayersProfileEditor: View {
                     
                     VStack {
                         HStack {
-                            Text("Кто ты?")
-                            Picker("dvdvd", selection: $viewModel.selectionWhoAreYou) {
+                            Text(NSLocalizedString("PlayersProfileEditorWhoAreYou", comment: "Who are you?"))
+                            Picker("", selection: $viewModel.selectionWhoAreYou) {
                                 ForEach(0..<viewModel.whoAreYou.count) {
                                     Text(self.viewModel.whoAreYou[$0])
                                 }
@@ -45,14 +45,14 @@ struct PlayersProfileEditor: View {
                         }
                         
                         HStack {
-                            Text("Имя:")
+                            Text(NSLocalizedString("PlayersProfileEditorName", comment: "Name"))
                             TextField("\(self.viewModel.player.name)",
                                       text: $viewModel.player.name)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         
                         HStack {
-                            Text("Электронная почта:")
+                            Text(NSLocalizedString("PlayersProfileEditorMail", comment: "Email"))
                             TextField("\(viewModel.player.email)",
                                       text: $viewModel.player.email)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -69,7 +69,7 @@ struct PlayersProfileEditor: View {
                     if viewModel.selectionWhoAreYou == 0 {
                         if FirestoreService.shared.currentUser.captain {
                             HStack {
-                                Text("Баланс:")
+                                Text(NSLocalizedString("PlayersProfileEditorBalance", comment: "Balance"))
                                 TextField("\(viewModel.player.payment)",
                                           text: $viewModel.player.payment)
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -80,26 +80,26 @@ struct PlayersProfileEditor: View {
                         
                         if FirestoreService.shared.currentUser.captain {
                             HStack {
-                                Text("Месячная подписка:")
+                                Text(NSLocalizedString("PlayersProfileEditorMonthlySubscription", comment: "Monthly subscription"))
                                 Spacer()
                                 Toggle(isOn: $viewModel.player.subscription) {
-                                    Text("\(viewModel.player.subscription ? Text("активна").foregroundColor(Color.green) : Text("не активна").foregroundColor(Color.red))")
+                                    Text("\(viewModel.player.subscription ? Text(NSLocalizedString("PlayersProfileEditorActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("PlayersProfileEditorNotActive", comment: "not active")).foregroundColor(Color.red))")
                                         .font(.headline)
                                 }
                             }
                         }
                         
                         HStack {
-                            Text("Идет на след. игру:")
+                            Text(NSLocalizedString("PlayersProfileEditorGoesToNextGame", comment: "Goes to the next game"))
                             Toggle(isOn: $viewModel.player.iGo) {
-                                Text("\(self.viewModel.player.iGo ? Text("да").foregroundColor(Color.green) : Text("нет").foregroundColor(Color.red))")
+                                Text("\(self.viewModel.player.iGo ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.red))")
                                     .font(.headline)
                             }
                         }
                         
                         HStack {
-                            Text("Позиция:")
-                            Picker("dvdvd", selection: $viewModel.selectionPositions) {
+                            Text(NSLocalizedString("PlayersProfileEditorPosition", comment: "Position"))
+                            Picker("", selection: $viewModel.selectionPositions) {
                                 ForEach(0..<viewModel.positions.count) {
                                     Text(self.viewModel.positions[$0])
                                 }
@@ -109,33 +109,33 @@ struct PlayersProfileEditor: View {
                         if FirestoreService.shared.currentUser.captain {
                             
                             HStack {
-                                Text("Игр выиграл:")
+                                Text(NSLocalizedString("PlayersProfileEditorGamesWon", comment: "Games won"))
                                 Stepper("\(viewModel.player.winGame)", value: $viewModel.player.winGame)
                             }
                             
                             HStack {
-                                Text("Игр проиграл:")
+                                Text(NSLocalizedString("PlayersProfileEditorGamesLost", comment: "Games lost"))
                                 Stepper("\(viewModel.player.losGame)", value: $viewModel.player.losGame)
                             }
                             
                             HStack {
-                                Text("Мячей забил:")
+                                Text(NSLocalizedString("PlayersProfileEditorGoalsScored", comment: "Goals scored"))
                                 Stepper("\(viewModel.player.numberOfGoals)", value: $viewModel.player.numberOfGoals)
                             }
                             
                             if FirestoreService.shared.currentUser.captain != viewModel.player.captain {
                                 HStack {
-                                    Text("Сделать капитаном команды?")
+                                    Text(NSLocalizedString("PlayersProfileEditorMakeTeamCaptain", comment: "Make a team captain?"))
                                     Toggle(isOn: $viewModel.player.captain) {
-                                        Text("\(viewModel.player.captain ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
+                                        Text("\(viewModel.player.captain ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.green))")
                                             .font(.headline)
                                     }
                                 }
                                 
                                 HStack {
-                                    Text("Удалить игрока из команды?")
+                                    Text(NSLocalizedString("PlayersProfileEditorRemovePlayerFromTeam", comment: "Remove a player from the team?"))
                                     Toggle(isOn: $viewModel.deletPlayer) {
-                                        Text("\(viewModel.deletPlayer ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
+                                        Text("\(viewModel.deletPlayer ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.green))")
                                             .font(.headline)
                                     }
                                 }
@@ -186,7 +186,7 @@ struct PlayersProfileEditor: View {
                             }
                             
                         } ) {
-                            Text("Сохранить")
+                            Text(NSLocalizedString("PlayersProfileEditorSave", comment: "Save"))
                                 .font(.system(.headline, design: .serif))
                                 .foregroundColor(Color.black)
                                 .padding(.horizontal)
@@ -198,7 +198,7 @@ struct PlayersProfileEditor: View {
                     }
                 }
                 
-                .navigationBarTitle(Text("Редактирование"), displayMode: .inline)
+                .navigationBarTitle(Text(NSLocalizedString("PlayersProfileEditorEditing", comment: "Editing")), displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     presentationMode.wrappedValue.dismiss()
                 }) {

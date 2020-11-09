@@ -91,7 +91,7 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
             case "1":
                 teamType = "Закрытая"
             default:
-                print("")
+                teamType = "Error"
             }
             self.team = team
         } .store(in: &cancellables)

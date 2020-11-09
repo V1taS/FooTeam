@@ -25,11 +25,11 @@ struct OutButtonFooTeamMenu: View {
             .padding(.horizontal)
         }
         .alert(isPresented: self.$isPresentedAlertSignOut) {
-            Alert(title: Text("Внимание"),
-                  message: Text("Вы хотите выйти из приложения?"),
-                  primaryButton: Alert.Button.default(Text("Отмена")),
+            Alert(title: Text(NSLocalizedString("OutButtonFooTeamMenuAttention", comment: "Attention")),
+                  message: Text(NSLocalizedString("OutButtonFooTeamMenuExitApp", comment: "Do you want to exit the app?")),
+                  primaryButton: Alert.Button.default(Text(NSLocalizedString("OutButtonFooTeamMenuCancel", comment: "Cancel"))),
                   secondaryButton: Alert.Button.destructive(
-                    Text("Выйти"), action: {
+                    Text(NSLocalizedString("OutButtonFooTeamMenuGoOut", comment: "Go out")), action: {
                         do {
                             try Auth.auth().signOut()
                             

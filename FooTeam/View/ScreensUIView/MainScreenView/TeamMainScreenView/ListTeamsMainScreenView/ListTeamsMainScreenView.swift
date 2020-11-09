@@ -16,13 +16,13 @@ struct ListTeamsMainScreenView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Выбери команду")) {
+                Section(header: Text(NSLocalizedString("ListTeamsMainScreenViewChooseTeam", comment: "Choose a team"))) {
                     
                     HStack {
                         if viewModel.iGoCount < 10 {
                             HStack() {
                                 Spacer()
-                                Text("Количество игроков не хватает для распределения на команды")
+                                Text(NSLocalizedString("ListTeamsMainScreenViewNotEnoughPlayers", comment: "The number of players is not enough for distribution into teams"))
                                     .font(.headline)
                                     .foregroundColor(.red)
                                 Spacer()
@@ -30,7 +30,7 @@ struct ListTeamsMainScreenView: View {
                         } else {
                             Picker("", selection: $viewModel.selectionTeams) {
                                 ForEach(0..<viewModel.countTeams, id: \.self) { index in
-                                    Text("Команда - \(index + 1)")
+                                    Text("\(NSLocalizedString("ListTeamsMainScreenViewTeam", comment: "Team")) - \(index + 1)")
                                 }
                             } .pickerStyle(SegmentedPickerStyle())
                         }
@@ -43,7 +43,7 @@ struct ListTeamsMainScreenView: View {
                         Spacer()
                         Button(action: {
                             if viewModel.iGoCount >= 10 {
-                                if viewModel.team.fieldType == "Мини" {
+                                if viewModel.team.fieldType == "0" {
                                     let countT = NumberOfTeamsMini.shared.numberOfTeams(countPlauers: viewModel.iGoCount)
                                     viewModel.countTeams = countT
                                 } else {
@@ -53,7 +53,7 @@ struct ListTeamsMainScreenView: View {
                                 InWhichTeam.shared.setNumberInWhichTeam(players: viewModel.iGoPlayers, countNumbers: viewModel.countTeams)
                             }
                         } ) {
-                            Text("Создать составы")
+                            Text(NSLocalizedString("ListTeamsMainScreenViewCreateTeam", comment: "To create the compositions"))
                                 .font(.system(.headline, design: .serif))
                                 .foregroundColor(Color.black)
                                 .padding(.horizontal)
@@ -64,9 +64,9 @@ struct ListTeamsMainScreenView: View {
                         Spacer()
                     }
                 }
-                Section(header: Text("Информация")) {
+                Section(header: Text(NSLocalizedString("ListTeamsMainScreenViewInfo", comment: "Information"))) {
                     HStack {
-                        Text("Тип футбольного поля:")
+                        Text(NSLocalizedString("ListTeamsMainScreenViewFieldType", comment: "Type of football field"))
                         Spacer()
                         
                         Text("\(FieldTypeFromIntToString.shared.setFieldType(from: viewModel.team.fieldType))")
@@ -74,14 +74,14 @@ struct ListTeamsMainScreenView: View {
                     }
                     
                     HStack {
-                        Text("Кол-во игроков:")
+                        Text(NSLocalizedString("ListTeamsMainScreenViewNumberPlayers", comment: "Number of players"))
                         Spacer()
                         Text("\(viewModel.iGoCount)")
                             .font(.headline)
                     }
                     
                     HStack {
-                        Text("Кол-во команд:")
+                        Text(NSLocalizedString("ListTeamsMainScreenViewNumberTeams", comment: "Number of teams"))
                         Spacer()
                         Text("\(viewModel.countTeams)")
                             .font(.headline)
@@ -89,7 +89,7 @@ struct ListTeamsMainScreenView: View {
                 }
                 
             }
-            .navigationBarTitle("Составы на игру", displayMode: .automatic)
+            .navigationBarTitle(NSLocalizedString("ListTeamsMainScreenViewTeamToPlay", comment: "Lineups for the game"), displayMode: .automatic)
             .navigationBarItems(trailing: Button(action: {
                 presentationMode.wrappedValue.dismiss()
             }) {

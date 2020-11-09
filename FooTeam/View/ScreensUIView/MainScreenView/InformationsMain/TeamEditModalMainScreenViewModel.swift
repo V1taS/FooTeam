@@ -58,24 +58,24 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
         fieldType: ""
     )
     
-    var availabilityTeamType: [String] = ["Открытая", "Закрытая"]
+    var availabilityTeamType: [String] = [NSLocalizedString("TeamEditModalMainScreenViewModelTeamTypeOpen", comment: "Open"), NSLocalizedString("TeamEditModalMainScreenViewModelTeamTypeClose", comment: "Private")]
     @Published var selectionAvailabilityTeamType: Int = 0
     
     var gameInWeak: [String] = ["1", "2", "3", "4", "5", "6", "7"]
     @Published var selectionGameInWeak: Int = 0
     
     var weekday: [[String]] = [
-        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
-        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
-        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
-        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
-        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
-        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
-        ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
+        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
+        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
+        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
+        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
+        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
+        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString(NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: ""), comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")]
     ]
     @Published var selectionWeekday: [Int] = [0, 0, 0, 0, 0, 0, 0]
     
-    var availabilityFieldType: [String] = ["Мини", "Большое"] 
+    var availabilityFieldType: [String] = [NSLocalizedString("TeamEditModalMainScreenViewModelFieldTypeMini", comment: "Mini"), NSLocalizedString("TeamEditModalMainScreenViewModelFieldTypeFull", comment: "Big")] 
     @Published var selectionAvailabilityFieldType: Int = 0
     
     @Published var getPlayTime: [TeamTime] = []

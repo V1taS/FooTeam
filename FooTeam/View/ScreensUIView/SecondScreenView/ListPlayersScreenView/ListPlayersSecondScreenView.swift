@@ -19,7 +19,7 @@ struct ListPlayersSecondScreenView: View {
             VStack {
                 List {
                     Section(header: HStack {
-                        Text("Основной состав")
+                        Text(NSLocalizedString("ListPlayersSecondScreenViewBasicStructure", comment: "Basic structure"))
                         Spacer()
                         Text("\(viewModel.playersMain.count)")
                             .padding(.trailing, 8)
@@ -29,8 +29,8 @@ struct ListPlayersSecondScreenView: View {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
-                                    Text("\(player.captain ? Text("Капитан").font(.headline) : Text(""))")
-                                    Text("\(player.whoAreYou == "1" ? Text("Зритель").font(.headline) : Text(""))")
+                                    Text("\(player.captain ? Text(NSLocalizedString("ListPlayersSecondScreenViewCaptain", comment: "Captain")).font(.headline) : Text(""))")
+                                    Text("\(player.whoAreYou == "1" ? Text(NSLocalizedString("ListPlayersSecondScreenViewViewer", comment: "Viewer")).font(.headline) : Text(""))")
                                     Text("I-GO")
                                         .foregroundColor(player.iGo ? .green : .red)
                                         .fontWeight(.bold)
@@ -40,7 +40,7 @@ struct ListPlayersSecondScreenView: View {
                     }
                     
                     Section(header: HStack {
-                        Text("Запасные игроки")
+                        Text(NSLocalizedString("ListPlayersSecondScreenViewReservePlayers", comment: "Reserve players"))
                         Spacer()
                         Text("\(viewModel.playersReserv.count)")
                             .padding(.trailing, 8)
@@ -50,8 +50,8 @@ struct ListPlayersSecondScreenView: View {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
-                                    Text("\(player.captain ? Text("Капитан").font(.headline) : Text(""))")
-                                    Text("\(player.whoAreYou == "1" ? Text("Зритель").font(.headline) : Text(""))")
+                                    Text("\(player.captain ? Text(NSLocalizedString("ListPlayersSecondScreenViewCaptain", comment: "Captain")).font(.headline) : Text(""))")
+                                    Text("\(player.whoAreYou == "1" ? Text(NSLocalizedString("ListPlayersSecondScreenViewViewer", comment: "Viewer")).font(.headline) : Text(""))")
                                     Text("I-GO")
                                         .foregroundColor(player.iGo ? .green : .red)
                                         .fontWeight(.bold)
@@ -74,7 +74,7 @@ struct ListPlayersSecondScreenView: View {
                                             }
                                         }
                                     }
-            ) .navigationBarTitle(Text("Моя команда"))
+            ) .navigationBarTitle(Text(NSLocalizedString("ListPlayersSecondScreenViewMyTeam", comment: "My team")))
         } .sheet(
             isPresented: $viewModel.isPresentedShowModal,
             content: { ProfileAddPlayerView() }

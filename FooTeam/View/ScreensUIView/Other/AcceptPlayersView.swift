@@ -23,7 +23,7 @@ struct AcceptPlayersView: View {
             ZStack {
                 List {
                     Section(header: HStack {
-                        Text("Ожидают добавления")
+                        Text(NSLocalizedString("AcceptPlayersWaiting", comment: "Waiting to be added"))
                         Spacer()
                         Button(action: {
                             showAcceptPlayers = false

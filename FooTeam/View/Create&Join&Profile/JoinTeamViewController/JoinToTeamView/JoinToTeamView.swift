@@ -25,7 +25,7 @@ struct JoinToTeamView: View {
             .padding(.horizontal)
             .frame(maxWidth: .infinity, alignment: .center)
             
-            .navigationBarTitle(Text("Присоединиться"))
+            .navigationBarTitle(Text(NSLocalizedString("JoinToTeamViewModelJoin", comment:"Join")))
             .navigationBarItems(trailing:
                                     OutButtonFooTeamMenu(isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut))
             .navigationBarItems(
@@ -37,11 +37,11 @@ struct JoinToTeamView: View {
                 })
         }
         .alert(isPresented: self.$viewModel.isPresentedCreateTeam) {
-            Alert(title: Text("Внимание"),
-                  message: Text("Вы хотите создать свою собственную команду?"),
-                  primaryButton: Alert.Button.default(Text("Отмена")),
+            Alert(title: Text(NSLocalizedString("JoinToTeamViewModelAttention", comment:"Attention")),
+                  message: Text(NSLocalizedString("JoinToTeamViewModelCreateYourOwnTeam", comment:"Do you want to create your own team?")),
+                  primaryButton: Alert.Button.default(Text(NSLocalizedString("JoinToTeamViewModelCancel", comment: "Cancel"))),
                   secondaryButton: Alert.Button.destructive(
-                    Text("Создать"), action: {
+                    Text(NSLocalizedString("JoinToTeamViewModelCancelCreate", comment: "Create")), action: {
                         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
                         window?.rootViewController = CreateTeamViewController(
                             currentPlayer: FirestoreService.shared.currentUser,

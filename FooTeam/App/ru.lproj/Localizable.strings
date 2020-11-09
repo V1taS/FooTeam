@@ -1,0 +1,355 @@
+/* 
+  Localizable.strings
+  FooTeam
+
+  Created by Виталий Сосин on 07.11.2020.
+  Copyright © 2020 Vitalii Sosin. All rights reserved.
+*/
+
+// MARK: - AuthError
+AuthErrorFillInAllTheFields = "Заполните все поля";
+AuthErrorMailFormatIsNotValid = "Формат почты не является допустимым";
+AuthErrorPasswordsDoNotMatch = "Пароли не совпадают";
+AuthErrorUnknownError = "Неизвестная ошибка";
+AuthErrorServerError = "Ошибка сервера";
+
+// MARK: - SignIn&Auth
+// MARK: - * AuthViewController
+AuthViewControllerRegisterInFTLabel = "Зарегистрироваться в FooTeam";
+AuthViewControllerDescriptionFTLabel = "Создайте профиль, чтобы создать свою собственную команду, управлять составами и получить другие возможности.";
+AuthViewControllerAlreadyOnboardLabel = "Уже есть аккаунт?";
+AuthViewControllerAppleButton = "Продолжить c Apple";
+AuthViewControllerGoogleButton = "Продолжить в Google";
+AuthViewControllerEmailButton = "Ввести эл. почту";
+AuthViewControllerlogin = "Войти";
+AuthViewControllerSuccessfully = "Успешно";
+AuthViewControllerYouAreLogged = "Вы авторизованы";
+AuthViewControllerYouAreRegistered = "Вы зарегистрированны";
+AuthViewControllerError = "Ошибка";
+
+// MARK: - * SignUpViewController
+SignUpViewControllerWelcomeLabel = "Регистрация";
+SignUpViewControllerDescriptionFTLabel = "Используйте от 6 до 20 символов. Пароль должен включать в себя хотя бы два из следующих видов символов: буквы, цифры.";
+SignUpViewControllerEmailLabell = "Электронная почта";
+SignUpViewControllerPasswordLabel = "Пароль";
+SignUpViewControllerConfirmPasswodLabel = "Подтвердите пароль";
+SignUpViewControllerAlreadyOnboardLabel = "Уже зарегестрированы?";
+SignUpViewControllerSignUpButton = "Зарегистрироваться";
+SignUpViewControllerClose = "закрыть";
+SignUpViewControllerlogin = "Войти";
+SignUpViewControllerSuccessfully = "Успешно";
+SignUpViewControllerYouAreLogged = "Вы авторизованы";
+SignUpViewControllerError = "Ошибка";
+
+// MARK: - * LoginViewController
+LoginViewControllerWelcomeLabel = "Войдите в FooTeam";
+LoginViewControllerDescriptionFTLabel = "Создавайте и управляйте своей командой, следите за статистикой и получай больше возможностей.";
+LoginViewControllerEmailLabell = "Ввести эл. почту";
+LoginViewControllerPasswordLabel = "Ввести пароль";
+LoginViewControllerNeedAnAccountLabel = "Нет учетной записи?";
+LoginViewControllerGoogleButton = "Продолжить в Google";
+LoginViewControllerLoginButton = "Войти";
+LoginViewControllerForgottenButton = "Забыли пароль?";
+LoginViewControllerClose = "закрыть";
+LoginViewControllerSignUpButton = "Зарегистрироваться";
+LoginViewControllerSuccessfully = "Успешно";
+LoginViewControllerYouAreLogged = "Вы авторизованы";
+LoginViewControllerError = "Ошибка";
+LoginViewControllerAttention = "Внимание";
+LoginViewControllerRestorePassword = "Вы хотите востановить пароль?";
+LoginViewControllerUserIsNotFound = "Пользователь не найден";
+LoginViewControllerInvalidEmail = "Неверный адрес электронной почты";
+LoginViewControllerInvalidRecipientEmailAddress = "Неверный адрес электронной почты получателя";
+LoginViewControllerPasswordRecoveryFailed = "Не получилось восстановить пароль";
+LoginViewControllerInvalidMessageData = "Недопустимые данные сообщения";
+LoginViewControllerYouhaveNotEnteredYourEmail = "Вы не указали эл. почту";
+LoginViewControllerPasswordRecovery = "Письмо с инструкцией по восстановлению пароля отправлено на почту";
+LoginViewControllerReestablish = "Восстановить";
+LoginViewControllerCancellation = "Отмена";
+
+// MARK: - SetupProfileViewController
+
+SetupProfileViewControllerWelcomeLabel = "Настройка профиля";
+SetupProfileViewControllerNameLabel = "Имя";
+SetupProfileViewControllerPositionLabel = "На какой позиции играешь??";
+SetupProfileViewControllerWhoAreYouLabel = "Кто ты?";
+SetupProfileViewControllerNameTextField = "Андрей Шевченко";
+SetupProfileViewControllerPositionSt = "ФРВ";
+SetupProfileViewControllerPositionMC = "ЦП";
+SetupProfileViewControllerPositionDC = "ЦЗ";
+SetupProfileViewControllerPositionGK = "ВРТ";
+SetupProfileViewControllerPlayer = "Игрок";
+SetupProfileViewControllerViewer = "Зритель";
+SetupProfileViewControllerGoToButton = "Начать";
+SetupProfileViewControllerSuccessfully = "Успешно";
+SetupProfileViewControllerDataIsBackedUp = "Данные сохранены!";
+SetupProfileViewControllerToContinue = "Чтобы продолжить";
+SetupProfileViewControllerJoinOrCreateTeam = "присоединись или создай команду";
+SetupProfileViewControllerCreateTeam = "Создать команду";
+SetupProfileViewControllerJoinTeam = "Присоединиться к команде";
+SetupProfileViewControllerError = "Ошибка";
+
+// MARK: - CreateTeamViewController
+
+CreateTeamViewControllerWelcomeLabel = "Создание команды";
+CreateTeamViewControllerNameLabel = "Название команды";
+CreateTeamViewControllerCityLabel = "Место расположения";
+CreateTeamViewControllerTypeTeamLabel = "Тип команды";
+CreateTeamViewControllerTypeTeamOpen = "Открытая";
+CreateTeamViewControllerTypeTeamClose = "Закрытая";
+CreateTeamViewControllerGoToButton = "Создать";
+CreateTeamViewControllerSuccessfully = "Успешно";
+CreateTeamViewControllerYouCreatedTeam = "Вы создали команду!";
+CreateTeamViewControllerError = "Ошибка";
+
+// MARK: - CellJoinToTeamView
+
+CellJoinToTeamViewPlayers = "Игроки";
+CellJoinToTeamViewFrom = "из";
+CellJoinToTeamViewSendRequestToTheTeam = "Отправить запрос команде?";
+CellJoinToTeamViewSendRequest = "Отправить запрос";
+CellJoinToTeamViewCancel = "Отмена";
+
+// MARK: - JoinToTeamView
+
+JoinToTeamViewJoin = "Присоединиться";
+JoinToTeamViewAttention = "Внимание";
+JoinToTeamViewCreateYourOwnTeam = "Вы хотите создать свою собственную команду?";
+JoinToTeamViewAttention = "Внимание";
+JoinToTeamViewCancel = "Отмена";
+JoinToTeamViewModelCancelCreate = "Создать";
+
+// MARK: - WaitingForConfirmationView
+
+WaitingForConfirmationViewWaitingForConfirmation = "Ожидание подтверждения";
+WaitingForConfirmationViewModelCancel = "Отмена";
+WaitingForConfirmationViewTheTeamIsNotReadyAcceptYou = "Команда не готова Вас принять";
+
+// MARK: - HeaderMainScreenView
+
+HeaderMainScreenViewModelBalance = "Баланс";
+
+// MARK: - TeamEditModalMainScreenView
+
+TeamEditModalMainScreenViewModelTeamTypeOpen = "Открытая";
+TeamEditModalMainScreenViewModelTeamTypeClose = "Закрытая";
+TeamEditModalMainScreenViewModelWeekdayMonday = "Понедельник";
+TeamEditModalMainScreenViewModelWeekdayTuesday = "Вторник";
+TeamEditModalMainScreenViewModelWeekdayWednesday = "Среда";
+TeamEditModalMainScreenViewModelWeekdayThursday = "Четверг";
+TeamEditModalMainScreenViewModelWeekdayFriday = "Пятница";
+TeamEditModalMainScreenViewModelWeekdaySaturday = "Суббота";
+TeamEditModalMainScreenViewModelWeekdaySunday = "Воскресенье";
+TeamEditModalMainScreenViewModelFieldTypeMini = "Мини";
+TeamEditModalMainScreenViewModelFieldTypeFull = "Большое";
+TeamEditModalMainScreenViewModelFieldType = "Тип поля";
+TeamEditModalMainScreenViewModelTeamType = "Тип команды";
+TeamEditModalMainScreenViewModelTeamName = "Команда:";
+TeamEditModalMainScreenViewModelCountry = "Страна:";
+TeamEditModalMainScreenViewModelCity = "Город:";
+TeamEditModalMainScreenViewModelHowManyGamesPerWeek = "Сколько игр в неделю?";
+TeamEditModalMainScreenViewModelGame  = "Игра";
+TeamEditModalMainScreenViewModelMaximumNumberOfPlayers = "Максимальное кол-во игроков:";
+TeamEditModalMainScreenViewModelHideFromGlobalSearch = "Скрыть из глобального поиска?";
+TeamEditModalMainScreenViewModelYes  = "да";
+TeamEditModalMainScreenViewModelNo  = "нет";
+TeamEditModalMainScreenViewModelBudgetTeam = "Бюджет команды:";
+TeamEditModalMainScreenViewModelMonthlyPaymentFromPlayer = "Месячная оплата игрока:";
+TeamEditModalMainScreenViewModelSave = "Сохранить";
+TeamEditModalMainScreenViewModelEditingCommand = "Редактирование команды";
+
+// MARK: - InformationsMainScreenView
+
+InformationsMainScreenViewModelInfo = "ИНФОРМАЦИЯ";
+InformationsMainScreenViewModelClub = "Клуб:";
+InformationsMainScreenViewModelGoToGame = "Иду на игру:";
+InformationsMainScreenViewModelYes = "да";
+InformationsMainScreenViewModelNo = "нет";
+InformationsMainScreenViewModelCalendar = "Календарь игр";
+
+// MARK: - MainScreenViewModel
+
+MainScreenViewModelControlPanel = "Панель управления";
+MainScreenViewModelSquadForTheGame = "Составы на игру";
+MainScreenViewModelTop = "TOP - Игроки";
+MainScreenViewModelHome = "Главная";
+
+// MARK: - EditPhotoViewPlayer
+
+EditPhotoViewPlayerGallery = "Галерея";
+EditPhotoViewPlayerSave = "Сохранить";
+
+// MARK: - EditPhotoViewTeam
+
+EditPhotoViewTeamGallery = "Галерея";
+EditPhotoViewTeamSave = "Сохранить";
+
+// MARK: - ProfileAddPlayerView
+
+ProfileAddPlayerViewWhoAreYou = "Кто ты?";
+ProfileAddPlayerViewName = "Имя:";
+ProfileAddPlayerViewMail = "Электронная почта:";
+ProfileAddPlayerViewBalance = "Баланс:";
+ProfileAddPlayerViewPosition = "Позиция:";
+ProfileAddPlayerViewPlaysInTeam = "Играет в команде:";
+ProfileAddPlayerViewSave = "Сохранить";
+ProfileAddPlayerViewAddPlayer = "Добавить игрока";
+ProfileAddPlayerViewAddWhoAreYouPlayer = "Игрок";
+ProfileAddPlayerViewAddWhoAreYouViewer = "Зритель";
+ProfileAddPlayerViewPositionSt = "ФРВ";
+ProfileAddPlayerViewPositionMC = "ЦП";
+ProfileAddPlayerViewPositionDC = "ЦЗ";
+ProfileAddPlayerViewPositionGK = "ВРТ";
+
+// MARK: - PlayersProfileEditor
+
+PlayersProfileEditorWhoAreYou = "Кто ты?";
+PlayersProfileEditorName = "Имя:";
+PlayersProfileEditorMail = "Электронная почта:";
+PlayersProfileEditorBalance = "Баланс:";
+PlayersProfileEditorMonthlySubscription = "Месячная подписка:";
+PlayersProfileEditorActive = "активна";
+PlayersProfileEditorNotActive = "не активна";
+PlayersProfileEditorGoesToNextGame = "Идет на след. игру:";
+PlayersProfileEditorYes = "да";
+PlayersProfileEditorNo = "нет";
+PlayersProfileEditorPosition = "Позиция";
+PlayersProfileEditorGamesWon = "Игр выиграл:";
+PlayersProfileEditorGamesLost = "Игр проиграл:";
+PlayersProfileEditorGoalsScored = "Мячей забил:";
+PlayersProfileEditorMakeTeamCaptain = "Сделать капитаном команды?";
+PlayersProfileEditorRemovePlayerFromTeam = "Удалить игрока из команды?";
+PlayersProfileEditorSave = "Сохранить";
+PlayersProfileEditorEditing = "Редактирование";
+PlayersProfileEditorWhoAreYouPlayer = "Игрок";
+PlayersProfileEditorWhoAreYouViewer = "Зритель";
+PlayersProfileEditorPositionSt = "ФРВ";
+PlayersProfileEditorPositionMC = "ЦП";
+PlayersProfileEditorPositionDC = "ЦЗ";
+PlayersProfileEditorPositionGK = "ВРТ";
+
+// MARK: - ProfileMainScreenView
+
+ProfileMainScreenViewProfile = "ПРОФИЛЬ";
+
+// MARK: - ProfileShowModalMainScreenView
+
+ProfileShowModalMainScreenViewPlayingInTeam = "Играю в команде:";
+ProfileShowModalMainScreenViewPersonalBalance = "Личный баланс:";
+ProfileShowModalMainScreenViewMonthlySubscription = "Месячная подписка:";
+ProfileShowModalMainScreenViewActive = "активна";
+ProfileShowModalMainScreenViewNotActive = "не активна";
+ProfileShowModalMainScreenViewImGoingToNextGame = "Иду на след. игру:";
+ProfileShowModalMainScreenViewYes = "да";
+ProfileShowModalMainScreenViewNo = "нет";
+ProfileShowModalMainScreenViewExit = "Выйти";
+ProfileShowModalMainScreenViewAttentionBeDeleted = "Внимание!!! Команда будет удалена!";
+ProfileShowModalMainScreenViewAttention = "Внимание!";
+ProfileShowModalMainScreenViewExitAndDeleteCommand = "Вы хотите выйти и удалить команду?";
+ProfileShowModalMainScreenViewOutTheTeam = "Вы хотите выйти из команды?";
+ProfileShowModalMainScreenViewCancel = "Отмена";
+ProfileShowModalMainScreenViewGoOut = "Выйти";
+ProfileShowModalMainScreenViewPersonalCard = "Персональная карточка";
+
+// MARK: - ListTeamsMainScreenView
+
+ListTeamsMainScreenViewChooseTeam = "Выбери команду";
+ListTeamsMainScreenViewNotEnoughPlayers = "Количество игроков не хватает для распределения на команды";
+ListTeamsMainScreenViewTeam = "Команда";
+ListTeamsMainScreenViewCreateTeam = "Создать составы";
+ListTeamsMainScreenViewInfo = "Информация";
+ListTeamsMainScreenViewFieldType = "Тип футбольного поля:";
+ListTeamsMainScreenViewNumberPlayers = "Кол-во игроков:";
+ListTeamsMainScreenViewNumberTeams = "Кол-во команд:";
+ListTeamsMainScreenViewTeamToPlay = "Составы на игру";
+
+// MARK: - TeamMainScreenView
+
+TeamMainScreenViewStructures = "Составы";
+TeamMainScreenViewTotalPlayers = "Всего игроков:";
+TeamMainScreenViewComeToGame = "Придут на игру:";
+
+// MARK: - RowCalendarforInfo
+
+RowCalendarforInfoMonday = "Пн";
+RowCalendarforInfoTuesday = "Вт";
+RowCalendarforInfoWednesday = "Ср";
+RowCalendarforInfoThursday = "Чт";
+RowCalendarforInfoFriday = "Пт";
+RowCalendarforInfoSaturday = "Сб";
+RowCalendarforInfoSunday = "Вс";
+
+// MARK: - AcceptPlayersView
+
+AcceptPlayersWaiting = "Ожидают добавления";
+
+// MARK: - OutButtonFooTeamMenu
+
+OutButtonFooTeamMenuAttention = "Внимание";
+OutButtonFooTeamMenuExitApp = "Вы хотите выйти из приложения?";
+OutButtonFooTeamMenuCancel = "Отмена";
+OutButtonFooTeamMenuGoOut = "Выйти";
+
+// MARK: - ListPlayersProfileShow
+
+ListPlayersProfileShowPlayingInTeam = "Играю в команде:";
+ListPlayersProfileShowPersonalBalance = "Личный баланс:";
+ListPlayersProfileShowMonthlySubscription = "Месячная подписка:";
+ListPlayersProfileShowActive = "активна";
+ListPlayersProfileShowNotActive = "не активна";
+ListPlayersProfileShowImGoingToNextGame = "Иду на след. игру:";
+ListPlayersProfileShowYes = "да";
+ListPlayersProfileShowNo = "нет";
+ListPlayersProfileShowPersonalCard = "Персональная карточка";
+
+// MARK: - ListPlayersSecondScreenView
+
+ListPlayersSecondScreenViewBasicStructure = "Основной состав";
+ListPlayersSecondScreenViewCaptain = "Капитан";
+ListPlayersSecondScreenViewViewer = "Зритель";
+ListPlayersSecondScreenViewReservePlayers = "Запасные игроки";
+ListPlayersSecondScreenViewMyTeam = "Моя команда";
+
+// MARK: - TabViewFooTeam
+
+TabViewFooTeamMain = "Главная";
+TabViewFooTeamListPlayers = "Список игроков";
+TabViewFooTeamTeam = "Команда";
+
+// MARK: - TeamShowModalMainScreenView
+
+TeamShowModalMainScreenViewTeamType = "Тип команды";
+TeamShowModalMainScreenViewFieldType = "Тип поля";
+TeamShowModalMainScreenViewTeam = "Команда";
+TeamShowModalMainScreenViewCountry = "Страна";
+TeamShowModalMainScreenViewCity = "Город";
+TeamShowModalMainScreenViewBudgetTeam = "Бюджет команды";
+TeamShowModalMainScreenViewMonthlyPaymentPlayer = "Месячная оплата игрока";
+TeamShowModalMainScreenViewRating = "Рейтинг команды";
+TeamShowModalMainScreenViewPlayersInTeam = "Игроков в команде";
+TeamShowModalMainScreenViewGame = "Игра";
+TeamShowModalMainScreenViewTeamCard = "Карточка команды";
+
+// MARK: - PositionFromIntToString
+PositionFromIntToStringPositionSt = "ФРВ";
+PositionFromIntToStringPositionMC = "ЦП";
+PositionFromIntToStringPositionDC = "ЦЗ";
+PositionFromIntToStringPositionGK = "ВРТ";
+
+// MARK: - FieldTypeFromIntToString
+FieldTypeFromIntToStringFieldTypeMini = "Мини";
+FieldTypeFromIntToStringFieldTypeFull = "Большое";
+
+// MARK: - TeamTypeFromIntToString
+TeamTypeFromIntToStringTypeTeamOpen = "Открытая";
+TeamTypeFromIntToStringTypeTeamClose = "Закрытая";
+
+// MARK: - GetDayOfWeekFromNumber
+
+GetDayOfWeekFromNumberWeekdayMonday = "Понедельник";
+GetDayOfWeekFromNumberWeekdayTuesday = "Вторник";
+GetDayOfWeekFromNumberWeekdayWednesday = "Среда";
+GetDayOfWeekFromNumberWeekdayThursday = "Четверг";
+GetDayOfWeekFromNumberWeekdayFriday = "Пятница";
+GetDayOfWeekFromNumberWeekdaySaturday = "Суббота";
+GetDayOfWeekFromNumberWeekdaySunday = "Воскресенье";

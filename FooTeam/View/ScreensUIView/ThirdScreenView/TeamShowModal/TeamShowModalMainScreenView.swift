@@ -25,16 +25,16 @@ struct TeamShowModalMainScreenView: View {
                     }
                     
                     HStack {
-                        Text("Тип команды")
+                        Text(NSLocalizedString("TeamShowModalMainScreenViewTeamType", comment: "The command type"))
                             .foregroundColor(Color("BlackAndWhite"))
                         Spacer()
-                        Text("\(viewModel.teamType)")
-                            .foregroundColor(viewModel.teamType == "Закрытая" ? .red : .green)
+                        Text("\(TeamTypeFromIntToString.shared.setTeamType(from: viewModel.team.teamType))")
+                            .foregroundColor(viewModel.team.teamType == "1" ? .red : .green)
                             .font(.headline)
                     }
                     
                     HStack {
-                        Text("Тип поля")
+                        Text(NSLocalizedString("TeamShowModalMainScreenViewFieldType", comment: "Field type"))
                             .foregroundColor(Color("BlackAndWhite"))
                         Spacer()
                         Text("\(FieldTypeFromIntToString.shared.setFieldType(from: viewModel.team.fieldType))")
@@ -43,7 +43,7 @@ struct TeamShowModalMainScreenView: View {
                     }
                     
                     HStack {
-                        Text("Команда")
+                        Text(NSLocalizedString("TeamShowModalMainScreenViewTeam", comment: "Team"))
                             .foregroundColor(Color("BlackAndWhite"))
                         Spacer()
                         Text("\(viewModel.team.teamName)")
@@ -53,7 +53,7 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text("Страна")
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewCountry", comment: "A country"))
                         .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.team.country)")
@@ -62,7 +62,7 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text("Город")
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewCity", comment: "City"))
                         .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.team.location)")
@@ -71,7 +71,7 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text("Бюджет команды")
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewBudgetTeam", comment: "The budget team"))
                         .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.team.totalMoney)")
@@ -82,7 +82,7 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text("Месячная оплата с игрока")
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewMonthlyPaymentPlayer", comment: "Monthly payment from the player"))
                     Spacer()
                     Text("\(viewModel.team.gameСosts)")
                         .font(.headline)
@@ -91,7 +91,7 @@ struct TeamShowModalMainScreenView: View {
                 }
 
                 HStack {
-                    Text("Рейтинг команды")
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewRating", comment: "Team rating"))
                         .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.rating)")
@@ -100,7 +100,7 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text("Игроков в команде")
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewPlayersInTeam", comment: "Players in the team"))
                     Spacer()
                     Text("\(viewModel.players.count)")
                         .foregroundColor(viewModel.players.count < viewModel.team.maxCountPlayersInTeam ? Color("BlackAndWhite") : .red)
@@ -115,7 +115,7 @@ struct TeamShowModalMainScreenView: View {
                 VStack {
                     ForEach(viewModel.getPlayTime, id: \.self) { time in
                         HStack {
-                            Text("Игра")
+                            Text(NSLocalizedString("TeamShowModalMainScreenViewGame", comment: "Game"))
                             Spacer()
                             Text("\(GetDayOfWeekFromNumber.shared.GetDayOfWeek(numberString: time.dayOfWeek))")
                                 .font(.headline)
@@ -128,7 +128,7 @@ struct TeamShowModalMainScreenView: View {
                 }
             }
             
-            .navigationBarTitle(Text("Карточка команды"), displayMode: .inline)
+            .navigationBarTitle(Text(NSLocalizedString("TeamShowModalMainScreenViewTeamCard", comment: "Team card")), displayMode: .inline)
             
             .navigationBarItems(
                 leading:

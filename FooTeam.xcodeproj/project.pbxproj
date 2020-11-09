@@ -533,7 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				1B3957A8252E5F120036DDEC /* FooTeam.entitlements */,
-				1B43CA9F2555F40B00DB4C33 /* Localizable.strings */,
 				1B596F4C24EC73530092770B /* View */,
 				1B596F7D24EC73650092770B /* Model */,
 				1B596F8224EC73820092770B /* Services */,
@@ -551,6 +550,7 @@
 				1B596FC824EC73B20092770B /* Sources */,
 				1B596FCB24EC73D60092770B /* Supporting files */,
 				1B596F4524EC71C20092770B /* Storyboards */,
+				1B43CA9F2555F40B00DB4C33 /* Localizable.strings */,
 				1B596F3024EC714C0092770B /* AppDelegate.swift */,
 				1B596F3224EC714C0092770B /* SceneDelegate.swift */,
 				1B596F3E24EC714E0092770B /* Info.plist */,

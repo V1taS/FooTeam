@@ -15,16 +15,14 @@ class PositionFromIntToString {
     func setPosition(position: String) -> String {
         switch position {
         case "0":
-            return "ФРВ"
+            return NSLocalizedString("PositionFromIntToStringPositionSt", comment: "ST")
         case "1":
-            return "ЦП"
+            return NSLocalizedString("PositionFromIntToStringPositionMC", comment: "MC")
         case "2":
-            return "ЦЗ"
+            return NSLocalizedString("PositionFromIntToStringPositionDC", comment: "DC")
         case "3":
-            return "ВРТ"
-        default:
-            print("")
+            return NSLocalizedString("PositionFromIntToStringPositionGK", comment: "GK")
+        default: return ""
         }
-        return ""
     }
 }

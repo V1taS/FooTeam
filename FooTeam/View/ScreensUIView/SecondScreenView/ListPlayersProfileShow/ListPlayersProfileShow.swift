@@ -32,7 +32,7 @@ struct ListPlayersProfileShow: View {
             }
 
                 HStack {
-                    Text("Играю в команде:")
+                    Text(NSLocalizedString("ListPlayersProfileShowPlayingInTeam", comment: "Playing in a team:"))
                     Spacer()
                     Text("\(viewModel.team.teamName)")
                         .font(.headline)
@@ -40,7 +40,7 @@ struct ListPlayersProfileShow: View {
                 }
                 
                 HStack {
-                    Text("Личный баланс:")
+                    Text(NSLocalizedString("ListPlayersProfileShowPersonalBalance", comment: "Personal balance"))
                     Spacer()
                         .foregroundColor(Color.green)
                     Text("\(viewModel.player.payment) FCoin")
@@ -48,21 +48,21 @@ struct ListPlayersProfileShow: View {
                 }
                 
                 HStack {
-                    Text("Месячная подписка:")
+                    Text(NSLocalizedString("ListPlayersProfileShowMonthlySubscription", comment: "Monthly subscription"))
                     Spacer()
-                    Text("\(viewModel.player.subscription ? Text("активна").foregroundColor(Color.green) : Text("не активна").foregroundColor(Color.red))")
+                    Text("\(viewModel.player.subscription ? Text(NSLocalizedString("ListPlayersProfileShowActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("ListPlayersProfileShowNotActive", comment: "not active")).foregroundColor(Color.red))")
                         .font(.headline)
                 }
                 
                 HStack {
-                    Text("Иду на след. игру:")
+                    Text(NSLocalizedString("ListPlayersProfileShowImGoingToNextGame", comment: "Going to the next game:"))
                     Spacer()
-                    Text("\(viewModel.player.iGo ? Text("да").foregroundColor(Color.green) : Text("нет").foregroundColor(Color.red))")
+                    Text("\(viewModel.player.iGo ? Text(NSLocalizedString("ListPlayersProfileShowYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("ListPlayersProfileShowNo", comment: "no")).foregroundColor(Color.red))")
                         .font(.headline)
                 }
         } .onAppear { viewModel.playerID = player.id }
         
-        .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
+        .navigationBarTitle(Text(NSLocalizedString("ListPlayersProfileShowPersonalCard", comment: "Personal card")), displayMode: .inline)
         
         .navigationBarItems(trailing:
                                 VStack {

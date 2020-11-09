@@ -51,7 +51,7 @@ struct EditPhotoViewTeam: View {
                         Image(systemName: "photo")
                             .font(.system(size: 20))
                         
-                        Text("Галерея")
+                        Text(NSLocalizedString("EditPhotoViewTeamGallery", comment: "Gallery"))
                             .font(.headline)
                     }
                     .frame(minWidth: 200, maxWidth: 250, minHeight: 30, maxHeight: 50)
@@ -73,7 +73,7 @@ struct EditPhotoViewTeam: View {
                         Image(systemName: "opticaldiscdrive")
                             .font(.system(size: 20))
                         
-                        Text("Сохранить")
+                        Text(NSLocalizedString("EditPhotoViewTeamSave", comment: "Save"))
                             .font(.headline)
                             .fontWeight(.bold)
                     }

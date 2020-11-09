@@ -12,19 +12,26 @@ import SDWebImage
 
 class SetupProfileViewController: UIViewController {
     
-    let welcomeLabel = UILabel(text: "Настройка профиля", font: .bolt20(), textAlignment: .center)
+    let welcomeLabel = UILabel(text: NSLocalizedString("SetupProfileViewControllerWelcomeLabel" ,comment:"Profile setting"), font: .bolt20(), textAlignment: .center)
     
     let fullImageView = AddAvaPlayersView()
     
-    let nameLabel = UILabel(text: "Имя", font: .markerFel14())
-    let positionLabel = UILabel(text: "На какой позиции играешь??", font: .markerFel14())
-    let whoAreYouLabel = UILabel(text: "Кто ты?", font: .markerFel14())
+    let nameLabel = UILabel(text: NSLocalizedString("SetupProfileViewControllerNameLabel" ,comment:"Name"), font: .markerFel14())
+    let positionLabel = UILabel(text: NSLocalizedString("SetupProfileViewControllerPositionLabel" ,comment:"What position do you play??"), font: .markerFel14())
+    let whoAreYouLabel = UILabel(text: NSLocalizedString("SetupProfileViewControllerWhoAreYouLabel" ,comment:"Who are you?"), font: .markerFel14())
     
-    let nameTextField = CustomeTextField(placeholder: " Андрей Шевченко")
-    let positionPlayerSegmentedControl = UISegmentedControl(items: ["ФРВ", "ЦП", "ЦЗ", "ВРТ"])
-    let whoAreYouSegmentedControl = UISegmentedControl(first: "Игрок", second: "Зритель")
+    let nameTextField = CustomeTextField(placeholder: NSLocalizedString("SetupProfileViewControllerNameTextField" ,comment:"Andrey Shevchenko"))
+    let positionPlayerSegmentedControl = UISegmentedControl(items: [
+                                                                NSLocalizedString("SetupProfileViewControllerPositionSt" ,comment:"ST"),
+                                                                NSLocalizedString("SetupProfileViewControllerPositionMC" ,comment:"MC"),
+                                                                NSLocalizedString("SetupProfileViewControllerPositionDC" ,comment:"DC"),
+                                                                NSLocalizedString("SetupProfileViewControllerPositionGK" ,comment:"GK")])
+    let whoAreYouSegmentedControl = UISegmentedControl(
+        first: NSLocalizedString("SetupProfileViewControllerPlayer" ,comment:"Player"),
+        second: NSLocalizedString("SetupProfileViewControllerViewer" ,comment:"Viewer")
+    )
     
-    let goToButton = UIButton(title: "Начать",
+    let goToButton = UIButton(title: NSLocalizedString("SetupProfileViewControllerGoToButton" ,comment:"To begin"),
                               titleColor: .white,
                               backgroundColor: .buttonDark(),
                               font: .bolt14(),
@@ -89,29 +96,35 @@ extension SetupProfileViewController {
             email: currentUser.email!,
             name: nameTextField.text!,
             avatarImage: fullImageView.circleAvaPlayersImageView.image,
-            whoAreYou: whoAreYouSegmentedControl.titleForSegment(at: whoAreYouSegmentedControl.selectedSegmentIndex)!,
+            whoAreYou: "\(whoAreYouSegmentedControl.selectedSegmentIndex)",
             positionPlayer: "\(positionPlayerSegmentedControl.selectedSegmentIndex)") { (result) in
                 switch result {
                 case .success(let player):
-                    self.showAlert(with: "Успешно!", and: "Данные сохранены!", completion: {
+                    self.showAlert(
+                        with: NSLocalizedString("SetupProfileViewControllerSuccessfully", comment:"Successfully"),
+                        and: NSLocalizedString("SetupProfileViewControllerDataIsBackedUp", comment:"Data is backed up!"),
+                        completion: {
                         
                         FirestoreService.shared.getUserDataSimple()
                         
-                        if self.whoAreYouSegmentedControl.titleForSegment(at: self.whoAreYouSegmentedControl.selectedSegmentIndex) == "Зритель" {
-                            let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
-                            mainContentFooTeam.modalPresentationStyle = .fullScreen
-                            
+                        if self.whoAreYouSegmentedControl.selectedSegmentIndex == 1 {
+                            let joinToFooTeam = UIHostingController(rootView: JoinToTeamView())
+                            joinToFooTeam.modalPresentationStyle = .fullScreen
+                            self.present(joinToFooTeam, animated: true, completion: nil)
                         } else {
+                            let alertController = UIAlertController(
+                                title: NSLocalizedString("SetupProfileViewControllerToContinue", comment:"To continue"),
+                                message: NSLocalizedString("SetupProfileViewControllerJoinOrCreateTeam", comment:"join or create a team"),
+                                preferredStyle: .actionSheet
+                            )
                             
-                            let alertController = UIAlertController(title: "Чтобы продолжить", message: "присоединись или создай команду", preferredStyle: .actionSheet)
-                            
-                            let creatTeam = UIAlertAction(title: "Создать команду", style: .default) { _ in
+                            let creatTeam = UIAlertAction(title: NSLocalizedString("SetupProfileViewControllerCreateTeam", comment:"Create a team"), style: .default) { _ in
                                 let createTeam = CreateTeamViewController(currentPlayer: player, currentUser: self.currentUser)
                                 createTeam.modalPresentationStyle = .fullScreen
                                 self.present(createTeam, animated: true, completion: nil)
                             }
                             
-                            let joinTeam = UIAlertAction(title: "Присоединиться к команде", style: .default) { _ in
+                            let joinTeam = UIAlertAction(title: NSLocalizedString("SetupProfileViewControllerJoinTeam", comment:"Join the team"), style: .default) { _ in
                                 let joinToFooTeam = UIHostingController(rootView: JoinToTeamView())
                                 joinToFooTeam.modalPresentationStyle = .fullScreen
                                 self.present(joinToFooTeam, animated: true, completion: nil)
@@ -123,7 +136,7 @@ extension SetupProfileViewController {
                         }
                     })
                 case .failure(let error):
-                    self.showAlert(with: "Ошибка! \(error)", and: error.localizedDescription)
+                    self.showAlert(with: "\(NSLocalizedString("SetupProfileViewControllerError", comment:"Error")) \(error)", and: error.localizedDescription)
                 }
         }
     }

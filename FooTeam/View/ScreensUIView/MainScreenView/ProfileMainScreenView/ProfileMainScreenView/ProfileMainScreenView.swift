@@ -23,7 +23,7 @@ struct ProfileMainScreenView: View {
                 viewModel.isPresentedShowModal.toggle()
             }) {
                 VStack {
-                    Text("ПРОФИЛЬ")
+                    Text(NSLocalizedString("ProfileMainScreenViewProfile", comment: "PROFILE"))
                         .font(.headline)
                         .foregroundColor(Color(.red))
                         .minimumScaleFactor(0.7)

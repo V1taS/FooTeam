@@ -15,12 +15,10 @@ class TeamTypeFromIntToString {
     func setTeamType(from data: String) -> String {
         switch data {
         case "0":
-            return "Открытая"
+            return NSLocalizedString("TeamTypeFromIntToStringTypeTeamOpen", comment: "Open")
         case "1":
-            return "Закрытая"
-        default:
-            print("")
+            return NSLocalizedString("TeamTypeFromIntToStringTypeTeamClose", comment: "Private")
+        default: return ""
         }
-        return ""
     }
 }

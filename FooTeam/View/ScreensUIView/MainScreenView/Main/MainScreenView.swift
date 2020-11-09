@@ -18,7 +18,7 @@ struct MainScreenView: View {
                 VStack {
                     HeaderMainScreenView()
                     HStack {
-                        Text("Панель управления")
+                        Text(NSLocalizedString("MainScreenViewModelControlPanel", comment: "Control panel"))
                             .font(.title)
                             .fontWeight(.bold)
                         Spacer()
@@ -31,7 +31,7 @@ struct MainScreenView: View {
                     } .padding(.horizontal)
                     
                     HStack {
-                        Text("Составы на игру")
+                        Text(NSLocalizedString("MainScreenViewModelSquadForTheGame", comment: "Squad for the game"))
                             .font(.title)
                             .fontWeight(.bold)
                         Spacer()
@@ -41,7 +41,7 @@ struct MainScreenView: View {
                         .padding(.horizontal)
                     
                     HStack {
-                        Text("TOP - Игроки")
+                        Text(NSLocalizedString("MainScreenViewModelTop", comment: "TOP Players"))
                             .font(.title)
                             .fontWeight(.bold)
                         Spacer()
@@ -55,7 +55,7 @@ struct MainScreenView: View {
                 .navigationBarItems(trailing:
                                         OutButtonFooTeamMenu(isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut))
                 
-                .navigationBarTitle("Главная", displayMode: .inline)
+                .navigationBarTitle(NSLocalizedString("MainScreenViewModelHome", comment: "Home"), displayMode: .inline)
             }
             
         }

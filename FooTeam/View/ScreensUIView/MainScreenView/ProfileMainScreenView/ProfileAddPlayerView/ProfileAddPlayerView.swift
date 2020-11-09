@@ -27,7 +27,7 @@ struct ProfileAddPlayerView: View {
                 VStack {
                     
                     HStack {
-                        Text("Кто ты?")
+                        Text(NSLocalizedString("ProfileAddPlayerViewWhoAreYou", comment: "Who are you?"))
                         Picker("", selection: $viewModel.selectionWhoAreYou) {
                             ForEach(0..<viewModel.whoAreYou.count) {
                                 Text(viewModel.whoAreYou[$0])
@@ -36,27 +36,27 @@ struct ProfileAddPlayerView: View {
                     }
                     
                     HStack {
-                        Text("Имя:")
-                        TextField("Иванов Иван", text: $viewModel.name)
+                        Text(NSLocalizedString("ProfileAddPlayerViewName", comment: "Name"))
+                        TextField("Ivanov Ivan", text: $viewModel.name)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     
                     HStack {
-                        Text("Электронная почта:")
+                        Text(NSLocalizedString("ProfileAddPlayerViewMail", comment: "Email"))
                         TextField("e-mail", text: $viewModel.email)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     
                     if viewModel.selectionWhoAreYou == 0 {
                         HStack {
-                            Text("Баланс:")
-                            TextField("Баланс", text: $viewModel.payment)
+                            Text(NSLocalizedString("ProfileAddPlayerViewBalance", comment: "Balance"))
+                            TextField("", text: $viewModel.payment)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         
                         HStack {
-                            Text("Позиция:")
-                            Picker("dvdvd", selection: $viewModel.selectionPositions) {
+                            Text(NSLocalizedString("ProfileAddPlayerViewPosition", comment: "Position"))
+                            Picker("", selection: $viewModel.selectionPositions) {
                                 ForEach(0..<viewModel.positions.count) {
                                     Text(viewModel.positions[$0])
                                 }
@@ -64,7 +64,7 @@ struct ProfileAddPlayerView: View {
                         }
                         
                         HStack {
-                            Text("Играет в команде:")
+                            Text(NSLocalizedString("ProfileAddPlayerViewPlaysInTeam", comment: "Plays in a team"))
                             Spacer()
                             Text("\(viewModel.team.teamName)")
                                 .font(.headline)
@@ -95,7 +95,7 @@ struct ProfileAddPlayerView: View {
 
                         presentationMode.wrappedValue.dismiss()
                     } ) {
-                        Text("Сохранить")
+                        Text(NSLocalizedString("ProfileAddPlayerViewSave", comment: "Save"))
                             .font(.system(.headline, design: .serif))
                             .foregroundColor(Color.black)
                             .padding(.horizontal)
@@ -107,7 +107,7 @@ struct ProfileAddPlayerView: View {
                 }
             }
             
-            .navigationBarTitle(Text("Добавить игрока"), displayMode: .automatic)
+            .navigationBarTitle(Text(NSLocalizedString("ProfileAddPlayerViewAddPlayer", comment: "Add a player")), displayMode: .automatic)
             .navigationBarItems(trailing: Button(action: {
                 presentationMode.wrappedValue.dismiss()
             }) {

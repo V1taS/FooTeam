@@ -12,20 +12,20 @@ import FirebaseAuth
 
 class CreateTeamViewController: UIViewController {
     
-    let welcomeLabel = UILabel(text: "Создание команды", font: .bolt20(), textAlignment: .center)
+    let welcomeLabel = UILabel(text: NSLocalizedString("CreateTeamViewControllerWelcomeLabel", comment:"Creating a team"), font: .bolt20(), textAlignment: .center)
     
     let fullImageView = AddAvaTeamsView()
     
-    let nameLabel = UILabel(text: "Название команды", font: .markerFel14())
-    let cityLabel = UILabel(text: "Место расположения", font: .markerFel14())
-    let TypeTeamLabel = UILabel(text: "Тип команды:", font: .markerFel14())
+    let nameLabel = UILabel(text: NSLocalizedString("CreateTeamViewControllerNameLabel", comment:"Team name"), font: .markerFel14())
+    let cityLabel = UILabel(text: NSLocalizedString("CreateTeamViewControllerCityLabel", comment:"Location"), font: .markerFel14())
+    let TypeTeamLabel = UILabel(text: NSLocalizedString("CreateTeamViewControllerTypeTeamLabel", comment:"The command type"), font: .markerFel14())
     
-    let nameTextField = CustomeTextField(placeholder: " ФК АвтоСпецЦентр")
-    let cityTextField = CustomeTextField(placeholder: " Химки")
+    let nameTextField = CustomeTextField(placeholder: " FC ASC")
+    let cityTextField = CustomeTextField(placeholder: " Khimki")
     
-    let availabilityTeamSegmentedControl = UISegmentedControl(first: "Открытая", second: "Закрытая")
+    let availabilityTeamSegmentedControl = UISegmentedControl(first: NSLocalizedString("CreateTeamViewControllerTypeTeamOpen", comment:"Open"), second: NSLocalizedString("CreateTeamViewControllerTypeTeamClose", comment:"Private"))
     
-    let goToButton = UIButton(title: "Создать",
+    let goToButton = UIButton(title: NSLocalizedString("CreateTeamViewControllerGoToButton", comment:"Create"),
                               titleColor: .white,
                               backgroundColor: .buttonDark(),
                               font: .bolt14(),
@@ -86,14 +86,14 @@ extension CreateTeamViewController {
             case .success(_):
                 FirestoreService.shared.getUserDataSimple()
                 
-                self.showAlert(with: "Успешно!", and: "Вы создали команду!") {
+                self.showAlert(with: NSLocalizedString("CreateTeamViewControllerSuccessfully", comment:"Successfully"), and: NSLocalizedString("CreateTeamViewControllerYouCreatedTeam", comment:"You created a team!")) {
                     
                     let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                     mainContentFooTeam.modalPresentationStyle = .fullScreen
                     self.present(mainContentFooTeam, animated: true, completion: nil)
                 }
             case .failure(let error):
-                self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+                self.showAlert(with: NSLocalizedString("CreateTeamViewControllerError", comment:"Error"), and: error.localizedDescription)
             }
         }
     }

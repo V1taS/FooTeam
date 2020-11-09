@@ -1,0 +1,357 @@
+/* 
+  Localizable.strings
+  FooTeam
+
+  Created by Виталий Сосин on 07.11.2020.
+  Copyright © 2020 Vitalii Sosin. All rights reserved.
+*/
+
+// MARK: - AuthError
+AuthErrorFillInAllTheFields = "Fill in all the fields";
+AuthErrorMailFormatIsNotValid = "Mail format is not valid";
+AuthErrorPasswordsDoNotMatch = "Passwords do not match";
+AuthErrorUnknownError = "Unknown error";
+AuthErrorServerError = "Server error";
+
+// MARK: - SignIn&Auth
+// MARK: - * AuthViewController
+AuthViewControllerRegisterInFTLabel = "Register with FooTeam";
+AuthViewControllerDescriptionFTLabel = "Create a profile to create your own team, manage squads and more.";
+AuthViewControllerAlreadyOnboardLabel = "Already have an account?";
+AuthViewControllerAppleButton = "Continue with Apple";
+AuthViewControllerGoogleButton = "Continue on Google";
+AuthViewControllerEmailButton = "Enter email";
+AuthViewControllerlogin = "login";
+AuthViewControllerSuccessfully = "Successfully";
+AuthViewControllerYouAreLogged = "You are logged in";
+AuthViewControllerYouAreRegistered = "You are registered";
+AuthViewControllerError = "Error";
+
+// MARK: - * SignUpViewController
+SignUpViewControllerWelcomeLabel = "Registration";
+SignUpViewControllerDescriptionFTLabel = "Use 6 to 20 characters. The password must include at least two of the following types of characters: letters, numbers.";
+SignUpViewControllerEmailLabell = "Email";
+SignUpViewControllerPasswordLabel = "Password";
+SignUpViewControllerConfirmPasswodLabel = "Confirm the password";
+SignUpViewControllerAlreadyOnboardLabel = "Already Registered?";
+SignUpViewControllerSignUpButton = "Register now";
+SignUpViewControllerClose = "close";
+SignUpViewControllerlogin = "login";
+SignUpViewControllerSuccessfully = "Successfully";
+SignUpViewControllerYouAreLogged = "You are logged in";
+SignUpViewControllerError = "Error";
+
+// MARK: - * LoginViewController
+LoginViewControllerWelcomeLabel = "Login to FooTeam";
+LoginViewControllerDescriptionFTLabel = "Create and manage your team, monitor statistics and get more opportunities.";
+LoginViewControllerEmailLabell = "Enter mail";
+LoginViewControllerPasswordLabel = "Enter password";
+LoginViewControllerNeedAnAccountLabel = "Don't have an account?";
+LoginViewControllerGoogleButton = "Continue on Google";
+LoginViewControllerLoginButton = "Login";
+LoginViewControllerForgottenButton = "Forgot your password?";
+LoginViewControllerClose = "close";
+LoginViewControllerSignUpButton = "Register now";
+LoginViewControllerSuccessfully = "Successfully";
+LoginViewControllerYouAreLogged = "You are logged in";
+LoginViewControllerError = "Error";
+LoginViewControllerAttention = "Attention";
+LoginViewControllerRestorePassword = "Do you want to recover your password?";
+LoginViewControllerUserIsNotFound = "User is not found";
+LoginViewControllerInvalidEmail = "Invalid email";
+LoginViewControllerInvalidRecipientEmailAddress = "Invalid recipient email address";
+LoginViewControllerPasswordRecoveryFailed = "Password recovery failed";
+LoginViewControllerInvalidMessageData = "Invalid message data";
+LoginViewControllerYouhaveNotEnteredYourEmail = "You have not specified mail";
+LoginViewControllerPasswordRecovery = "A letter with instructions for password recovery has been sent to the mail";
+LoginViewControllerReestablish = "Restore";
+LoginViewControllerCancellation = "Cancellation";
+
+// MARK: - SetupProfileViewController
+
+SetupProfileViewControllerWelcomeLabel = "Profile setting";
+SetupProfileViewControllerNameLabel = "Name";
+SetupProfileViewControllerPositionLabel = "What position do you play??";
+SetupProfileViewControllerWhoAreYouLabel = "Who are you?";
+SetupProfileViewControllerNameTextField = "Andrey Shevchenko";
+SetupProfileViewControllerPositionSt = "ST";
+SetupProfileViewControllerPositionMC = "MC";
+SetupProfileViewControllerPositionDC = "DC";
+SetupProfileViewControllerPositionGK = "GK";
+SetupProfileViewControllerPlayer = "Player";
+SetupProfileViewControllerViewer = "Viewer";
+SetupProfileViewControllerGoToButton = "To begin";
+SetupProfileViewControllerSuccessfully = "Successfully";
+SetupProfileViewControllerDataIsBackedUp = "Data is backed up!";
+SetupProfileViewControllerToContinue = "To continue";
+SetupProfileViewControllerJoinOrCreateTeam = "join or create a team";
+SetupProfileViewControllerCreateTeam = "Create a team";
+SetupProfileViewControllerJoinTeam = "Join the team";
+SetupProfileViewControllerError = "Error";
+
+// MARK: - CreateTeamViewController
+
+CreateTeamViewControllerWelcomeLabel = "Creating a team";
+CreateTeamViewControllerNameLabel = "Team name";
+CreateTeamViewControllerCityLabel = "Location";
+CreateTeamViewControllerTypeTeamLabel = "The command type:";
+CreateTeamViewControllerTypeTeamOpen = "Open";
+CreateTeamViewControllerTypeTeamClose = "Private";
+CreateTeamViewControllerGoToButton = "Create";
+CreateTeamViewControllerSuccessfully = "Successfully";
+CreateTeamViewControllerYouCreatedTeam = "You created a team!";
+CreateTeamViewControllerError = "Error";
+
+// MARK: - CellJoinToTeamViewModel
+
+CellJoinToTeamViewModelPlayers = "Players:";
+CellJoinToTeamViewModelFrom = "from";
+CellJoinToTeamViewModelSendRequestToTheTeam = "Send a request to the team?";
+CellJoinToTeamViewModelSendRequest = "Send a request";
+CellJoinToTeamViewModelCancel = "Cancel";
+
+// MARK: - JoinToTeamViewModel
+
+JoinToTeamViewModelJoin = "Join";
+JoinToTeamViewModelAttention = "Attention";
+JoinToTeamViewModelCreateYourOwnTeam = "Do you want to create your own team?";
+JoinToTeamViewModelAttention = "Attention";
+JoinToTeamViewModelCancel = "Cancel";
+JoinToTeamViewModelCancelCreate = "Create";
+
+// MARK: - WaitingForConfirmationViewModel
+
+WaitingForConfirmationViewModelWaitingForConfirmation = "Waiting for confirmation";
+WaitingForConfirmationViewModelCancel = "Cancel";
+WaitingForConfirmationViewModelTheTeamIsNotReadyAcceptYou = "The team is not ready to accept You";
+
+// MARK: - HeaderMainScreenViewModel
+
+HeaderMainScreenViewModelBalance = "Balance:";
+
+// MARK: - TeamEditModalMainScreenViewModel
+
+TeamEditModalMainScreenViewModelTeamTypeOpen = "Open";
+TeamEditModalMainScreenViewModelTeamTypeClose = "Private";
+TeamEditModalMainScreenViewModelWeekdayMonday = "Monday";
+TeamEditModalMainScreenViewModelWeekdayTuesday = "Tuesday";
+TeamEditModalMainScreenViewModelWeekdayWednesday = "Wednesday";
+TeamEditModalMainScreenViewModelWeekdayThursday = "Thursday";
+TeamEditModalMainScreenViewModelWeekdayFriday = "Friday";
+TeamEditModalMainScreenViewModelWeekdaySaturday = "Saturday";
+TeamEditModalMainScreenViewModelWeekdaySunday = "Sunday";
+TeamEditModalMainScreenViewModelFieldTypeMini = "Mini";
+TeamEditModalMainScreenViewModelFieldTypeFull = "Big";
+TeamEditModalMainScreenViewModelFieldType = "Field type";
+TeamEditModalMainScreenViewModelTeamType = "The command type";
+TeamEditModalMainScreenViewModelTeamName = "Team:";
+TeamEditModalMainScreenViewModelCountry = "A country:";
+TeamEditModalMainScreenViewModelCity = "City:";
+TeamEditModalMainScreenViewModelHowManyGamesPerWeek = "How many games per week?";
+TeamEditModalMainScreenViewModelGame  = "Game";
+TeamEditModalMainScreenViewModelMaximumNumberOfPlayers = "Maximum number of players:";
+TeamEditModalMainScreenViewModelHideFromGlobalSearch = "Hide from global search?";
+TeamEditModalMainScreenViewModelYes  = "yes";
+TeamEditModalMainScreenViewModelNo  = "no";
+TeamEditModalMainScreenViewModelBudgetTeam = "The budget team:";
+TeamEditModalMainScreenViewModelMonthlyPaymentFromPlayer = "Player monthly payment:";
+TeamEditModalMainScreenViewModelSave = "Save";
+TeamEditModalMainScreenViewModelEditingCommand = "Editing a command";
+
+// MARK: - InformationsMainScreenViewModel
+
+InformationsMainScreenViewModelInfo = "INFORMATION";
+InformationsMainScreenViewModelClub = "Club:";
+InformationsMainScreenViewModelGoToGame = "I go to play:";
+InformationsMainScreenViewModelYes = "yes";
+InformationsMainScreenViewModelNo = "no";
+InformationsMainScreenViewModelCalendar = "Calendar of games";
+
+// MARK: - MainScreenViewModel
+
+MainScreenViewModelControlPanel = "Control panel";
+MainScreenViewModelSquadForTheGame = "Squad for the game";
+MainScreenViewModelTop = "TOP Players";
+MainScreenViewModelHome = "Home";
+
+// MARK: - EditPhotoViewPlayer
+
+EditPhotoViewPlayerGallery = "Gallery";
+EditPhotoViewPlayerSave = "Save";
+
+// MARK: - EditPhotoViewTeam
+
+EditPhotoViewTeamGallery = "Gallery";
+EditPhotoViewTeamSave = "Save";
+
+// MARK: - ProfileAddPlayerView
+
+ProfileAddPlayerViewWhoAreYou = "Who are you?";
+ProfileAddPlayerViewName = "Name:";
+ProfileAddPlayerViewMail = "Email:";
+ProfileAddPlayerViewBalance = "Balance:";
+ProfileAddPlayerViewPosition = "Position:";
+ProfileAddPlayerViewPlaysInTeam = "Plays in a team:";
+ProfileAddPlayerViewSave = "Save";
+ProfileAddPlayerViewAddPlayer = "Add a player";
+ProfileAddPlayerViewAddWhoAreYouPlayer = "Player";
+ProfileAddPlayerViewAddWhoAreYouViewer = "Viewer";
+SetupProfileViewControllerPositionSt = "ST";
+SetupProfileViewControllerPositionMC = "MC";
+SetupProfileViewControllerPositionDC = "DC";
+SetupProfileViewControllerPositionGK = "GK";
+
+// MARK: - PlayersProfileEditor
+
+PlayersProfileEditorWhoAreYou = "Who are you?";
+PlayersProfileEditorName = "Name:";
+PlayersProfileEditorMail = "Email:";
+PlayersProfileEditorBalance = "Balance:";
+PlayersProfileEditorMonthlySubscription = "Monthly subscription:";
+PlayersProfileEditorActive = "active";
+PlayersProfileEditorNotActive = "not active";
+PlayersProfileEditorGoesToNextGame = "Goes to the next game:";
+PlayersProfileEditorYes = "yes";
+PlayersProfileEditorNo = "no";
+PlayersProfileEditorPosition = "Position";
+PlayersProfileEditorGamesWon = "Games won:";
+PlayersProfileEditorGamesLost = "Games lost:";
+PlayersProfileEditorGoalsScored = "Goals scored:";
+PlayersProfileEditorMakeTeamCaptain = "Make a team captain?";
+PlayersProfileEditorRemovePlayerFromTeam = "Remove a player from the team?";
+PlayersProfileEditorSave = "Save";
+PlayersProfileEditorEditing = "Editing";
+PlayersProfileEditorWhoAreYouPlayer = "Player";
+PlayersProfileEditorWhoAreYouViewer = "Viewer";
+PlayersProfileEditorPositionSt = "ST";
+PlayersProfileEditorPositionMC = "MC";
+PlayersProfileEditorPositionDC = "DC";
+PlayersProfileEditorPositionGK = "GK";
+
+// MARK: - ProfileMainScreenView
+
+ProfileMainScreenViewProfile = "PROFILE";
+
+// MARK: - ProfileShowModalMainScreenView
+
+ProfileShowModalMainScreenViewPlayingInTeam = "Playing in a team:";
+ProfileShowModalMainScreenViewPersonalBalance = "Personal balance:";
+ProfileShowModalMainScreenViewMonthlySubscription = "Monthly subscription:";
+ProfileShowModalMainScreenViewActive = "active";
+ProfileShowModalMainScreenViewNotActive = "not active";
+ProfileShowModalMainScreenViewImGoingToNextGame = "I'm going to the next game:";
+ProfileShowModalMainScreenViewYes = "yes";
+ProfileShowModalMainScreenViewNo = "no";
+ProfileShowModalMainScreenViewExit = "Exit";
+ProfileShowModalMainScreenViewAttentionBeDeleted = "Attention!!! The command will be deleted!";
+ProfileShowModalMainScreenViewAttention = "Attention!";
+ProfileShowModalMainScreenViewExitAndDeleteCommand = "Do you want to exit and delete the team?";
+ProfileShowModalMainScreenViewOutTheTeam = "Do you want to leave the team?";
+ProfileShowModalMainScreenViewCancel = "Cancel";
+ProfileShowModalMainScreenViewGoOut = "Go out";
+ProfileShowModalMainScreenViewPersonalCard = "Personal card";
+
+//MARK: - ListTeamsMainScreenView
+
+ListTeamsMainScreenViewChooseTeam = "Choose a team";
+ListTeamsMainScreenViewNotEnoughPlayers = "The number of players is not enough for distribution into teams";
+ListTeamsMainScreenViewTeam = "Team";
+ListTeamsMainScreenViewCreateTeam = "To create the compositions";
+ListTeamsMainScreenViewInfo = "Information";
+ListTeamsMainScreenViewFieldType = "Type of football field:";
+ListTeamsMainScreenViewNumberPlayers = "Number of players:";
+ListTeamsMainScreenViewNumberTeams = "Number of teams:";
+ListTeamsMainScreenViewTeamToPlay = "Lineups for the game";
+
+// MARK: - TeamMainScreenView
+
+TeamMainScreenViewStructures = "Structures";
+TeamMainScreenViewTotalPlayers = "Total players:";
+TeamMainScreenViewComeToGame = "Go to the game";
+
+// MARK: - RowCalendarforInfo
+
+RowCalendarforInfoMonday = "Mo";
+RowCalendarforInfoTuesday = "Tu";
+RowCalendarforInfoWednesday = "We";
+RowCalendarforInfoThursday = "Th";
+RowCalendarforInfoFriday = "Fr";
+RowCalendarforInfoSaturday = "Sa";
+RowCalendarforInfoSunday = "Su";
+
+// MARK: - AcceptPlayersView
+
+AcceptPlayersWaiting = "Waiting to be added";
+
+// MARK: - OutButtonFooTeamMenu
+
+OutButtonFooTeamMenuAttention = "Attention";
+OutButtonFooTeamMenuExitApp = "Do you want to exit the app?";
+OutButtonFooTeamMenuCancel = "Cancel";
+OutButtonFooTeamMenuGoOut = "Go out";
+
+// MARK: - ListPlayersProfileShow
+
+ListPlayersProfileShowPlayingInTeam = "Playing in a team:";
+ListPlayersProfileShowPersonalBalance = "Personal balance:";
+ListPlayersProfileShowMonthlySubscription = "Monthly subscription:";
+ListPlayersProfileShowActive = "active";
+ListPlayersProfileShowNotActive = "not active";
+ListPlayersProfileShowImGoingToNextGame = "Going to the next game:";
+ListPlayersProfileShowYes = "yes";
+ListPlayersProfileShowNo = "no";
+ListPlayersProfileShowPersonalCard = "Personal card";
+
+// MARK: - ListPlayersSecondScreenView
+
+ListPlayersSecondScreenViewBasicStructure = "Basic structure";
+ListPlayersSecondScreenViewCaptain = "Captain";
+ListPlayersSecondScreenViewViewer = "Viewer";
+ListPlayersSecondScreenViewReservePlayers = "Reserve players";
+ListPlayersSecondScreenViewMyTeam = "My team";
+
+// MARK: - TabViewFooTeam
+
+TabViewFooTeamMain = "Main";
+TabViewFooTeamListPlayers = "List of players";
+TabViewFooTeamTeam = "Team";
+
+// MARK: - TeamShowModalMainScreenView
+
+TeamShowModalMainScreenViewTeamType = "The command type";
+TeamShowModalMainScreenViewFieldType = "Field type";
+TeamShowModalMainScreenViewTeam = "Team";
+TeamShowModalMainScreenViewCountry = "A country";
+TeamShowModalMainScreenViewCity = "City";
+TeamShowModalMainScreenViewBudgetTeam = "The budget team";
+TeamShowModalMainScreenViewMonthlyPaymentPlayer = "Player monthly payment";
+TeamShowModalMainScreenViewRating = "Team rating";
+TeamShowModalMainScreenViewPlayersInTeam = "Players in the team";
+TeamShowModalMainScreenViewGame = "Game";
+TeamShowModalMainScreenViewTeamCard = "Team card";
+
+// MARK: - PositionFromIntToString
+PositionFromIntToStringPositionSt = "ST";
+PositionFromIntToStringPositionMC = "MC";
+PositionFromIntToStringPositionDC = "DC";
+PositionFromIntToStringPositionGK = "GK";
+
+// MARK: - FieldTypeFromIntToString
+FieldTypeFromIntToStringFieldTypeMini = "Mini";
+FieldTypeFromIntToStringFieldTypeFull = "Big";
+
+// MARK: - TeamTypeFromIntToString
+TeamTypeFromIntToStringTypeTeamOpen = "Open";
+TeamTypeFromIntToStringTypeTeamClose = "Private";
+
+// MARK: - GetDayOfWeekFromNumber
+
+GetDayOfWeekFromNumberWeekdayMonday = "Monday";
+GetDayOfWeekFromNumberWeekdayTuesday = "Tuesday";
+GetDayOfWeekFromNumberWeekdayWednesday = "Wednesday";
+GetDayOfWeekFromNumberWeekdayThursday = "Thursday";
+GetDayOfWeekFromNumberWeekdayFriday = "Friday";
+GetDayOfWeekFromNumberWeekdaySaturday = "Saturday";
+GetDayOfWeekFromNumberWeekdaySunday = "Sunday";
+
+//NSLocalizedString("GetDayOfWeekFromNumberWeekdaySunday", comment: "Sunday")

@@ -25,7 +25,7 @@ struct TeamEditModalMainScreenView: View {
                         } .onTapGesture { viewModel.isPresentedChangeAvatar.toggle() }
                         
                         HStack {
-                            Text("Тип команды")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelTeamType", comment: "The command type"))
                             Picker("", selection: $viewModel.selectionAvailabilityTeamType) {
                                 ForEach(0..<viewModel.availabilityTeamType.count) {
                                     Text(self.viewModel.availabilityTeamType[$0])
@@ -34,7 +34,7 @@ struct TeamEditModalMainScreenView: View {
                         }
                         
                         HStack {
-                            Text("Тип поля")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelFieldType", comment: "Field type"))
                             Picker("", selection: $viewModel.selectionAvailabilityFieldType) {
                                 ForEach(0..<viewModel.availabilityFieldType.count) {
                                     Text(self.viewModel.availabilityFieldType[$0])
@@ -43,28 +43,28 @@ struct TeamEditModalMainScreenView: View {
                         }
                         
                         HStack {
-                            Text("Команда:")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelTeamName", comment: "Team"))
                             TextField("\(viewModel.team.teamName)",
                                       text: $viewModel.team.teamName)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         
                         HStack {
-                            Text("Страна:")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelCountry", comment: "A country"))
                             TextField("\(viewModel.team.country)",
                                       text: $viewModel.team.country)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         
                         HStack {
-                            Text("Город:")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelCity", comment: "City"))
                             TextField("\(viewModel.team.location)",
                                       text: $viewModel.team.location)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         
                         VStack {
-                            Text("Сколько игр в неделю?")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelHowManyGamesPerWeek", comment: "How many games per week?"))
                             Picker("", selection: $viewModel.selectionGameInWeak) {
                                 ForEach(0..<viewModel.gameInWeak.count) {
                                     Text(self.viewModel.gameInWeak[$0])
@@ -75,7 +75,7 @@ struct TeamEditModalMainScreenView: View {
                         ForEach(0..<viewModel.selectionGameInWeak+1, id: \.self) { item in
                             VStack {
                                 HStack {
-                                    DatePicker("Игра - \(item+1)",
+                                    DatePicker("\(NSLocalizedString("TeamEditModalMainScreenViewModelGame", comment: "Game")) - \(item+1)",
                                                selection: $viewModel.calendarDetails[item],
                                                displayedComponents: [.hourAndMinute])
                                     
@@ -91,20 +91,20 @@ struct TeamEditModalMainScreenView: View {
                     
                     Group {
                         HStack {
-                            Text("Максимальное кол-во игроков:")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelMaximumNumberOfPlayers", comment: "Maximum number of players:"))
                             Stepper("\(viewModel.team.maxCountPlayersInTeam)", value: $viewModel.team.maxCountPlayersInTeam)
                         }
                         
                         HStack {
-                            Text("Скрыть из глобального поиска?")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelHideFromGlobalSearch", comment: "Hide from global search?"))
                             Toggle(isOn: $viewModel.team.isHidden) {
-                                Text("\(viewModel.team.isHidden ? Text("да").foregroundColor(Color.red) : Text("нет").foregroundColor(Color.green))")
+                                Text("\(viewModel.team.isHidden ? Text(NSLocalizedString("TeamEditModalMainScreenViewModelYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("TeamEditModalMainScreenViewModelNo", comment: "no")).foregroundColor(Color.green))")
                                     .font(.headline)
                             }
                         }
                         
                         HStack {
-                            Text("Бюджет команды:")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelBudgetTeam", comment: "The budget team"))
                             TextField("\(viewModel.team.totalMoney)",
                                       text: $viewModel.team.totalMoney)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -112,7 +112,7 @@ struct TeamEditModalMainScreenView: View {
                         }
                         
                         HStack {
-                            Text("Месячная оплата с игрока:")
+                            Text(NSLocalizedString("TeamEditModalMainScreenViewModelMonthlyPaymentFromPlayer", comment: "Monthly payment from the player"))
                             TextField("\(viewModel.team.gameСosts)",
                                       text: $viewModel.team.gameСosts)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -151,7 +151,7 @@ struct TeamEditModalMainScreenView: View {
                                 
                                 presentationMode.wrappedValue.dismiss()
                             } ) {
-                                Text("Сохранить")
+                                Text(NSLocalizedString("TeamEditModalMainScreenViewModelSave", comment: "Save"))
                                     .font(.system(.headline, design: .serif))
                                     .foregroundColor(Color.black)
                                     .padding(.horizontal)
@@ -164,7 +164,7 @@ struct TeamEditModalMainScreenView: View {
                     }
                 }
                 
-                .navigationBarTitle(Text("Редактирование команды"), displayMode: .inline)
+                .navigationBarTitle(Text(NSLocalizedString("TeamEditModalMainScreenViewModelEditingCommand", comment: "Editing a command")), displayMode: .inline)
                 .navigationBarItems(
                     trailing: Button(action: {
                         presentationMode.wrappedValue.dismiss()

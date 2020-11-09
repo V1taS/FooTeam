@@ -14,19 +14,19 @@ class GetDayOfWeekFromNumber {
     func GetDayOfWeek(numberString: String) -> String {
         switch numberString {
         case "0":
-            return "Понедельник"
+            return NSLocalizedString("GetDayOfWeekFromNumberWeekdayMonday", comment: "Monday")
         case "1":
-            return "Вторник"
+            return NSLocalizedString("GetDayOfWeekFromNumberWeekdayTuesday", comment: "Tuesday")
         case "2":
-            return "Среда"
+            return NSLocalizedString("GetDayOfWeekFromNumberWeekdayWednesday", comment: "Wednesday")
         case "3":
-            return "Четверг"
+            return NSLocalizedString("GetDayOfWeekFromNumberWeekdayThursday", comment: "Thursday")
         case "4":
-            return "Пятница"
+            return NSLocalizedString("GetDayOfWeekFromNumberWeekdayFriday", comment: "Friday")
         case "5":
-            return "Суббота"
+            return NSLocalizedString("GetDayOfWeekFromNumberWeekdaySaturday", comment: "Saturday")
         case "6":
-            return "Воскресенье"
+            return NSLocalizedString("GetDayOfWeekFromNumberWeekdaySunday", comment: "Sunday")
         default:
             return ""
         }

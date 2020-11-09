@@ -36,10 +36,13 @@ class ProfileAddPlayerViewModel: ProfileAddPlayerViewModelProtocol, ObservableOb
     @Published var payment = "0"
     
     @Published var selectionWhoAreYou = 0
-    let whoAreYou = ["Игрок", "Зритель"]
+    let whoAreYou = [NSLocalizedString("ProfileAddPlayerViewAddWhoAreYouPlayer", comment: "Player"), NSLocalizedString("ProfileAddPlayerViewAddWhoAreYouViewer", comment: "Viewer")]
     
     @Published var selectionPositions = 0
-    let positions = ["ФРВ", "ЦП", "ЦЗ", "ВРТ"]
+    let positions = [NSLocalizedString("SetupProfileViewControllerPositionSt", comment: "ST"),
+                     NSLocalizedString("SetupProfileViewControllerPositionMC", comment: "MC"),
+                     NSLocalizedString("SetupProfileViewControllerPositionDC", comment: "DC"),
+                     NSLocalizedString("SetupProfileViewControllerPositionGK", comment: "GK")]
     
     @Published var team: Team = Team(
         avatarStringURL: "",

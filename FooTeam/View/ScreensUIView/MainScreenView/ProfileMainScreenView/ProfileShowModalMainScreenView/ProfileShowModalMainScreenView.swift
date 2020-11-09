@@ -34,14 +34,14 @@ struct ProfileShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text("Играю в команде:")
+                    Text(NSLocalizedString("ProfileShowModalMainScreenViewPlayingInTeam", comment: "Playing in a team"))
                     Spacer()
                     Text("\(viewModel.team.teamName)")
                         .font(.headline)
                 }
                 
                 HStack {
-                    Text("Личный баланс:")
+                    Text(NSLocalizedString("ProfileShowModalMainScreenViewPersonalBalance", comment: "Personal balance"))
                     Spacer()
                         .foregroundColor(Color.green)
                     Text("\(viewModel.player.payment) FCoin")
@@ -49,23 +49,23 @@ struct ProfileShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text("Месячная подписка:")
+                    Text(NSLocalizedString("ProfileShowModalMainScreenViewMonthlySubscription", comment: "Monthly subscription"))
                     Spacer()
-                    Text("\(viewModel.player.subscription ? Text("активна").foregroundColor(Color.green) : Text("не активна").foregroundColor(Color.red))")
+                    Text("\(viewModel.player.subscription ? Text(NSLocalizedString("ProfileShowModalMainScreenViewActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("ProfileShowModalMainScreenViewNotActive", comment: "not active")).foregroundColor(Color.red))")
                         .font(.headline)
                 }
                 
                 HStack {
-                    Text("Иду на след. игру:")
+                    Text(NSLocalizedString("ProfileShowModalMainScreenViewImGoingToNextGame", comment: "I'm going to the next game"))
                     Spacer()
-                    Text("\(viewModel.player.iGo ? Text("да").foregroundColor(Color.green) : Text("нет").foregroundColor(Color.red))")
+                    Text("\(viewModel.player.iGo ? Text(NSLocalizedString("ProfileShowModalMainScreenViewYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("ProfileShowModalMainScreenViewNo", comment: "no")).foregroundColor(Color.red))")
                         .font(.headline)
                 }
                 
                 HStack {
                     Spacer()
                     Button(action: { viewModel.isPresentedAlert.toggle()} ) {
-                        Text("Выйти")
+                        Text(NSLocalizedString("ProfileShowModalMainScreenViewExit", comment: "Exit"))
                             .font(.system(.headline, design: .serif))
                             .foregroundColor(Color.red)
                             .padding(.horizontal)
@@ -78,11 +78,11 @@ struct ProfileShowModalMainScreenView: View {
                     Spacer()
                 }
             } .alert(isPresented: self.$viewModel.isPresentedAlert) {
-                Alert(title: viewModel.player.captain ? Text("Внимание!!! Команда будет удалена!") : Text("Внимание!"),
-                      message: viewModel.player.captain ? Text("Вы хотите выйти и удалить команду?") : Text("Вы хотите выйти из команды?"),
-                      primaryButton: Alert.Button.default(Text("Отмена")),
+                Alert(title: viewModel.player.captain ? Text(NSLocalizedString("ProfileShowModalMainScreenViewAttentionBeDeleted", comment: "Attention!!! The command will be deleted!")) : Text(NSLocalizedString("ProfileShowModalMainScreenViewAttention", comment: "Attention")),
+                      message: viewModel.player.captain ? Text(NSLocalizedString("ProfileShowModalMainScreenViewExitAndDeleteCommand", comment: "Do you want to exit and delete the team?")) : Text(NSLocalizedString("ProfileShowModalMainScreenViewOutTheTeam", comment: "Do you want to leave the team?")),
+                      primaryButton: Alert.Button.default(Text(NSLocalizedString("ProfileShowModalMainScreenViewCancel", comment: "Cancel"))),
                       secondaryButton: Alert.Button.destructive(
-                        Text("Выйти"), action: {
+                        Text(NSLocalizedString("ProfileShowModalMainScreenViewGoOut", comment: "Go out")), action: {
                             
                             DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: viewModel.player)
                             
@@ -99,7 +99,7 @@ struct ProfileShowModalMainScreenView: View {
                 )
             }
             
-            .navigationBarTitle(Text("Персональная карточка"), displayMode: .inline)
+            .navigationBarTitle(Text(NSLocalizedString("ProfileShowModalMainScreenViewPersonalCard", comment: "Personal card")), displayMode: .inline)
             
             .navigationBarItems(
                 leading: Button(action: {

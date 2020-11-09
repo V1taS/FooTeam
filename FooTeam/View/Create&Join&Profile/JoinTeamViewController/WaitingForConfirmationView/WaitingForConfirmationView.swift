@@ -14,7 +14,7 @@ struct WaitingForConfirmationView: View {
     
     var body: some View {
         VStack {
-            Text("Ожидание подтверждения")
+            Text(NSLocalizedString("WaitingForConfirmationViewModelWaitingForConfirmation", comment: "Waiting for confirmation"))
                 .font(.title)
                 .fontWeight(.bold)
             ProgressView("", value: viewModel.downloadAmount, total: 100)
@@ -25,7 +25,7 @@ struct WaitingForConfirmationView: View {
                 mainContentFooTeam.modalPresentationStyle = .fullScreen
                 UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
             } ) {
-                Text("Отмена")
+                Text(NSLocalizedString("WaitingForConfirmationViewModelCancel", comment: "Cancel"))
                     .foregroundColor(Color.red)
             }
         }
@@ -33,7 +33,7 @@ struct WaitingForConfirmationView: View {
             setTimer()
         }
         .alert(isPresented: $viewModel.playerNoAccept) {
-            Alert(title: Text("Команда не готова Вас принять"), dismissButton: .cancel(Text("ok")))
+            Alert(title: Text(NSLocalizedString("WaitingForConfirmationViewModelTheTeamIsNotReadyAcceptYou", comment: "The team is not ready to accept You")), dismissButton: .cancel(Text("ok")))
         }
     }
     

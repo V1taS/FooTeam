@@ -51,7 +51,7 @@ struct EditPhotoViewPlayer: View {
                         Image(systemName: "photo")
                             .font(.system(size: 20))
                         
-                        Text("Галерея")
+                        Text(NSLocalizedString("EditPhotoViewPlayerGallery", comment: "Gallery"))
                             .font(.headline)
                     }
                     .frame(minWidth: 200, maxWidth: 250, minHeight: 30, maxHeight: 50)
@@ -73,7 +73,7 @@ struct EditPhotoViewPlayer: View {
                         Image(systemName: "opticaldiscdrive")
                             .font(.system(size: 20))
                         
-                        Text("Сохранить")
+                        Text(NSLocalizedString("EditPhotoViewPlayerSave", comment: "Save"))
                             .font(.headline)
                             .fontWeight(.bold)
                     }
