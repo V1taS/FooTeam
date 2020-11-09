@@ -19,11 +19,18 @@ class SaveTeamPlayTime {
     // MARK: Сохраняем дату
     func saveDate(date: Date, dayOfWeek: String, idTeam: String, gameNumber: Int, gameInWeak: Int, getPlayTime: [TeamTime]) {
         
+        print("date - \(date)")
+        print("dayOfWeek - \(dayOfWeek)")
+        print("idTeam - \(idTeam)")
+        print("gameNumber - \(gameNumber)")
+        print("gameInWeak - \(gameInWeak)")
+        print("getPlayTime - \(getPlayTime)")
+        
         let refActionsPlayer = db.collection(["teams", idTeam, "dateAndTimeOfTheGame"].joined(separator: "/"))
         let teamTime = TeamTime(date: date, dayOfWeek: dayOfWeek, game: "game-\(gameNumber)")
         let curreentPlayTime = getPlayTime.filter { $0.game == "game-\(gameNumber)" }
         
-        if gameInWeak+1 == getPlayTime.count {
+        if gameInWeak + 1 <= getPlayTime.count {
             EditTeamPlayTime.shared.editDate(date: date, dayOfWeek: dayOfWeek, idTeam: idTeam, gameNumber: gameNumber, getPlayTime: curreentPlayTime)
         } else if gameNumber > getPlayTime.count {
             refActionsPlayer.document("game-\(gameNumber)").setData(teamTime.representation) { (error) in }

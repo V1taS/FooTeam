@@ -126,7 +126,7 @@ struct TeamEditModalMainScreenView: View {
                                     SaveTeamPlayTime.shared.saveDate(
                                         date: viewModel.calendarDetails[item],
                                         dayOfWeek: "\(viewModel.selectionWeekday[item])",
-                                        idTeam: viewModel.actionsPlayers.players.first!.idTeam,
+                                        idTeam: viewModel.team.id,
                                         gameNumber: item+1,
                                         gameInWeak: viewModel.selectionGameInWeak,
                                         getPlayTime: viewModel.getPlayTime

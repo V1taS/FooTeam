@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FirebaseAuth
+import AuthenticationServices
 
 class LoginViewController: UIViewController {
     
@@ -21,6 +22,11 @@ class LoginViewController: UIViewController {
     let needAnAccountLabel = UILabel(text: NSLocalizedString("LoginViewControllerNeedAnAccountLabel" ,comment:"Don't have an account?"), font: .avenir14())
     
     let googleButton = UIButton(title: NSLocalizedString("LoginViewControllerGoogleButton" ,comment:"Continue on Google"), titleColor: .black, backgroundColor: .white, font: .bolt14(), logo: #imageLiteral(resourceName: "googleLogo"))
+    let appleButton = UIButton(title: NSLocalizedString("AuthViewControllerAppleButton" ,comment:"Continue with Apple?"),
+                               titleColor: .black,
+                               backgroundColor: .white,
+                               font: .bolt14(),
+                               logo: UIImage(named: "appleIconRevers"))
     let emailTextField = CustomeTextField(placeholder: "  demo@mail.ru")
     let passwordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
     
@@ -53,6 +59,7 @@ class LoginViewController: UIViewController {
     }()
     
     weak var delegate: AuthNavigatingDelegate?
+    fileprivate var currentNonce: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +73,7 @@ class LoginViewController: UIViewController {
         setupConstraints()
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        appleButton.addTarget(self, action: #selector(appleButtonTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
@@ -75,6 +83,18 @@ class LoginViewController: UIViewController {
 
 // MARK: - Actions
 extension LoginViewController {
+    @objc private func appleButtonTapped() {
+        let nonce = randomNonceString()
+        currentNonce = nonce
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
+    }
     
     @objc private func googleButtonTapped() {
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -161,7 +181,7 @@ extension LoginViewController {
         passwordTextField.backgroundColor = .systemGray6
         passwordTextField.layer.cornerRadius = 5
         
-        let stackView = UIStackView(arrangedSubviews: [googleButton, emailStackView, passwordStackView, loginButton, forgottenButton], axis: .vertical, spacing: 20)
+        let stackView = UIStackView(arrangedSubviews: [googleButton, appleButton, emailStackView, passwordStackView, loginButton, forgottenButton], axis: .vertical, spacing: 20)
         
         signUpButton.contentHorizontalAlignment = .leading
         let bottomStackView = UIStackView(arrangedSubviews: [needAnAccountLabel, signUpButton], axis: .horizontal, spacing: 10)
@@ -214,6 +234,116 @@ extension LoginViewController {
             footerStackView.heightAnchor.constraint(equalToConstant: 95)
         ])
     }
+}
+
+// MARK: - Sign in with Apple
+extension LoginViewController: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            guard let nonce = currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
+            
+            guard let appleIDToken = appleIDCredential.identityToken else {
+                print("Unable to fetch identity token")
+                return
+            }
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                return
+            }
+            // Initialize a Firebase credential.
+            let credential = OAuthProvider.credential(withProviderID: "apple.com",
+                                                      idToken: idTokenString,
+                                                      rawNonce: nonce)
+            
+            // Sign in with Firebase.
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+                if (error != nil) {
+                    print(error!.localizedDescription)
+                    return
+                }
+                // User is signed in to Firebase with Apple.
+                // ...
+                switch authResult {
+                case .none:
+                    let auth = AuthViewController()
+                    auth.modalPresentationStyle = .fullScreen
+                    self.present(auth, animated: true, completion: nil)
+                case .some(let user):
+                    FirestoreService.shared.getUserData(user: user.user) { (result) in
+                        switch result {
+                        case .success(let player):
+                            if player.idTeam.isEmpty {
+                                UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreLogged" ,comment:"You are logged in")) {
+                                    let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
+                                    mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                    UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)
+                                }
+                            } else {
+                                UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreLogged" ,comment:"You are logged in")) {
+                                    let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
+                                    mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                    UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)
+                                }
+                            }
+                        case .failure(_):
+                            UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreRegistered" ,comment:"You are registered")) {
+                                UIApplication.getTopViewController()?.present(SetupProfileViewController(currentUser: user.user), animated: true, completion: nil)
+                            }
+                            
+                        } // result
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Somthing bad happend", error)
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window!
+    }
+}
+
+// Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
+private func randomNonceString(length: Int = 32) -> String {
+    precondition(length > 0)
+    let charset: Array<Character> =
+        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+    var result = ""
+    var remainingLength = length
+    
+    while remainingLength > 0 {
+        let randoms: [UInt8] = (0 ..< 16).map { _ in
+            var random: UInt8 = 0
+            let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+            if errorCode != errSecSuccess {
+                fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+            }
+            return random
+        }
+        
+        randoms.forEach { random in
+            if remainingLength == 0 {
+                return
+            }
+            
+            if random < charset.count {
+                result.append(charset[Int(random)])
+                remainingLength -= 1
+            }
+        }
+    }
+    
+    return result
 }
 
 // MARK: - SwiftUI

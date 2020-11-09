@@ -18,7 +18,7 @@ AuthErrorServerError = "Ошибка сервера";
 AuthViewControllerRegisterInFTLabel = "Зарегистрироваться в FooTeam";
 AuthViewControllerDescriptionFTLabel = "Создайте профиль, чтобы создать свою собственную команду, управлять составами и получить другие возможности.";
 AuthViewControllerAlreadyOnboardLabel = "Уже есть аккаунт?";
-AuthViewControllerAppleButton = "Продолжить c Apple";
+AuthViewControllerAppleButton = "Войти c Apple";
 AuthViewControllerGoogleButton = "Продолжить в Google";
 AuthViewControllerEmailButton = "Ввести эл. почту";
 AuthViewControllerlogin = "Войти";
@@ -102,28 +102,28 @@ CreateTeamViewControllerSuccessfully = "Успешно";
 CreateTeamViewControllerYouCreatedTeam = "Вы создали команду!";
 CreateTeamViewControllerError = "Ошибка";
 
-// MARK: - CellJoinToTeamView
+// MARK: - CellJoinToTeamViewModel
 
-CellJoinToTeamViewPlayers = "Игроки";
-CellJoinToTeamViewFrom = "из";
-CellJoinToTeamViewSendRequestToTheTeam = "Отправить запрос команде?";
-CellJoinToTeamViewSendRequest = "Отправить запрос";
-CellJoinToTeamViewCancel = "Отмена";
+CellJoinToTeamViewModelPlayers = "Игроки";
+CellJoinToTeamViewModelFrom = "из";
+CellJoinToTeamViewModelSendRequestToTheTeam = "Отправить запрос команде?";
+CellJoinToTeamViewModelSendRequest = "Отправить запрос";
+CellJoinToTeamViewModelCancel = "Отмена";
 
-// MARK: - JoinToTeamView
+// MARK: - JoinToTeamViewModel
 
-JoinToTeamViewJoin = "Присоединиться";
-JoinToTeamViewAttention = "Внимание";
-JoinToTeamViewCreateYourOwnTeam = "Вы хотите создать свою собственную команду?";
-JoinToTeamViewAttention = "Внимание";
-JoinToTeamViewCancel = "Отмена";
+JoinToTeamViewModelJoin = "Присоединиться";
+JoinToTeamViewModelAttention = "Внимание";
+JoinToTeamViewModelCreateYourOwnTeam = "Вы хотите создать свою собственную команду?";
+JoinToTeamViewModelAttention = "Внимание";
+JoinToTeamViewModelCancel = "Отмена";
 JoinToTeamViewModelCancelCreate = "Создать";
 
-// MARK: - WaitingForConfirmationView
+// MARK: - WaitingForConfirmationViewModel
 
-WaitingForConfirmationViewWaitingForConfirmation = "Ожидание подтверждения";
+WaitingForConfirmationViewModelWaitingForConfirmation = "Ожидание подтверждения";
 WaitingForConfirmationViewModelCancel = "Отмена";
-WaitingForConfirmationViewTheTeamIsNotReadyAcceptYou = "Команда не готова Вас принять";
+WaitingForConfirmationViewModelTheTeamIsNotReadyAcceptYou = "Команда не готова Вас принять";
 
 // MARK: - HeaderMainScreenView
 

@@ -55,7 +55,7 @@ struct Player: Hashable, Decodable {
         self.losGame = losGame
         self.captain = captain
     }
-    
+
     init?(document: DocumentSnapshot) {
         guard let data = document.data() else { return nil}
         guard let name = data["name"] as? String,

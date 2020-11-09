@@ -8,9 +8,11 @@
 
 import UIKit
 import GoogleSignIn
+import FirebaseAuth
+import AuthenticationServices
 
 class AuthViewController: UIViewController {
-
+    
     var logoImageView = UIImageView(image: #imageLiteral(resourceName: "logo"), contentMode: .scaleAspectFill)
     
     let registerInFTLabel = UILabel(text: NSLocalizedString("AuthViewControllerRegisterInFTLabel" ,comment:"Register with FooTeam"), font: .bolt20(), textAlignment: .center)
@@ -23,8 +25,8 @@ class AuthViewController: UIViewController {
                                font: .bolt14(),
                                logo: #imageLiteral(resourceName: "appleIcon"))
     let googleButton = UIButton(title: NSLocalizedString("AuthViewControllerGoogleButton" ,comment:"Continue on Google?"),
-                                titleColor: .whiteAndBlack(),
-                                backgroundColor: .blackAndWhite(),
+                                titleColor: .buttonDark(),
+                                backgroundColor: .mainWhite(),
                                 font: .bolt14(),
                                 logo: #imageLiteral(resourceName: "googleLogo"))
     let emailButton = UIButton(title: NSLocalizedString("AuthViewControllerEmailButton" ,comment:"Enter email"),
@@ -43,7 +45,9 @@ class AuthViewController: UIViewController {
     
     let signUpVC = SignUpViewController()
     let loginVC = LoginViewController()
-
+    
+    fileprivate var currentNonce: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,24 +69,32 @@ class AuthViewController: UIViewController {
 // MARK: - Actions
 extension AuthViewController {
     @objc private func emailButtonTapped() {
-
         signUpVC.modalPresentationStyle = .fullScreen
-           present(signUpVC, animated: true, completion: nil)
-       }
-       
-       @objc private func loginButtonTapped() {
-        loginVC.modalPresentationStyle = .fullScreen
-           present(loginVC, animated: true, completion: nil)
-       }
-       
-    @objc private func appleButtonTapped() {
-
+        present(signUpVC, animated: true, completion: nil)
     }
     
-       @objc private func googleButtonTapped() {
-           GIDSignIn.sharedInstance()?.presentingViewController = self
-           GIDSignIn.sharedInstance().signIn()
-       }
+    @objc private func loginButtonTapped() {
+        loginVC.modalPresentationStyle = .fullScreen
+        present(loginVC, animated: true, completion: nil)
+    }
+    
+    @objc private func appleButtonTapped() {
+        let nonce = randomNonceString()
+        currentNonce = nonce
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
+    }
+    
+    @objc private func googleButtonTapped() {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
+    }
 }
 
 // MARK: - Setup constraints
@@ -91,7 +103,7 @@ extension AuthViewController {
         
         let topStackView = UIStackView(arrangedSubviews: [registerInFTLabel, descriptionFTLabel], axis: .vertical, spacing: 20)
         
-        let stackView = UIStackView(arrangedSubviews: [emailButton, googleButton], axis: .vertical, spacing: 10)
+        let stackView = UIStackView(arrangedSubviews: [emailButton, googleButton, appleButton], axis: .vertical, spacing: 10)
         
         loginButton.contentHorizontalAlignment = .fill
         let bottomStackView = UIStackView(arrangedSubviews: [alreadyOnboardLabel, loginButton],
@@ -115,10 +127,10 @@ extension AuthViewController {
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
-        logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 200),
             logoImageView.heightAnchor.constraint(equalToConstant: 60)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             topStackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 20),
@@ -188,6 +200,115 @@ extension AuthViewController: GIDSignInDelegate {
     }
 }
 
+// MARK: - Sign in with Apple
+extension AuthViewController: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            guard let nonce = currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
+            
+            guard let appleIDToken = appleIDCredential.identityToken else {
+                print("Unable to fetch identity token")
+                return
+            }
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                return
+            }
+            // Initialize a Firebase credential.
+            let credential = OAuthProvider.credential(withProviderID: "apple.com",
+                                                      idToken: idTokenString,
+                                                      rawNonce: nonce)
+            
+            // Sign in with Firebase.
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+                if (error != nil) {
+                    print(error!.localizedDescription)
+                    return
+                }
+                // User is signed in to Firebase with Apple.
+                // ...
+                switch authResult {
+                case .none:
+                    let auth = AuthViewController()
+                    auth.modalPresentationStyle = .fullScreen
+                    self.present(auth, animated: true, completion: nil)
+                case .some(let user):
+                    FirestoreService.shared.getUserData(user: user.user) { (result) in
+                        switch result {
+                        case .success(let player):
+                            if player.idTeam.isEmpty {
+                                UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreLogged" ,comment:"You are logged in")) {
+                                    let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
+                                    mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                    UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)
+                                }
+                            } else {
+                                UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreLogged" ,comment:"You are logged in")) {
+                                    let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
+                                    mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                    UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)
+                                }
+                            }
+                        case .failure(_):
+                            UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreRegistered" ,comment:"You are registered")) {
+                                UIApplication.getTopViewController()?.present(SetupProfileViewController(currentUser: user.user), animated: true, completion: nil)
+                            }
+                            
+                        } // result
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Somthing bad happend", error)
+    }
+}
+
+extension AuthViewController: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window!
+    }
+}
+
+// Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
+private func randomNonceString(length: Int = 32) -> String {
+    precondition(length > 0)
+    let charset: Array<Character> =
+        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+    var result = ""
+    var remainingLength = length
+    
+    while remainingLength > 0 {
+        let randoms: [UInt8] = (0 ..< 16).map { _ in
+            var random: UInt8 = 0
+            let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+            if errorCode != errSecSuccess {
+                fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+            }
+            return random
+        }
+        
+        randoms.forEach { random in
+            if remainingLength == 0 {
+                return
+            }
+            
+            if random < charset.count {
+                result.append(charset[Int(random)])
+                remainingLength -= 1
+            }
+        }
+    }
+    
+    return result
+}
 
 // MARK: - SwiftUI
 import SwiftUI

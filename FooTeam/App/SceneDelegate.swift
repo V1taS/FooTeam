@@ -24,7 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     FirestoreService.shared.getUserData(user: user) { (result) in
                         switch result {
                         case .success(let player):
-                            
                             if player.idTeam.isEmpty {
                                 let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
                                 mainContentFooTeam.modalPresentationStyle = .fullScreen
@@ -34,11 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                 mainContentFooTeam.modalPresentationStyle = .fullScreen
                                 self.window?.rootViewController = mainContentFooTeam
                             }
-                            
-                            
-                            
-                            
-                            
                         case .failure(_):
                             self.window?.rootViewController = AuthViewController()
                         }

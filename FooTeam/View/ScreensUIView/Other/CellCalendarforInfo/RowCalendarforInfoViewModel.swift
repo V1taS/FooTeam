@@ -57,6 +57,14 @@ class RowCalendarforInfoViewModel: RowCalendarforInfoViewModelProtocol, Observab
         
         self.getTeamPlayTime.$teams.sink { [self] team in
             
+            monday = false
+            tuesday = false
+            wednesday = false
+            thursday = false
+            friday = false
+            saturday = false
+            sunday = false
+            
             team.forEach { time in
                 switch time.dayOfWeek {
                 case "0":
@@ -77,7 +85,6 @@ class RowCalendarforInfoViewModel: RowCalendarforInfoViewModelProtocol, Observab
                     print("нет такого дня для календаря")
                 }
             }
-            
             
             self.getPlayTime = team
         } .store(in: &cancellables)
