@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 import FirebaseAuth
+import Firebase
 
 protocol TabViewFooTeamModelProtocol {
     var actionsPlayers: ActionsPlayers { get }
@@ -43,15 +44,15 @@ class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
             }
         } .store(in: &cancellables)
         
-//        if currentPlayer.idTeam.isEmpty {
-//            let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
-//            mainContentFooTeam.modalPresentationStyle = .fullScreen
-//            UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
-//        }
+        //        if currentPlayer.idTeam.isEmpty {
+        //            let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
+        //            mainContentFooTeam.modalPresentationStyle = .fullScreen
+        //            UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
+        //        }
         
         self.waitingPlayers.$players.sink { players in
+
             self.players = players
-            
             if !players.isEmpty {
                 self.showAcceptPlayers = true
             }

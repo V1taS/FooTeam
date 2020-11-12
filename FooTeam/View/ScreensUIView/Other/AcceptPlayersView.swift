@@ -34,26 +34,29 @@ struct AcceptPlayersView: View {
                         }
                     } ) {
                         ForEach(players, id: \.self) { player in
-                            HStack {
-                                ImagePlayer(avatarStringURL: player.avatarStringURL, avatarSize: 40)
-                                    .padding(.trailing, 8)
-                                Text("\(player.name)")
-                                    .lineLimit(1)
-                                    .font(.headline)
-                                    .frame(width: 140)
-                                Spacer()
-                                Button(action: {
-                                    NoAcceptInvitation.shared.acceptInvitation(player: player, capitanPlayer: FirestoreService.shared.currentUser)
-                                }) {
-                                    Text("❌")
+                            if player.idTeam.isEmpty {
+                                HStack {
+                                    ImagePlayer(avatarStringURL: player.avatarStringURL, avatarSize: 40)
                                         .padding(.trailing, 8)
-                                }
-                                Button(action: {
-                                    AcceptInvitation.shared.acceptInvitation(player: player, capitanPlayer: FirestoreService.shared.currentUser)
-                                }) {
-                                    Text("✅")
+                                    Text("\(player.name)")
+                                        .lineLimit(1)
+                                        .font(.headline)
+                                        .frame(width: 140)
+                                    Spacer()
+                                    Button(action: {
+                                        NoAcceptInvitation.shared.acceptInvitation(player: player, capitanPlayer: FirestoreService.shared.currentUser)
+                                    }) {
+                                        Text("❌")
+                                            .padding(.trailing, 8)
+                                    }
+                                    Button(action: {
+                                        AcceptInvitation.shared.acceptInvitation(player: player, capitanPlayer: FirestoreService.shared.currentUser)
+                                    }) {
+                                        Text("✅")
+                                    }
                                 }
                             }
+                            
                         }
                     }
                 }.buttonStyle(PlainButtonStyle())
