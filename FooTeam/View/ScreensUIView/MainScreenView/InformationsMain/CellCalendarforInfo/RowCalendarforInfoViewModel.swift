@@ -10,7 +10,23 @@ import SwiftUI
 import Combine
 
 protocol RowCalendarforInfoViewModelProtocol {
+    var actionsPlayers: ActionsPlayers { get }
+    var currentTeam: CurrentTeam { get }
+    var getTeamPlayTime: GetTeamPlayTime { get }
+    var cancellables: Set<AnyCancellable> { get }
     
+    var players: [Player] { get }
+    var team: Team { get }
+    var getPlayTime: [TeamTime] { get }
+    var currentWeekday: Int { get }
+    
+    var monday: Bool { get }
+    var tuesday: Bool { get }
+    var wednesday: Bool { get }
+    var thursday: Bool { get }
+    var friday: Bool { get }
+    var saturday: Bool { get }
+    var sunday: Bool { get }
     init()
 }
 
@@ -21,24 +37,8 @@ class RowCalendarforInfoViewModel: RowCalendarforInfoViewModelProtocol, Observab
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var players: [Player] = []
-    
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 18,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: ""
-    )
-    
+    @Published var team: Team = DefaultTeam.shared.team
     @Published var getPlayTime: [TeamTime] = []
-    
     @Published var currentWeekday: Int = 10
     
     @Published var monday: Bool = false

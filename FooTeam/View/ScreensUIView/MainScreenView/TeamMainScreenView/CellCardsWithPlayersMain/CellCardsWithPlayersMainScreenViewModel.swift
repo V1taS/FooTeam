@@ -25,20 +25,7 @@ class CellCardsWithPlayersMainScreenViewModel: CellCardsWithPlayersMainScreenVie
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var iGoPlayers: [Player] = []
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 1,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: "Мини"
-    )
+    @Published var team: Team = DefaultTeam.shared.team
 
     required init() {
         self.actionsPlayers.$players.sink { players in

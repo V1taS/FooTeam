@@ -24,8 +24,6 @@ struct CellTopPlayersFooTeam: View {
     let win: String
     let los: String
     
-    
-    
     var body: some View {
         ZStack {
             Color("WhiteAndBlack")
@@ -34,15 +32,11 @@ struct CellTopPlayersFooTeam: View {
                 .overlay(RoundedRectangle(cornerRadius: 45)
                             .stroke(Color("BlackAndWhite"))
                 )
-                
-
+            
             VStack {
-                
-                
                 ZStack {
                     ImagePlayer(avatarStringURL: photoPlayer, avatarSize: 125)
                 } .offset(x: 20, y: -5)
-                
                 
                 Text(namePlayer)
                     .foregroundColor(Color("BlackAndWhite"))
@@ -55,9 +49,6 @@ struct CellTopPlayersFooTeam: View {
                     Color("BlackAndWhite")
                         .frame(width: 180, height: 1)
                 } .offset(x: 0, y: -10)
-                
-                
-                
                 
                 HStack {
                     VStack {
@@ -84,8 +75,6 @@ struct CellTopPlayersFooTeam: View {
                         }
                     } .offset(x: -10, y: 0)
                     
-                    
-                    
                     VStack {
                         HStack {
                             Text("WIN")
@@ -109,6 +98,7 @@ struct CellTopPlayersFooTeam: View {
                     } .offset(x: -5, y: 0)
                 }
             }
+            
             ZStack {
                 VStack {
                     Text(ratingPlayer)
@@ -130,7 +120,6 @@ struct CellTopPlayersFooTeam: View {
                         .indicator(.activity)
                         .transition(.fade(duration: 0.5))
                         .frame(width: 25, height: 16)
-                        
                     
                     Color("BlackAndWhite")
                         .frame(width: 20, height: 1)
@@ -158,8 +147,17 @@ struct CellTopPlayersFooTeam: View {
     }
 }
 
-//struct CellTopPlayersFooTeam_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CellTopPlayersFooTeam(backgroundColor: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)), namePlayer: "Сосин Виталий", photoPlayer: "Сосин Виталий", ratingPlayer: "0", positionPlayer: "ФРВ", game: "2", goal: "2", win: "2", los: "2")
-//    }
-//}
+struct CellTopPlayersFooTeam_Previews: PreviewProvider {
+    static var previews: some View {
+        CellTopPlayersFooTeam(namePlayer: "Raul",
+                              photoPlayer: "",
+                              ratingPlayer: "80",
+                              positionPlayer: "ST",
+                              locationCountryImage: "",
+                              logoTeamImage: "",
+                              game: "5",
+                              goal: "10",
+                              win: "5",
+                              los: "0")
+    }
+}

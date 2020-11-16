@@ -17,7 +17,8 @@ struct TeamMainScreenView: View {
             Color("WhiteAndBlack")
                 .frame(maxWidth: 380, idealHeight: 100, maxHeight: 100)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10) .stroke(Color("BlackAndWhite")))
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color("BlackAndWhite")))
             
             Button(action: { viewModel.isPresentedShowModal.toggle() }) {
                 
@@ -32,7 +33,8 @@ struct TeamMainScreenView: View {
                     Spacer()
                     
                     VStack {
-                        Text(NSLocalizedString("TeamMainScreenViewStructures", comment: "Structures"))
+                        Text(NSLocalizedString("TeamMainScreenViewStructures",
+                                               comment: "Structures"))
                             .font(.title)
                             .minimumScaleFactor(0.7)
                             .foregroundColor(Color(.red))

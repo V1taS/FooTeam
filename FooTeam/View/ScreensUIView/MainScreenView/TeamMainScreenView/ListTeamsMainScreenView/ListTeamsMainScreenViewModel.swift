@@ -11,21 +11,19 @@ import Combine
 
 protocol ListTeamsMainScreenViewModelProtocol {
     var actionsPlayers: ActionsPlayers { get }
-    var networkWeather: NetworkWeatherManager { get }
+    var currentTeam: CurrentTeam { get }
     var cancellables: Set<AnyCancellable> { get }
     
     var iGoCount: Int { get }
     var countTeams: Int { get }
     var selectionTeams: Int { get }
     var iGoPlayers: [Player] { get }
-    
-    var temperatureString: String { get }
+    var team: Team { get }
     init()
 }
 
 class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, ObservableObject {
     @Published var actionsPlayers = ActionsPlayers()
-    @Published var networkWeather = NetworkWeatherManager()
     @Published var currentTeam = CurrentTeam()
     internal var cancellables = Set<AnyCancellable>()
     
@@ -33,23 +31,7 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
     @Published var countTeams: Int = 0
     @Published var selectionTeams: Int = 0
     @Published var iGoPlayers: [Player] = []
-    
-    @Published var temperatureString: String = ""
-    
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 18,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: ""
-    )
+    @Published var team: Team = DefaultTeam.shared.team
     
     required init() {
         self.currentTeam.$team.sink { team in
@@ -61,13 +43,5 @@ class ListTeamsMainScreenViewModel: ListTeamsMainScreenViewModelProtocol, Observ
             self.iGoPlayers = iGoPlayers
             self.iGoCount = iGoPlayers.count
         } .store(in: &cancellables)
-        
-        self.networkWeather.fetchCurrentWeather(city: "Khimki")
-        self.networkWeather.onCompletion = { [weak self] currentWeather in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.temperatureString = currentWeather.temperatureString
-            }
-        }
     }
 }

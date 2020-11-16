@@ -17,10 +17,12 @@ struct InformationsMainScreenView: View {
             Color("WhiteAndBlack")
                 .frame(maxWidth: 180, idealHeight: 230, maxHeight: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10) .stroke(Color("BlackAndWhite")))
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color("BlackAndWhite")))
             
             VStack {
-                Text(NSLocalizedString("InformationsMainScreenViewModelInfo", comment: "INFORMATION"))
+                Text(NSLocalizedString("InformationsMainScreenViewModelInfo",
+                                       comment: "INFORMATION"))
                     .font(.headline)
                     .foregroundColor(Color(.red))
                     .offset(x: 0, y: 11)
@@ -29,7 +31,8 @@ struct InformationsMainScreenView: View {
                 VStack(alignment: .leading, spacing: 1) {
                     
                     HStack {
-                        Text(NSLocalizedString("InformationsMainScreenViewModelClub", comment: "Club"))
+                        Text(NSLocalizedString("InformationsMainScreenViewModelClub",
+                                               comment: "Club"))
                             .foregroundColor(Color("BlackAndWhite"))
                             .lineLimit(1)
                             .minimumScaleFactor(0.9)
@@ -41,7 +44,8 @@ struct InformationsMainScreenView: View {
                     }
                     
                     HStack {
-                        Text(NSLocalizedString("InformationsMainScreenViewModelGoToGame", comment: "Going to the game"))
+                        Text(NSLocalizedString("InformationsMainScreenViewModelGoToGame",
+                                               comment: "Going to the game"))
                             .minimumScaleFactor(0.9)
                             .lineLimit(1)
                             .foregroundColor(Color("BlackAndWhite"))
@@ -57,7 +61,8 @@ struct InformationsMainScreenView: View {
                     .offset(x: 0, y: -5)
                 
                 VStack(alignment: .center, spacing: 1) {
-                    Text(NSLocalizedString("InformationsMainScreenViewModelCalendar", comment: "Calendar of games"))
+                    Text(NSLocalizedString("InformationsMainScreenViewModelCalendar",
+                                           comment: "Calendar of games"))
                         .lineLimit(1)
                         .minimumScaleFactor(0.7)
                         .frame(maxWidth: 150)
@@ -65,7 +70,6 @@ struct InformationsMainScreenView: View {
                     
                     RowCalendarforInfo()   
                 } .offset(x: 0, y: -11)
-                
             }
         }
     }

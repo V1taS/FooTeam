@@ -16,15 +16,18 @@ struct ListTeamsMainScreenView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text(NSLocalizedString("ListTeamsMainScreenViewChooseTeam", comment: "Choose a team"))) {
-                    
+                Section(header: Text(NSLocalizedString("ListTeamsMainScreenViewChooseTeam",
+                                                       comment: "Choose a team"))) {
                     HStack {
                         if viewModel.iGoCount < 10 {
                             HStack() {
                                 Spacer()
-                                Text(NSLocalizedString("ListTeamsMainScreenViewNotEnoughPlayers", comment: "The number of players is not enough for distribution into teams"))
-                                    .font(.headline)
-                                    .foregroundColor(.red)
+                                Text(
+                                    NSLocalizedString("ListTeamsMainScreenViewNotEnoughPlayers",
+                                                      comment: "The number of players is not enough for distribution into teams")
+                                )
+                                .font(.headline)
+                                .foregroundColor(.red)
                                 Spacer()
                             }
                         } else {
@@ -36,24 +39,34 @@ struct ListTeamsMainScreenView: View {
                         }
                     }
                     
-                    CellCardsWithPlayersMainScreenView(selectTeams: $viewModel.selectionTeams)
-                        .frame(maxHeight: 330)
+                    CellCardsWithPlayersMainScreenView(
+                        selectTeams: $viewModel.selectionTeams
+                    )
+                    .frame(maxHeight: 330)
                     
                     HStack {
                         Spacer()
                         Button(action: {
                             if viewModel.iGoCount >= 10 {
                                 if viewModel.team.fieldType == "0" {
-                                    let countT = NumberOfTeamsMini.shared.numberOfTeams(countPlauers: viewModel.iGoCount)
-                                    viewModel.countTeams = countT
+                                    let countTeams = NumberOfTeamsMini.shared.numberOfTeams(
+                                        countPlauers: viewModel.iGoCount
+                                    )
+                                    viewModel.countTeams = countTeams
                                 } else {
-                                    let countT = NumberOfTeamsFullField.shared.numberOfTeams(countPlauers: viewModel.iGoCount)
+                                    let countT = NumberOfTeamsFullField.shared.numberOfTeams(
+                                        countPlauers: viewModel.iGoCount
+                                    )
                                     viewModel.countTeams = countT
                                 }
-                                InWhichTeam.shared.setNumberInWhichTeam(players: viewModel.iGoPlayers, countNumbers: viewModel.countTeams)
+                                InWhichTeam.shared.setNumberInWhichTeam(
+                                    players: viewModel.iGoPlayers,
+                                    countNumbers: viewModel.countTeams
+                                )
                             }
                         } ) {
-                            Text(NSLocalizedString("ListTeamsMainScreenViewCreateTeam", comment: "To create the compositions"))
+                            Text(NSLocalizedString("ListTeamsMainScreenViewCreateTeam",
+                                                   comment: "To create the compositions"))
                                 .font(.system(.headline, design: .serif))
                                 .foregroundColor(Color.black)
                                 .padding(.horizontal)
@@ -64,9 +77,11 @@ struct ListTeamsMainScreenView: View {
                         Spacer()
                     }
                 }
-                Section(header: Text(NSLocalizedString("ListTeamsMainScreenViewInfo", comment: "Information"))) {
+                Section(header: Text(NSLocalizedString("ListTeamsMainScreenViewInfo",
+                                                       comment: "Information"))) {
                     HStack {
-                        Text(NSLocalizedString("ListTeamsMainScreenViewFieldType", comment: "Type of football field"))
+                        Text(NSLocalizedString("ListTeamsMainScreenViewFieldType",
+                                               comment: "Type of football field"))
                         Spacer()
                         
                         Text("\(FieldTypeFromIntToString.shared.setFieldType(from: viewModel.team.fieldType))")
@@ -74,14 +89,16 @@ struct ListTeamsMainScreenView: View {
                     }
                     
                     HStack {
-                        Text(NSLocalizedString("ListTeamsMainScreenViewNumberPlayers", comment: "Number of players"))
+                        Text(NSLocalizedString("ListTeamsMainScreenViewNumberPlayers",
+                                               comment: "Number of players"))
                         Spacer()
                         Text("\(viewModel.iGoCount)")
                             .font(.headline)
                     }
                     
                     HStack {
-                        Text(NSLocalizedString("ListTeamsMainScreenViewNumberTeams", comment: "Number of teams"))
+                        Text(NSLocalizedString("ListTeamsMainScreenViewNumberTeams",
+                                               comment: "Number of teams"))
                         Spacer()
                         Text("\(viewModel.countTeams)")
                             .font(.headline)
@@ -89,7 +106,8 @@ struct ListTeamsMainScreenView: View {
                 }
                 
             }
-            .navigationBarTitle(NSLocalizedString("ListTeamsMainScreenViewTeamToPlay", comment: "Lineups for the game"), displayMode: .automatic)
+            .navigationBarTitle(NSLocalizedString("ListTeamsMainScreenViewTeamToPlay",
+                                                  comment: "Lineups for the game"), displayMode: .automatic)
             .navigationBarItems(trailing: Button(action: {
                 presentationMode.wrappedValue.dismiss()
             }) {

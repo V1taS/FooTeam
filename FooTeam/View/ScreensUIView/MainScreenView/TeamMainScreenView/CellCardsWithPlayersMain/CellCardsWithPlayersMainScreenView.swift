@@ -16,12 +16,21 @@ struct CellCardsWithPlayersMainScreenView: View {
     var body: some View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 97, maximum: 97))], spacing: 0) {
-                    ForEach(viewModel.iGoPlayers.filter { $0.teamNumber == selectTeams }, id: \.self) { player in
+                LazyVGrid(
+                    columns: [GridItem(.adaptive(minimum: 97,
+                                                 maximum: 97))],
+                    spacing: 0
+                ) {
+                    ForEach(
+                        viewModel.iGoPlayers.filter { $0.teamNumber == selectTeams },
+                        id: \.self
+                    ) { player in
                         CellTopPlayersFooTeam(namePlayer: player.name,
                                               photoPlayer: player.avatarStringURL,
                                               ratingPlayer: "\(player.rating)",
-                                              positionPlayer: PositionFromIntToString.shared.setPosition(position: player.position),
+                                              positionPlayer: PositionFromIntToString.shared.setPosition(
+                                                position: player.position
+                                              ),
                                               locationCountryImage: "",
                                               logoTeamImage: viewModel.currentTeam.team.avatarStringURL,                                          game: "\(player.winGame + player.losGame)",
                                               goal: "\(player.numberOfGoals)",

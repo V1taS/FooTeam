@@ -20,20 +20,16 @@ protocol TeamMainScreenViewModelProtocol {
 }
 
 class TeamMainScreenViewModel: TeamMainScreenViewModelProtocol, ObservableObject {
-    
     @Published var actionsPlayers = ActionsPlayers()
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var iGoCount: Int = 0
     @Published var  playersCount: Int = 0
-    
     @Published var isPresentedShowModal: Bool = false
     
     required init() {
         self.actionsPlayers.$players.sink { players in
-            
             let iGoCount = players.filter { $0.iGo }
-            
             self.iGoCount = iGoCount.count
             self.playersCount = players.count
         } .store(in: &cancellables)
