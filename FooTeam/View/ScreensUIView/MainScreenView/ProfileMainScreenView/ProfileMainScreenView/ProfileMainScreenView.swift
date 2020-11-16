@@ -17,16 +17,20 @@ struct ProfileMainScreenView: View {
             Color("WhiteAndBlack")
                 .frame(maxWidth: 180, idealHeight: 210, maxHeight: 230)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10) .stroke(Color("BlackAndWhite")))
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color("BlackAndWhite")))
             
             Button(action: {
                 viewModel.isPresentedShowModal.toggle()
             }) {
                 VStack {
-                    Text(NSLocalizedString("ProfileMainScreenViewProfile", comment: "PROFILE"))
-                        .font(.headline)
-                        .foregroundColor(Color(.red))
-                        .minimumScaleFactor(0.7)
+                    Text(
+                        NSLocalizedString("ProfileMainScreenViewProfile",
+                                          comment: "PROFILE")
+                    )
+                    .font(.headline)
+                    .foregroundColor(Color(.red))
+                    .minimumScaleFactor(0.7)
                     Text(viewModel.name)
                         .lineLimit(1)
                         .frame(maxWidth: 150)
@@ -34,14 +38,16 @@ struct ProfileMainScreenView: View {
                         .foregroundColor(Color("BlackAndWhite"))
                         .offset(x: 0, y: 5)
                     
-                    ImagePlayer(avatarStringURL: viewModel.avatarStringURL, avatarSize: 125)
+                    ImagePlayer(
+                        avatarStringURL: viewModel.avatarStringURL,
+                        avatarSize: 125
+                    )
                 }
             }.sheet(isPresented: $viewModel.isPresentedShowModal) {
                 ProfileShowModalMainScreenView() }
         }
     }
 }
-
 
 struct ProfileMainFooTeam_Previews: PreviewProvider {
     static var previews: some View {

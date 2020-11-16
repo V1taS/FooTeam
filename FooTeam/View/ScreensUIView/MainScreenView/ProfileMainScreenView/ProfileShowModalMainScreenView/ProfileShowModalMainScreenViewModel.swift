@@ -12,9 +12,11 @@ import Combine
 protocol ProfileShowModalMainScreenViewModelProtocol {
     var currentUser: CurrentUser { get }
     var currentTeam: CurrentTeam { get }
+    var actionsPlayers: ActionsPlayers { get }
     var cancellables: Set<AnyCancellable> { get }
     
     var player: Player { get }
+    var players: [Player] { get }
     var team: Team { get }
     
     var isPresentedProfileEditor: Bool { get }
@@ -30,44 +32,13 @@ class ProfileShowModalMainScreenViewModel: ProfileShowModalMainScreenViewModelPr
     @Published var actionsPlayers = ActionsPlayers()
     internal var cancellables = Set<AnyCancellable>()
     
-    @Published var player: Player = Player(
-        name: "Default player",
-        email: "",
-        avatarStringURL: "",
-        whoAreYou: "",
-        id: "",
-        idTeam: "",
-        teamNumber: 0,
-        payment: "",
-        iGo: false,
-        subscription: false,
-        rating: 0,
-        position: "",
-        numberOfGoals: 0,
-        winGame: 0,
-        losGame: 9,
-        captain: false
-    )
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 18,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: ""
-    )
+    @Published var player: Player = DefaultPlayer.shared.player
+    @Published var players: [Player] = []
+    @Published var team: Team = DefaultTeam.shared.team
     
     @Published var isPresentedProfileEditor: Bool = false
     @Published var isPresentedAlert: Bool = false
     @Published var outFromTeam: Bool = false
-    
-    @Published var players: [Player] = []
     
     required init() {
         self.actionsPlayers.$players.sink { players in

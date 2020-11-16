@@ -23,9 +23,9 @@ class ProfileMainScreenViewModel: ProfileMainScreenViewModelProtocol, Observable
     @Published var currentUser = CurrentUser()
     internal var cancellables = Set<AnyCancellable>()
     
-    @Published var isPresentedShowModal: Bool = false
     @Published var name: String = ""
     @Published var avatarStringURL: String = ""
+    @Published var isPresentedShowModal: Bool = false
     
     required init() {
         self.currentUser.$player.sink { player in

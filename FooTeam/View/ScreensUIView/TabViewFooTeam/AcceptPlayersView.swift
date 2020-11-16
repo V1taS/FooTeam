@@ -17,17 +17,16 @@ struct AcceptPlayersView: View {
         ZStack {
             Color.black.opacity(0.8)
                 .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    showAcceptPlayers = false
-                }
+                .onTapGesture { showAcceptPlayers = false }
             ZStack {
                 List {
                     Section(header: HStack {
-                        Text(NSLocalizedString("AcceptPlayersWaiting", comment: "Waiting to be added"))
+                        Text(
+                            NSLocalizedString("AcceptPlayersWaiting",
+                                              comment: "Waiting to be added")
+                        )
                         Spacer()
-                        Button(action: {
-                            showAcceptPlayers = false
-                        }) {
+                        Button(action: { showAcceptPlayers = false }) {
                             Image(systemName: "multiply")
                                 .font(.title)
                                 .foregroundColor(Color("BlackAndWhite"))
@@ -36,27 +35,33 @@ struct AcceptPlayersView: View {
                         ForEach(players, id: \.self) { player in
                             if player.idTeam.isEmpty {
                                 HStack {
-                                    ImagePlayer(avatarStringURL: player.avatarStringURL, avatarSize: 40)
-                                        .padding(.trailing, 8)
+                                    ImagePlayer(
+                                        avatarStringURL: player.avatarStringURL,
+                                        avatarSize: 40
+                                    )
+                                    .padding(.trailing, 8)
                                     Text("\(player.name)")
                                         .lineLimit(1)
                                         .font(.headline)
                                         .frame(width: 140)
                                     Spacer()
                                     Button(action: {
-                                        NoAcceptInvitation.shared.acceptInvitation(player: player, idTeam: FirestoreService.shared.currentUser.idTeam)
+                                        NoAcceptInvitation.shared.acceptInvitation(
+                                            player: player,
+                                            idTeam: FirestoreService.shared.currentUser.idTeam
+                                        )
                                     }) {
                                         Text("❌")
                                             .padding(.trailing, 8)
                                     }
                                     Button(action: {
-                                        AcceptInvitation.shared.acceptInvitation(player: player, capitanPlayer: FirestoreService.shared.currentUser)
-                                    }) {
-                                        Text("✅")
-                                    }
+                                        AcceptInvitation.shared.acceptInvitation(
+                                            player: player,
+                                            capitanPlayer: FirestoreService.shared.currentUser
+                                        )
+                                    }) { Text("✅") }
                                 }
                             }
-                            
                         }
                     }
                 }.buttonStyle(PlainButtonStyle())
@@ -70,8 +75,9 @@ struct AcceptPlayersView: View {
     }
 }
 
-//struct AcceptPlayersView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AcceptPlayersView(players: .constant(<#T##value: [Player]##[Player]#>), showAcceptPlayers: <#Binding<Bool>#>)
-//    }
-//}
+struct AcceptPlayersView_Previews: PreviewProvider {
+    static var previews: some View {
+        AcceptPlayersView(players: .constant([DefaultPlayer.shared.player]),
+                          showAcceptPlayers: .constant(false))
+    }
+}

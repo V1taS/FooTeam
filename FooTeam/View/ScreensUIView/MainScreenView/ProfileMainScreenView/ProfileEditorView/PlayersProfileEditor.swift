@@ -20,23 +20,28 @@ struct PlayersProfileEditor: View {
                 Form {
                     HStack {
                         Spacer()
-                        CellTopPlayersFooTeam(namePlayer: "\(viewModel.player.name)",
-                                              photoPlayer: "\(viewModel.player.avatarStringURL)",
-                                              ratingPlayer: "\(viewModel.player.rating)",
-                                              positionPlayer: PositionFromIntToString.shared.setPosition(position: viewModel.player.position),
-                                              locationCountryImage: "",
-                                              logoTeamImage: viewModel.team.avatarStringURL,
-                                              game: "\(viewModel.player.winGame + viewModel.player.losGame)",
-                                              goal: "\(viewModel.player.numberOfGoals)",
-                                              win: "\(viewModel.player.winGame)",
-                                              los: "\(viewModel.player.losGame)")
-                            .padding(.vertical, 8)
+                        CellTopPlayersFooTeam(
+                            namePlayer: "\(viewModel.player.name)",
+                            photoPlayer: "\(viewModel.player.avatarStringURL)",
+                            ratingPlayer: "\(viewModel.player.rating)",
+                            positionPlayer: PositionFromIntToString.shared.setPosition(
+                                position: viewModel.player.position
+                            ),
+                            locationCountryImage: "",
+                            logoTeamImage: viewModel.team.avatarStringURL,
+                            game: "\(viewModel.player.winGame + viewModel.player.losGame)",
+                            goal: "\(viewModel.player.numberOfGoals)",
+                            win: "\(viewModel.player.winGame)",
+                            los: "\(viewModel.player.losGame)"
+                        )
+                        .padding(.vertical, 8)
                         Spacer()
                     } .onTapGesture { viewModel.isPresentedChangeAvatar.toggle() }
                     
                     VStack {
                         HStack {
-                            Text(NSLocalizedString("PlayersProfileEditorWhoAreYou", comment: "Who are you?"))
+                            Text(NSLocalizedString("PlayersProfileEditorWhoAreYou",
+                                                   comment: "Who are you?"))
                             Picker("", selection: $viewModel.selectionWhoAreYou) {
                                 ForEach(0..<viewModel.whoAreYou.count) {
                                     Text(self.viewModel.whoAreYou[$0])
@@ -45,31 +50,27 @@ struct PlayersProfileEditor: View {
                         }
                         
                         HStack {
-                            Text(NSLocalizedString("PlayersProfileEditorName", comment: "Name"))
+                            Text(NSLocalizedString("PlayersProfileEditorName",
+                                                   comment: "Name"))
                             TextField("\(self.viewModel.player.name)",
                                       text: $viewModel.player.name)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
                         
                         HStack {
-                            Text(NSLocalizedString("PlayersProfileEditorMail", comment: "Email"))
+                            Text(NSLocalizedString("PlayersProfileEditorMail",
+                                                   comment: "Email"))
                             TextField("\(viewModel.player.email)",
                                       text: $viewModel.player.email)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
-                        
-                        //                        HStack {
-                        //                            Text("Пароль:")
-                        //                            TextField("\(viewModel.passwordPlayer)",
-                        //                                      text: $viewModel.passwordPlayer)
-                        //                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        //                        }
                     }
                     
                     if viewModel.selectionWhoAreYou == 0 {
                         if FirestoreService.shared.currentUser.captain {
                             HStack {
-                                Text(NSLocalizedString("PlayersProfileEditorBalance", comment: "Balance"))
+                                Text(NSLocalizedString("PlayersProfileEditorBalance",
+                                                       comment: "Balance"))
                                 TextField("\(viewModel.player.payment)",
                                           text: $viewModel.player.payment)
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -80,7 +81,10 @@ struct PlayersProfileEditor: View {
                         
                         if FirestoreService.shared.currentUser.captain {
                             HStack {
-                                Text(NSLocalizedString("PlayersProfileEditorMonthlySubscription", comment: "Monthly subscription"))
+                                Text(
+                                    NSLocalizedString("PlayersProfileEditorMonthlySubscription",
+                                                      comment: "Monthly subscription")
+                                )
                                 Spacer()
                                 Toggle(isOn: $viewModel.player.subscription) {
                                     Text("\(viewModel.player.subscription ? Text(NSLocalizedString("PlayersProfileEditorActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("PlayersProfileEditorNotActive", comment: "not active")).foregroundColor(Color.red))")
@@ -90,7 +94,8 @@ struct PlayersProfileEditor: View {
                         }
                         
                         HStack {
-                            Text(NSLocalizedString("PlayersProfileEditorGoesToNextGame", comment: "Goes to the next game"))
+                            Text(NSLocalizedString("PlayersProfileEditorGoesToNextGame",
+                                                   comment: "Goes to the next game"))
                             Toggle(isOn: $viewModel.player.iGo) {
                                 Text("\(self.viewModel.player.iGo ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.red))")
                                     .font(.headline)
@@ -98,7 +103,8 @@ struct PlayersProfileEditor: View {
                         }
                         
                         HStack {
-                            Text(NSLocalizedString("PlayersProfileEditorPosition", comment: "Position"))
+                            Text(NSLocalizedString("PlayersProfileEditorPosition",
+                                                   comment: "Position"))
                             Picker("", selection: $viewModel.selectionPositions) {
                                 ForEach(0..<viewModel.positions.count) {
                                     Text(self.viewModel.positions[$0])
@@ -109,23 +115,27 @@ struct PlayersProfileEditor: View {
                         if FirestoreService.shared.currentUser.captain {
                             
                             HStack {
-                                Text(NSLocalizedString("PlayersProfileEditorGamesWon", comment: "Games won"))
+                                Text(NSLocalizedString("PlayersProfileEditorGamesWon",
+                                                       comment: "Games won"))
                                 Stepper("\(viewModel.player.winGame)", value: $viewModel.player.winGame)
                             }
                             
                             HStack {
-                                Text(NSLocalizedString("PlayersProfileEditorGamesLost", comment: "Games lost"))
+                                Text(NSLocalizedString("PlayersProfileEditorGamesLost",
+                                                       comment: "Games lost"))
                                 Stepper("\(viewModel.player.losGame)", value: $viewModel.player.losGame)
                             }
                             
                             HStack {
-                                Text(NSLocalizedString("PlayersProfileEditorGoalsScored", comment: "Goals scored"))
+                                Text(NSLocalizedString("PlayersProfileEditorGoalsScored",
+                                                       comment: "Goals scored"))
                                 Stepper("\(viewModel.player.numberOfGoals)", value: $viewModel.player.numberOfGoals)
                             }
                             
                             if FirestoreService.shared.currentUser.captain != viewModel.player.captain {
                                 HStack {
-                                    Text(NSLocalizedString("PlayersProfileEditorMakeTeamCaptain", comment: "Make a team captain?"))
+                                    Text(NSLocalizedString("PlayersProfileEditorMakeTeamCaptain",
+                                                           comment: "Make a team captain?"))
                                     Toggle(isOn: $viewModel.player.captain) {
                                         Text("\(viewModel.player.captain ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.green))")
                                             .font(.headline)
@@ -133,15 +143,16 @@ struct PlayersProfileEditor: View {
                                 }
                                 
                                 HStack {
-                                    Text(NSLocalizedString("PlayersProfileEditorRemovePlayerFromTeam", comment: "Remove a player from the team?"))
+                                    Text(
+                                        NSLocalizedString("PlayersProfileEditorRemovePlayerFromTeam",
+                                                          comment: "Remove a player from the team?")
+                                    )
                                     Toggle(isOn: $viewModel.deletPlayer) {
                                         Text("\(viewModel.deletPlayer ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.green))")
                                             .font(.headline)
                                     }
                                 }
                             }
-                            
-                            
                         }
                     }
                     
@@ -178,15 +189,12 @@ struct PlayersProfileEditor: View {
                                 if player.email != viewModel.player.email {
                                     AuthService.shared.updatingUserEmail(getEmailAddres: viewModel.player.email)
                                 }
-                                
-                                //                                if !viewModel.passwordPlayer.isEmpty {
-                                //                                    AuthService.shared.updatingUserPassword(getPassword: viewModel.passwordPlayer)
-                                //                                }
                                 presentationMode.wrappedValue.dismiss()
                             }
                             
                         } ) {
-                            Text(NSLocalizedString("PlayersProfileEditorSave", comment: "Save"))
+                            Text(NSLocalizedString("PlayersProfileEditorSave",
+                                                   comment: "Save"))
                                 .font(.system(.headline, design: .serif))
                                 .foregroundColor(Color.black)
                                 .padding(.horizontal)
@@ -198,7 +206,10 @@ struct PlayersProfileEditor: View {
                     }
                 }
                 
-                .navigationBarTitle(Text(NSLocalizedString("PlayersProfileEditorEditing", comment: "Editing")), displayMode: .inline)
+                .navigationBarTitle(Text(
+                    NSLocalizedString("PlayersProfileEditorEditing",
+                                      comment: "Editing")
+                ), displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     presentationMode.wrappedValue.dismiss()
                 }) {
@@ -212,13 +223,16 @@ struct PlayersProfileEditor: View {
                         Color.black.opacity(0.8)
                         ZStack {
                             Color(#colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.968627451, alpha: 1))
-                            EditPhotoViewPlayer(player: viewModel.player, isPresentedChangeAvatar: $viewModel.isPresentedChangeAvatar, image: $viewModel.image)
+                            EditPhotoViewPlayer(
+                                player: viewModel.player,
+                                isPresentedChangeAvatar: $viewModel.isPresentedChangeAvatar,
+                                image: $viewModel.image
+                            )
                         }
                         .frame(width: 330, height: 330)
                         .cornerRadius(20)
                         .offset(x: 0, y: 220)
                     } .edgesIgnoringSafeArea(.all)
-                    
                 }
             }
         }
@@ -227,6 +241,6 @@ struct PlayersProfileEditor: View {
 
 struct ListPlayersProfileEditor_Previews: PreviewProvider {
     static var previews: some View {
-        PlayersProfileEditor(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false))
+        PlayersProfileEditor(player: DefaultPlayer.shared.player)
     }
 }

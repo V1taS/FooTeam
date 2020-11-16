@@ -14,10 +14,15 @@ import Firebase
 protocol TabViewFooTeamModelProtocol {
     var actionsPlayers: ActionsPlayers { get }
     var waitingPlayers: WaitingPlayers { get }
+    var currentUser: CurrentUser { get }
     var cancellables: Set<AnyCancellable> { get }
     
     var showAcceptPlayers: Bool { get }
+    var showTeamModal: Bool { get }
+    var outFromTeam: Bool { get }
+    
     var players: [Player] { get }
+    var currentPlayer: Player { get }
     init()
 }
 
@@ -29,11 +34,10 @@ class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
     
     @Published var showAcceptPlayers: Bool = false
     @Published var showTeamModal: Bool = false
+    @Published var outFromTeam: Bool = false
     
     @Published var players: [Player] = []
-    @Published var currentPlayer: Player = Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "non", idTeam: "non", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
-    
-    @Published var outFromTeam: Bool = false
+    @Published var currentPlayer: Player = DefaultPlayer.shared.player
     
     required init() {
         self.currentUser.$player.sink { player in
@@ -45,7 +49,6 @@ class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
         } .store(in: &cancellables)
         
         self.waitingPlayers.$players.sink { players in
-
             self.players = players
             if !players.isEmpty {
                 self.showAcceptPlayers = true

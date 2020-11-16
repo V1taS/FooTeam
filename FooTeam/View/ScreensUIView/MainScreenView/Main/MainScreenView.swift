@@ -18,9 +18,12 @@ struct MainScreenView: View {
                 VStack {
                     HeaderMainScreenView()
                     HStack {
-                        Text(NSLocalizedString("MainScreenViewModelControlPanel", comment: "Control panel"))
-                            .font(.title)
-                            .fontWeight(.bold)
+                        Text(
+                            NSLocalizedString("MainScreenViewModelControlPanel",
+                                              comment: "Control panel")
+                        )
+                        .font(.title)
+                        .fontWeight(.bold)
                         Spacer()
                     } .padding(.horizontal)
                     
@@ -31,9 +34,12 @@ struct MainScreenView: View {
                     } .padding(.horizontal)
                     
                     HStack {
-                        Text(NSLocalizedString("MainScreenViewModelSquadForTheGame", comment: "Squad for the game"))
-                            .font(.title)
-                            .fontWeight(.bold)
+                        Text(
+                            NSLocalizedString("MainScreenViewModelSquadForTheGame",
+                                              comment: "Squad for the game")
+                        )
+                        .font(.title)
+                        .fontWeight(.bold)
                         Spacer()
                     } .padding(.horizontal)
                     
@@ -41,23 +47,31 @@ struct MainScreenView: View {
                         .padding(.horizontal)
                     
                     HStack {
-                        Text(NSLocalizedString("MainScreenViewModelTop", comment: "TOP Players"))
-                            .font(.title)
-                            .fontWeight(.bold)
+                        Text(
+                            NSLocalizedString("MainScreenViewModelTop",
+                                              comment: "TOP Players")
+                        )
+                        .font(.title)
+                        .fontWeight(.bold)
                         Spacer()
                     } .padding(.horizontal)
                     
                     TopPlayersScreenView()
-                        
+                    
                     Spacer()
                 }
                 
-                .navigationBarItems(trailing:
-                                        OutButtonFooTeamMenu(isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut))
-                
-                .navigationBarTitle(NSLocalizedString("MainScreenViewModelHome", comment: "Home"), displayMode: .inline)
+                .navigationBarItems(
+                    trailing: OutButtonFooTeamMenu(
+                        isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut
+                    )
+                )
+                .navigationBarTitle(
+                    NSLocalizedString("MainScreenViewModelHome",
+                                      comment: "Home"),
+                    displayMode: .inline
+                )
             }
-            
         }
     }
 }

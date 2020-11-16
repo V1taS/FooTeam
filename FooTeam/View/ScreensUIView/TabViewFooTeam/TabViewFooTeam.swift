@@ -20,37 +20,37 @@ struct TabViewFooTeam: View {
                 MainScreenView()
                     .tabItem {
                         Image(systemName: "rectangle.3.offgrid.bubble.left")
-                        Text(NSLocalizedString("TabViewFooTeamMain", comment: "Main"))
-
+                        Text(NSLocalizedString("TabViewFooTeamMain",
+                                               comment: "Main"))
                     }
                 
                 ListPlayersSecondScreenView()
                     .tabItem {
                         Image(systemName: "sportscourt.fill")
-                        Text(NSLocalizedString("TabViewFooTeamListPlayers", comment: "List of players"))
+                        Text(NSLocalizedString("TabViewFooTeamListPlayers",
+                                               comment: "List of players"))
                     }
+                
                 TeamShowModalMainScreenView(showAcceptPlayers: $viewModel.showAcceptPlayers)
                     .tabItem {
                         Image(systemName: "dot.arrowtriangles.up.right.down.left.circle")
-                        Text(NSLocalizedString("TabViewFooTeamTeam", comment: "Team"))
+                        Text(NSLocalizedString("TabViewFooTeamTeam",
+                                               comment: "Team"))
                     }
                 
-            } .fullScreenCover(isPresented: $viewModel.outFromTeam, content: {
-                JoinToTeamView()
-            })
+            } .fullScreenCover(
+                isPresented: $viewModel.outFromTeam,
+                content: { JoinToTeamView() }
+            )
             
             if FirestoreService.shared.currentUser.captain {
                 if viewModel.showAcceptPlayers {
-                    AcceptPlayersView(players: $viewModel.players, showAcceptPlayers: $viewModel.showAcceptPlayers)
+                    AcceptPlayersView(
+                        players: $viewModel.players,
+                        showAcceptPlayers: $viewModel.showAcceptPlayers
+                    )
                 }
             }
-            
-//            ZStack {
-//                Color.black
-//                    .edgesIgnoringSafeArea(.all)
-//                PageView()
-//            }
-            
         }
     }
 }

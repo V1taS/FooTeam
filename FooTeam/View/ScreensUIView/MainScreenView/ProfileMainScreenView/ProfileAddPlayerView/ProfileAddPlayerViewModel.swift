@@ -36,28 +36,24 @@ class ProfileAddPlayerViewModel: ProfileAddPlayerViewModelProtocol, ObservableOb
     @Published var payment = "0"
     
     @Published var selectionWhoAreYou = 0
-    let whoAreYou = [NSLocalizedString("ProfileAddPlayerViewAddWhoAreYouPlayer", comment: "Player"), NSLocalizedString("ProfileAddPlayerViewAddWhoAreYouViewer", comment: "Viewer")]
+    let whoAreYou = [
+        NSLocalizedString("ProfileAddPlayerViewAddWhoAreYouPlayer",
+                          comment: "Player"),
+        NSLocalizedString("ProfileAddPlayerViewAddWhoAreYouViewer",
+                          comment: "Viewer")
+    ]
     
     @Published var selectionPositions = 0
-    let positions = [NSLocalizedString("SetupProfileViewControllerPositionSt", comment: "ST"),
-                     NSLocalizedString("SetupProfileViewControllerPositionMC", comment: "MC"),
-                     NSLocalizedString("SetupProfileViewControllerPositionDC", comment: "DC"),
-                     NSLocalizedString("SetupProfileViewControllerPositionGK", comment: "GK")]
+    let positions = [NSLocalizedString("SetupProfileViewControllerPositionSt",
+                                       comment: "ST"),
+                     NSLocalizedString("SetupProfileViewControllerPositionMC",
+                                       comment: "MC"),
+                     NSLocalizedString("SetupProfileViewControllerPositionDC",
+                                       comment: "DC"),
+                     NSLocalizedString("SetupProfileViewControllerPositionGK",
+                                       comment: "GK")]
     
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 18,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: ""
-    )
+    @Published var team: Team = DefaultTeam.shared.team
     
     required init() {
         self.currentTeam.$team.sink { team in

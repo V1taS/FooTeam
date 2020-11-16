@@ -18,7 +18,6 @@ protocol HeaderMainScreenViewModelProtocol {
 }
 
 class HeaderMainScreenViewModel: HeaderMainScreenViewModelProtocol, ObservableObject {
-    
     @Published var currentUser = CurrentUser()
     internal var cancellables = Set<AnyCancellable>()
     

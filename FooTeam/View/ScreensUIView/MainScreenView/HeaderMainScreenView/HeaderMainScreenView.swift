@@ -20,9 +20,12 @@ struct HeaderMainScreenView: View {
                     .border(Color("BlackAndWhite"))
                 
                 HStack {
-                    Text(NSLocalizedString("HeaderMainScreenViewModelBalance", comment: "Balance"))
-                        .padding(.leading)
-                        .foregroundColor(Color("BlackAndWhite"))
+                    Text(
+                        NSLocalizedString("HeaderMainScreenViewModelBalance",
+                                          comment: "Balance")
+                    )
+                    .padding(.leading)
+                    .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.balance)")
                         .font(.headline)

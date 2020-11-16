@@ -121,7 +121,6 @@
 		1B6C49582518372B00B384B7 /* PlayersProfileEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6C49572518372B00B384B7 /* PlayersProfileEditor.swift */; };
 		1B6F5BE22518125C000FACD9 /* JoinToTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6F5BE12518125C000FACD9 /* JoinToTeamViewModel.swift */; };
 		1B6F5BE72518129C000FACD9 /* CellJoinToTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6F5BE62518129C000FACD9 /* CellJoinToTeamViewModel.swift */; };
-		1B77086D250FF327006B1549 /* PopapCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B77086C250FF327006B1549 /* PopapCard.swift */; };
 		1B783969254B6A7A001E8346 /* GetDateStringFromDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B783968254B6A7A001E8346 /* GetDateStringFromDate.swift */; };
 		1B78396C254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78396B254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift */; };
 		1B7BF9B024EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */; };
@@ -279,7 +278,6 @@
 		1B6C49572518372B00B384B7 /* PlayersProfileEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersProfileEditor.swift; sourceTree = "<group>"; };
 		1B6F5BE12518125C000FACD9 /* JoinToTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToTeamViewModel.swift; sourceTree = "<group>"; };
 		1B6F5BE62518129C000FACD9 /* CellJoinToTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellJoinToTeamViewModel.swift; sourceTree = "<group>"; };
-		1B77086C250FF327006B1549 /* PopapCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopapCard.swift; sourceTree = "<group>"; };
 		1B783968254B6A7A001E8346 /* GetDateStringFromDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateStringFromDate.swift; sourceTree = "<group>"; };
 		1B78396B254B6CBD001E8346 /* GetDayOfWeekFromNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDayOfWeekFromNumber.swift; sourceTree = "<group>"; };
 		1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutButtonFooTeamMenu.swift; sourceTree = "<group>"; };
@@ -344,13 +342,10 @@
 		1B0BB4472506AC9D00B3AA06 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				1B70B70C2550C92A002532FD /* CellCalendarforInfo */,
+				1B634FC02562F6E80076339C /* Image */,
+				1B858D28252FC2940028E7C6 /* PageView */,
 				1B596F6224EC73530092770B /* CaruselBodyFooTeam */,
-				1B15EB49252E0CD500E36E20 /* AcceptPlayersView.swift */,
-				1BF32C95251574E100941F44 /* ImagePlayer.swift */,
-				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
 				1B7BF9B324EDF7C900CDEDB9 /* DividerFooTeamMenu.swift */,
-				1B77086C250FF327006B1549 /* PopapCard.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -505,7 +500,6 @@
 		1B50E65625066F58009B10C7 /* ProfileMainScreenView */ = {
 			isa = PBXGroup;
 			children = (
-				1B2A5621252A4EF2005DA4C2 /* EditPhoto */,
 				1B18C2DF25116D3100551C6D /* ProfileMainScreenView */,
 				1B02408B251172010074100A /* ProfileShowModalMainScreenView */,
 				1BAD99E025117D1300022700 /* ProfileEditorView */,
@@ -518,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				1BF833DE252FB1150077053E /* InformationsMainScreenView */,
+				1B70B70C2550C92A002532FD /* CellCalendarforInfo */,
 			);
 			path = InformationsMain;
 			sourceTree = "<group>";
@@ -602,8 +597,6 @@
 			isa = PBXGroup;
 			children = (
 				1B596F5224EC73530092770B /* JoinTeamViewController */,
-				1B596F5724EC73530092770B /* SetupProfileViewController.swift */,
-				1B596F5624EC73530092770B /* CreateTeamViewController.swift */,
 			);
 			path = "Create&Join&Profile";
 			sourceTree = "<group>";
@@ -611,9 +604,11 @@
 		1B596F5224EC73530092770B /* JoinTeamViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1B596F5724EC73530092770B /* SetupProfileViewController.swift */,
+				1B596F5624EC73530092770B /* CreateTeamViewController.swift */,
 				1B6F5BDF25181247000FACD9 /* JoinToTeamView */,
-				1B6F5BE42518128E000FACD9 /* CellJoinToTeamView */,
 				1B4BECB3251D4A0B00581FB2 /* WaitingForConfirmationView */,
+				1B6F5BE42518128E000FACD9 /* CellJoinToTeamView */,
 			);
 			path = JoinTeamViewController;
 			sourceTree = "<group>";
@@ -621,7 +616,6 @@
 		1B596F5824EC73530092770B /* ScreensUIView */ = {
 			isa = PBXGroup;
 			children = (
-				1B858D28252FC2940028E7C6 /* PageView */,
 				1B6B48102511959E00D71729 /* TabViewFooTeam */,
 				1B39446C24F9A3010008FC40 /* MainScreenView */,
 				1B596F6624EC73530092770B /* SecondScreenView */,
@@ -773,6 +767,15 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
+		1B634FC02562F6E80076339C /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				1B2A5621252A4EF2005DA4C2 /* EditPhoto */,
+				1BF32C95251574E100941F44 /* ImagePlayer.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		1B6964B725118D1E00CBAC9E /* ListTeamsMainScreenView */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,6 +790,8 @@
 			children = (
 				1B39446824F85B060008FC40 /* TabViewFooTeam.swift */,
 				1B6B4811251195D900D71729 /* TabViewFooTeamModel.swift */,
+				1B15EB49252E0CD500E36E20 /* AcceptPlayersView.swift */,
+				1B7BF9AF24EDF2DF00CDEDB9 /* OutButtonFooTeamMenu.swift */,
 			);
 			path = TabViewFooTeam;
 			sourceTree = "<group>";
@@ -844,6 +849,7 @@
 				1B858D29252FC2A90028E7C6 /* PageView.swift */,
 			);
 			name = PageView;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		1BAD99E025117D1300022700 /* ProfileEditorView */ = {
@@ -1179,7 +1185,6 @@
 				1BC99DF8251181FE007EE289 /* InformationsMainScreenViewModel.swift in Sources */,
 				1B596FB924EC73A90092770B /* FontExtension.swift in Sources */,
 				1B3C8522255029C60001149C /* EditTeamPlayTime.swift in Sources */,
-				1B77086D250FF327006B1549 /* PopapCard.swift in Sources */,
 				1B6C4955251832BD00B384B7 /* ListPlayersProfileShow.swift in Sources */,
 				1B596FC124EC73A90092770B /* LabelExtension.swift in Sources */,
 				1B596FC324EC73A90092770B /* AddAvaTeamsView.swift in Sources */,

@@ -18,30 +18,39 @@ struct ProfileShowModalMainScreenView: View {
             Form {
                 HStack {
                     Spacer()
-                    
-                    CellTopPlayersFooTeam(namePlayer: "\(viewModel.player.name)",
-                                          photoPlayer: "\(viewModel.player.avatarStringURL)",
-                                          ratingPlayer: "\(viewModel.player.rating)",
-                                          positionPlayer: PositionFromIntToString.shared.setPosition(position: viewModel.player.position),
-                                          locationCountryImage: "",
-                                          logoTeamImage: viewModel.team.avatarStringURL ,
-                                          game: "\(viewModel.player.winGame + viewModel.player.losGame)",
-                                          goal: "\(viewModel.player.numberOfGoals)",
-                                          win: "\(viewModel.player.winGame)",
-                                          los: "\(viewModel.player.losGame)")
-                        .padding(.vertical, 8)
+                    CellTopPlayersFooTeam(
+                        namePlayer: "\(viewModel.player.name)",
+                        photoPlayer: "\(viewModel.player.avatarStringURL)",
+                        ratingPlayer: "\(viewModel.player.rating)",
+                        positionPlayer: PositionFromIntToString.shared.setPosition(
+                            position: viewModel.player.position
+                        ),
+                        locationCountryImage: "",
+                        logoTeamImage: viewModel.team.avatarStringURL ,
+                        game: "\(viewModel.player.winGame + viewModel.player.losGame)",
+                        goal: "\(viewModel.player.numberOfGoals)",
+                        win: "\(viewModel.player.winGame)",
+                        los: "\(viewModel.player.losGame)"
+                    )
+                    .padding(.vertical, 8)
                     Spacer()
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("ProfileShowModalMainScreenViewPlayingInTeam", comment: "Playing in a team"))
+                    Text(
+                        NSLocalizedString("ProfileShowModalMainScreenViewPlayingInTeam",
+                                          comment: "Playing in a team")
+                    )
                     Spacer()
                     Text("\(viewModel.team.teamName)")
                         .font(.headline)
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("ProfileShowModalMainScreenViewPersonalBalance", comment: "Personal balance"))
+                    Text(
+                        NSLocalizedString("ProfileShowModalMainScreenViewPersonalBalance",
+                                          comment: "Personal balance")
+                    )
                     Spacer()
                         .foregroundColor(Color.green)
                     Text("\(viewModel.player.payment) FCoin")
@@ -49,14 +58,20 @@ struct ProfileShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("ProfileShowModalMainScreenViewMonthlySubscription", comment: "Monthly subscription"))
+                    Text(
+                        NSLocalizedString("ProfileShowModalMainScreenViewMonthlySubscription",
+                                          comment: "Monthly subscription")
+                    )
                     Spacer()
                     Text("\(viewModel.player.subscription ? Text(NSLocalizedString("ProfileShowModalMainScreenViewActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("ProfileShowModalMainScreenViewNotActive", comment: "not active")).foregroundColor(Color.red))")
                         .font(.headline)
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("ProfileShowModalMainScreenViewImGoingToNextGame", comment: "I'm going to the next game"))
+                    Text(
+                        NSLocalizedString("ProfileShowModalMainScreenViewImGoingToNextGame",
+                                          comment: "I'm going to the next game")
+                    )
                     Spacer()
                     Text("\(viewModel.player.iGo ? Text(NSLocalizedString("ProfileShowModalMainScreenViewYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("ProfileShowModalMainScreenViewNo", comment: "no")).foregroundColor(Color.red))")
                         .font(.headline)
@@ -65,12 +80,15 @@ struct ProfileShowModalMainScreenView: View {
                 HStack {
                     Spacer()
                     Button(action: { viewModel.isPresentedAlert.toggle()} ) {
-                        Text(NSLocalizedString("ProfileShowModalMainScreenViewExit", comment: "Exit"))
-                            .font(.system(.headline, design: .serif))
-                            .foregroundColor(Color.red)
-                            .padding(.horizontal)
-                            .padding(.vertical, 5)
-                            .cornerRadius(5)
+                        Text(
+                            NSLocalizedString("ProfileShowModalMainScreenViewExit",
+                                              comment: "Exit")
+                        )
+                        .font(.system(.headline, design: .serif))
+                        .foregroundColor(Color.red)
+                        .padding(.horizontal)
+                        .padding(.vertical, 5)
+                        .cornerRadius(5)
                     }
                     .fullScreenCover(isPresented: $viewModel.outFromTeam, content: {
                         JoinToTeamView()
@@ -78,12 +96,26 @@ struct ProfileShowModalMainScreenView: View {
                     Spacer()
                 }
             } .alert(isPresented: self.$viewModel.isPresentedAlert) {
-                Alert(title: viewModel.player.captain ? Text(NSLocalizedString("ProfileShowModalMainScreenViewAttentionBeDeleted", comment: "Attention!!! The command will be deleted!")) : Text(NSLocalizedString("ProfileShowModalMainScreenViewAttention", comment: "Attention")),
-                      message: viewModel.player.captain ? Text(NSLocalizedString("ProfileShowModalMainScreenViewExitAndDeleteCommand", comment: "Do you want to exit and delete the team?")) : Text(NSLocalizedString("ProfileShowModalMainScreenViewOutTheTeam", comment: "Do you want to leave the team?")),
-                      primaryButton: Alert.Button.default(Text(NSLocalizedString("ProfileShowModalMainScreenViewCancel", comment: "Cancel"))),
-                      secondaryButton: Alert.Button.destructive(
-                        Text(NSLocalizedString("ProfileShowModalMainScreenViewGoOut", comment: "Go out")), action: {
-                            
+                Alert(
+                    title: viewModel.player.captain ?
+                        Text(NSLocalizedString("ProfileShowModalMainScreenViewAttentionBeDeleted",
+                                               comment: "Attention!!! The command will be deleted!")) :
+                        Text(NSLocalizedString("ProfileShowModalMainScreenViewAttention",
+                                               comment: "Attention")),
+                    message: viewModel.player.captain ?
+                        Text(NSLocalizedString("ProfileShowModalMainScreenViewExitAndDeleteCommand",
+                                               comment: "Do you want to exit and delete the team?")) :
+                        Text(NSLocalizedString("ProfileShowModalMainScreenViewOutTheTeam",
+                                               comment: "Do you want to leave the team?")),
+                    primaryButton: Alert.Button.default(Text(
+                        NSLocalizedString("ProfileShowModalMainScreenViewCancel",
+                                          comment: "Cancel")
+                    )),
+                    secondaryButton: Alert.Button.destructive(
+                        Text(
+                            NSLocalizedString("ProfileShowModalMainScreenViewGoOut",
+                                              comment: "Go out")
+                        ), action: {
                             DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: viewModel.player)
                             
                             if viewModel.player.captain {
@@ -92,14 +124,16 @@ struct ProfileShowModalMainScreenView: View {
                                 }
                                 DeletTeam.shared.deletTeamInTeam(teamId: viewModel.player.idTeam)
                             }
-                            
                             viewModel.outFromTeam.toggle()
                         }
-                      )
+                    )
                 )
             }
             
-            .navigationBarTitle(Text(NSLocalizedString("ProfileShowModalMainScreenViewPersonalCard", comment: "Personal card")), displayMode: .inline)
+            .navigationBarTitle(Text(
+                NSLocalizedString("ProfileShowModalMainScreenViewPersonalCard",
+                                  comment: "Personal card")
+            ), displayMode: .inline)
             
             .navigationBarItems(
                 leading: Button(action: {

@@ -43,54 +43,32 @@ class PlayersProfileEditorViewModel: ListPlayersProfileEditorViewModelProtocol, 
     @Published var passwordPlayer = ""
     
     @Published var players: [Player] = []
-    @Published var player: Player = Player(
-        name: "Name",
-        email: "123@mail.ru",
-        avatarStringURL: "",
-        whoAreYou: "",
-        id: "",
-        idTeam: "",
-        teamNumber: 0,
-        payment: "",
-        iGo: false,
-        subscription: false,
-        rating: 0,
-        position: "",
-        numberOfGoals: 0,
-        winGame: 0,
-        losGame: 9,
-        captain: false
-    )
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 18,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: ""
-    )
+    @Published var player: Player = DefaultPlayer.shared.player
+    @Published var team: Team = DefaultTeam.shared.team
     
-    var whoAreYou: [String] = [NSLocalizedString("PlayersProfileEditorWhoAreYouPlayer", comment: "Player"), NSLocalizedString("PlayersProfileEditorWhoAreYouViewer", comment: "Viewer")]
+    var whoAreYou: [String] = [
+        NSLocalizedString("PlayersProfileEditorWhoAreYouPlayer",
+                          comment: "Player"),
+        NSLocalizedString("PlayersProfileEditorWhoAreYouViewer",
+                          comment: "Viewer")
+    ]
     @Published var selectionWhoAreYou: Int = 0
     
-    var positions: [String] = [NSLocalizedString("PlayersProfileEditorPositionSt", comment: "ST"),
-                               NSLocalizedString("PlayersProfileEditorPositionMC", comment: "MC"),
-                               NSLocalizedString("PlayersProfileEditorPositionDC", comment: "DC"),
-                               NSLocalizedString("PlayersProfileEditorPositionGK", comment: "GK")]
-    @Published var selectionPositions: Int = 0 
-    
+    var positions: [String] = [NSLocalizedString("PlayersProfileEditorPositionSt",
+                                                 comment: "ST"),
+                               NSLocalizedString("PlayersProfileEditorPositionMC",
+                                                 comment: "MC"),
+                               NSLocalizedString("PlayersProfileEditorPositionDC",
+                                                 comment: "DC"),
+                               NSLocalizedString("PlayersProfileEditorPositionGK",
+                                                 comment: "GK")]
+    @Published var selectionPositions: Int = 0
     @Published var image = UIImage()
     
     required init() {
         self.actionsPlayers.$players.sink { players in
             let bufferIDplayer = players.filter { $0.id == BufferIDplayer.shared.playerID }
-            let bufferIDplayerCheck = bufferIDplayer.first ?? Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+            let bufferIDplayerCheck = bufferIDplayer.first ?? DefaultPlayer.shared.player
             
             switch bufferIDplayerCheck.whoAreYou {
             case "0":
