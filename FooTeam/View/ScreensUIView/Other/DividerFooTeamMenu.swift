@@ -11,10 +11,9 @@ import SwiftUI
 struct DividerFooTeamMenu: View {
     var body: some View {
         Divider()
-        .frame(width: 150, height: 1)
-        .background(Color.white)
+            .frame(width: 150, height: 1)
+            .background(Color.white)
     }
-    
 }
 
 struct DividerFooTeamMenu_Previews: PreviewProvider {

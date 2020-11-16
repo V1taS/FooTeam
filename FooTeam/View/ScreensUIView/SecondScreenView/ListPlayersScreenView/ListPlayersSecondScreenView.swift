@@ -19,7 +19,8 @@ struct ListPlayersSecondScreenView: View {
             VStack {
                 List {
                     Section(header: HStack {
-                        Text(NSLocalizedString("ListPlayersSecondScreenViewBasicStructure", comment: "Basic structure"))
+                        Text(NSLocalizedString("ListPlayersSecondScreenViewBasicStructure",
+                                               comment: "Basic structure"))
                         Spacer()
                         Text("\(viewModel.playersMain.count)")
                             .padding(.trailing, 8)
@@ -40,7 +41,8 @@ struct ListPlayersSecondScreenView: View {
                     }
                     
                     Section(header: HStack {
-                        Text(NSLocalizedString("ListPlayersSecondScreenViewReservePlayers", comment: "Reserve players"))
+                        Text(NSLocalizedString("ListPlayersSecondScreenViewReservePlayers",
+                                               comment: "Reserve players"))
                         Spacer()
                         Text("\(viewModel.playersReserv.count)")
                             .padding(.trailing, 8)
@@ -74,7 +76,8 @@ struct ListPlayersSecondScreenView: View {
                                             }
                                         }
                                     }
-            ) .navigationBarTitle(Text(NSLocalizedString("ListPlayersSecondScreenViewMyTeam", comment: "My team")))
+            ) .navigationBarTitle(Text(NSLocalizedString("ListPlayersSecondScreenViewMyTeam",
+                                                         comment: "My team")))
         } .sheet(
             isPresented: $viewModel.isPresentedShowModal,
             content: { ProfileAddPlayerView() }

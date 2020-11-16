@@ -26,46 +26,15 @@ class ListPlayersProfileShowViewModel: ListPlayersProfileShowViewModelProtocol, 
     @Published var currentTeam = CurrentTeam()
     internal var cancellables = Set<AnyCancellable>()
     
-    @Published var player: Player = Player(
-        name: "Имя",
-        email: "почта@mail.ru",
-        avatarStringURL: "",
-        whoAreYou: "",
-        id: "",
-        idTeam: "",
-        teamNumber: 0,
-        payment: "",
-        iGo: false,
-        subscription: false,
-        rating: 0,
-        position: "",
-        numberOfGoals: 0,
-        winGame: 0,
-        losGame: 9,
-        captain: false
-    )
-    
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 18,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: ""
-    )
+    @Published var player: Player = DefaultPlayer.shared.player
+    @Published var team: Team = DefaultTeam.shared.team
     @Published var isPresentedShowModal = false
     @Published var playerID = ""
     
     required init() {
         self.actionsPlayers.$players.sink { players in
             let bufferIDplayer = players.filter { $0.id == self.playerID }
-            let bufferIDplayerCheck = bufferIDplayer.first ?? Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false)
+            let bufferIDplayerCheck = bufferIDplayer.first ?? DefaultPlayer.shared.player
             self.player = bufferIDplayerCheck
             BufferIDplayer.shared.saveUserID(id: bufferIDplayerCheck.id)
         } .store(in: &cancellables)

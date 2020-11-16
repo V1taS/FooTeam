@@ -11,60 +11,47 @@ import Combine
 
 protocol TeamShowModalMainScreenViewModelProtocol {
     var actionsPlayers: ActionsPlayers { get }
-    var currentTeam: CurrentTeam { get }
+    var waitingPlayers: WaitingPlayers { get }
     var cancellables: Set<AnyCancellable> { get }
     
+    var currentTeam: CurrentTeam { get }
+    var getTeamPlayTime: GetTeamPlayTime { get }
     var isPresentedEditTeam: Bool { get }
+    var rating: Int { get }
     
     var players: [Player] { get }
     var team: Team { get }
-    var rating: Int { get }
+    var getPlayTime: [TeamTime] { get }
+    var playersWaitingAccept: [Player] { get }
     
+    var teamType: String { get }
     var selectionAvailabilityTeamType: Int { get }
     
-    var image: UIImage { get }
     var countPlayers: Int { get }
+    var image: UIImage { get }
     init()
 }
 
 class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol, ObservableObject {
-    
-    @Published var waitingPlayers = WaitingPlayers()
     @Published var actionsPlayers = ActionsPlayers()
-    @Published var getTeamPlayTime = GetTeamPlayTime()
-    @Published var currentTeam = CurrentTeam()
+    @Published var waitingPlayers = WaitingPlayers()
     internal var cancellables = Set<AnyCancellable>()
     
+    @Published var currentTeam = CurrentTeam()
+    @Published var getTeamPlayTime = GetTeamPlayTime()
     @Published var isPresentedEditTeam: Bool = false
     @Published var rating: Int = 0
     
     @Published var players: [Player] = []
-    
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 18,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: ""
-    )
-    
+    @Published var team: Team = DefaultTeam.shared.team
     @Published var getPlayTime: [TeamTime] = []
     @Published var playersWaitingAccept: [Player] = []
     
     @Published var teamType = ""
-    @Published var selectionAvailabilityTeamType: Int = 0 // Настроить логику
+    @Published var selectionAvailabilityTeamType: Int = 0
     
     @Published var countPlayers: Int = 0
-    
     @Published var image = UIImage()
-    
     
     required init() {
         self.waitingPlayers.$players.sink { players in
@@ -74,7 +61,6 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
         self.getTeamPlayTime.$teams.sink { dates in
             self.getPlayTime = dates
             } .store(in: &cancellables)
-        
         
         self.actionsPlayers.$players.sink { players in
             var totalRating = 1

@@ -51,7 +51,8 @@ struct EditPhotoViewTeam: View {
                         Image(systemName: "photo")
                             .font(.system(size: 20))
                         
-                        Text(NSLocalizedString("EditPhotoViewTeamGallery", comment: "Gallery"))
+                        Text(NSLocalizedString("EditPhotoViewTeamGallery",
+                                               comment: "Gallery"))
                             .font(.headline)
                     }
                     .frame(minWidth: 200, maxWidth: 250, minHeight: 30, maxHeight: 50)
@@ -67,7 +68,8 @@ struct EditPhotoViewTeam: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    EditTeamAva.shared.editPlayerInTeam(team: team, avatarUIImage: viewModel.image)
+                    EditTeamAva.shared.editPlayerInTeam(team: team,
+                                                        avatarUIImage: viewModel.image)
                 }) {
                     HStack {
                         Image(systemName: "opticaldiscdrive")
@@ -89,14 +91,15 @@ struct EditPhotoViewTeam: View {
             .sheet(isPresented: $viewModel.isShowPhotoLibrary) {
                 ImagePicker(sourceType: .photoLibrary, selectedImage: self.$viewModel.image)
             }
-            
         }
     }
 }
 
 struct EditPhotoViewTeam_Previews: PreviewProvider {
     static var previews: some View {
-        EditPhotoViewTeam(team: Team(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0, maxCountPlayersInTeam: 0, isHidden: false, currentCountPlayersInTeam: 0, country: "", totalMoney: "", gameСosts: "", fieldType: ""), isPresentedChangeAvatar: .constant(false), image: .constant(UIImage(named: "")!))
+        EditPhotoViewTeam(team: DefaultTeam.shared.team,
+                          isPresentedChangeAvatar: .constant(false),
+                          image: .constant(UIImage(named: "khimki")!))
     }
 }
 

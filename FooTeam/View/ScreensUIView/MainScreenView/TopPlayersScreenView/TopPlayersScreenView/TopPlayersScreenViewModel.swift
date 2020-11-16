@@ -25,20 +25,7 @@ class TopPlayersScreenViewModel: TopPlayersScreenViewModelProtocol, ObservableOb
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var players: [Player] = []
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 18,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: ""
-    )
+    @Published var team: Team = DefaultTeam.shared.team
     
     required init() {
         self.actionsPlayers.$players.sink { players in

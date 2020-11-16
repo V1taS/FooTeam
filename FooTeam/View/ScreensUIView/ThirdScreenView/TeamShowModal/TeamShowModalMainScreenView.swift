@@ -20,12 +20,16 @@ struct TeamShowModalMainScreenView: View {
                 Group {
                     HStack {
                         Spacer()
-                        ImagePlayer(avatarStringURL: "\(viewModel.team.avatarStringURL)", avatarSize: 200)
+                        ImagePlayer(
+                            avatarStringURL: "\(viewModel.team.avatarStringURL)",
+                            avatarSize: 200
+                        )
                         Spacer()
                     }
                     
                     HStack {
-                        Text(NSLocalizedString("TeamShowModalMainScreenViewTeamType", comment: "The command type"))
+                        Text(NSLocalizedString("TeamShowModalMainScreenViewTeamType",
+                                               comment: "The command type"))
                             .foregroundColor(Color("BlackAndWhite"))
                         Spacer()
                         Text("\(TeamTypeFromIntToString.shared.setTeamType(from: viewModel.team.teamType))")
@@ -34,7 +38,8 @@ struct TeamShowModalMainScreenView: View {
                     }
                     
                     HStack {
-                        Text(NSLocalizedString("TeamShowModalMainScreenViewFieldType", comment: "Field type"))
+                        Text(NSLocalizedString("TeamShowModalMainScreenViewFieldType",
+                                               comment: "Field type"))
                             .foregroundColor(Color("BlackAndWhite"))
                         Spacer()
                         Text("\(FieldTypeFromIntToString.shared.setFieldType(from: viewModel.team.fieldType))")
@@ -43,7 +48,8 @@ struct TeamShowModalMainScreenView: View {
                     }
                     
                     HStack {
-                        Text(NSLocalizedString("TeamShowModalMainScreenViewTeam", comment: "Team"))
+                        Text(NSLocalizedString("TeamShowModalMainScreenViewTeam",
+                                               comment: "Team"))
                             .foregroundColor(Color("BlackAndWhite"))
                         Spacer()
                         Text("\(viewModel.team.teamName)")
@@ -53,7 +59,8 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("TeamShowModalMainScreenViewCountry", comment: "A country"))
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewCountry",
+                                           comment: "A country"))
                         .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.team.country)")
@@ -62,7 +69,8 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("TeamShowModalMainScreenViewCity", comment: "City"))
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewCity",
+                                           comment: "City"))
                         .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.team.location)")
@@ -71,7 +79,8 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("TeamShowModalMainScreenViewBudgetTeam", comment: "The budget team"))
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewBudgetTeam",
+                                           comment: "The budget team"))
                         .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.team.totalMoney)")
@@ -82,16 +91,18 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("TeamShowModalMainScreenViewMonthlyPaymentPlayer", comment: "Monthly payment from the player"))
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewMonthlyPaymentPlayer",
+                                           comment: "Monthly payment from the player"))
                     Spacer()
                     Text("\(viewModel.team.gameСosts)")
                         .font(.headline)
                     Text("FCoin")
                         .foregroundColor(Color("BlackAndWhite"))
                 }
-
+                
                 HStack {
-                    Text(NSLocalizedString("TeamShowModalMainScreenViewRating", comment: "Team rating"))
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewRating",
+                                           comment: "Team rating"))
                         .foregroundColor(Color("BlackAndWhite"))
                     Spacer()
                     Text("\(viewModel.rating)")
@@ -100,22 +111,29 @@ struct TeamShowModalMainScreenView: View {
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("TeamShowModalMainScreenViewPlayersInTeam", comment: "Players in the team"))
+                    Text(NSLocalizedString("TeamShowModalMainScreenViewPlayersInTeam",
+                                           comment: "Players in the team"))
                     Spacer()
                     Text("\(viewModel.players.count)")
-                        .foregroundColor(viewModel.players.count < viewModel.team.maxCountPlayersInTeam ? Color("BlackAndWhite") : .red)
+                        .foregroundColor(viewModel.players.count <
+                                            viewModel.team.maxCountPlayersInTeam ?
+                                            Color("BlackAndWhite") : .red)
                         .font(.headline)
                     Text("из")
                         .font(.headline)
                     Text("\(viewModel.team.maxCountPlayersInTeam)")
-                        .foregroundColor(viewModel.players.count >= viewModel.team.maxCountPlayersInTeam ? .red : Color("BlackAndWhite"))
+                        .foregroundColor(viewModel.players.count >=
+                                            viewModel.team.maxCountPlayersInTeam ?
+                                            .red :
+                                            Color("BlackAndWhite"))
                         .font(.headline)
                 }
                 
                 VStack {
                     ForEach(viewModel.getPlayTime, id: \.self) { time in
                         HStack {
-                            Text(NSLocalizedString("TeamShowModalMainScreenViewGame", comment: "Game"))
+                            Text(NSLocalizedString("TeamShowModalMainScreenViewGame",
+                                                   comment: "Game"))
                             Spacer()
                             Text("\(GetDayOfWeekFromNumber.shared.GetDayOfWeek(numberString: time.dayOfWeek))")
                                 .font(.headline)
@@ -128,7 +146,8 @@ struct TeamShowModalMainScreenView: View {
                 }
             }
             
-            .navigationBarTitle(Text(NSLocalizedString("TeamShowModalMainScreenViewTeamCard", comment: "Team card")), displayMode: .inline)
+            .navigationBarTitle(Text(NSLocalizedString("TeamShowModalMainScreenViewTeamCard",
+                                                       comment: "Team card")), displayMode: .inline)
             
             .navigationBarItems(
                 leading:
@@ -138,7 +157,9 @@ struct TeamShowModalMainScreenView: View {
                                 Image(systemName: "mail")
                                     .minimumScaleFactor(0.7)
                                     .font(.title)
-                                    .foregroundColor(viewModel.playersWaitingAccept.isEmpty ? .gray : .green)
+                                    .foregroundColor(viewModel.playersWaitingAccept.isEmpty ?
+                                                        .gray :
+                                                        .green)
                             }
                         }
                     }

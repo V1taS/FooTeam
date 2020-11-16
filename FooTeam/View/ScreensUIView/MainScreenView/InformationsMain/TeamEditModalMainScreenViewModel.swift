@@ -12,13 +12,12 @@ import Combine
 protocol TeamEditModalMainScreenViewModelProtocol {
     var actionsPlayers: ActionsPlayers { get }
     var currentTeam: CurrentTeam { get }
+    var getTeamPlayTime: GetTeamPlayTime { get }
     var cancellables: Set<AnyCancellable> { get }
     
-    var isPresentedChangeAvatar: Bool { get }
-    
+    var deleteTeam: Bool { get }
     var players: [Player] { get }
     var team: Team { get }
-    var deleteTeam: Bool { get }
     
     var availabilityTeamType: [String] { get }
     var selectionAvailabilityTeamType: Int { get }
@@ -28,7 +27,14 @@ protocol TeamEditModalMainScreenViewModelProtocol {
     
     var weekday: [[String]] { get }
     var selectionWeekday: [Int] { get }
-
+    
+    var availabilityFieldType: [String] { get }
+    var selectionAvailabilityFieldType: Int { get }
+    
+    var getPlayTime: [TeamTime] { get }
+    var calendarDetails: [Date] { get }
+    var rating: Int { get }
+    var isPresentedChangeAvatar: Bool { get }
     var image: UIImage { get }
     init()
 }
@@ -40,51 +46,41 @@ class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var deleteTeam: Bool = false
-    
     @Published var players: [Player] = []
-
-    @Published var team: Team = Team(
-        avatarStringURL: "",
-        teamName: "",
-        location: "",
-        teamType: "",
-        rating: 0,
-        maxCountPlayersInTeam: 18,
-        isHidden: false,
-        currentCountPlayersInTeam: 18,
-        country: "",
-        totalMoney: "",
-        gameСosts: "",
-        fieldType: ""
-    )
+    @Published var team: Team = DefaultTeam.shared.team
     
-    var availabilityTeamType: [String] = [NSLocalizedString("TeamEditModalMainScreenViewModelTeamTypeOpen", comment: "Open"), NSLocalizedString("TeamEditModalMainScreenViewModelTeamTypeClose", comment: "Private")]
+    var availabilityTeamType: [String] = [
+        NSLocalizedString("TeamEditModalMainScreenViewModelTeamTypeOpen",
+                          comment: "Open"),
+        NSLocalizedString("TeamEditModalMainScreenViewModelTeamTypeClose",
+                          comment: "Private")
+    ]
     @Published var selectionAvailabilityTeamType: Int = 0
     
     var gameInWeak: [String] = ["1", "2", "3", "4", "5", "6", "7"]
     @Published var selectionGameInWeak: Int = 0
     
-    var weekday: [[String]] = [
-        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
-        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
-        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
-        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
-        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
-        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")],
-        [NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayMonday", comment: "Monday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayTuesday", comment: "Tuesday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayWednesday", comment: "Wednesday"), NSLocalizedString(NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayThursday", comment: ""), comment: "Thursday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdayFriday", comment: "Friday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySaturday", comment: "Saturday"), NSLocalizedString("TeamEditModalMainScreenViewModelWeekdaySunday", comment: "Sunday")]
-    ]
+    var weekday: [[String]] = DataOfDaysOfTheWeek.shared.days
     @Published var selectionWeekday: [Int] = [0, 0, 0, 0, 0, 0, 0]
     
-    var availabilityFieldType: [String] = [NSLocalizedString("TeamEditModalMainScreenViewModelFieldTypeMini", comment: "Mini"), NSLocalizedString("TeamEditModalMainScreenViewModelFieldTypeFull", comment: "Big")] 
+    var availabilityFieldType: [String] = [
+        NSLocalizedString("TeamEditModalMainScreenViewModelFieldTypeMini",
+                          comment: "Mini"),
+        NSLocalizedString("TeamEditModalMainScreenViewModelFieldTypeFull",
+                          comment: "Big")
+    ]
     @Published var selectionAvailabilityFieldType: Int = 0
     
     @Published var getPlayTime: [TeamTime] = []
-    
-    @Published var calendarDetails: [Date] = [Date(), Date(), Date(), Date(), Date(), Date(), Date()]
+    @Published var calendarDetails: [Date] = [Date(),
+                                              Date(),
+                                              Date(),
+                                              Date(),
+                                              Date(),
+                                              Date(),
+                                              Date()]
     @Published var rating: Int = 0
-    
     @Published var isPresentedChangeAvatar: Bool = false
-    
     @Published var image = UIImage()
     
     required init() {

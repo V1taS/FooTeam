@@ -10,11 +10,9 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ImagePlayer: View {
-    
     var avatarStringURL: String
     var avatarSize: CGFloat
     var placeholder: String?
-    
     
     var body: some View {
         WebImage(url: URL(string: avatarStringURL))
@@ -28,7 +26,6 @@ struct ImagePlayer: View {
             .aspectRatio(contentMode: .fill)
             .frame(width: avatarSize, height: avatarSize, alignment: .center)
             .cornerRadius(20)
-            
     }
 }
 

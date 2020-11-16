@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct CellCaruselBodyFooTeam: View {
-
     let backgroundColor: Color
     let imageButton: String
     let nameButton: String
@@ -28,7 +27,7 @@ struct CellCaruselBodyFooTeam: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
             HStack {
                 Image(imageButton)
-                .resizable()
+                    .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 150)
                     .offset(x: 0, y: 0)
@@ -40,16 +39,15 @@ struct CellCaruselBodyFooTeam: View {
                         .frame(width: 190)
                     HStack  {
                         Text(descriptionOne)
-                        .foregroundColor(Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)))
                         Text("\(valueOne)")
-                        .foregroundColor(Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)))
                     }
-                    
                     HStack  {
                         Text(descriptionTwo)
-                        .foregroundColor(Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)))
                         Text("\(valueTwo)")
-                        .foregroundColor(Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)))
                     }
                 }
             }
@@ -57,9 +55,14 @@ struct CellCaruselBodyFooTeam: View {
     }
 }
 
-
 struct CellCaruselBodyFooTeam_Previews: PreviewProvider {
     static var previews: some View {
-        CellCaruselBodyFooTeam(backgroundColor: Color( #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)), imageButton: "team", nameButton: "Моя команда", descriptionOne: "Всего игроков:", descriptionTwo: "Придут на игру", valueOne: 18, valueTwo: 15)
+        CellCaruselBodyFooTeam(backgroundColor: Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)),
+                               imageButton: "team",
+                               nameButton: "Моя команда",
+                               descriptionOne: "Всего игроков:",
+                               descriptionTwo: "Придут на игру",
+                               valueOne: 18,
+                               valueTwo: 15)
     }
 }

@@ -51,7 +51,8 @@ struct EditPhotoViewPlayer: View {
                         Image(systemName: "photo")
                             .font(.system(size: 20))
                         
-                        Text(NSLocalizedString("EditPhotoViewPlayerGallery", comment: "Gallery"))
+                        Text(NSLocalizedString("EditPhotoViewPlayerGallery",
+                                               comment: "Gallery"))
                             .font(.headline)
                     }
                     .frame(minWidth: 200, maxWidth: 250, minHeight: 30, maxHeight: 50)
@@ -67,13 +68,15 @@ struct EditPhotoViewPlayer: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    EditPlayerAva.shared.editPlayerInTeam(player: player, avatarUIImage: viewModel.image)
+                    EditPlayerAva.shared.editPlayerInTeam(player: player,
+                                                          avatarUIImage: viewModel.image)
                 }) {
                     HStack {
                         Image(systemName: "opticaldiscdrive")
                             .font(.system(size: 20))
                         
-                        Text(NSLocalizedString("EditPhotoViewPlayerSave", comment: "Save"))
+                        Text(NSLocalizedString("EditPhotoViewPlayerSave",
+                                               comment: "Save"))
                             .font(.headline)
                             .fontWeight(.bold)
                     }
@@ -89,13 +92,14 @@ struct EditPhotoViewPlayer: View {
             .sheet(isPresented: $viewModel.isShowPhotoLibrary) {
                 ImagePicker(sourceType: .photoLibrary, selectedImage: self.$viewModel.image)
             }
-            
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EditPhotoViewPlayer(player: Player(name: "Default player", email: "", avatarStringURL: "", whoAreYou: "", id: "", idTeam: "", teamNumber: 0, payment: "", iGo: false, subscription: false, rating: 0, position: "", numberOfGoals: 0, winGame: 0, losGame: 9, captain: false), isPresentedChangeAvatar: .constant(false), image: .constant(UIImage(systemName: "opticaldiscdrive")!))
+        EditPhotoViewPlayer(player: DefaultPlayer.shared.player,
+                            isPresentedChangeAvatar: .constant(false),
+                            image: .constant(UIImage(named: "khimki")!))
     }
 }
