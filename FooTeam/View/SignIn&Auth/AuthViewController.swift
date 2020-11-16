@@ -6,38 +6,63 @@
 //  Copyright © 2020 Vitalii Sosin. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 import GoogleSignIn
 import FirebaseAuth
 import AuthenticationServices
 
 class AuthViewController: UIViewController {
-    
     var logoImageView = UIImageView(image: #imageLiteral(resourceName: "logo"), contentMode: .scaleAspectFill)
     
-    let registerInFTLabel = UILabel(text: NSLocalizedString("AuthViewControllerRegisterInFTLabel" ,comment:"Register with FooTeam"), font: .bolt20(), textAlignment: .center)
-    let descriptionFTLabel = UILabel(text: NSLocalizedString("AuthViewControllerDescriptionFTLabel" ,comment:"DescriptionFTLabel"), font: .avenir14(), color: .systemGray, textAlignment: .center)
-    let alreadyOnboardLabel = UILabel(text: NSLocalizedString("AuthViewControllerAlreadyOnboardLabel" ,comment:"Already have an account?"), font: .avenir14())
+    let registerInFTLabel = UILabel(
+        text: NSLocalizedString("AuthViewControllerRegisterInFTLabel",
+                                comment: "Register with FooTeam"),
+        font: .bolt20(),
+        textAlignment: .center
+    )
+    let descriptionFTLabel = UILabel(
+        text: NSLocalizedString("AuthViewControllerDescriptionFTLabel",
+                                comment: "DescriptionFTLabel"),
+        font: .avenir14(),
+        color: .systemGray,
+        textAlignment: .center
+    )
+    let alreadyOnboardLabel = UILabel(
+        text: NSLocalizedString("AuthViewControllerAlreadyOnboardLabel",
+                                comment: "Already have an account?"),
+        font: .avenir14()
+    )
     
-    let appleButton = UIButton(title: NSLocalizedString("AuthViewControllerAppleButton" ,comment:"Continue with Apple?"),
-                               titleColor: .whiteAndBlack(),
-                               backgroundColor: .blackAndWhite(),
-                               font: .bolt14(),
-                               logo: #imageLiteral(resourceName: "appleIcon"))
-    let googleButton = UIButton(title: NSLocalizedString("AuthViewControllerGoogleButton" ,comment:"Continue on Google?"),
-                                titleColor: .buttonDark(),
-                                backgroundColor: .mainWhite(),
-                                font: .bolt14(),
-                                logo: #imageLiteral(resourceName: "googleLogo"))
-    let emailButton = UIButton(title: NSLocalizedString("AuthViewControllerEmailButton" ,comment:"Enter email"),
-                               titleColor: .buttonDark(),
-                               backgroundColor: .mainWhite(),
-                               font: .bolt14(),
-                               logo: #imageLiteral(resourceName: "messagingIcon"))
+    let appleButton = UIButton(
+        title: NSLocalizedString("AuthViewControllerAppleButton",
+                                 comment: "Continue with Apple?"),
+        titleColor: .whiteAndBlack(),
+        backgroundColor: .blackAndWhite(),
+        font: .bolt14(),
+        logo: #imageLiteral(resourceName: "appleIcon")
+    )
+    let googleButton = UIButton(
+        title: NSLocalizedString("AuthViewControllerGoogleButton",
+                                 comment: "Continue on Google?"),
+        titleColor: .buttonDark(),
+        backgroundColor: .mainWhite(),
+        font: .bolt14(),
+        logo: #imageLiteral(resourceName: "googleLogo")
+    )
+    let emailButton = UIButton(
+        title: NSLocalizedString("AuthViewControllerEmailButton",
+                                 comment: "Enter email"),
+        titleColor: .buttonDark(),
+        backgroundColor: .mainWhite(),
+        font: .bolt14(),
+        logo: #imageLiteral(resourceName: "messagingIcon")
+    )
     
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(NSLocalizedString("AuthViewControllerlogin" ,comment:"login"), for: .normal)
+        button.setTitle(NSLocalizedString("AuthViewControllerlogin",
+                                          comment: "login"),
+                        for: .normal)
         button.setTitleColor(.buttonRed(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
@@ -100,15 +125,24 @@ extension AuthViewController {
 // MARK: - Setup constraints
 extension AuthViewController {
     private func setupConstraints() {
+        let topStackView = UIStackView(
+            arrangedSubviews: [registerInFTLabel, descriptionFTLabel],
+            axis: .vertical,
+            spacing: 20
+        )
         
-        let topStackView = UIStackView(arrangedSubviews: [registerInFTLabel, descriptionFTLabel], axis: .vertical, spacing: 20)
-        
-        let stackView = UIStackView(arrangedSubviews: [emailButton, googleButton, appleButton], axis: .vertical, spacing: 10)
+        let stackView = UIStackView(
+            arrangedSubviews: [emailButton, googleButton, appleButton],
+            axis: .vertical,
+            spacing: 10
+        )
         
         loginButton.contentHorizontalAlignment = .fill
-        let bottomStackView = UIStackView(arrangedSubviews: [alreadyOnboardLabel, loginButton],
-                                          axis: .horizontal,
-                                          spacing: 10)
+        let bottomStackView = UIStackView(
+            arrangedSubviews: [alreadyOnboardLabel, loginButton],
+            axis: .horizontal,
+            spacing: 10
+        )
         
         let footerStackView = UIView()
         footerStackView.backgroundColor = .systemGray6
@@ -182,19 +216,41 @@ extension AuthViewController: GIDSignInDelegate {
                 FirestoreService.shared.getUserData(user: user) { (result) in
                     switch result {
                     case .success(_):
-                        UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreLogged" ,comment:"You are logged in")) {
+                        UIApplication.getTopViewController()?.showAlert(
+                            with: NSLocalizedString("AuthViewControllerSuccessfully",
+                                                    comment: "Successfully"),
+                            and: NSLocalizedString("AuthViewControllerYouAreLogged",
+                                                   comment: "You are logged in")
+                        ) {
                             let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
-                            UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)
+                            UIApplication.getTopViewController()?.present(
+                                mainContentFooTeam,
+                                animated: true,
+                                completion: nil
+                            )
                         }
                     case .failure(_):
-                        UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreRegistered" ,comment:"You are registered")) {
-                            UIApplication.getTopViewController()?.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+                        UIApplication.getTopViewController()?.showAlert(
+                            with: NSLocalizedString("AuthViewControllerSuccessfully",
+                                                    comment: "Successfully"),
+                            and: NSLocalizedString("AuthViewControllerYouAreRegistered",
+                                                   comment: "You are registered")
+                        ) {
+                            UIApplication.getTopViewController()?.present(
+                                SetupProfileViewController(currentUser: user),
+                                animated: true,
+                                completion: nil
+                            )
                         }
                     } // result
                 }
             case .failure(let error):
-                self.showAlert(with: NSLocalizedString("AuthViewControllerError" ,comment:"Error"), and: error.localizedDescription)
+                self.showAlert(
+                    with: NSLocalizedString("AuthViewControllerError",
+                                            comment: "Error"),
+                    and: error.localizedDescription
+                )
             }
         }
     }
@@ -202,7 +258,10 @@ extension AuthViewController: GIDSignInDelegate {
 
 // MARK: - Sign in with Apple
 extension AuthViewController: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    func authorizationController(
+        controller: ASAuthorizationController,
+        didCompleteWithAuthorization authorization: ASAuthorization
+    ) {
         
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             guard let nonce = currentNonce else {
@@ -229,7 +288,6 @@ extension AuthViewController: ASAuthorizationControllerDelegate {
                     return
                 }
                 // User is signed in to Firebase with Apple.
-                // ...
                 switch authResult {
                 case .none:
                     let auth = AuthViewController()
@@ -240,29 +298,54 @@ extension AuthViewController: ASAuthorizationControllerDelegate {
                         switch result {
                         case .success(let player):
                             if player.idTeam.isEmpty {
-                                UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreLogged" ,comment:"You are logged in")) {
+                                UIApplication.getTopViewController()?.showAlert(
+                                    with: NSLocalizedString("AuthViewControllerSuccessfully",
+                                                            comment: "Successfully"),
+                                    and: NSLocalizedString("AuthViewControllerYouAreLogged",
+                                                           comment: "You are logged in")
+                                ) {
                                     let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
                                     mainContentFooTeam.modalPresentationStyle = .fullScreen
-                                    UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)
+                                    UIApplication.getTopViewController()?.present(
+                                        mainContentFooTeam,
+                                        animated: true,
+                                        completion: nil
+                                    )
                                 }
                             } else {
-                                UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreLogged" ,comment:"You are logged in")) {
+                                UIApplication.getTopViewController()?.showAlert(
+                                    with: NSLocalizedString("AuthViewControllerSuccessfully",
+                                                            comment: "Successfully"),
+                                    and: NSLocalizedString("AuthViewControllerYouAreLogged",
+                                                           comment: "You are logged in")
+                                ) {
                                     let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                                     mainContentFooTeam.modalPresentationStyle = .fullScreen
-                                    UIApplication.getTopViewController()?.present(mainContentFooTeam, animated: true, completion: nil)
+                                    UIApplication.getTopViewController()?.present(
+                                        mainContentFooTeam,
+                                        animated: true,
+                                        completion: nil
+                                    )
                                 }
                             }
                         case .failure(_):
-                            UIApplication.getTopViewController()?.showAlert(with: NSLocalizedString("AuthViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("AuthViewControllerYouAreRegistered" ,comment:"You are registered")) {
-                                UIApplication.getTopViewController()?.present(SetupProfileViewController(currentUser: user.user), animated: true, completion: nil)
+                            UIApplication.getTopViewController()?.showAlert(
+                                with: NSLocalizedString("AuthViewControllerSuccessfully",
+                                                        comment: "Successfully"),
+                                and: NSLocalizedString("AuthViewControllerYouAreRegistered",
+                                                       comment: "You are registered")
+                            ) {
+                                UIApplication.getTopViewController()?.present(
+                                    SetupProfileViewController(currentUser: user.user),
+                                    animated: true,
+                                    completion: nil
+                                )
                             }
-                            
                         } // result
                     }
                 }
                 
             }
-            
         }
     }
     
@@ -271,13 +354,14 @@ extension AuthViewController: ASAuthorizationControllerDelegate {
     }
 }
 
+// MARK: - Sign in with Apple (presentation Anchor)
 extension AuthViewController: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return view.window!
     }
 }
 
-// Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
+// MARK: - Sign in with Apple (random NonceS tring)
 private func randomNonceString(length: Int = 32) -> String {
     precondition(length > 0)
     let charset: Array<Character> =
@@ -306,29 +390,6 @@ private func randomNonceString(length: Int = 32) -> String {
             }
         }
     }
-    
     return result
-}
-
-// MARK: - SwiftUI
-import SwiftUI
-
-struct AuthVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = AuthViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<AuthVCProvider.ContainerView>) -> AuthViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: AuthVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<AuthVCProvider.ContainerView>) {
-            
-        }
-    }
 }
 

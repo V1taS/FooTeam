@@ -9,28 +9,60 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-    
-    let welcomeLabel = UILabel(text: NSLocalizedString("SignUpViewControllerWelcomeLabel" ,comment:"Sign in"), font: .bolt20(), textAlignment: .center)
-    let descriptionFTLabel = UILabel(text: NSLocalizedString("SignUpViewControllerDescriptionFTLabel" ,comment:"descriptionFTLabel"), font: .avenir14(), color: .systemGray, textAlignment: .center)
-    
-    let emailLabel = UILabel(text: NSLocalizedString("SignUpViewControllerEmailLabell" ,comment:"Email"), font: .markerFel14())
-    let passwordLabel = UILabel(text: NSLocalizedString("SignUpViewControllerPasswordLabel" ,comment:"Password"), font: .markerFel14())
-    let confirmPasswodLabel = UILabel(text: NSLocalizedString("SignUpViewControllerConfirmPasswodLabel" ,comment:"Confirm the password"), font: .markerFel14())
-    let alreadyOnboardLabel = UILabel(text: NSLocalizedString("SignUpViewControllerAlreadyOnboardLabel" ,comment:"Already Registered?"), font: .avenir14())
+    let welcomeLabel = UILabel(
+        text: NSLocalizedString("SignUpViewControllerWelcomeLabel",
+                                comment: "Sign in"),
+        font: .bolt20(),
+        textAlignment: .center
+    )
+    let descriptionFTLabel = UILabel(
+        text: NSLocalizedString("SignUpViewControllerDescriptionFTLabel",
+                                comment: "descriptionFTLabel"),
+        font: .avenir14(),
+        color: .systemGray,
+        textAlignment: .center
+    )
+    let emailLabel = UILabel(
+        text: NSLocalizedString("SignUpViewControllerEmailLabell",
+                                comment: "Email"),
+        font: .markerFel14()
+    )
+    let passwordLabel = UILabel(
+        text: NSLocalizedString("SignUpViewControllerPasswordLabel",
+                                comment: "Password"),
+        font: .markerFel14()
+    )
+    let confirmPasswodLabel = UILabel(
+        text: NSLocalizedString("SignUpViewControllerConfirmPasswodLabel",
+                                comment: "Confirm the password"),
+        font: .markerFel14()
+    )
+    let alreadyOnboardLabel = UILabel(
+        text: NSLocalizedString("SignUpViewControllerAlreadyOnboardLabel",
+                                comment: "Already Registered?"),
+        font: .avenir14()
+    )
     
     let emailTextField = CustomeTextField(placeholder: "  demo@mail.ru")
     let passwordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
     let confirmPasswordTextField = CustomeTextField(placeholder: "  Demo12", isSecure: true)
-   
-    let signUpButton = UIButton(title: NSLocalizedString("SignUpViewControllerSignUpButton" ,comment:"Register now"),
-                                titleColor: .white,
-                                backgroundColor: .buttonDark(),
-                                font: .bolt14(),
-                                borderColor: .textFieldLight())
+    
+    let signUpButton = UIButton(
+        title: NSLocalizedString("SignUpViewControllerSignUpButton",
+                                 comment: "Register now"),
+        titleColor: .white,
+        backgroundColor: .buttonDark(),
+        font: .bolt14(),
+        borderColor: .textFieldLight()
+    )
     
     let closeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(NSLocalizedString("SignUpViewControllerClose" ,comment:"close"), for: .normal)
+        button.setTitle(
+            NSLocalizedString("SignUpViewControllerClose",
+                              comment: "close"),
+            for: .normal)
+        
         button.setTitleColor(.blackAndWhite(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
@@ -38,7 +70,11 @@ class SignUpViewController: UIViewController {
     
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(NSLocalizedString("SignUpViewControllerlogin" ,comment:"login"), for: .normal)
+        button.setTitle(
+            NSLocalizedString("SignUpViewControllerlogin",
+                              comment: "login"),
+            for: .normal
+        )
         button.setTitleColor(.buttonRed(), for: .normal)
         button.titleLabel?.font = .bolt14()
         return button
@@ -70,17 +106,26 @@ extension SignUpViewController {
             email: emailTextField.text,
             password: passwordTextField.text,
             confirmPassword: confirmPasswordTextField.text) { (result) in
-                switch result {
-                case .success(let user):
-                    self.showAlert(with: NSLocalizedString("SignUpViewControllerSuccessfully" ,comment:"Successfully"), and: NSLocalizedString("SignUpViewControllerYouAreLogged" ,comment:"You are logged in")) {
-                        let setupVC = SetupProfileViewController(currentUser: user)
-                        setupVC.modalPresentationStyle = .fullScreen
-                        self.present(setupVC, animated: true, completion: nil)
-                    }
-                    
-                case .failure(let error):
-                    self.showAlert(with: NSLocalizedString("SignUpViewControllerError" ,comment:"Error"), and: error.localizedDescription)
+            switch result {
+            case .success(let user):
+                self.showAlert(
+                    with: NSLocalizedString("SignUpViewControllerSuccessfully",
+                                            comment: "Successfully"),
+                    and: NSLocalizedString("SignUpViewControllerYouAreLogged",
+                                           comment: "You are logged in")
+                ) {
+                    let setupVC = SetupProfileViewController(currentUser: user)
+                    setupVC.modalPresentationStyle = .fullScreen
+                    self.present(setupVC, animated: true, completion: nil)
                 }
+                
+            case .failure(let error):
+                self.showAlert(
+                    with: NSLocalizedString("SignUpViewControllerError",
+                                            comment: "Error"),
+                    and: error.localizedDescription
+                )
+            }
         }
     }
     
@@ -99,25 +144,50 @@ extension SignUpViewController {
 extension SignUpViewController {
     private func setupConstraints() {
         
-        let topStackView = UIStackView(arrangedSubviews: [welcomeLabel, descriptionFTLabel], axis: .vertical, spacing: 20)
+        let topStackView = UIStackView(
+            arrangedSubviews: [welcomeLabel, descriptionFTLabel],
+            axis: .vertical,
+            spacing: 20
+        )
         
-        let emailStackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField], axis: .vertical, spacing: 5)
+        let emailStackView = UIStackView(
+            arrangedSubviews: [emailLabel, emailTextField],
+            axis: .vertical,
+            spacing: 5
+        )
         
-        let passwordStackView = UIStackView(arrangedSubviews: [passwordLabel, passwordTextField], axis: .vertical, spacing: 5)
+        let passwordStackView = UIStackView(
+            arrangedSubviews: [passwordLabel, passwordTextField],
+            axis: .vertical,
+            spacing: 5
+        )
         
-        let confirmPasswordStackView = UIStackView(arrangedSubviews: [confirmPasswodLabel, confirmPasswordTextField], axis: .vertical, spacing: 5)
+        let confirmPasswordStackView = UIStackView(
+            arrangedSubviews: [confirmPasswodLabel, confirmPasswordTextField],
+            axis: .vertical,
+            spacing: 5
+        )
         confirmPasswordTextField.backgroundColor = .systemGray6
         confirmPasswordTextField.layer.cornerRadius = 5
         
-        let stackView = UIStackView(arrangedSubviews: [emailStackView, passwordStackView, confirmPasswordStackView, signUpButton
-            ], axis: .vertical, spacing: 20)
+        let stackView = UIStackView(
+            arrangedSubviews: [emailStackView,
+                               passwordStackView,
+                               confirmPasswordStackView,
+                               signUpButton],
+            axis: .vertical,
+            spacing: 20)
         
         signUpButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         
         loginButton.contentHorizontalAlignment = .leading
         
-        let bottomStackView = UIStackView(arrangedSubviews: [alreadyOnboardLabel, loginButton], axis: .horizontal, spacing: 10)
+        let bottomStackView = UIStackView(
+            arrangedSubviews: [alreadyOnboardLabel, loginButton],
+            axis: .horizontal,
+            spacing: 10
+        )
         bottomStackView.alignment = .firstBaseline
         
         let footerStackView = UIView()
@@ -156,7 +226,10 @@ extension SignUpViewController {
             bottomStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             bottomStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        alreadyOnboardLabel.leadingAnchor.constraint(equalTo: bottomStackView.leadingAnchor, constant: 40).isActive = true
+        alreadyOnboardLabel.leadingAnchor.constraint(
+            equalTo: bottomStackView.leadingAnchor,
+            constant: 40
+        ).isActive = true
         
         NSLayoutConstraint.activate([
             footerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
@@ -167,48 +240,30 @@ extension SignUpViewController {
     }
 }
 
-// MARK: - SwiftUI
-import SwiftUI
-
-struct SignUpVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let signUpVC = SignUpViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<SignUpVCProvider.ContainerView>) -> SignUpViewController {
-            return signUpVC
-        }
-        
-        func updateUIViewController(_ uiViewController: SignUpVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SignUpVCProvider.ContainerView>) {
-            
-        }
-    }
-}
-
-
+// MARK: - Show Alert
 extension UIViewController {
-    
-    func showAlert(with title: String, and message: String, completion: @escaping () -> Void = { }) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    func showAlert(
+        with title: String,
+        and message: String,
+        completion: @escaping () -> Void = { }
+    ) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
             completion()
         }
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-    
 }
 
 
-// MARK: - UITextFieldDelegate
+// MARK: - Text Field Delegate
 extension SignUpViewController: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else if textField == passwordTextField {
@@ -218,7 +273,6 @@ extension SignUpViewController: UITextFieldDelegate {
         }
         return true
     }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
