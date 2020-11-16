@@ -55,6 +55,11 @@ struct RowCalendarforInfo: View {
                                         cornerColor: viewModel.currentWeekday == 1 ? UIColor(named: "currentCalendar")! : UIColor.gray)
                 }
             } .frame(width: 135, height: 75, alignment: .center)
+            .onAppear {
+                let date = Date()
+                let calendar = Calendar.current
+                viewModel.currentWeekday = calendar.component(.weekday, from: date)
+            }
         }
     }
 }

@@ -19,7 +19,9 @@ struct CellJoinToTeamView: View {
     var body: some View {
         
         VStack {
-            Button(action: { viewModel.showAlertAccept.toggle() } ) {
+            Button(action: {
+                viewModel.showAlertAccept.toggle()
+            } ) {
                 ZStack {
                     Color("WhiteAndBlack")
                         .frame(maxWidth: 150, idealHeight: 220, maxHeight: 220)
@@ -94,7 +96,7 @@ struct CellJoinToTeamView: View {
             }
         } .padding(.top)
         .onAppear { viewModel.idTeam = team.id }
-        .fullScreenCover(isPresented: $viewModel.isPresented) { WaitingForConfirmationView() }
+        .fullScreenCover(isPresented: $viewModel.isPresented) { WaitingForConfirmationView(team: self.team) }
     }
     
     struct CellJoinTeamViewController_Previews: PreviewProvider {

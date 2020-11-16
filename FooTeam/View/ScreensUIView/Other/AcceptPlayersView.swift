@@ -44,7 +44,7 @@ struct AcceptPlayersView: View {
                                         .frame(width: 140)
                                     Spacer()
                                     Button(action: {
-                                        NoAcceptInvitation.shared.acceptInvitation(player: player, capitanPlayer: FirestoreService.shared.currentUser)
+                                        NoAcceptInvitation.shared.acceptInvitation(player: player, idTeam: FirestoreService.shared.currentUser.idTeam)
                                     }) {
                                         Text("❌")
                                             .padding(.trailing, 8)

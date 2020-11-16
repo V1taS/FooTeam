@@ -50,13 +50,7 @@ class RowCalendarforInfoViewModel: RowCalendarforInfoViewModelProtocol, Observab
     @Published var sunday: Bool = false
     
     required init() {
-        
-        let date = Date()
-        let calendar = Calendar.current
-        currentWeekday = calendar.component(.weekday, from: date)
-        
         self.getTeamPlayTime.$teams.sink { [self] team in
-            
             monday = false
             tuesday = false
             wednesday = false

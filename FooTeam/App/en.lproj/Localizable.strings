@@ -118,6 +118,8 @@ JoinToTeamViewModelCreateYourOwnTeam = "Do you want to create your own team?";
 JoinToTeamViewModelAttention = "Attention";
 JoinToTeamViewModelCancel = "Cancel";
 JoinToTeamViewModelCancelCreate = "Create";
+JoinToTeamViewModelWithdrawRequest = "Withdraw request";
+JoinToTeamViewModelWithdrawRequestAddToTeam = "Do you want to revoke your team addition request?";
 
 // MARK: - WaitingForConfirmationViewModel
 

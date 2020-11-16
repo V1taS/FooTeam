@@ -44,12 +44,6 @@ class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
             }
         } .store(in: &cancellables)
         
-        //        if currentPlayer.idTeam.isEmpty {
-        //            let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
-        //            mainContentFooTeam.modalPresentationStyle = .fullScreen
-        //            UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
-        //        }
-        
         self.waitingPlayers.$players.sink { players in
 
             self.players = players

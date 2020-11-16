@@ -7,9 +7,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct WaitingForConfirmationView: View {
     
+    var team: Team
     @StateObject private var viewModel = WaitingForConfirmationViewModel()
     
     var body: some View {
@@ -21,9 +23,7 @@ struct WaitingForConfirmationView: View {
                 .padding()
             
             Button(action: {
-                let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
-                mainContentFooTeam.modalPresentationStyle = .fullScreen
-                UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
+                viewModel.isPresented.toggle()
             } ) {
                 Text(NSLocalizedString("WaitingForConfirmationViewModelCancel", comment: "Cancel"))
                     .foregroundColor(Color.red)
@@ -32,8 +32,27 @@ struct WaitingForConfirmationView: View {
         .onAppear {
             setTimer()
         }
-        .alert(isPresented: $viewModel.playerNoAccept) {
-            Alert(title: Text(NSLocalizedString("WaitingForConfirmationViewModelTheTeamIsNotReadyAcceptYou", comment: "The team is not ready to accept You")), dismissButton: .cancel(Text("ok")))
+        
+        .alert(item: $viewModel.alertIdentifier) { alert in
+            switch alert.id {
+            case .first:
+                return Alert(title: Text(NSLocalizedString("WaitingForConfirmationViewModelTheTeamIsNotReadyAcceptYou", comment: "The team is not ready to accept You")), dismissButton: .cancel(Text("ok")))
+            case .second:
+                return Alert(title: Text(NSLocalizedString("JoinToTeamViewModelAttention", comment:"Attention")),
+                             message: Text(NSLocalizedString("JoinToTeamViewModelWithdrawRequestAddToTeam", comment:"Do you want to revoke your team addition request?")),
+                             primaryButton: Alert.Button.default(Text(NSLocalizedString("JoinToTeamViewModelCancel", comment: "Cancel"))),
+                             secondaryButton: Alert.Button.destructive(
+                                Text(NSLocalizedString("JoinToTeamViewModelWithdrawRequest", comment: "Withdraw request")), action: {
+                                    if !viewModel.player.id.isEmpty {
+                                        NoAcceptInvitation.shared.acceptInvitation(player: viewModel.player, idTeam: team.id)
+                                        let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
+                                        mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                        UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
+                                    }
+                                }
+                             )
+                )
+            }
         }
     }
     
@@ -50,6 +69,6 @@ struct WaitingForConfirmationView: View {
 
 struct WaitingForConfirmation_Previews: PreviewProvider {
     static var previews: some View {
-        WaitingForConfirmationView()
+        WaitingForConfirmationView(team: Team(avatarStringURL: "", teamName: "", location: "", teamType: "", rating: 0, maxCountPlayersInTeam: 0, isHidden: false, currentCountPlayersInTeam: 0, country: "", totalMoney: "", gameСosts: "", fieldType: ""))
     }
 }

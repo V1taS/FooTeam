@@ -118,6 +118,8 @@ JoinToTeamViewModelCreateYourOwnTeam = "Вы хотите создать сво�
 JoinToTeamViewModelAttention = "Внимание";
 JoinToTeamViewModelCancel = "Отмена";
 JoinToTeamViewModelCancelCreate = "Создать";
+JoinToTeamViewModelWithdrawRequest = "Отозвать запрос";
+JoinToTeamViewModelWithdrawRequestAddToTeam = "Вы хотите отозвать запрос на добавление в команду?";
 
 // MARK: - WaitingForConfirmationViewModel
 
