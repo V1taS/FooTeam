@@ -111,6 +111,8 @@
 		1B5E242E253E0CE700940B09 /* SaveTeamPlayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E242D253E0CE700940B09 /* SaveTeamPlayTime.swift */; };
 		1B5E2443253E423E00940B09 /* GetTeamPlayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E2442253E423E00940B09 /* GetTeamPlayTime.swift */; };
 		1B6079AB2518DD74006E6970 /* ListPlayersProfileShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6079AA2518DD74006E6970 /* ListPlayersProfileShowViewModel.swift */; };
+		1B634FB62562E0290076339C /* DefaultPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B634FB52562E0290076339C /* DefaultPlayer.swift */; };
+		1B634FB92562E1040076339C /* DefaultTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B634FB82562E1040076339C /* DefaultTeam.swift */; };
 		1B66458D25190E5C00962B4D /* DeletePlayerFromTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B66458C25190E5C00962B4D /* DeletePlayerFromTeam.swift */; };
 		1B6964B925118D5300CBAC9E /* ListTeamsMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6964B825118D5300CBAC9E /* ListTeamsMainScreenViewModel.swift */; };
 		1B6B4812251195D900D71729 /* TabViewFooTeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B4811251195D900D71729 /* TabViewFooTeamModel.swift */; };
@@ -267,6 +269,8 @@
 		1B5E242D253E0CE700940B09 /* SaveTeamPlayTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTeamPlayTime.swift; sourceTree = "<group>"; };
 		1B5E2442253E423E00940B09 /* GetTeamPlayTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTeamPlayTime.swift; sourceTree = "<group>"; };
 		1B6079AA2518DD74006E6970 /* ListPlayersProfileShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlayersProfileShowViewModel.swift; sourceTree = "<group>"; };
+		1B634FB52562E0290076339C /* DefaultPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPlayer.swift; sourceTree = "<group>"; };
+		1B634FB82562E1040076339C /* DefaultTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTeam.swift; sourceTree = "<group>"; };
 		1B66458C25190E5C00962B4D /* DeletePlayerFromTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePlayerFromTeam.swift; sourceTree = "<group>"; };
 		1B6964B825118D5300CBAC9E /* ListTeamsMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTeamsMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1B6B4811251195D900D71729 /* TabViewFooTeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewFooTeamModel.swift; sourceTree = "<group>"; };
@@ -440,6 +444,8 @@
 				1B5E242D253E0CE700940B09 /* SaveTeamPlayTime.swift */,
 				1B4978B6254E1E5100E79E1C /* RemoveExcessTime.swift */,
 				1B5E2442253E423E00940B09 /* GetTeamPlayTime.swift */,
+				1B634FB52562E0290076339C /* DefaultPlayer.swift */,
+				1B634FB82562E1040076339C /* DefaultTeam.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -1065,6 +1071,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B4C2B7C250EC26C0064A029 /* CountPlayersInTeam.swift in Sources */,
+				1B634FB62562E0290076339C /* DefaultPlayer.swift in Sources */,
 				1B596F8124EC73650092770B /* Team.swift in Sources */,
 				1B39446E24F9A3470008FC40 /* HeaderMainScreenView.swift in Sources */,
 				1B596F9224EC73820092770B /* AuthService.swift in Sources */,
@@ -1201,6 +1208,7 @@
 				1B596FBD24EC73A90092770B /* ViewExtension.swift in Sources */,
 				1BBACD0B255770E100C042DE /* TeamTypeFromIntToString.swift in Sources */,
 				1B7F262C25098A5B0053E124 /* JoinToTeamView.swift in Sources */,
+				1B634FB92562E1040076339C /* DefaultTeam.swift in Sources */,
 				1B4B0EE9250AB77F00EF701B /* PlayersID.swift in Sources */,
 				1B596F9924EC739A0092770B /* UserError.swift in Sources */,
 				1B596F7824EC73530092770B /* CaruselBodyFooTeam.swift in Sources */,

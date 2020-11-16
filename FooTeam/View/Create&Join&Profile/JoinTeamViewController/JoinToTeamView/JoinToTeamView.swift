@@ -25,11 +25,19 @@ struct JoinToTeamView: View {
             .padding(.horizontal)
             .frame(maxWidth: .infinity, alignment: .center)
             
-            .navigationBarTitle(Text(NSLocalizedString("JoinToTeamViewModelJoin", comment:"Join")))
-            .navigationBarItems(trailing:
-                                    OutButtonFooTeamMenu(isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut))
+            .navigationBarTitle(Text(
+                NSLocalizedString("JoinToTeamViewModelJoin",
+                                  comment: "Join")
+            ))
             .navigationBarItems(
-                leading: OutButtonFooTeamMenu(isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut),
+                trailing: OutButtonFooTeamMenu(
+                    isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut
+                )
+            )
+            .navigationBarItems(
+                leading: OutButtonFooTeamMenu(
+                    isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut
+                ),
                 trailing: Button(action: { viewModel.isPresentedCreateTeam.toggle() }) {
                     Image(systemName: "person.badge.plus")
                         .renderingMode(.original)
@@ -37,17 +45,29 @@ struct JoinToTeamView: View {
                 })
         }
         .alert(isPresented: self.$viewModel.isPresentedCreateTeam) {
-            Alert(title: Text(NSLocalizedString("JoinToTeamViewModelAttention", comment:"Attention")),
-                  message: Text(NSLocalizedString("JoinToTeamViewModelCreateYourOwnTeam", comment:"Do you want to create your own team?")),
-                  primaryButton: Alert.Button.default(Text(NSLocalizedString("JoinToTeamViewModelCancel", comment: "Cancel"))),
-                  secondaryButton: Alert.Button.destructive(
-                    Text(NSLocalizedString("JoinToTeamViewModelCancelCreate", comment: "Create")), action: {
-                        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-                        window?.rootViewController = CreateTeamViewController(
-                            currentPlayer: FirestoreService.shared.currentUser,
-                            currentUser: Auth.auth().currentUser!)
-                  }
-                )
+            Alert(title: Text(
+                NSLocalizedString("JoinToTeamViewModelAttention",
+                                  comment: "Attention")
+            ),
+            message: Text(
+                NSLocalizedString("JoinToTeamViewModelCreateYourOwnTeam",
+                                  comment: "Do you want to create your own team?")
+            ),
+            primaryButton: Alert.Button.default(Text(
+                NSLocalizedString("JoinToTeamViewModelCancel",
+                                  comment: "Cancel")
+            )),
+            secondaryButton: Alert.Button.destructive(
+                Text(
+                    NSLocalizedString("JoinToTeamViewModelCancelCreate",
+                                      comment: "Create")
+                ), action: {
+                    let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                    window?.rootViewController = CreateTeamViewController(
+                        currentPlayer: FirestoreService.shared.currentUser,
+                        currentUser: Auth.auth().currentUser!)
+                }
+            )
             )
         }
     }

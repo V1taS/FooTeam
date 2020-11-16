@@ -11,32 +11,58 @@ import FirebaseAuth
 import SDWebImage
 
 class SetupProfileViewController: UIViewController {
-    
-    let welcomeLabel = UILabel(text: NSLocalizedString("SetupProfileViewControllerWelcomeLabel" ,comment:"Profile setting"), font: .bolt20(), textAlignment: .center)
-    
-    let fullImageView = AddAvaPlayersView()
-    
-    let nameLabel = UILabel(text: NSLocalizedString("SetupProfileViewControllerNameLabel" ,comment:"Name"), font: .markerFel14())
-    let positionLabel = UILabel(text: NSLocalizedString("SetupProfileViewControllerPositionLabel" ,comment:"What position do you play??"), font: .markerFel14())
-    let whoAreYouLabel = UILabel(text: NSLocalizedString("SetupProfileViewControllerWhoAreYouLabel" ,comment:"Who are you?"), font: .markerFel14())
-    
-    let nameTextField = CustomeTextField(placeholder: NSLocalizedString("SetupProfileViewControllerNameTextField" ,comment:"Andrey Shevchenko"))
-    let positionPlayerSegmentedControl = UISegmentedControl(items: [
-                                                                NSLocalizedString("SetupProfileViewControllerPositionSt" ,comment:"ST"),
-                                                                NSLocalizedString("SetupProfileViewControllerPositionMC" ,comment:"MC"),
-                                                                NSLocalizedString("SetupProfileViewControllerPositionDC" ,comment:"DC"),
-                                                                NSLocalizedString("SetupProfileViewControllerPositionGK" ,comment:"GK")])
-    let whoAreYouSegmentedControl = UISegmentedControl(
-        first: NSLocalizedString("SetupProfileViewControllerPlayer" ,comment:"Player"),
-        second: NSLocalizedString("SetupProfileViewControllerViewer" ,comment:"Viewer")
+    let welcomeLabel = UILabel(
+        text: NSLocalizedString("SetupProfileViewControllerWelcomeLabel",
+                                comment: "Profile setting"),
+        font: .bolt20(),
+        textAlignment: .center
     )
     
-    let goToButton = UIButton(title: NSLocalizedString("SetupProfileViewControllerGoToButton" ,comment:"To begin"),
-                              titleColor: .white,
-                              backgroundColor: .buttonDark(),
-                              font: .bolt14(),
-                              cornerRadius: 4,
-                              borderColor: .textFieldLight())
+    let fullImageView = AddAvaPlayersView()
+    let nameLabel = UILabel(
+        text: NSLocalizedString("SetupProfileViewControllerNameLabel",
+                                comment: "Name"),
+        font: .markerFel14()
+    )
+    let positionLabel = UILabel(
+        text: NSLocalizedString("SetupProfileViewControllerPositionLabel",
+                                comment: "What position do you play??"),
+        font: .markerFel14()
+    )
+    let whoAreYouLabel = UILabel(
+        text: NSLocalizedString("SetupProfileViewControllerWhoAreYouLabel",
+                                comment: "Who are you?"),
+        font: .markerFel14()
+    )
+    
+    let nameTextField = CustomeTextField(
+        placeholder: NSLocalizedString("SetupProfileViewControllerNameTextField",
+                                       comment: "Andrey Shevchenko")
+    )
+    let positionPlayerSegmentedControl = UISegmentedControl(
+        items: [
+            NSLocalizedString("SetupProfileViewControllerPositionSt" ,comment: "ST"),
+            NSLocalizedString("SetupProfileViewControllerPositionMC" ,comment: "MC"),
+            NSLocalizedString("SetupProfileViewControllerPositionDC" ,comment: "DC"),
+            NSLocalizedString("SetupProfileViewControllerPositionGK" ,comment: "GK")
+        ]
+    )
+    let whoAreYouSegmentedControl = UISegmentedControl(
+        first: NSLocalizedString("SetupProfileViewControllerPlayer",
+                                 comment: "Player"),
+        second: NSLocalizedString("SetupProfileViewControllerViewer",
+                                  comment: "Viewer")
+    )
+    
+    let goToButton = UIButton(
+        title: NSLocalizedString("SetupProfileViewControllerGoToButton",
+                                 comment: "To begin"),
+        titleColor: .white,
+        backgroundColor: .buttonDark(),
+        font: .bolt14(),
+        cornerRadius: 4,
+        borderColor: .textFieldLight()
+    )
     
     private let currentUser: User
     
@@ -49,7 +75,10 @@ class SetupProfileViewController: UIViewController {
         }
         
         if let photoURL = currentUser.photoURL {
-            fullImageView.circleAvaPlayersImageView.sd_setImage(with: photoURL, completed: nil)
+            fullImageView.circleAvaPlayersImageView.sd_setImage(
+                with: photoURL,
+                completed: nil
+            )
         }
     }
     
@@ -98,12 +127,14 @@ extension SetupProfileViewController {
             avatarImage: fullImageView.circleAvaPlayersImageView.image,
             whoAreYou: "\(whoAreYouSegmentedControl.selectedSegmentIndex)",
             positionPlayer: "\(positionPlayerSegmentedControl.selectedSegmentIndex)") { (result) in
-                switch result {
-                case .success(let player):
-                    self.showAlert(
-                        with: NSLocalizedString("SetupProfileViewControllerSuccessfully", comment:"Successfully"),
-                        and: NSLocalizedString("SetupProfileViewControllerDataIsBackedUp", comment:"Data is backed up!"),
-                        completion: {
+            switch result {
+            case .success(let player):
+                self.showAlert(
+                    with: NSLocalizedString("SetupProfileViewControllerSuccessfully",
+                                            comment: "Successfully"),
+                    and: NSLocalizedString("SetupProfileViewControllerDataIsBackedUp",
+                                           comment: "Data is backed up!"),
+                    completion: {
                         
                         FirestoreService.shared.getUserDataSimple()
                         
@@ -113,31 +144,48 @@ extension SetupProfileViewController {
                             self.present(joinToFooTeam, animated: true, completion: nil)
                         } else {
                             let alertController = UIAlertController(
-                                title: NSLocalizedString("SetupProfileViewControllerToContinue", comment:"To continue"),
-                                message: NSLocalizedString("SetupProfileViewControllerJoinOrCreateTeam", comment:"join or create a team"),
+                                title: NSLocalizedString("SetupProfileViewControllerToContinue",
+                                                         comment: "To continue"),
+                                message: NSLocalizedString("SetupProfileViewControllerJoinOrCreateTeam",
+                                                           comment: "join or create a team"),
                                 preferredStyle: .actionSheet
                             )
                             
-                            let creatTeam = UIAlertAction(title: NSLocalizedString("SetupProfileViewControllerCreateTeam", comment:"Create a team"), style: .default) { _ in
-                                let createTeam = CreateTeamViewController(currentPlayer: player, currentUser: self.currentUser)
+                            let creatTeam = UIAlertAction(
+                                title: NSLocalizedString("SetupProfileViewControllerCreateTeam",
+                                                         comment: "Create a team"),
+                                style: .default
+                            ) { _ in
+                                let createTeam = CreateTeamViewController(
+                                    currentPlayer: player,
+                                    currentUser: self.currentUser
+                                )
                                 createTeam.modalPresentationStyle = .fullScreen
                                 self.present(createTeam, animated: true, completion: nil)
                             }
                             
-                            let joinTeam = UIAlertAction(title: NSLocalizedString("SetupProfileViewControllerJoinTeam", comment:"Join the team"), style: .default) { _ in
+                            let joinTeam = UIAlertAction(
+                                title: NSLocalizedString("SetupProfileViewControllerJoinTeam",
+                                                         comment: "Join the team"),
+                                style: .default
+                            ) { _ in
                                 let joinToFooTeam = UIHostingController(rootView: JoinToTeamView())
                                 joinToFooTeam.modalPresentationStyle = .fullScreen
                                 self.present(joinToFooTeam, animated: true, completion: nil)
                             }
-
+                            
                             alertController.addAction(creatTeam)
                             alertController.addAction(joinTeam)
                             self.present(alertController, animated: true, completion: nil)
                         }
                     })
-                case .failure(let error):
-                    self.showAlert(with: "\(NSLocalizedString("SetupProfileViewControllerError", comment:"Error")) \(error)", and: error.localizedDescription)
-                }
+            case .failure(let error):
+                self.showAlert(
+                    with: NSLocalizedString("SetupProfileViewControllerError",
+                                            comment: "Error \(error)"),
+                    and: error.localizedDescription
+                )
+            }
         }
     }
 }
@@ -146,16 +194,35 @@ extension SetupProfileViewController {
 extension SetupProfileViewController {
     private func setupConstraints() {
         
-        let nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField], axis: .vertical, spacing: 5)
+        let nameStackView = UIStackView(
+            arrangedSubviews: [nameLabel, nameTextField],
+            axis: .vertical,
+            spacing: 5
+        )
         
-        let positionuStackView = UIStackView(arrangedSubviews: [positionLabel, positionPlayerSegmentedControl], axis: .vertical, spacing: 12)
+        let positionuStackView = UIStackView(
+            arrangedSubviews: [positionLabel, positionPlayerSegmentedControl],
+            axis: .vertical,
+            spacing: 12
+        )
         positionPlayerSegmentedControl.selectedSegmentIndex = 0
         
-        let whoAreYouStackView = UIStackView(arrangedSubviews: [whoAreYouLabel, whoAreYouSegmentedControl], axis: .vertical, spacing: 12)
+        let whoAreYouStackView = UIStackView(
+            arrangedSubviews: [whoAreYouLabel, whoAreYouSegmentedControl],
+            axis: .vertical,
+            spacing: 12
+        )
         
         goToButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        let stackView = UIStackView(arrangedSubviews: [nameStackView, positionuStackView, whoAreYouStackView, goToButton], axis: .vertical, spacing: 20)
+        let stackView = UIStackView(
+            arrangedSubviews: [nameStackView,
+                               positionuStackView,
+                               whoAreYouStackView,
+                               goToButton],
+            axis: .vertical,
+            spacing: 20
+        )
         
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         fullImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -166,13 +233,23 @@ extension SetupProfileViewController {
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
-            welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            welcomeLabel.topAnchor.constraint(
+                equalTo: view.topAnchor,
+                constant: 120
+            ),
+            welcomeLabel.centerXAnchor.constraint(
+                equalTo: view.centerXAnchor
+            )
         ])
         
         NSLayoutConstraint.activate([
-            fullImageView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 40),
-            fullImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            fullImageView.topAnchor.constraint(
+                equalTo: welcomeLabel.bottomAnchor,
+                constant: 40
+            ),
+            fullImageView.centerXAnchor.constraint(
+                equalTo: view.centerXAnchor
+            )
         ])
         
         NSLayoutConstraint.activate([
@@ -184,23 +261,26 @@ extension SetupProfileViewController {
 }
 
 // MARK: - UIImagePickerControllerDelegate
-extension SetupProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+extension SetupProfileViewController: UINavigationControllerDelegate,
+                                      UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        guard let image = info[
+            UIImagePickerController.InfoKey.originalImage
+        ] as? UIImage else { return }
         fullImageView.circleAvaPlayersImageView.image = image
     }
 }
 
 // MARK: - UITextFieldDelegate
 extension SetupProfileViewController: UITextFieldDelegate {
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
         return true
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)

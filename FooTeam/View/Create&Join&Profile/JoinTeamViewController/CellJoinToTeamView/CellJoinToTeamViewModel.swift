@@ -24,9 +24,4 @@ class CellJoinToTeamViewModel: CellJoinToTeamViewModelProtocol, ObservableObject
 
     @Published var isPresented: Bool = false
     @Published var showAlertAccept: Bool = false
-    @Published var idTeam: String = ""
-    
-    @Published var players: [Player] = []
-    
-    
 }
