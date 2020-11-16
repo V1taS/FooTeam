@@ -9,7 +9,6 @@
 import UIKit
 
 class GradientView: UIView {
-    
     private let gradientLayer = CAGradientLayer()
     
     enum Point {

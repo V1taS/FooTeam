@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIResponder {
-    
     static weak var responder: UIResponder?
     
     static func currentFirst() -> UIResponder? {

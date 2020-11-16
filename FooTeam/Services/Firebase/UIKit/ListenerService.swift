@@ -11,7 +11,6 @@ import FirebaseAuth
 import Firebase
 
 class ListenerService {
-    
     static let shared = ListenerService()
 
     private let db = Firestore.firestore()
@@ -23,7 +22,6 @@ class ListenerService {
     private var currentUserId: String {
         return Auth.auth().currentUser!.uid
     }
-    
     
     func playersObserve(players: [Player], completion: @escaping (Result<[Player], Error>) -> Void) -> ListenerRegistration? {
         var players = players
@@ -52,7 +50,6 @@ class ListenerService {
         return usersListener
     } // usersObserve
     
-    
     func waitingPlayersObserve(player: [Player], completion: @escaping (Result<[Player], Error>) -> Void) -> ListenerRegistration? {
         var player = player
         let waitingPlayer = db.collection(["players", currentUserId, "waitingTeams"].joined(separator: "/"))
@@ -79,7 +76,6 @@ class ListenerService {
             
             completion(.success(player))
         }
-        
         return playerListener
     }
 }

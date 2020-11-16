@@ -17,6 +17,7 @@ class PlayersListener: ObservableObject {
         downloadPlayers()
     }
     
+    // MARK: Получаем всех игроков из БД
     func downloadPlayers() {
         FirebaseReference(.players).addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else { return }

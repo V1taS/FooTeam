@@ -10,9 +10,7 @@ import FirebaseAuth
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -20,14 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window?.windowScene = windowScene
                 
                 if let user = Auth.auth().currentUser {
-
                     FirestoreService.shared.getUserData(user: user) { (result) in
                         switch result {
                         case .success(let player):
                             if player.idTeam.isEmpty {
-                                let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
-                                mainContentFooTeam.modalPresentationStyle = .fullScreen
-                                self.window?.rootViewController = mainContentFooTeam
+                                if UserDefaults.standard.bool(forKey: "waiting") {
+                                    let mainContentFooTeam = UIHostingController(rootView: WaitingForConfirmationView())
+                                    mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                    self.window?.rootViewController = mainContentFooTeam
+                                } else {
+                                    let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
+                                    mainContentFooTeam.modalPresentationStyle = .fullScreen
+                                    self.window?.rootViewController = mainContentFooTeam
+                                }
                             } else {
                                 let mainContentFooTeam = UIHostingController(rootView: TabViewFooTeam())
                                 mainContentFooTeam.modalPresentationStyle = .fullScreen

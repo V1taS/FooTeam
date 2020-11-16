@@ -84,8 +84,7 @@ struct TeamEditModalMainScreenView: View {
                         ForEach(0..<viewModel.selectionGameInWeak+1, id: \.self) { item in
                             VStack {
                                 HStack {
-                                    DatePicker("\(NSLocalizedString("TeamEditModalMainScreenViewModelGame",
-                                        comment: "Game")) - \(item+1)",
+                                    DatePicker("\(NSLocalizedString("TeamEditModalMainScreenViewModelGame", comment: "Game")) - \(item+1)",
                                     selection: $viewModel.calendarDetails[item],
                                     displayedComponents: [.hourAndMinute])
                                     

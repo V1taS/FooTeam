@@ -15,9 +15,11 @@ class FieldTypeFromIntToString {
     func setFieldType(from data: String) -> String {
         switch data {
         case "0":
-            return NSLocalizedString("FieldTypeFromIntToStringFieldTypeMini", comment: "Mini")
+            return NSLocalizedString("FieldTypeFromIntToStringFieldTypeMini",
+                                     comment: "Mini")
         case "1":
-            return NSLocalizedString("FieldTypeFromIntToStringFieldTypeFull", comment: "Big")
+            return NSLocalizedString("FieldTypeFromIntToStringFieldTypeFull",
+                                     comment: "Big")
         default: return ""
         }
     }

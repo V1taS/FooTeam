@@ -17,12 +17,14 @@ struct AlertIdentifier: Identifiable {
 
 protocol WaitingForConfirmationViewModelProtocol {
     var currentUser: CurrentUser { get }
+    var currentTeam: CurrentTeam { get }
     var cancellables: Set<AnyCancellable> { get }
     
     var downloadAmount: Double { get }
     var isPresented: Bool { get }
     var playerNoAccept: Bool { get }
     var player: Player { get }
+    var team: Team { get }
     var alertIdentifier: AlertIdentifier? { get }
     
     func setTimer()
@@ -31,6 +33,7 @@ protocol WaitingForConfirmationViewModelProtocol {
 
 class WaitingForConfirmationViewModel: WaitingForConfirmationViewModelProtocol, ObservableObject {
     @Published var currentUser = CurrentUser()
+    @Published var currentTeam = CurrentTeam()
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var downloadAmount: Double = 0.0
@@ -43,6 +46,7 @@ class WaitingForConfirmationViewModel: WaitingForConfirmationViewModelProtocol, 
     }
     
     @Published var player: Player = DefaultPlayer.shared.player
+    @Published var team: Team = DefaultTeam.shared.team
     @Published var alertIdentifier: AlertIdentifier?
     
     func setTimer() {
@@ -56,12 +60,16 @@ class WaitingForConfirmationViewModel: WaitingForConfirmationViewModelProtocol, 
     }
     
     required init() {
+        self.currentTeam.$team.sink { team in
+            self.team = team
+        } .store(in: &cancellables)
+        
         self.currentUser.$player.sink { player in
             self.player = player
             
             if player.teamNumber == 13 {
                 self.playerNoAccept.toggle()
-                EditPlayerSimple.shared.editPlayerInTeam(player: player, teamNumber: 0)
+                EditPlayerNumberTeam.shared.editPlayerInTeam(player: player, teamNumber: 0)
             }
             
             if let user = Auth.auth().currentUser {

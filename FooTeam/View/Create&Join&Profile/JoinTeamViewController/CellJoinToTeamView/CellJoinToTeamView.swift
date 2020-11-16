@@ -110,10 +110,11 @@ struct CellJoinToTeamView: View {
                         NSLocalizedString("CellJoinToTeamViewModelSendRequest",
                                           comment: "Send a request")
                     )) {
-                        JoinTheTeam.shared.SaveIDinTeam(
+                        JoinTheTeam.shared.joinToTeam(
                             player: FirestoreService.shared.currentUser,
                             team: team
                         )
+                        UserDefaults.standard.set(true, forKey: "waiting")
                         viewModel.isPresented = true
                     },
                     secondaryButton: .destructive(Text(
@@ -123,7 +124,7 @@ struct CellJoinToTeamView: View {
                 }
             }
         } .padding(.top)
-        .fullScreenCover(isPresented: $viewModel.isPresented) { WaitingForConfirmationView(team: self.team) }
+        .fullScreenCover(isPresented: $viewModel.isPresented) { WaitingForConfirmationView() }
     }
     
     struct CellJoinTeamViewController_Previews: PreviewProvider {

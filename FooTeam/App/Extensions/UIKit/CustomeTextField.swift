@@ -9,7 +9,6 @@
 import UIKit
 
 class CustomeTextField: UITextField {
-    
     convenience init(font: UIFont? = .avenir20(), placeholder: String? = "", textColor: UIColor? = .blackAndWhite(), isSecure: Bool = false, backgroundColor: UIColor? = .systemGray6, cornerRadius: CGFloat = 5, autocapitalizationType: UITextAutocapitalizationType = .none) {
         self.init()
         

@@ -12,6 +12,9 @@ import Firebase
 enum FCollectionReferenc: String {
     case players = "players"
     case teams = "teams"
+    case waitingPlayers = "waitingPlayers"
+    case actionsPlayers = "actionsPlayers"
+    case dateAndTimeOfTheGame = "dateAndTimeOfTheGame"
 }
 
 func FirebaseReference(_ collectionReference: FCollectionReferenc) -> CollectionReference {

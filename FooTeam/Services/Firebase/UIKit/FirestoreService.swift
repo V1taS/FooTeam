@@ -38,23 +38,6 @@ class FirestoreService {
     var currentUser: Player!
     
     // MARK: - Get User Data
-    func getUserDataFromApple(user: PlayerSignInWithApple, completion: @escaping (Result<Player, Error>) -> Void) {
-        let docRef = usersRef.document(user.id)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                guard let player = Player(document: document) else {
-                    completion(.failure(UserError.cannotUnwrapToMUser))
-                    return
-                }
-                self.currentUser = player
-                completion(.success(player))
-            } else {
-                completion(.failure(UserError.cannotGetUserInfo))
-            }
-        }
-    }
-    
-    // MARK: - Get User Data
     func getUserData(user: User, completion: @escaping (Result<Player, Error>) -> Void) {
         let docRef = usersRef.document(user.uid)
         docRef.getDocument { (document, error) in

@@ -12,7 +12,7 @@ import Combine
 protocol RowCalendarforInfoViewModelProtocol {
     var actionsPlayers: ActionsPlayers { get }
     var currentTeam: CurrentTeam { get }
-    var getTeamPlayTime: GetTeamPlayTime { get }
+    var getTeamPlayTime: DatePlayTeam { get }
     var cancellables: Set<AnyCancellable> { get }
     
     var players: [Player] { get }
@@ -33,7 +33,7 @@ protocol RowCalendarforInfoViewModelProtocol {
 class RowCalendarforInfoViewModel: RowCalendarforInfoViewModelProtocol, ObservableObject {
     @Published var actionsPlayers = ActionsPlayers()
     @Published var currentTeam = CurrentTeam()
-    @Published var getTeamPlayTime = GetTeamPlayTime()
+    @Published var getTeamPlayTime = DatePlayTeam()
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var players: [Player] = []

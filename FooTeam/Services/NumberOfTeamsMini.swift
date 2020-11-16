@@ -13,7 +13,6 @@ class NumberOfTeamsMini: ObservableObject {
     static let shared = NumberOfTeamsMini()
     
     func numberOfTeams(countPlauers: Int) -> Int {
-        
         if countPlauers < 10 { return 0 }
         
         if countPlauers >= 10 && countPlauers <= 11 {

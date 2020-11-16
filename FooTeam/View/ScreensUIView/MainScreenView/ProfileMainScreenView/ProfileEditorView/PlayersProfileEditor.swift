@@ -166,7 +166,6 @@ struct PlayersProfileEditor: View {
                             } else {
                                 EditPlayer.shared.editPlayerInTeam(
                                     player: self.viewModel.player,
-                                    players: self.viewModel.players,
                                     name: self.viewModel.player.name,
                                     avatarImage: self.viewModel.image,
                                     email: self.viewModel.player.email,

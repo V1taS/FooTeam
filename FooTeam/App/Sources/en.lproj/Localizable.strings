@@ -347,7 +347,6 @@ TeamTypeFromIntToStringTypeTeamOpen = "Open";
 TeamTypeFromIntToStringTypeTeamClose = "Private";
 
 // MARK: - GetDayOfWeekFromNumber
-
 GetDayOfWeekFromNumberWeekdayMonday = "Monday";
 GetDayOfWeekFromNumberWeekdayTuesday = "Tuesday";
 GetDayOfWeekFromNumberWeekdayWednesday = "Wednesday";
@@ -356,4 +355,10 @@ GetDayOfWeekFromNumberWeekdayFriday = "Friday";
 GetDayOfWeekFromNumberWeekdaySaturday = "Saturday";
 GetDayOfWeekFromNumberWeekdaySunday = "Sunday";
 
-//NSLocalizedString("GetDayOfWeekFromNumberWeekdaySunday", comment: "Sunday")
+// MARK: - UserError
+UserErrorFillAllFields = "Fill in all the fields";
+UserErrorDidntChoosePhoto = "User has not selected a photo";
+UserErrorUnableLoadInformation = "Unable to load User information from Firebase";
+UserErrorUnableConvert = "Unable to convert MUser from User";
+
+// NSLocalizedString("UserErrorUnableConvert", comment: "Unable to convert MUser from User")

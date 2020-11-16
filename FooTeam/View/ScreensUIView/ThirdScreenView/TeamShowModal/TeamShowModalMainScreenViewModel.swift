@@ -15,7 +15,7 @@ protocol TeamShowModalMainScreenViewModelProtocol {
     var cancellables: Set<AnyCancellable> { get }
     
     var currentTeam: CurrentTeam { get }
-    var getTeamPlayTime: GetTeamPlayTime { get }
+    var getTeamPlayTime: DatePlayTeam { get }
     var isPresentedEditTeam: Bool { get }
     var rating: Int { get }
     
@@ -38,7 +38,7 @@ class TeamShowModalMainScreenViewModel: TeamShowModalMainScreenViewModelProtocol
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var currentTeam = CurrentTeam()
-    @Published var getTeamPlayTime = GetTeamPlayTime()
+    @Published var getTeamPlayTime = DatePlayTeam()
     @Published var isPresentedEditTeam: Bool = false
     @Published var rating: Int = 0
     

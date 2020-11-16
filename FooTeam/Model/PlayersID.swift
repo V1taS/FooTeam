@@ -15,14 +15,12 @@ struct PlayersID: Hashable, Decodable {
     init?(document: DocumentSnapshot) {
         guard let data = document.data() else { return nil}
         guard let id = data["uid"] as? String else { return nil }
-
         self.id = id
     }
     
     init?(document: QueryDocumentSnapshot) {
         let data = document.data()
         guard let id = data["uid"] as? String else { return nil }
-
         self.id = id
     }
     

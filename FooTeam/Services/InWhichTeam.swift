@@ -12,17 +12,29 @@ class InWhichTeam {
     static let shared = InWhichTeam()
     
     func setNumberInWhichTeam(players: [Player], countNumbers: Int) {
-        
         let playersIgo = players.filter { $0.iGo }
         let sortedPlayersRating = playersIgo.sorted(by: { $0.rating > $1.rating })
-        
         var team = 0
         
         for player in sortedPlayersRating {
             var player = player
             player.teamNumber = team
             
-            EditPlayer.shared.editPlayerInTeam(player: player, players: players, name: nil, avatarImage: nil, email: nil, whoAreYou: nil, teamNumber: team, payment: nil, iGo: nil, subscription: nil, rating: nil, position: nil, numberOfGoals: nil, winGame: nil, losGame: nil, captain: nil)
+            EditPlayer.shared.editPlayerInTeam(player: player,
+                                               name: nil,
+                                               avatarImage: nil,
+                                               email: nil,
+                                               whoAreYou: nil,
+                                               teamNumber: team,
+                                               payment: nil,
+                                               iGo: nil,
+                                               subscription: nil,
+                                               rating: nil,
+                                               position: nil,
+                                               numberOfGoals: nil,
+                                               winGame: nil,
+                                               losGame: nil,
+                                               captain: nil)
             
             team += 1
             

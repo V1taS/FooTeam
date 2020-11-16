@@ -122,6 +122,12 @@ struct ProfileShowModalMainScreenView: View {
                                 viewModel.players.forEach { player in
                                     DeletePlayerFromTeam.shared.deletPlayerFromTeam(player: player)
                                 }
+                                RemoveExcessTime.shared.removeTime(
+                                    gameInWeak: 10,
+                                    ref: CollectionReferenceForFirebase.shared.converteference(
+                                        idTeam: viewModel.team.id
+                                    )
+                                )
                                 DeletTeam.shared.deletTeamInTeam(teamId: viewModel.player.idTeam)
                             }
                             viewModel.outFromTeam.toggle()

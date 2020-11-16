@@ -10,34 +10,28 @@ import Foundation
 import Firebase
 
 class TeamsListener: ObservableObject {
-    
     @Published var teams: [Team] = []
-    
     private let db = Firestore.firestore()
     
     init() {
         downloadTeams()
     }
     
+    // MARK: Получаем все команды из БД
     func downloadTeams() {
-        
-        let teamsRef = db.collection("teams")
-        
-        teamsRef.addSnapshotListener() { [self] (querySnapshot, err) in
-            
+        FirebaseReference(.teams).addSnapshotListener() { [self] (querySnapshot, err) in
             guard let snapshot = querySnapshot else { return }
-            
             snapshot.documentChanges.forEach { (diff) in
-                guard let player = Team(document: diff.document) else { return }
+                guard let team = Team(document: diff.document) else { return }
                 switch diff.type {
                 case .added:
-                    guard !self.teams.contains(player) else { return }
-                    self.teams.append(player)
+                    guard !self.teams.contains(team) else { return }
+                    self.teams.append(team)
                 case .modified:
-                    guard let index = teams.firstIndex(of: player) else { return }
-                    self.teams[index] = player
+                    guard let index = teams.firstIndex(of: team) else { return }
+                    self.teams[index] = team
                 case .removed:
-                    guard let index = teams.firstIndex(of: player) else { return }
+                    guard let index = teams.firstIndex(of: team) else { return }
                     teams.remove(at: index)
                 }
             }

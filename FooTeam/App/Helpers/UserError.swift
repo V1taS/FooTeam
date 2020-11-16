@@ -19,13 +19,17 @@ extension UserError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .notFilled:
-            return NSLocalizedString("Заполните все поля", comment: "")
+            return NSLocalizedString("UserErrorFillAllFields",
+                                     comment: "Fill in all the fields")
         case .photoNotExist:
-            return NSLocalizedString("Пользователь не выбрал фотографию", comment: "")
+            return NSLocalizedString("UserErrorDidntChoosePhoto",
+                                     comment: "User has not selected a photo")
         case .cannotGetUserInfo:
-            return NSLocalizedString("Невозможно загрузить информацию о User из Firebase", comment: "")
+            return NSLocalizedString("UserErrorUnableLoadInformation",
+                                     comment: "Unable to load User information from Firebase")
         case .cannotUnwrapToMUser:
-            return NSLocalizedString("Невозможно конвертировать MUser из User", comment: "")
+            return NSLocalizedString("UserErrorUnableConvert",
+                                     comment: "Unable to convert MUser from User")
         }
     }
 }

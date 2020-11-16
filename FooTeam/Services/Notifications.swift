@@ -15,7 +15,12 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     
     // Функция, которая запрашивает разрешение на уведомление и планирует уведомление
     func requestAutorization() {
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge, .providesAppNotificationSettings]) { (granted, error) in
+        notificationCenter.requestAuthorization(
+            options: [.alert,
+                      .sound,
+                      .badge,
+                      .providesAppNotificationSettings]
+        ) { (granted, error) in
             guard granted else { return }
             self.getNotificationSettings()
         }

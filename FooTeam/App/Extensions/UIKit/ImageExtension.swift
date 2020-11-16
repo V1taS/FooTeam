@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIImage {
-    
     var scaledToSafeUploadSize: UIImage? {
         let maxImageSideLength: CGFloat = 480
         

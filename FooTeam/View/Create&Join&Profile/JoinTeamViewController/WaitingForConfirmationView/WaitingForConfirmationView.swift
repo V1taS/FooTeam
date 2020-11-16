@@ -10,8 +10,7 @@ import SwiftUI
 import Firebase
 
 struct WaitingForConfirmationView: View {
-    
-    var team: Team
+
     @StateObject private var viewModel = WaitingForConfirmationViewModel()
     
     var body: some View {
@@ -63,10 +62,11 @@ struct WaitingForConfirmationView: View {
                                           comment: "Withdraw request")
                     ), action: {
                         if !viewModel.player.id.isEmpty {
-                            NoAcceptInvitation.shared.acceptInvitation(
+                            NoAcceptInvitation.shared.noAcceptInvitation(
                                 player: viewModel.player,
-                                idTeam: team.id
+                                idTeam: viewModel.team.id
                             )
+                            UserDefaults.standard.set(false, forKey: "waiting")
                             let mainContentFooTeam = UIHostingController(rootView: JoinToTeamView())
                             mainContentFooTeam.modalPresentationStyle = .fullScreen
                             UIApplication.shared.windows.first?.rootViewController = mainContentFooTeam
@@ -81,6 +81,6 @@ struct WaitingForConfirmationView: View {
 
 struct WaitingForConfirmation_Previews: PreviewProvider {
     static var previews: some View {
-        WaitingForConfirmationView(team: DefaultTeam.shared.team)
+        WaitingForConfirmationView()
     }
 }

@@ -212,7 +212,7 @@ PlayersProfileEditorBalance = "Баланс:";
 PlayersProfileEditorMonthlySubscription = "Месячная подписка:";
 PlayersProfileEditorActive = "активна";
 PlayersProfileEditorNotActive = "не активна";
-PlayersProfileEditorGoesToNextGame = "Идет на след. игру:";
+PlayersProfileEditorGoesToNextGame = "Иду на след. игру:";
 PlayersProfileEditorYes = "да";
 PlayersProfileEditorNo = "нет";
 PlayersProfileEditorPosition = "Позиция";
@@ -347,7 +347,6 @@ TeamTypeFromIntToStringTypeTeamOpen = "Открытая";
 TeamTypeFromIntToStringTypeTeamClose = "Закрытая";
 
 // MARK: - GetDayOfWeekFromNumber
-
 GetDayOfWeekFromNumberWeekdayMonday = "Понедельник";
 GetDayOfWeekFromNumberWeekdayTuesday = "Вторник";
 GetDayOfWeekFromNumberWeekdayWednesday = "Среда";
@@ -355,3 +354,9 @@ GetDayOfWeekFromNumberWeekdayThursday = "Четверг";
 GetDayOfWeekFromNumberWeekdayFriday = "Пятница";
 GetDayOfWeekFromNumberWeekdaySaturday = "Суббота";
 GetDayOfWeekFromNumberWeekdaySunday = "Воскресенье";
+
+// MARK: - UserError
+UserErrorFillAllFields = "Заполните все поля";
+UserErrorDidntChoosePhoto = "Пользователь не выбрал фотографию";
+UserErrorUnableLoadInformation = "Невозможно загрузить информацию о User из Firebase";
+UserErrorUnableConvert = "Невозможно конвертировать MUser из User";

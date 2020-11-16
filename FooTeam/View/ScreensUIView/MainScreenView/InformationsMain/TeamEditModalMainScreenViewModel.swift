@@ -12,7 +12,7 @@ import Combine
 protocol TeamEditModalMainScreenViewModelProtocol {
     var actionsPlayers: ActionsPlayers { get }
     var currentTeam: CurrentTeam { get }
-    var getTeamPlayTime: GetTeamPlayTime { get }
+    var getTeamPlayTime: DatePlayTeam { get }
     var cancellables: Set<AnyCancellable> { get }
     
     var deleteTeam: Bool { get }
@@ -42,7 +42,7 @@ protocol TeamEditModalMainScreenViewModelProtocol {
 class TeamEditModalMainScreenViewModel: TeamEditModalMainScreenViewModelProtocol, ObservableObject {
     @Published var actionsPlayers = ActionsPlayers()
     @Published var currentTeam = CurrentTeam()
-    @Published var getTeamPlayTime = GetTeamPlayTime()
+    @Published var getTeamPlayTime = DatePlayTeam()
     internal var cancellables = Set<AnyCancellable>()
     
     @Published var deleteTeam: Bool = false

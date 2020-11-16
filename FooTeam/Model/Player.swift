@@ -12,38 +12,44 @@ import Firebase
 struct Player: Hashable, Decodable {
     
     var name: String
-    
     var email: String
     var avatarStringURL: String
-    
     var whoAreYou: String
     var id: String
     var idTeam: String
-    
     var teamNumber: Int
     var payment: String
-    
     var iGo: Bool
     var subscription: Bool
-    
     var rating: Int
     var position: String
-    
     var numberOfGoals: Int
-    
     var winGame: Int
     var losGame: Int
-    
     var captain: Bool
     
-    init(name: String, email: String, avatarStringURL: String, whoAreYou: String, id: String, idTeam: String, teamNumber: Int, payment: String, iGo: Bool, subscription: Bool, rating: Int, position: String, numberOfGoals: Int, winGame: Int, losGame: Int, captain: Bool) {
+    init(name: String,
+         email: String,
+         avatarStringURL: String,
+         whoAreYou: String,
+         id: String,
+         idTeam: String,
+         teamNumber: Int,
+         payment: String,
+         iGo: Bool,
+         subscription: Bool,
+         rating: Int,
+         position: String,
+         numberOfGoals: Int,
+         winGame: Int,
+         losGame: Int,
+         captain: Bool) {
         self.name = name
         self.email = email
         self.avatarStringURL = avatarStringURL
         self.whoAreYou = whoAreYou
         self.id = id
         self.idTeam = idTeam
-        
         self.teamNumber = teamNumber
         self.payment = payment
         self.iGo = iGo
@@ -55,26 +61,25 @@ struct Player: Hashable, Decodable {
         self.losGame = losGame
         self.captain = captain
     }
-
+    
     init?(document: DocumentSnapshot) {
         guard let data = document.data() else { return nil}
         guard let name = data["name"] as? String,
-            let email = data["email"] as? String,
-            let avatarStringURL = data["avatarStringURL"] as? String,
-            let whoAreYou = data["whoAreYou"] as? String,
-            let id = data["uid"] as? String,
-            let idTeam = data["idTeam"] as? String,
-            
-            let teamNumber = data["teamNumber"] as? Int,
-            let payment = data["payment"] as? String,
-            let iGo = data["iGo"] as? Bool,
-            let subscription = data["subscription"] as? Bool,
-            let rating = data["rating"] as? Int,
-            let position = data["position"] as? String,
-            let numberOfGoals = data["numberOfGoals"] as? Int,
-            let winGame = data["winGame"] as? Int,
-            let losGame = data["losGame"] as? Int,
-            let captain = data["captain"] as? Bool else { return nil }
+              let email = data["email"] as? String,
+              let avatarStringURL = data["avatarStringURL"] as? String,
+              let whoAreYou = data["whoAreYou"] as? String,
+              let id = data["uid"] as? String,
+              let idTeam = data["idTeam"] as? String,
+              let teamNumber = data["teamNumber"] as? Int,
+              let payment = data["payment"] as? String,
+              let iGo = data["iGo"] as? Bool,
+              let subscription = data["subscription"] as? Bool,
+              let rating = data["rating"] as? Int,
+              let position = data["position"] as? String,
+              let numberOfGoals = data["numberOfGoals"] as? Int,
+              let winGame = data["winGame"] as? Int,
+              let losGame = data["losGame"] as? Int,
+              let captain = data["captain"] as? Bool else { return nil }
         
         self.name = name
         self.email = email
@@ -82,7 +87,6 @@ struct Player: Hashable, Decodable {
         self.whoAreYou = whoAreYou
         self.id = id
         self.idTeam = idTeam
-        
         self.teamNumber = teamNumber
         self.payment = payment
         self.iGo = iGo
@@ -98,23 +102,21 @@ struct Player: Hashable, Decodable {
     init?(document: QueryDocumentSnapshot) {
         let data = document.data()
         guard let name = data["name"] as? String,
-            let email = data["email"] as? String,
-            let avatarStringURL = data["avatarStringURL"] as? String,
-            let whoAreYou = data["whoAreYou"] as? String,
-            let id = data["uid"] as? String,
-            let idTeam = data["idTeam"] as? String,
-            
-            
-            let teamNumber = data["teamNumber"] as? Int,
-            let payment = data["payment"] as? String,
-            let iGo = data["iGo"] as? Bool,
-            let subscription = data["subscription"] as? Bool,
-            let rating = data["rating"] as? Int,
-            let position = data["position"] as? String,
-            let numberOfGoals = data["numberOfGoals"] as? Int,
-            let winGame = data["winGame"] as? Int,
-            let losGame = data["losGame"] as? Int,
-            let captain = data["captain"] as? Bool else { return nil }
+              let email = data["email"] as? String,
+              let avatarStringURL = data["avatarStringURL"] as? String,
+              let whoAreYou = data["whoAreYou"] as? String,
+              let id = data["uid"] as? String,
+              let idTeam = data["idTeam"] as? String,
+              let teamNumber = data["teamNumber"] as? Int,
+              let payment = data["payment"] as? String,
+              let iGo = data["iGo"] as? Bool,
+              let subscription = data["subscription"] as? Bool,
+              let rating = data["rating"] as? Int,
+              let position = data["position"] as? String,
+              let numberOfGoals = data["numberOfGoals"] as? Int,
+              let winGame = data["winGame"] as? Int,
+              let losGame = data["losGame"] as? Int,
+              let captain = data["captain"] as? Bool else { return nil }
         
         self.name = name
         self.email = email
@@ -122,7 +124,6 @@ struct Player: Hashable, Decodable {
         self.whoAreYou = whoAreYou
         self.id = id
         self.idTeam = idTeam
-        
         self.teamNumber = teamNumber
         self.payment = payment
         self.iGo = iGo
@@ -138,13 +139,11 @@ struct Player: Hashable, Decodable {
     var representation: [String: Any] {
         var rep: [String: Any]
         rep = ["name": name]
-        
         rep["email"] = email
         rep["avatarStringURL"] = avatarStringURL
         rep["whoAreYou"] = whoAreYou
         rep["uid"] = id
         rep["idTeam"] = idTeam
-        
         rep["teamNumber"] = teamNumber
         rep["payment"] = payment
         rep["iGo"] = iGo

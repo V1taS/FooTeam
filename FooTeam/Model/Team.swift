@@ -20,7 +20,6 @@ struct Team: Hashable, Decodable {
     var isHidden: Bool
     var maxCountPlayersInTeam: Int
     var currentCountPlayersInTeam: Int
-    
     var country: String
     var totalMoney: String
     var gameСosts: String
@@ -28,7 +27,7 @@ struct Team: Hashable, Decodable {
     
     init(
         avatarStringURL: String,
-         teamName: String,
+        teamName: String,
         location: String,
         teamType: String,
         rating: Int,
@@ -58,19 +57,18 @@ struct Team: Hashable, Decodable {
     init?(document: DocumentSnapshot) {
         guard let data = document.data() else { return nil}
         guard let avatarStringURL = data["avatarStringURL"] as? String,
-            let teamName = data["teamName"] as? String,
-            let location = data["location"] as? String,
-            let teamType = data["teamType"] as? String,
-            let id = data["id"] as? String,
-            let country = data["country"] as? String,
-            let totalMoney = data["totalMoney"] as? String,
-            let gameСosts = data["gameСosts"] as? String,
-            let fieldType = data["fieldType"] as? String,
-            let maxCountPlayersInTeam = data["maxCountPlayersInTeam"] as? Int,
-            let currentCountPlayersInTeam = data["currentCountPlayersInTeam"] as? Int,
-            let isHidden = data["isHidden"] as? Bool,
-            let rating = data["rating"] as? Int else { return nil }
-        
+              let teamName = data["teamName"] as? String,
+              let location = data["location"] as? String,
+              let teamType = data["teamType"] as? String,
+              let id = data["id"] as? String,
+              let country = data["country"] as? String,
+              let totalMoney = data["totalMoney"] as? String,
+              let gameСosts = data["gameСosts"] as? String,
+              let fieldType = data["fieldType"] as? String,
+              let maxCountPlayersInTeam = data["maxCountPlayersInTeam"] as? Int,
+              let currentCountPlayersInTeam = data["currentCountPlayersInTeam"] as? Int,
+              let isHidden = data["isHidden"] as? Bool,
+              let rating = data["rating"] as? Int else { return nil }
         self.avatarStringURL = avatarStringURL
         self.teamName = teamName
         self.location = location
@@ -88,21 +86,19 @@ struct Team: Hashable, Decodable {
     
     init?(document: QueryDocumentSnapshot) {
         let data = document.data()
-        
         guard let avatarStringURL = data["avatarStringURL"] as? String,
-            let teamName = data["teamName"] as? String,
-            let location = data["location"] as? String,
-            let teamType = data["teamType"] as? String,
-            let id = data["id"] as? String,
-            let country = data["country"] as? String,
-            let totalMoney = data["totalMoney"] as? String,
-            let gameСosts = data["gameСosts"] as? String,
-            let fieldType = data["fieldType"] as? String,
-            let maxCountPlayersInTeam = data["maxCountPlayersInTeam"] as? Int,
-            let currentCountPlayersInTeam = data["currentCountPlayersInTeam"] as? Int,
-            let isHidden = data["isHidden"] as? Bool,
-            let rating = data["rating"] as? Int else { return nil }
-        
+              let teamName = data["teamName"] as? String,
+              let location = data["location"] as? String,
+              let teamType = data["teamType"] as? String,
+              let id = data["id"] as? String,
+              let country = data["country"] as? String,
+              let totalMoney = data["totalMoney"] as? String,
+              let gameСosts = data["gameСosts"] as? String,
+              let fieldType = data["fieldType"] as? String,
+              let maxCountPlayersInTeam = data["maxCountPlayersInTeam"] as? Int,
+              let currentCountPlayersInTeam = data["currentCountPlayersInTeam"] as? Int,
+              let isHidden = data["isHidden"] as? Bool,
+              let rating = data["rating"] as? Int else { return nil }
         self.avatarStringURL = avatarStringURL
         self.teamName = teamName
         self.location = location

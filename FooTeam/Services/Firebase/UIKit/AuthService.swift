@@ -126,5 +126,4 @@ class AuthService {
             }
         })
     }
-    
 }

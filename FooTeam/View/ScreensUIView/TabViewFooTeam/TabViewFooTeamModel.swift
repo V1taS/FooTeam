@@ -43,9 +43,12 @@ class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
         self.currentUser.$player.sink { player in
             self.currentPlayer = player
             
-            if self.currentPlayer.idTeam.isEmpty {
-                self.outFromTeam = true
+            if FirestoreService.shared.currentUser.id == player.id {
+                if player.idTeam.isEmpty {
+                    self.outFromTeam = true
+                }
             }
+            
         } .store(in: &cancellables)
         
         self.waitingPlayers.$players.sink { players in

@@ -9,7 +9,6 @@
 import UIKit
 
 extension UILabel {
-    
     convenience init(text: String,
                      font: UIFont? = .avenir20(),
                      color: UIColor = UIColor(named: "BlackAndWhite")!,
@@ -22,7 +21,5 @@ extension UILabel {
         self.textColor = color
         self.numberOfLines = numberOfLines
         self.textAlignment = textAlignment
-        
-        
     }
 }

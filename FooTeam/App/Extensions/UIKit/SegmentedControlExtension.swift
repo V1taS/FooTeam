@@ -9,7 +9,6 @@
 import UIKit
 
 extension UISegmentedControl {
-    
     convenience init(first: String, second: String, backgroundColor: UIColor = .systemGray6) {
         self.init()
         

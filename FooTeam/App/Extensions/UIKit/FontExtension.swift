@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIFont {
-    
     static func bolt20() -> UIFont? {
         return UIFont.boldSystemFont(ofSize: 20.0)
     }
