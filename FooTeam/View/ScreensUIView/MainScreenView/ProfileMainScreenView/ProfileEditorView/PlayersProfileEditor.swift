@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PlayersProfileEditor: View {
     
-    @StateObject private var viewModel = PlayersProfileEditorViewModel()
+    @ObservedObject private var viewModel = PlayersProfileEditorViewModel()
     @Environment(\.presentationMode) var presentationMode
     var player: Player
     
@@ -87,8 +87,12 @@ struct PlayersProfileEditor: View {
                                 )
                                 Spacer()
                                 Toggle(isOn: $viewModel.player.subscription) {
-                                    Text("\(viewModel.player.subscription ? Text(NSLocalizedString("PlayersProfileEditorActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("PlayersProfileEditorNotActive", comment: "not active")).foregroundColor(Color.red))")
-                                        .font(.headline)
+                                    if #available(iOS 14.0, *) {
+                                        Text("\(viewModel.player.subscription ? Text(NSLocalizedString("PlayersProfileEditorActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("PlayersProfileEditorNotActive", comment: "not active")).foregroundColor(Color.red))")
+                                            .font(.headline)
+                                    } else {
+                                        // Fallback on earlier versions
+                                    }
                                 }
                             }
                         }
@@ -97,8 +101,13 @@ struct PlayersProfileEditor: View {
                             Text(NSLocalizedString("PlayersProfileEditorGoesToNextGame",
                                                    comment: "Goes to the next game"))
                             Toggle(isOn: $viewModel.player.iGo) {
-                                Text("\(self.viewModel.player.iGo ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.red))")
-                                    .font(.headline)
+                                
+                                if #available(iOS 14.0, *) {
+                                    Text("\(self.viewModel.player.iGo ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.red))")
+                                        .font(.headline)
+                                } else {
+                                    // Fallback on earlier versions
+                                }
                             }
                         }
                         
@@ -137,8 +146,13 @@ struct PlayersProfileEditor: View {
                                     Text(NSLocalizedString("PlayersProfileEditorMakeTeamCaptain",
                                                            comment: "Make a team captain?"))
                                     Toggle(isOn: $viewModel.player.captain) {
-                                        Text("\(viewModel.player.captain ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.green))")
-                                            .font(.headline)
+                                        
+                                        if #available(iOS 14.0, *) {
+                                            Text("\(viewModel.player.captain ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.green))")
+                                                .font(.headline)
+                                        } else {
+                                            // Fallback on earlier versions
+                                        }
                                     }
                                 }
                                 
@@ -148,8 +162,13 @@ struct PlayersProfileEditor: View {
                                                           comment: "Remove a player from the team?")
                                     )
                                     Toggle(isOn: $viewModel.deletPlayer) {
-                                        Text("\(viewModel.deletPlayer ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.green))")
-                                            .font(.headline)
+                                        
+                                        if #available(iOS 14.0, *) {
+                                            Text("\(viewModel.deletPlayer ? Text(NSLocalizedString("PlayersProfileEditorYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("PlayersProfileEditorNo", comment: "no")).foregroundColor(Color.green))")
+                                                .font(.headline)
+                                        } else {
+                                            // Fallback on earlier versions
+                                        }
                                     }
                                 }
                             }

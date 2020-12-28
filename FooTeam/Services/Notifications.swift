@@ -71,7 +71,11 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-        completionHandler([.list, .sound, .badge, .banner])
+        if #available(iOS 14.0, *) {
+            completionHandler([.list, .sound, .badge, .banner])
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func userNotificationCenter(

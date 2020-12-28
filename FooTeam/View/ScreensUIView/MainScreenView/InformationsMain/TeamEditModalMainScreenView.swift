@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TeamEditModalMainScreenView: View {
     
-    @StateObject private var viewModel = TeamEditModalMainScreenViewModel()
+    @ObservedObject private var viewModel = TeamEditModalMainScreenViewModel()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -110,8 +110,12 @@ struct TeamEditModalMainScreenView: View {
                             Text(NSLocalizedString("TeamEditModalMainScreenViewModelHideFromGlobalSearch",
                                                    comment: "Hide from global search?"))
                             Toggle(isOn: $viewModel.team.isHidden) {
-                                Text("\(viewModel.team.isHidden ? Text(NSLocalizedString("TeamEditModalMainScreenViewModelYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("TeamEditModalMainScreenViewModelNo", comment: "no")).foregroundColor(Color.green))")
-                                    .font(.headline)
+                                if #available(iOS 14.0, *) {
+                                    Text("\(viewModel.team.isHidden ? Text(NSLocalizedString("TeamEditModalMainScreenViewModelYes", comment: "yes")).foregroundColor(Color.red) : Text(NSLocalizedString("TeamEditModalMainScreenViewModelNo", comment: "no")).foregroundColor(Color.green))")
+                                        .font(.headline)
+                                } else {
+                                    // Fallback on earlier versions
+                                }
                             }
                         }
                         

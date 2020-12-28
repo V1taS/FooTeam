@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TeamShowModalMainScreenView: View {
     
-    @StateObject private var viewModel = TeamShowModalMainScreenViewModel()
+    @ObservedObject private var viewModel = TeamShowModalMainScreenViewModel()
     @Environment(\.presentationMode) var presentationMode
     @Binding var showAcceptPlayers: Bool
     

@@ -12,6 +12,7 @@
 		1B15EB4A252E0CD500E36E20 /* AcceptPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15EB49252E0CD500E36E20 /* AcceptPlayersView.swift */; };
 		1B18C2DE25116AFD00551C6D /* HeaderMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B18C2DD25116AFD00551C6D /* HeaderMainScreenViewModel.swift */; };
 		1B18C2E125116D4C00551C6D /* ProfileMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B18C2E025116D4C00551C6D /* ProfileMainScreenViewModel.swift */; };
+		1B1B883A259A888D000EC5AD /* FullscreenSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1B8839259A888D000EC5AD /* FullscreenSheet.swift */; };
 		1B2041552550B73E000A1E8C /* CellCalendarforInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2041542550B73E000A1E8C /* CellCalendarforInfo.swift */; };
 		1B28E3FE2511A031007B53A8 /* ListPlayersSecondScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */; };
 		1B29269D25523F8F009F6A2F /* NumberOfTeamsFullField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B29269C25523F8F009F6A2F /* NumberOfTeamsFullField.swift */; };
@@ -138,6 +139,7 @@
 		1B15EB49252E0CD500E36E20 /* AcceptPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptPlayersView.swift; sourceTree = "<group>"; };
 		1B18C2DD25116AFD00551C6D /* HeaderMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMainScreenViewModel.swift; sourceTree = "<group>"; };
 		1B18C2E025116D4C00551C6D /* ProfileMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainScreenViewModel.swift; sourceTree = "<group>"; };
+		1B1B8839259A888D000EC5AD /* FullscreenSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenSheet.swift; sourceTree = "<group>"; };
 		1B2041542550B73E000A1E8C /* CellCalendarforInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCalendarforInfo.swift; sourceTree = "<group>"; };
 		1B28E3FD2511A030007B53A8 /* ListPlayersSecondScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlayersSecondScreenViewModel.swift; sourceTree = "<group>"; };
 		1B29269C25523F8F009F6A2F /* NumberOfTeamsFullField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfTeamsFullField.swift; sourceTree = "<group>"; };
@@ -645,6 +647,7 @@
 				1BB14D9D252138B200B8CFCF /* UIResponder.swift */,
 				1BB14DBD252138EF00B8CFCF /* UIViewController.swift */,
 				1B596FA224EC73A90092770B /* UIKit */,
+				1B1B8839259A888D000EC5AD /* FullscreenSheet.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1078,6 +1081,7 @@
 				1B858D2A252FC2A90028E7C6 /* PageView.swift in Sources */,
 				1BBDD882251D66A500517BB3 /* RatingOfPlayers.swift in Sources */,
 				1B596F6B24EC73530092770B /* LoginViewController.swift in Sources */,
+				1B1B883A259A888D000EC5AD /* FullscreenSheet.swift in Sources */,
 				1B453AAC2501A28B00DA2DDA /* FirebaseReference.swift in Sources */,
 				1B6B4812251195D900D71729 /* TabViewFooTeamModel.swift in Sources */,
 				1B596FBB24EC73A90092770B /* ImageExtension.swift in Sources */,
@@ -1177,6 +1181,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1191,7 +1196,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1239,6 +1244,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1247,9 +1253,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1264,15 +1271,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FooTeam/App/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.4;
+				MARKETING_VERSION = 1.4.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1287,15 +1294,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FooTeam/App/FooTeam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = 34VDSPZYU9;
 				INFOPLIST_FILE = "$(SRCROOT)/FooTeam/App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.4;
+				MARKETING_VERSION = 1.4.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vitalii-Sosin.FooTeam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

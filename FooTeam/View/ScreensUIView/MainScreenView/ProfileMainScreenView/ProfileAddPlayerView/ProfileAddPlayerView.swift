@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ProfileAddPlayerView: View {
     
-    @StateObject private var viewModel = ProfileAddPlayerViewModel()
+    @ObservedObject private var viewModel = ProfileAddPlayerViewModel()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {

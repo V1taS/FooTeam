@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct EditPhotoViewPlayer: View {
     
-    @StateObject private var viewModel = EditPhotoViewModel()
+    @ObservedObject private var viewModel = EditPhotoViewModel()
     var player: Player
     @Binding var isPresentedChangeAvatar: Bool
     @Binding var image: UIImage

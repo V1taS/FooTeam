@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RowCalendarforInfo: View {
     
-    @StateObject private var viewModel = RowCalendarforInfoViewModel()
+    @ObservedObject private var viewModel = RowCalendarforInfoViewModel()
     
     var body: some View {
         ZStack {

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ListPlayersProfileShow: View {
     
-    @StateObject private var viewModel = ListPlayersProfileShowViewModel()
+    @ObservedObject private var viewModel = ListPlayersProfileShowViewModel()
     let player: Player
     
     var body: some View {
@@ -57,16 +57,25 @@ struct ListPlayersProfileShow: View {
                 Text(NSLocalizedString("ListPlayersProfileShowMonthlySubscription",
                                        comment: "Monthly subscription"))
                 Spacer()
-                Text("\(viewModel.player.subscription ? Text(NSLocalizedString("ListPlayersProfileShowActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("ListPlayersProfileShowNotActive", comment: "not active")).foregroundColor(Color.red))")
-                    .font(.headline)
+                if #available(iOS 14.0, *) {
+                    Text("\(viewModel.player.subscription ? Text(NSLocalizedString("ListPlayersProfileShowActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("ListPlayersProfileShowNotActive", comment: "not active")).foregroundColor(Color.red))")
+                        .font(.headline)
+                } else {
+                    // Fallback on earlier versions
+                }
             }
             
             HStack {
                 Text(NSLocalizedString("ListPlayersProfileShowImGoingToNextGame",
                                        comment: "Going to the next game:"))
                 Spacer()
-                Text("\(viewModel.player.iGo ? Text(NSLocalizedString("ListPlayersProfileShowYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("ListPlayersProfileShowNo", comment: "no")).foregroundColor(Color.red))")
-                    .font(.headline)
+                
+                if #available(iOS 14.0, *) {
+                    Text("\(viewModel.player.iGo ? Text(NSLocalizedString("ListPlayersProfileShowYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("ListPlayersProfileShowNo", comment: "no")).foregroundColor(Color.red))")
+                        .font(.headline)
+                } else {
+                    // Fallback on earlier versions
+                }
             }
         } .onAppear { viewModel.playerID = player.id }
         

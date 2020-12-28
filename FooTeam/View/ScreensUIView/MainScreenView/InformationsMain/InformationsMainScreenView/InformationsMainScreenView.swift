@@ -10,7 +10,7 @@ import SwiftUI
 
 struct InformationsMainScreenView: View {
     
-    @StateObject private var viewModel = InformationsMainScreenViewModel()
+    @ObservedObject private var viewModel = InformationsMainScreenViewModel()
     
     var body: some View {
         ZStack {
@@ -49,11 +49,15 @@ struct InformationsMainScreenView: View {
                             .minimumScaleFactor(0.9)
                             .lineLimit(1)
                             .foregroundColor(Color("BlackAndWhite"))
-                        Text("\(viewModel.iGo ? Text(NSLocalizedString("InformationsMainScreenViewModelYes", comment: "yes")).foregroundColor(Color("BlackAndWhite")) : Text(NSLocalizedString("InformationsMainScreenViewModelNo", comment: "no")).foregroundColor(Color.red))")
-                            .font(.headline)
-                            .foregroundColor(Color("BlackAndWhite"))
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.9)
+                        if #available(iOS 14.0, *) {
+                            Text("\(viewModel.iGo ? Text(NSLocalizedString("InformationsMainScreenViewModelYes", comment: "yes")).foregroundColor(Color("BlackAndWhite")) : Text(NSLocalizedString("InformationsMainScreenViewModelNo", comment: "no")).foregroundColor(Color.red))")
+                                .font(.headline)
+                                .foregroundColor(Color("BlackAndWhite"))
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.9)
+                        } else {
+                            // Fallback on earlier versions
+                        }
                     }
                 } .frame(maxWidth: 150)
                 

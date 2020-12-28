@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HeaderMainScreenView: View {
     
-    @StateObject private var viewModel = HeaderMainScreenViewModel()
+    @ObservedObject private var viewModel = HeaderMainScreenViewModel()
     
     var body: some View {
         HStack {

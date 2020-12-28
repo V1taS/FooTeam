@@ -12,7 +12,11 @@ import FirebaseAuth
 
 struct TabViewFooTeam: View {
     
-    @StateObject private var viewModel = TabViewFooTeamModel()
+    @ObservedObject private var viewModel = TabViewFooTeamModel()
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
+    private var viewController: UIViewController? {
+        self.viewControllerHolder!
+    }
     
     var body: some View {
         ZStack {
@@ -38,10 +42,7 @@ struct TabViewFooTeam: View {
                                                comment: "Team"))
                     }
                 
-            } .fullScreenCover(
-                isPresented: $viewModel.outFromTeam,
-                content: { JoinToTeamView() }
-            )
+            }
             
             if FirestoreService.shared.currentUser.captain {
                 if viewModel.showAcceptPlayers {

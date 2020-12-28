@@ -10,8 +10,12 @@ import SwiftUI
 
 struct ProfileShowModalMainScreenView: View {
     
-    @StateObject private var viewModel = ProfileShowModalMainScreenViewModel()
+    @ObservedObject private var viewModel = ProfileShowModalMainScreenViewModel()
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
+    private var viewController: UIViewController? {
+        self.viewControllerHolder!
+    }
     
     var body: some View {
         NavigationView {
@@ -63,8 +67,13 @@ struct ProfileShowModalMainScreenView: View {
                                           comment: "Monthly subscription")
                     )
                     Spacer()
-                    Text("\(viewModel.player.subscription ? Text(NSLocalizedString("ProfileShowModalMainScreenViewActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("ProfileShowModalMainScreenViewNotActive", comment: "not active")).foregroundColor(Color.red))")
-                        .font(.headline)
+                    
+                    if #available(iOS 14.0, *) {
+                        Text("\(viewModel.player.subscription ? Text(NSLocalizedString("ProfileShowModalMainScreenViewActive", comment: "active")).foregroundColor(Color.green) : Text(NSLocalizedString("ProfileShowModalMainScreenViewNotActive", comment: "not active")).foregroundColor(Color.red))")
+                            .font(.headline)
+                    } else {
+                        // Fallback on earlier versions
+                    }
                 }
                 
                 HStack {
@@ -73,8 +82,13 @@ struct ProfileShowModalMainScreenView: View {
                                           comment: "I'm going to the next game")
                     )
                     Spacer()
-                    Text("\(viewModel.player.iGo ? Text(NSLocalizedString("ProfileShowModalMainScreenViewYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("ProfileShowModalMainScreenViewNo", comment: "no")).foregroundColor(Color.red))")
-                        .font(.headline)
+                    
+                    if #available(iOS 14.0, *) {
+                        Text("\(viewModel.player.iGo ? Text(NSLocalizedString("ProfileShowModalMainScreenViewYes", comment: "yes")).foregroundColor(Color.green) : Text(NSLocalizedString("ProfileShowModalMainScreenViewNo", comment: "no")).foregroundColor(Color.red))")
+                            .font(.headline)
+                    } else {
+                        // Fallback on earlier versions
+                    }
                 }
                 
                 HStack {
@@ -90,9 +104,6 @@ struct ProfileShowModalMainScreenView: View {
                         .padding(.vertical, 5)
                         .cornerRadius(5)
                     }
-                    .fullScreenCover(isPresented: $viewModel.outFromTeam, content: {
-                        JoinToTeamView()
-                    })
                     Spacer()
                 }
             } .alert(isPresented: self.$viewModel.isPresentedAlert) {
@@ -130,7 +141,10 @@ struct ProfileShowModalMainScreenView: View {
                                 )
                                 DeletTeam.shared.deletTeamInTeam(teamId: viewModel.player.idTeam)
                             }
-                            viewModel.outFromTeam.toggle()
+                            UserDefaults.standard.set(false, forKey: "waiting")
+                            self.viewController?.present(style: .fullScreen) {
+                                JoinToTeamView()
+                            }
                         }
                     )
                 )

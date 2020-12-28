@@ -10,67 +10,71 @@ import SwiftUI
 
 struct MainScreenView: View {
     
-    @StateObject private var viewModel = MainScreenViewModel()
+    @ObservedObject private var viewModel = MainScreenViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                VStack {
-                    HeaderMainScreenView()
-                    HStack {
-                        Text(
-                            NSLocalizedString("MainScreenViewModelControlPanel",
-                                              comment: "Control panel")
-                        )
-                        .font(.title)
-                        .fontWeight(.bold)
+                if #available(iOS 14.0, *) {
+                    VStack {
+                        HeaderMainScreenView()
+                        HStack {
+                            Text(
+                                NSLocalizedString("MainScreenViewModelControlPanel",
+                                                  comment: "Control panel")
+                            )
+                            .font(.title)
+                            .fontWeight(.bold)
+                            Spacer()
+                        } .padding(.horizontal)
+                        
+                        HStack {
+                            ProfileMainScreenView()
+                            Spacer(minLength: 16)
+                            InformationsMainScreenView()
+                        } .padding(.horizontal)
+                        
+                        HStack {
+                            Text(
+                                NSLocalizedString("MainScreenViewModelSquadForTheGame",
+                                                  comment: "Squad for the game")
+                            )
+                            .font(.title)
+                            .fontWeight(.bold)
+                            Spacer()
+                        } .padding(.horizontal)
+                        
+                        TeamMainScreenView()
+                            .padding(.horizontal)
+                        
+                        HStack {
+                            Text(
+                                NSLocalizedString("MainScreenViewModelTop",
+                                                  comment: "TOP Players")
+                            )
+                            .font(.title)
+                            .fontWeight(.bold)
+                            Spacer()
+                        } .padding(.horizontal)
+                        
+                        TopPlayersScreenView()
+                        
                         Spacer()
-                    } .padding(.horizontal)
+                    }
                     
-                    HStack {
-                        ProfileMainScreenView()
-                        Spacer(minLength: 16)
-                        InformationsMainScreenView()
-                    } .padding(.horizontal)
-                    
-                    HStack {
-                        Text(
-                            NSLocalizedString("MainScreenViewModelSquadForTheGame",
-                                              comment: "Squad for the game")
+                    .navigationBarItems(
+                        trailing: OutButtonFooTeamMenu(
+                            isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut
                         )
-                        .font(.title)
-                        .fontWeight(.bold)
-                        Spacer()
-                    } .padding(.horizontal)
-                    
-                    TeamMainScreenView()
-                        .padding(.horizontal)
-                    
-                    HStack {
-                        Text(
-                            NSLocalizedString("MainScreenViewModelTop",
-                                              comment: "TOP Players")
-                        )
-                        .font(.title)
-                        .fontWeight(.bold)
-                        Spacer()
-                    } .padding(.horizontal)
-                    
-                    TopPlayersScreenView()
-                    
-                    Spacer()
-                }
-                
-                .navigationBarItems(
-                    trailing: OutButtonFooTeamMenu(
-                        isPresentedAlertSignOut: $viewModel.isPresentedAlertSignOut
                     )
-                )
-                .navigationBarTitle(
-                    NSLocalizedString("MainScreenViewModelHome",
-                                      comment: "Home"),
-                    displayMode: .inline
-                )
+                    .navigationBarTitle(
+                        NSLocalizedString("MainScreenViewModelHome",
+                                          comment: "Home"),
+                        displayMode: .inline
+                    )
+                } else {
+                    // Fallback on earlier versions
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct ListPlayersSecondScreenView: View {
     
-    @StateObject private var viewModel = ListPlayersSecondScreenViewModel()
+    @ObservedObject private var viewModel = ListPlayersSecondScreenViewModel()
     let notifications = Notifications()
     
     var body: some View {
@@ -30,8 +30,18 @@ struct ListPlayersSecondScreenView: View {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
-                                    Text("\(player.captain ? Text(NSLocalizedString("ListPlayersSecondScreenViewCaptain", comment: "Captain")).font(.headline) : Text(""))")
-                                    Text("\(player.whoAreYou == "1" ? Text(NSLocalizedString("ListPlayersSecondScreenViewViewer", comment: "Viewer")).font(.headline) : Text(""))")
+                                    if #available(iOS 14.0, *) {
+                                        Text("\(player.captain ? Text(NSLocalizedString("ListPlayersSecondScreenViewCaptain", comment: "Captain")).font(.headline) : Text(""))")
+                                    } else {
+                                        // Fallback on earlier versions
+                                    }
+                                    
+                                    if #available(iOS 14.0, *) {
+                                        Text("\(player.whoAreYou == "1" ? Text(NSLocalizedString("ListPlayersSecondScreenViewViewer", comment: "Viewer")).font(.headline) : Text(""))")
+                                    } else {
+                                        // Fallback on earlier versions
+                                    }
+                                    
                                     Text("I-GO")
                                         .foregroundColor(player.iGo ? .green : .red)
                                         .fontWeight(.bold)
@@ -52,8 +62,19 @@ struct ListPlayersSecondScreenView: View {
                                 HStack {
                                     Text("\(player.name)")
                                     Spacer()
-                                    Text("\(player.captain ? Text(NSLocalizedString("ListPlayersSecondScreenViewCaptain", comment: "Captain")).font(.headline) : Text(""))")
-                                    Text("\(player.whoAreYou == "1" ? Text(NSLocalizedString("ListPlayersSecondScreenViewViewer", comment: "Viewer")).font(.headline) : Text(""))")
+                                    
+                                    if #available(iOS 14.0, *) {
+                                        Text("\(player.captain ? Text(NSLocalizedString("ListPlayersSecondScreenViewCaptain", comment: "Captain")).font(.headline) : Text(""))")
+                                    } else {
+                                        // Fallback on earlier versions
+                                    }
+                                    
+                                    if #available(iOS 14.0, *) {
+                                        Text("\(player.whoAreYou == "1" ? Text(NSLocalizedString("ListPlayersSecondScreenViewViewer", comment: "Viewer")).font(.headline) : Text(""))")
+                                    } else {
+                                        // Fallback on earlier versions
+                                    }
+                                    
                                     Text("I-GO")
                                         .foregroundColor(player.iGo ? .green : .red)
                                         .fontWeight(.bold)

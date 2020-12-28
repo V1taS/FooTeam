@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct EditPhotoViewTeam: View {
     
-    @StateObject private var viewModel = EditPhotoViewModel()
+    @ObservedObject private var viewModel = EditPhotoViewModel()
     var team: Team
     @Binding var isPresentedChangeAvatar: Bool
     @Binding var image: UIImage

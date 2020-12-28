@@ -11,7 +11,7 @@ import Firebase
 
 struct WaitingForConfirmationView: View {
 
-    @StateObject private var viewModel = WaitingForConfirmationViewModel()
+    @ObservedObject private var viewModel = WaitingForConfirmationViewModel()
     
     var body: some View {
         VStack {
@@ -21,8 +21,12 @@ struct WaitingForConfirmationView: View {
             )
             .font(.title)
             .fontWeight(.bold)
-            ProgressView("", value: viewModel.downloadAmount, total: 100)
-                .padding()
+            if #available(iOS 14.0, *) {
+                ProgressView("", value: viewModel.downloadAmount, total: 100)
+                    .padding()
+            } else {
+                // Fallback on earlier versions
+            }
             
             Button(action: {
                 viewModel.isPresented.toggle()

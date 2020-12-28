@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TopPlayersScreenView: View {
     
-    @StateObject private var viewModel = TopPlayersScreenViewModel()
+    @ObservedObject private var viewModel = TopPlayersScreenViewModel()
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {

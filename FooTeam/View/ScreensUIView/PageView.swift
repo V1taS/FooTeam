@@ -10,15 +10,19 @@ import SwiftUI
 
 struct PageView: View {
     var body: some View {
-        TabView {
-            Text("This is")
-            Text("Page View")
-            Text("In SwiftUI")
+        if #available(iOS 14.0, *) {
+            TabView {
+                Text("This is")
+                Text("Page View")
+                Text("In SwiftUI")
+            }
+            .font(.largeTitle)
+            .foregroundColor(.red)
+            .tabViewStyle(PageTabViewStyle())
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        } else {
+            // Fallback on earlier versions
         }
-        .font(.largeTitle)
-        .foregroundColor(.red)
-        .tabViewStyle(PageTabViewStyle())
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
 }
 

@@ -19,7 +19,6 @@ protocol TabViewFooTeamModelProtocol {
     
     var showAcceptPlayers: Bool { get }
     var showTeamModal: Bool { get }
-    var outFromTeam: Bool { get }
     
     var players: [Player] { get }
     var currentPlayer: Player { get }
@@ -27,6 +26,11 @@ protocol TabViewFooTeamModelProtocol {
 }
 
 class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
+    private var viewController: UIViewController? {
+        self.viewControllerHolder!
+    }
+    
     @Published var actionsPlayers = ActionsPlayers()
     @Published var waitingPlayers = WaitingPlayers()
     @Published var currentUser = CurrentUser()
@@ -34,7 +38,6 @@ class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
     
     @Published var showAcceptPlayers: Bool = false
     @Published var showTeamModal: Bool = false
-    @Published var outFromTeam: Bool = false
     
     @Published var players: [Player] = []
     @Published var currentPlayer: Player = DefaultPlayer.shared.player
@@ -45,7 +48,9 @@ class TabViewFooTeamModel: TabViewFooTeamModelProtocol, ObservableObject {
             
             if FirestoreService.shared.currentUser.id == player.id {
                 if player.idTeam.isEmpty {
-                    self.outFromTeam = true
+                    self.viewController?.present(style: .fullScreen) {
+                        JoinToTeamView()
+                    }
                 }
             }
             

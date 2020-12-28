@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TeamMainScreenView: View {
     
-    @StateObject private var viewModel = TeamMainScreenViewModel()
+    @ObservedObject private var viewModel = TeamMainScreenViewModel()
     
     var body: some View {
         ZStack {

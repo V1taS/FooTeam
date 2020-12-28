@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ProfileMainScreenView: View {
     
-    @StateObject private var viewModel = ProfileMainScreenViewModel()
+    @ObservedObject private var viewModel = ProfileMainScreenViewModel()
     
     var body: some View {
         ZStack {

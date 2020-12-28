@@ -12,7 +12,13 @@ import FirebaseAuth
 
 struct CellJoinToTeamView: View {
     
-    @StateObject private var viewModel = CellJoinToTeamViewModel()
+    @ObservedObject private var viewModel = CellJoinToTeamViewModel()
+    
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
+    private var viewController: UIViewController? {
+        self.viewControllerHolder!
+    }
+    
     var team: Team
     
     var body: some View {
@@ -115,7 +121,11 @@ struct CellJoinToTeamView: View {
                             team: team
                         )
                         UserDefaults.standard.set(true, forKey: "waiting")
-                        viewModel.isPresented = true
+                        
+                        self.viewController?.present(style: .fullScreen) {
+                            WaitingForConfirmationView()
+                        }
+                        
                     },
                     secondaryButton: .destructive(Text(
                         NSLocalizedString("CellJoinToTeamViewModelCancel",
@@ -124,7 +134,6 @@ struct CellJoinToTeamView: View {
                 }
             }
         } .padding(.top)
-        .fullScreenCover(isPresented: $viewModel.isPresented) { WaitingForConfirmationView() }
     }
     
     struct CellJoinTeamViewController_Previews: PreviewProvider {

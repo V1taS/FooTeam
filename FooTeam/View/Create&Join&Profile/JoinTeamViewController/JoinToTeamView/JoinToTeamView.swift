@@ -11,15 +11,19 @@ import FirebaseAuth
 
 struct JoinToTeamView: View {
     
-    @StateObject private var viewModel = JoinToTeamViewModel()
+    @ObservedObject private var viewModel = JoinToTeamViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150, maximum: 190))], spacing: 10) {
-                    ForEach(viewModel.teams, id: \.self) { team in
-                        CellJoinToTeamView(team: team)
+                if #available(iOS 14.0, *) {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150, maximum: 190))], spacing: 10) {
+                        ForEach(viewModel.teams, id: \.self) { team in
+                            CellJoinToTeamView(team: team)
+                        }
                     }
+                } else {
+                    // Fallback on earlier versions
                 }
             }
             .padding(.horizontal)
